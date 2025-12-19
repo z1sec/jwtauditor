@@ -25,9 +25,10 @@ JWTAuditor is a comprehensive, **100% client-side** JWT (JSON Web Token) securit
 - ⚡ **Secret Bruteforcing** - Test against common secrets and custom wordlists
 - ✏️ **JWT Editor** - Modify tokens with support for various signing algorithms
 - 🔧 **JWT Generator** - Create tokens from scratch with RSA key generation
+- 🎯 **Advanced Attack Platform** - 7 specialized attack modules for comprehensive testing
 - 📚 **Comprehensive Documentation** - Learn JWT security with our detailed guides
 - 🔒 **100% Client-Side** - Your tokens never leave your browser
-- 📱 **Works Everywhere** - No installation required, runs in any modern browser
+- 📱 **Mobile Responsive** - Optimized for all devices and screen sizes
 
 ## 🎯 Why JWTAuditor?
 
@@ -56,6 +57,15 @@ JWTAuditor addresses all these pain points with:
 - Token lifetime and replay attack analysis
 - **15+ security checks** with detailed remediation guidance
 
+### 🎯 Advanced Attack Platform
+- **None Algorithm Bypass** - Remove signature verification completely
+- **Algorithm Confusion** - Convert RS256 to HS256 with 14+ variations
+- **KID Parameter Injection** - 47+ payloads for path traversal and command injection
+- **JKU/X5U Manipulation** - Remote key injection with automatic RSA key generation
+- **JWK Header Injection** - Embed malicious public keys directly in token headers
+- **Privilege Escalation** - Systematic claim manipulation for privilege escalation
+- **Claim Spoofing** - Advanced payload generation for identity manipulation
+
 ### ⚡ Secret Bruteforcer
 - Built-in JWT secrets wordlist (1000+ common secrets)
 - Custom wordlist support with file upload
@@ -72,10 +82,11 @@ JWTAuditor addresses all these pain points with:
 
 ### 📚 Documentation Hub
 - JWT fundamentals and best practices
-- Comprehensive vulnerability guide
-- Attack technique explanations
+- Comprehensive vulnerability guide 
+- Attack technique explanations with step-by-step guides
 - Secure implementation guidelines
 - Tool-specific usage guides
+
 
 ## 🚀 Quick Start
 
@@ -111,8 +122,8 @@ Found a bug or have a feature request? [Open an issue](https://github.com/dr34mh
 - Expected vs actual behavior
 - Screenshots if applicable
 
-### 🤝 Backed By
-[Infosecmania.com](https://infosecmania.com) - Leading cybersecurity community and resource hub
+### 🤝 Community
+An open-source project built by security researchers for the cybersecurity community
 
 ## 📜 License
 

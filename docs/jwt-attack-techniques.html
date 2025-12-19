@@ -157,7 +157,7 @@
                     </div>
                 </div>
 
-                <div class="docs-section">
+                <div id="algorithm-confusion" class="docs-section">
                     <h2>Algorithm Confusion Attack</h2>
                     
                     <h3>How It Works</h3>
@@ -421,7 +421,7 @@
                     </ul>
                 </div>
 
-                <div class="docs-section">
+                <div id="kid-injection" class="docs-section">
                     <h2>Key ID (kid) Injection</h2>
                     
                     <h3>How It Works</h3>
@@ -482,6 +482,95 @@
                         <li>Implement proper access controls for key storage</li>
                         <li>Use a key management system with secure key rotation</li>
                     </ul>
+                </div>
+
+                <div id="jku-x5u-manipulation" class="docs-section">
+                    <h2>JKU/X5U URL Manipulation</h2>
+
+                    <h3>How It Works</h3>
+                    <p>
+                        The "jku" (JWK Set URL) and "x5u" (X.509 URL) parameters in the JWT header point to external URLs where the server can fetch keys for signature verification. If these parameters are not properly validated, attackers can:
+                    </p>
+
+                    <div class="attack-steps">
+                        <ol>
+                            <li>Point the URL to their own server hosting malicious keys</li>
+                            <li>Use the URL for Server-Side Request Forgery (SSRF) attacks</li>
+                            <li>Exploit internal network access to scan or attack internal systems</li>
+                        </ol>
+                    </div>
+
+                    <h3>Example Attack</h3>
+                    <pre><code class="language-javascript">// Original token header
+{
+  "alg": "RS256",
+  "typ": "JWT",
+  "jku": "https://trusted-server.com/.well-known/jwks.json"
+}
+
+// Malicious token header
+{
+  "alg": "RS256",
+  "typ": "JWT",
+  "jku": "https://attacker.com/malicious-jwks.json"
+}</code></pre>
+
+                    <div class="prevention">
+                        <h3>Prevention</h3>
+                        <ul>
+                            <li>Disable dynamic key fetching via jku/x5u parameters</li>
+                            <li>Use a whitelist of allowed URLs if dynamic fetching is required</li>
+                            <li>Validate and sanitize all external URLs</li>
+                            <li>Implement network-level restrictions for outbound requests</li>
+                            <li>Use cached/pinned keys instead of dynamic fetching</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="privilege-escalation" class="docs-section">
+                    <h2>Privilege Escalation</h2>
+
+                    <h3>How It Works</h3>
+                    <p>
+                        Privilege escalation in JWT attacks involves modifying token claims to gain higher privileges than originally granted. This typically targets authorization-related claims such as roles, permissions, and user identifiers.
+                    </p>
+
+                    <div class="attack-steps">
+                        <ol>
+                            <li>Identify authorization claims in the JWT payload (role, admin, permissions, etc.)</li>
+                            <li>Modify these claims to grant higher privileges</li>
+                            <li>Re-sign the token (using other attack techniques if needed)</li>
+                            <li>Use the modified token to access restricted resources</li>
+                        </ol>
+                    </div>
+
+                    <h3>Example Attack</h3>
+                    <pre><code class="language-javascript">// Original payload
+{
+  "sub": "user123",
+  "role": "user",
+  "permissions": ["read"],
+  "iat": 1516239022
+}
+
+// Escalated payload
+{
+  "sub": "user123",
+  "role": "admin",
+  "permissions": ["read", "write", "delete", "admin"],
+  "iat": 1516239022
+}</code></pre>
+
+                    <div class="prevention">
+                        <h3>Prevention</h3>
+                        <ul>
+                            <li>Always verify token signatures before trusting claims</li>
+                            <li>Implement server-side authorization checks beyond JWT claims</li>
+                            <li>Use minimal privilege principles in token design</li>
+                            <li>Regularly audit and validate user permissions</li>
+                            <li>Implement proper session management and token validation</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="docs-section">
@@ -571,7 +660,7 @@
 <p>&copy; 2025 A Project by 
   <a href="https://github.com/dr34mhacks" style="color: var(--primary-color);">Sid</a> & 
   <a href="https://github.com/thecybersandeep" style="color: var(--primary-color);">Sandeep</a> • 
-  Backed by <a href="https://infosecmania.com" target="_blank" style="color: var(--primary-color);">Infosecmania.com</a>
+  
 </p>            <div class="social-links">
                 <a href="https://x.com/infosecmania" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.linkedin.com/company/infosecmania" target="_blank"><i class="fab fa-linkedin"></i></a>

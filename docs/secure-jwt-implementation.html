@@ -129,7 +129,17 @@
                     </ol>
                     
                     <div class="code-diagram">
-                        <img src="https://mermaid.ink/img/pako:eNp1kk1PwzAMhv9KlBOgSf3YpE1w2A6bBBJiB8QOaRpcaKiTKnGHJu2_4_QDCcTwIY79-LXjHDFzCjHCvVVPTYsOVzVIXTm9QWmgkELbBhxY8FqBhKZxYMBp6UBKKKQxrQVTgYTGGFDQ1hqUqcBIKKQzjYOqBQfKgNkBGGjRQSGdVqYFZ6CQXjcGCulxZ9Ue3BbcDqzZQiGDVgZs7cB5KGRnlINCTnhnlYNCLnhnlYdCLnlnVYBCrnhnVYRCxryzKkEhV7yzKkMhE95ZNUchU95ZdY1CbnhnVYFCpryzmkG8x8hPo5TSF5KmNE3jJOGJYEnCkjhJIzZLWZRG8SxmcZQwlkQRm0VJnKSI93DgYcfDJw-PPCx5-MbDkoc9D0cefvDwzMOBhxcefvLwysMbD-88_OLhNw8nHv7w8MzDXx5OPJx5-MfDCw__efgPXUvZhQ?type=png" alt="JWT Authentication Flow with Refresh Tokens" class="flow-diagram">
+                        <div class="flow-diagram">
+                            <h4>JWT Authentication Flow</h4>
+                            <ol class="flow-steps">
+                                <li><strong>Login Request</strong> → Client sends credentials to authentication server</li>
+                                <li><strong>Token Generation</strong> → Server validates credentials and generates JWT + refresh token</li>
+                                <li><strong>Token Response</strong> → Server returns both tokens to client</li>
+                                <li><strong>API Request</strong> → Client includes JWT in Authorization header for API calls</li>
+                                <li><strong>Token Validation</strong> → API server validates JWT signature and claims</li>
+                                <li><strong>Token Refresh</strong> → When expired, client uses refresh token for new JWT</li>
+                            </ol>
+                        </div>
                     </div>
                 </div>
 
@@ -1468,7 +1478,7 @@ async function validateJWTMiddleware(req, res, next) {
 <p>&copy; 2025 A Project by 
   <a href="https://github.com/dr34mhacks" style="color: var(--primary-color);">Sid</a> & 
   <a href="https://github.com/thecybersandeep" style="color: var(--primary-color);">Sandeep</a> • 
-  Backed by <a href="https://infosecmania.com" target="_blank" style="color: var(--primary-color);">Infosecmania.com</a>
+  
 </p>            <div class="social-links">
                 <a href="https://x.com/infosecmania" target="_blank"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.linkedin.com/company/infosecmania" target="_blank"><i class="fab fa-linkedin"></i></a>

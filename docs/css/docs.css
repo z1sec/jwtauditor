@@ -1865,30 +1865,34 @@ pre:hover .copy-button {
 @media (max-width: 1024px) {
     .docs-container {
         flex-direction: column;
+        padding: 0 1rem;
     }
-    
+
     .docs-sidebar {
         width: 100%;
         position: static;
         max-height: none;
-    }
-    
-    .sidebar-toggle {
-        display: flex;
-    }
-    
-    .docs-sidebar {
         display: none;
+        margin-bottom: 2rem;
+        order: 2;
     }
-    
+
     .docs-sidebar.active {
         display: block;
     }
-    
+
+    .docs-content {
+        order: 1;
+    }
+
+    .sidebar-toggle {
+        display: flex;
+    }
+
     .next-links {
         flex-direction: column;
     }
-    
+
     .library-list {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }

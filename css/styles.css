@@ -2040,19 +2040,58 @@ footer::before {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .logo i {
         margin-right: 0;
         margin-bottom: 0.5rem;
     }
-    
+
     .footer-section {
         flex: 1 0 100%;
     }
-    
+
     pre, code {
         max-width: 100%;
         overflow-x: auto;
+    }
+
+    /* Enhanced mobile attack platform */
+    .attack-platform-header h2 {
+        font-size: 1.75rem;
+    }
+
+    .attack-card {
+        padding: 1rem;
+    }
+
+    .attack-card h5 {
+        font-size: 1rem;
+    }
+
+    .step-content {
+        padding: 1rem;
+    }
+
+    .config-group {
+        margin-bottom: 1rem;
+    }
+
+    .config-group label {
+        font-size: 0.9rem;
+    }
+
+    .field-hint {
+        font-size: 0.75rem;
+    }
+
+    /* Better button spacing on small screens */
+    .config-actions, .results-actions {
+        gap: 0.75rem;
+    }
+
+    .primary-btn, .secondary-btn {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
     }
 }
 
@@ -2121,6 +2160,19 @@ footer::before {
 .notification.warning {
     background-color: var(--warning-color);
     color: var(--dark-bg);
+}
+
+/* Mobile notification styles */
+@media (max-width: 768px) {
+    .notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        padding: 12px 16px;
+        font-size: 0.9rem;
+        max-width: calc(100vw - 20px);
+        border-radius: 8px;
+    }
 }
 
 /* Warning Box Styles */
@@ -3175,5 +3227,91 @@ footer::before {
     background: var(--dark-elevated);
     border-radius: 6px;
     border-left: 3px solid var(--primary-color);
+}
+
+/* =================== DOCUMENTATION LINKS STYLES =================== */
+.attack-docs {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 212, 170, 0.2);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.doc-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    background: linear-gradient(135deg, rgba(0, 212, 170, 0.1), rgba(0, 212, 170, 0.05));
+    border: 1px solid rgba(0, 212, 170, 0.3);
+    border-radius: 20px;
+    color: var(--primary-color) !important;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.doc-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.doc-link:hover::before {
+    left: 100%;
+}
+
+.doc-link:hover {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    border-color: var(--primary-light);
+    color: var(--dark-bg) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 212, 170, 0.3);
+    text-decoration: none;
+}
+
+.doc-link.external {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(99, 102, 241, 0.05));
+    border-color: rgba(99, 102, 241, 0.3);
+    color: #6366f1 !important;
+}
+
+.doc-link.external:hover {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-color: #8b5cf6;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.doc-link i {
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+/* Responsive documentation links */
+@media (max-width: 768px) {
+    .attack-docs {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    .doc-link {
+        justify-content: center;
+        font-size: 0.75rem;
+        padding: 0.35rem 0.7rem;
+    }
 }
 
