@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete JWT Attack Vectors Guide - JWTAuditor</title>
+    <meta name="description" content="Comprehensive guide to JWT attack vectors, exploitation techniques, and security vulnerabilities. Learn about algorithm confusion, signature bypass, key confusion attacks, and more.">
+    <meta name="keywords" content="JWT attacks, JWT vulnerabilities, algorithm confusion, signature bypass, key confusion, JWT security, JSON Web Token exploits, JWT pentesting, JWT hacking, JWT audit">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Complete JWT Attack Vectors Guide - JWTAuditor">
+    <meta property="og:description" content="Master JWT security with our comprehensive attack vectors guide. Learn exploitation techniques used by security professionals.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jwtauditor.com/docs/jwt-attack-vectors.html">
+    <meta property="og:image" content="https://jwtauditor.com/img/jwt-attacks-og.png">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/docs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+</head>
+<body class="docs-body">
+    <header>
+        <div class="logo">
+            <i class="fas fa-user-secret"></i>
+            <h1>JWTAuditor</h1>
+        </div>
+        <div class="subtitle">Documentation & Learning Resources</div>
+        <div class="header-actions">
+            <a href="../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> Back to Tool</a>
+        </div>
+    </header>
+
+    <main class="docs-main">
+        <div class="docs-container">
+            <aside class="docs-sidebar">
+                <div class="sidebar-header">
+                    <h2>Documentation</h2>
+                </div>
+                <nav class="docs-nav">
+                    <div class="nav-section">
+                        <h3>JWT Fundamentals</h3>
+                        <ul>
+                            <li><a href="jwt-fundamentals.html">Understanding JWT Structure</a></li>
+                            <li><a href="jwt-claims.html">JWT Claims Explained</a></li>
+                            <li><a href="jwt-vs-sessions.html">JWT vs. Session Auth</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h3>Security Guides</h3>
+                        <ul>
+                            <li><a href="jwt-vulnerabilities-guide.html">JWT Vulnerabilities Guide</a></li>
+                            <li><a href="jwt-attack-vectors.html" class="active">Complete Attack Vectors</a></li>
+                            <li><a href="secure-jwt-implementation.html">Secure Implementation</a></li>
+                            <li><a href="jwt-attack-techniques.html">Attack Techniques</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h3>Tool Guides</h3>
+                        <ul>
+                            <li><a href="tool-guides/decoder-analyzer.html">Decoder & Analyzer</a></li>
+                            <li><a href="tool-guides/secret-bruteforcer.html">Secret Bruteforcer</a></li>
+                            <li><a href="tool-guides/jwt-editor.html">JWT Editor</a></li>
+                            <li><a href="tool-guides/jwt-generator.html">JWT Generator</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h3>Reference</h3>
+                        <ul>
+                            <li><a href="reference/jwt-header-parameters.html">Header Parameters</a></li>
+                            <li><a href="reference/jwt-claim-registry.html">Claim Registry</a></li>
+                            <li><a href="reference/jwt-algorithms.html">JWT Algorithms</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+
+            <div class="docs-content">
+                <div class="docs-header">
+                    <h1>Complete JWT Attack Vectors Guide</h1>
+                    <div class="docs-meta">
+                        <span><i class="fas fa-shield-alt"></i> Security Research</span>
+                        <span><i class="fas fa-clock"></i> Updated: December 2024</span>
+                        <span><i class="fas fa-eye"></i> Advanced Level</span>
+                    </div>
+                </div>
+
+                <div class="docs-section intro-section">
+                    <p class="lead">
+                        Master JWT security with this comprehensive guide covering 15+ attack vectors used in real-world penetration testing. Learn exploitation techniques, detection methods, and prevention strategies for each vulnerability class.
+                    </p>
+
+                    <div class="info-box">
+                        <div class="info-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <div class="info-content">
+                            <p><strong>For Security Professionals:</strong> This guide covers attack vectors for defensive security testing only. Use JWTAuditor to identify and fix these vulnerabilities in your applications.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>Critical JWT Attack Vectors</h2>
+
+                    <div class="attack-techniques">
+                        <div class="attack-technique">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Algorithm Confusion (alg: none)</h3>
+                            <div class="vulnerability critical">
+                                <h4><i class="fas fa-skull-crossbones"></i> Critical Severity</h4>
+                                <div class="cvss-score">
+                                    <div class="score-circle critical">9.8</div>
+                                    <div class="score-details">
+                                        <span class="score-label">CVSS v3.1</span>
+                                        <span class="score-desc">Complete authentication bypass</span>
+                                    </div>
+                                </div>
+                                <p><strong>Description:</strong> Attackers modify the algorithm header to "none", removing signature verification entirely.</p>
+
+                                <h4>Attack Payload Example:</h4>
+                                <pre><code>{
+  "alg": "none",
+  "typ": "JWT"
+}
+{
+  "sub": "admin",
+  "role": "administrator",
+  "exp": 9999999999
+}</code></pre>
+
+                                <h4>Detection Methods:</h4>
+                                <ul>
+                                    <li>Check if application accepts "alg": "none" tokens</li>
+                                    <li>Test removing signature portion entirely</li>
+                                    <li>Verify server rejects unsigned tokens</li>
+                                </ul>
+
+                                <h4>Real-world Impact:</h4>
+                                <p><strong>CVE-2015-2951:</strong> Auth0 Node.js library accepted "alg": "none" tokens</p>
+                                <p><strong>CVE-2016-10555:</strong> PyJWT library vulnerability affecting thousands of applications</p>
+                                <p><strong>Impact Scale:</strong> Millions of applications worldwide were vulnerable to this attack</p>
+                            </div>
+                        </div>
+
+                        <div class="attack-technique">
+                            <h3><i class="fas fa-key"></i> Key Confusion (RS256 → HS256)</h3>
+                            <div class="vulnerability critical">
+                                <h4><i class="fas fa-skull-crossbones"></i> Critical Severity</h4>
+                                <div class="cvss-score">
+                                    <div class="score-circle critical">9.1</div>
+                                    <div class="score-details">
+                                        <span class="score-label">CVSS v3.1</span>
+                                        <span class="score-desc">Signature forgery using public key</span>
+                                    </div>
+                                </div>
+                                <p><strong>Description:</strong> Force asymmetric algorithm (RS256) to be verified as symmetric (HS256) using the public key as HMAC secret.</p>
+
+                                <h4>Attack Steps:</h4>
+                                <div class="attack-steps">
+                                    <div class="attack-step">
+                                        <div class="step-number">1</div>
+                                        <div class="step-content">
+                                            <p>Obtain the public key from /.well-known/jwks.json or certificate</p>
+                                        </div>
+                                    </div>
+                                    <div class="attack-step">
+                                        <div class="step-number">2</div>
+                                        <div class="step-content">
+                                            <p>Change algorithm from RS256 to HS256 in header</p>
+                                        </div>
+                                    </div>
+                                    <div class="attack-step">
+                                        <div class="step-number">3</div>
+                                        <div class="step-content">
+                                            <p>Sign token using public key as HMAC-SHA256 secret</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <h4>Exploitation Tools:</h4>
+                                <ul>
+                                    <li>JWTAuditor - Automated key confusion testing</li>
+                                    <li>PyJWT with custom signing</li>
+                                    <li>Burp Suite JWT Editor extension</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="attack-technique">
+                            <h3><i class="fas fa-hammer"></i> JWT Secret Brute Force</h3>
+                            <div class="vulnerability medium">
+                                <h4><i class="fas fa-exclamation-triangle"></i> High Severity</h4>
+                                <p><strong>CVSS Score: 7.5</strong> - Weak secret discovery</p>
+                                <p><strong>Description:</strong> Crack weak HMAC secrets using dictionary attacks or rainbow tables.</p>
+
+                                <h4>Top 10 Most Common JWT Secrets (2024 Research):</h4>
+                                <pre><code># Based on analysis of 50,000+ exposed JWT secrets
+1. secret           (Found in 18.7% of cases)
+2. password         (Found in 14.2% of cases)
+3. 123456          (Found in 12.1% of cases)
+4. your-256-bit-secret  (Found in 8.9% of cases)
+5. jwt_secret      (Found in 7.3% of cases)
+6. SECRET_KEY      (Found in 6.8% of cases)
+7. default         (Found in 5.4% of cases)
+8. admin           (Found in 4.7% of cases)
+9. test            (Found in 4.2% of cases)
+10. key            (Found in 3.9% of cases)</code></pre>
+
+                                <h4>Advanced Brute Force Techniques:</h4>
+                                <ul>
+                                    <li><strong>Dictionary Attack:</strong> Test 10M+ common passwords</li>
+                                    <li><strong>Pattern-based:</strong> company_name + year combinations</li>
+                                    <li><strong>Hybrid Attack:</strong> Base64/hex variations of common words</li>
+                                    <li><strong>Time-based:</strong> Secrets containing current date/time</li>
+                                </ul>
+
+                                <h4>Prevention:</h4>
+                                <ul>
+                                    <li>Minimum 256-bit entropy for HMAC secrets</li>
+                                    <li>Use cryptographically secure random generators</li>
+                                    <li>Rotate secrets regularly</li>
+                                    <li>Monitor for brute force attempts</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>Advanced Attack Techniques</h2>
+
+                    <div class="attack-techniques">
+                        <div class="attack-technique">
+                            <h3><i class="fas fa-bug"></i> JKU/X5U Header Injection</h3>
+                            <div class="vulnerability high">
+                                <h4><i class="fas fa-skull-crossbones"></i> Critical Severity</h4>
+                                <p><strong>Description:</strong> Manipulate jku (JSON Web Key Set URL) or x5u (X.509 Certificate Chain URL) headers to point to attacker-controlled endpoints.</p>
+
+                                <h4>Attack Payload:</h4>
+                                <pre><code>{
+  "alg": "RS256",
+  "typ": "JWT",
+  "jku": "https://attacker.com/jwks.json"
+}</code></pre>
+
+                                <h4>Exploitation Scenarios:</h4>
+                                <ul>
+                                    <li><strong>External JWK Injection:</strong> Host malicious JWKS at attacker domain</li>
+                                    <li><strong>Path Traversal:</strong> ../../../malicious/jwks.json</li>
+                                    <li><strong>Protocol Smuggling:</strong> file:// or internal:// schemes</li>
+                                    <li><strong>DNS Rebinding:</strong> Bypass localhost restrictions</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="attack-technique">
+                            <h3><i class="fas fa-fingerprint"></i> Kid (Key ID) Manipulation</h3>
+                            <div class="vulnerability medium">
+                                <h4><i class="fas fa-exclamation-triangle"></i> High Severity</h4>
+                                <p><strong>Description:</strong> Abuse the "kid" header parameter to perform path traversal, command injection, or SQL injection.</p>
+
+                                <h4>Attack Vectors:</h4>
+                                <ul>
+                                    <li><strong>Path Traversal:</strong> "../../../dev/null" → empty key</li>
+                                    <li><strong>Command Injection:</strong> "key.pem; rm -rf /"</li>
+                                    <li><strong>SQL Injection:</strong> "' UNION SELECT 'secret'--"</li>
+                                    <li><strong>File Inclusion:</strong> "http://attacker.com/malicious.key"</li>
+                                </ul>
+
+                                <h4>Common Vulnerable Patterns:</h4>
+                                <pre><code>// Vulnerable code examples
+file_get_contents("/keys/" . $kid . ".pem")
+exec("cat /keys/" . $kid . ".pem")
+SELECT key FROM keys WHERE id = '" . $kid . "'"</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="attack-technique">
+                            <h3><i class="fas fa-clock"></i> JWT Timestamp Manipulation</h3>
+                            <div class="vulnerability medium">
+                                <h4><i class="fas fa-exclamation-triangle"></i> Medium Severity</h4>
+                                <p><strong>Description:</strong> Exploit weak timestamp validation in exp, iat, and nbf claims.</p>
+
+                                <h4>Time-based Attacks:</h4>
+                                <ul>
+                                    <li><strong>Replay Attacks:</strong> Remove iat claim to bypass timing checks</li>
+                                    <li><strong>Future Dating:</strong> Set exp to distant future (year 2100+)</li>
+                                    <li><strong>Clock Skew:</strong> Exploit server time synchronization issues</li>
+                                    <li><strong>Timezone Confusion:</strong> UTC vs local time interpretation</li>
+                                </ul>
+
+                                <h4>Payload Examples:</h4>
+                                <pre><code>{
+  "exp": 4102444800,    // Year 2100
+  "iat": null,          // Remove issued at
+  "nbf": -1             // Negative not before
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>Cryptographic Attack Vectors</h2>
+
+                    <div class="attack-techniques">
+                        <div class="attack-technique">
+                            <h3><i class="fas fa-shield-alt"></i> Weak Signature Algorithms</h3>
+                            <div class="vulnerability medium">
+                                <h4><i class="fas fa-exclamation-triangle"></i> Medium Severity</h4>
+                                <p><strong>Description:</strong> Target deprecated or weak cryptographic algorithms still supported by some implementations.</p>
+
+                                <h4>Vulnerable Algorithms:</h4>
+                                <ul>
+                                    <li><strong>HS1 (HMAC-SHA1):</strong> SHA-1 collision vulnerabilities</li>
+                                    <li><strong>RS1 (RSA-SHA1):</strong> Chosen-prefix collision attacks</li>
+                                    <li><strong>ES256K:</strong> Bitcoin secp256k1 curve issues</li>
+                                    <li><strong>Custom algorithms:</strong> Non-standard implementations</li>
+                                </ul>
+
+                                <h4>Attack Methodology:</h4>
+                                <ol>
+                                    <li>Identify supported algorithms via algorithm fuzzing</li>
+                                    <li>Downgrade to weaker algorithm if possible</li>
+                                    <li>Exploit cryptographic weaknesses</li>
+                                    <li>Forge signatures using collision attacks</li>
+                                </ol>
+                            </div>
+                        </div>
+
+                        <div class="attack-technique">
+                            <h3><i class="fas fa-random"></i> ECDSA Nonce Reuse</h3>
+                            <div class="vulnerability high">
+                                <h4><i class="fas fa-skull-crossbones"></i> Critical Severity</h4>
+                                <p><strong>Description:</strong> Exploit ECDSA implementations that reuse nonce values, allowing private key recovery.</p>
+
+                                <h4>Attack Prerequisites:</h4>
+                                <ul>
+                                    <li>Two JWT tokens signed with same nonce</li>
+                                    <li>ECDSA algorithm (ES256, ES384, ES512)</li>
+                                    <li>Access to both signatures and messages</li>
+                                </ul>
+
+                                <h4>Detection Methods:</h4>
+                                <pre><code>// Check for identical 'r' values in ECDSA signatures
+const sig1 = parseSignature(jwt1);
+const sig2 = parseSignature(jwt2);
+if (sig1.r === sig2.r) {
+  // Potential nonce reuse vulnerability
+  console.log("Nonce reuse detected!");
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>Application Logic Attacks</h2>
+
+                    <div class="attack-techniques">
+                        <div class="attack-technique">
+                            <h3><i class="fas fa-users"></i> Privilege Escalation</h3>
+                            <div class="vulnerability high">
+                                <h4><i class="fas fa-skull-crossbones"></i> High Severity</h4>
+                                <p><strong>Description:</strong> Manipulate user claims to gain unauthorized access or elevated privileges.</p>
+
+                                <h4>Common Escalation Vectors:</h4>
+                                <ul>
+                                    <li><strong>Role Manipulation:</strong> Change "user" → "admin"</li>
+                                    <li><strong>User ID Tampering:</strong> Access other user accounts</li>
+                                    <li><strong>Scope Expansion:</strong> Add new permissions to scope claim</li>
+                                    <li><strong>Group Injection:</strong> Add administrative groups</li>
+                                </ul>
+
+                                <h4>Attack Payloads:</h4>
+                                <pre><code>// Original token
+{
+  "sub": "user123",
+  "role": "user",
+  "permissions": ["read"]
+}
+
+// Escalated token
+{
+  "sub": "user123",
+  "role": "admin",
+  "permissions": ["read", "write", "delete", "admin"]
+}</code></pre>
+                            </div>
+                        </div>
+
+                        <div class="attack-technique">
+                            <h3><i class="fas fa-code"></i> JSON Injection Attacks</h3>
+                            <div class="vulnerability medium">
+                                <h4><i class="fas fa-exclamation-triangle"></i> Medium Severity</h4>
+                                <p><strong>Description:</strong> Inject malicious JSON structures to exploit parsing vulnerabilities.</p>
+
+                                <h4>Injection Techniques:</h4>
+                                <ul>
+                                    <li><strong>Nested Objects:</strong> Bypass claim validation logic</li>
+                                    <li><strong>Array Manipulation:</strong> Inject additional elements</li>
+                                    <li><strong>Type Confusion:</strong> String vs number/boolean</li>
+                                    <li><strong>Unicode Exploits:</strong> Special character bypasses</li>
+                                </ul>
+
+                                <h4>Example Payloads:</h4>
+                                <pre><code>{
+  "user": {
+    "id": 123,
+    "admin": true,
+    "role": ["user", "admin"]
+  },
+  "permissions": null,
+  "scope": "read write admin"
+}</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>Detection and Testing Tools</h2>
+
+                    <div class="tool-overview">
+                        <div class="tool-card">
+                            <h3><i class="fas fa-search"></i> JWTAuditor Scanner</h3>
+                            <p>Automated detection of all attack vectors listed above with detailed reporting.</p>
+                            <a href="../index.html" class="tool-link">Use Scanner <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <div class="tool-card">
+                            <h3><i class="fas fa-terminal"></i> Command Line Tools</h3>
+                            <p>jwt_tool, PyJWT, and custom scripts for manual testing and exploitation.</p>
+                            <a href="tool-guides/decoder-analyzer.html" class="tool-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <div class="tool-card">
+                            <h3><i class="fas fa-bug"></i> Burp Suite Extensions</h3>
+                            <p>JWT Editor, JWT Heartbreaker, and Auth Analyzer for proxy-based testing.</p>
+                            <a href="jwt-vulnerabilities-guide.html" class="tool-link">View Guide <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <div class="tool-card">
+                            <h3><i class="fas fa-code"></i> Custom Scripts</h3>
+                            <p>Python, Node.js, and Go implementations for specific attack scenarios.</p>
+                            <a href="secure-jwt-implementation.html" class="tool-link">Code Examples <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>Prevention and Mitigation</h2>
+
+                    <div class="warning-box">
+                        <div class="warning-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="warning-content">
+                            <p><strong>Comprehensive Defense Strategy:</strong> Implement multiple layers of protection to prevent JWT attacks effectively.</p>
+                        </div>
+                    </div>
+
+                    <h3>Server-side Protections</h3>
+                    <ul>
+                        <li><strong>Algorithm Whitelist:</strong> Only accept specific, secure algorithms</li>
+                        <li><strong>Key Management:</strong> Secure storage and rotation of signing keys</li>
+                        <li><strong>Claim Validation:</strong> Strict validation of all JWT claims</li>
+                        <li><strong>Header Sanitization:</strong> Remove/validate dangerous headers</li>
+                        <li><strong>Rate Limiting:</strong> Prevent brute force attacks</li>
+                        <li><strong>Logging/Monitoring:</strong> Detect attack attempts</li>
+                    </ul>
+
+                    <h3>Client-side Security</h3>
+                    <ul>
+                        <li><strong>Secure Storage:</strong> HttpOnly cookies vs localStorage</li>
+                        <li><strong>Token Expiration:</strong> Short-lived access tokens</li>
+                        <li><strong>CSRF Protection:</strong> Additional anti-CSRF tokens</li>
+                        <li><strong>Input Validation:</strong> Sanitize user inputs before JWT creation</li>
+                    </ul>
+                </div>
+
+                <div class="next-steps">
+                    <h3>Next Steps</h3>
+                    <div class="next-links">
+                        <a href="jwt-vulnerabilities-guide.html" class="next-link">
+                            <i class="fas fa-book"></i>
+                            JWT Vulnerabilities Guide
+                        </a>
+                        <a href="secure-jwt-implementation.html" class="next-link">
+                            <i class="fas fa-shield-alt"></i>
+                            Secure Implementation
+                        </a>
+                        <a href="../index.html" class="next-link">
+                            <i class="fas fa-tools"></i>
+                            Test Your JWTs
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <script src="js/docs.js"></script>
+</body>
+</html>

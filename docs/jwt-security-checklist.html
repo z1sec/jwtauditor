@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWT Security Checklist - Complete Audit Guide | JWTAuditor</title>
+    <meta name="description" content="Comprehensive JWT security checklist for developers, security engineers, and penetration testers. 50+ security checks covering implementation, cryptography, and best practices.">
+    <meta name="keywords" content="JWT security checklist, JWT audit, JWT security testing, JSON Web Token security, JWT best practices, JWT vulnerability assessment, JWT security review">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="JWT Security Checklist - Complete Audit Guide">
+    <meta property="og:description" content="Master JWT security with our comprehensive 50+ point checklist. Essential for developers and security professionals.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jwtauditor.com/docs/jwt-security-checklist.html">
+    <meta property="og:image" content="https://jwtauditor.com/img/jwt-checklist-og.png">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/docs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+</head>
+<body class="docs-body">
+    <header>
+        <div class="logo">
+            <i class="fas fa-user-secret"></i>
+            <h1>JWTAuditor</h1>
+        </div>
+        <div class="subtitle">Documentation & Learning Resources</div>
+        <div class="header-actions">
+            <a href="../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> Back to Tool</a>
+        </div>
+    </header>
+
+    <main class="docs-main">
+        <div class="docs-container">
+            <aside class="docs-sidebar">
+                <div class="sidebar-header">
+                    <h2>Documentation</h2>
+                </div>
+                <nav class="docs-nav">
+                    <div class="nav-section">
+                        <h3>JWT Fundamentals</h3>
+                        <ul>
+                            <li><a href="jwt-fundamentals.html">Understanding JWT Structure</a></li>
+                            <li><a href="jwt-claims.html">JWT Claims Explained</a></li>
+                            <li><a href="jwt-vs-sessions.html">JWT vs. Session Auth</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h3>Security Guides</h3>
+                        <ul>
+                            <li><a href="jwt-vulnerabilities-guide.html">JWT Vulnerabilities Guide</a></li>
+                            <li><a href="jwt-attack-vectors.html">Complete Attack Vectors</a></li>
+                            <li><a href="jwt-security-checklist.html" class="active">Security Checklist</a></li>
+                            <li><a href="secure-jwt-implementation.html">Secure Implementation</a></li>
+                            <li><a href="jwt-attack-techniques.html">Attack Techniques</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h3>Tool Guides</h3>
+                        <ul>
+                            <li><a href="tool-guides/decoder-analyzer.html">Decoder & Analyzer</a></li>
+                            <li><a href="tool-guides/secret-bruteforcer.html">Secret Bruteforcer</a></li>
+                            <li><a href="tool-guides/jwt-editor.html">JWT Editor</a></li>
+                            <li><a href="tool-guides/jwt-generator.html">JWT Generator</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h3>Reference</h3>
+                        <ul>
+                            <li><a href="reference/jwt-header-parameters.html">Header Parameters</a></li>
+                            <li><a href="reference/jwt-claim-registry.html">Claim Registry</a></li>
+                            <li><a href="reference/jwt-algorithms.html">JWT Algorithms</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+
+            <div class="docs-content">
+                <div class="docs-header">
+                    <h1>JWT Security Checklist</h1>
+                    <div class="docs-meta">
+                        <span><i class="fas fa-clipboard-check"></i> Security Audit</span>
+                        <span><i class="fas fa-clock"></i> Updated: December 2024</span>
+                        <span><i class="fas fa-users"></i> All Levels</span>
+                    </div>
+                </div>
+
+                <div class="docs-section intro-section">
+                    <p class="lead">
+                        Complete JWT security audit checklist with 50+ verification points. Use this guide for security reviews, penetration testing, and implementation audits. Each item includes risk assessment and remediation guidance.
+                    </p>
+
+                    <div class="info-box">
+                        <div class="info-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="info-content">
+                            <p><strong>Downloadable Version:</strong> Get this checklist as a printable PDF or interactive spreadsheet for your security audits.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>🔴 Critical Security Checks</h2>
+                    <p class="text-danger"><strong>Priority 1:</strong> These vulnerabilities can lead to complete authentication bypass</p>
+
+                    <div class="checklist-section">
+                        <div class="checklist-item critical">
+                            <div class="item-header">
+                                <input type="checkbox" id="check1">
+                                <label for="check1">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <strong>Algorithm None Attack Prevention</strong>
+                                </label>
+                                <span class="risk-level critical">CRITICAL</span>
+                            </div>
+                            <div class="item-content">
+                                <p><strong>What to Check:</strong> Verify application rejects tokens with "alg": "none"</p>
+                                <div class="test-method">
+                                    <h4>Test Method:</h4>
+                                    <ol>
+                                        <li>Modify JWT header: <code>{"alg": "none", "typ": "JWT"}</code></li>
+                                        <li>Remove signature portion entirely</li>
+                                        <li>Submit token without trailing dots</li>
+                                        <li>Test with empty signature: <code>jwt.header.payload.</code></li>
+                                    </ol>
+                                </div>
+                                <div class="remediation">
+                                    <h4>Remediation:</h4>
+                                    <ul>
+                                        <li>Implement algorithm whitelist (never include "none")</li>
+                                        <li>Always verify signatures exist and are valid</li>
+                                        <li>Use library security modes that reject unsigned tokens</li>
+                                    </ul>
+                                </div>
+                                <div class="impact">
+                                    <strong>Impact:</strong> Complete authentication bypass, privilege escalation to any user/role
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checklist-item critical">
+                            <div class="item-header">
+                                <input type="checkbox" id="check2">
+                                <label for="check2">
+                                    <i class="fas fa-key"></i>
+                                    <strong>Key Confusion Attack (RS256 → HS256)</strong>
+                                </label>
+                                <span class="risk-level critical">CRITICAL</span>
+                            </div>
+                            <div class="item-content">
+                                <p><strong>What to Check:</strong> Ensure asymmetric tokens can't be verified as symmetric</p>
+                                <div class="test-method">
+                                    <h4>Test Method:</h4>
+                                    <ol>
+                                        <li>Obtain public key from JWKS endpoint or certificate</li>
+                                        <li>Change algorithm from RS256 to HS256</li>
+                                        <li>Sign token using public key as HMAC secret</li>
+                                        <li>Test if application accepts the forged token</li>
+                                    </ol>
+                                </div>
+                                <div class="code-example">
+                                    <h4>Attack Payload:</h4>
+                                    <pre><code>// Original RS256 header
+{"alg": "RS256", "typ": "JWT"}
+
+// Modified to HS256
+{"alg": "HS256", "typ": "JWT"}
+
+// Sign with public key as secret
+hmac_sha256(public_key, header.payload)</code></pre>
+                                </div>
+                                <div class="remediation">
+                                    <h4>Remediation:</h4>
+                                    <ul>
+                                        <li>Verify algorithm matches expected key type</li>
+                                        <li>Use separate validation logic for symmetric vs asymmetric</li>
+                                        <li>Implement strict algorithm checking</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checklist-item critical">
+                            <div class="item-header">
+                                <input type="checkbox" id="check3">
+                                <label for="check3">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <strong>Weak Secret Detection</strong>
+                                </label>
+                                <span class="risk-level critical">CRITICAL</span>
+                            </div>
+                            <div class="item-content">
+                                <p><strong>What to Check:</strong> HMAC secrets should resist brute force attacks</p>
+                                <div class="test-method">
+                                    <h4>Test Method:</h4>
+                                    <ol>
+                                        <li>Run dictionary attack against HMAC signatures</li>
+                                        <li>Test common passwords: secret, password, 123456, etc.</li>
+                                        <li>Try company name + year combinations</li>
+                                        <li>Test Base64/hex encoded common words</li>
+                                    </ol>
+                                </div>
+                                <div class="weak-secrets">
+                                    <h4>Common Weak Secrets to Test:</h4>
+                                    <pre><code>secret
+password
+123456
+your-256-bit-secret
+jwt_secret
+SECRET_KEY
+default
+admin
+test
+company_name_2024</code></pre>
+                                </div>
+                                <div class="remediation">
+                                    <h4>Remediation:</h4>
+                                    <ul>
+                                        <li>Use minimum 256-bit cryptographically secure random secrets</li>
+                                        <li>Implement secret rotation policies</li>
+                                        <li>Use environment variables or key management systems</li>
+                                        <li>Regular secret strength auditing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>🟠 High Priority Security Checks</h2>
+                    <p class="text-warning"><strong>Priority 2:</strong> Significant security risks requiring immediate attention</p>
+
+                    <div class="checklist-section">
+                        <div class="checklist-item high">
+                            <div class="item-header">
+                                <input type="checkbox" id="check4">
+                                <label for="check4">
+                                    <i class="fas fa-link"></i>
+                                    <strong>JKU/X5U Header Injection</strong>
+                                </label>
+                                <span class="risk-level high">HIGH</span>
+                            </div>
+                            <div class="item-content">
+                                <p><strong>What to Check:</strong> Verify external key URLs are properly validated</p>
+                                <div class="attack-vectors">
+                                    <h4>Attack Vectors to Test:</h4>
+                                    <ul>
+                                        <li><strong>External URLs:</strong> https://attacker.com/malicious.jwks</li>
+                                        <li><strong>Path Traversal:</strong> ../../../etc/passwd</li>
+                                        <li><strong>Protocol Smuggling:</strong> file:///etc/hosts</li>
+                                        <li><strong>Internal Networks:</strong> http://localhost:8080/admin/keys</li>
+                                        <li><strong>DNS Rebinding:</strong> subdomain.attacker.com → 127.0.0.1</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checklist-item high">
+                            <div class="item-header">
+                                <input type="checkbox" id="check5">
+                                <label for="check5">
+                                    <i class="fas fa-fingerprint"></i>
+                                    <strong>Kid Parameter Injection</strong>
+                                </label>
+                                <span class="risk-level high">HIGH</span>
+                            </div>
+                            <div class="item-content">
+                                <p><strong>What to Check:</strong> Key ID parameter should be sanitized and validated</p>
+                                <div class="injection-tests">
+                                    <h4>Injection Tests:</h4>
+                                    <ul>
+                                        <li><strong>Path Traversal:</strong> "../../../dev/null"</li>
+                                        <li><strong>Command Injection:</strong> "key.pem; cat /etc/passwd"</li>
+                                        <li><strong>SQL Injection:</strong> "' UNION SELECT 'secret'--"</li>
+                                        <li><strong>NoSQL Injection:</strong> {"$ne": null}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checklist-item high">
+                            <div class="item-header">
+                                <input type="checkbox" id="check6">
+                                <label for="check6">
+                                    <i class="fas fa-user-shield"></i>
+                                    <strong>Privilege Escalation Testing</strong>
+                                </label>
+                                <span class="risk-level high">HIGH</span>
+                            </div>
+                            <div class="item-content">
+                                <p><strong>What to Check:</strong> User claims should be immutable and validated</p>
+                                <div class="escalation-tests">
+                                    <h4>Escalation Tests:</h4>
+                                    <ul>
+                                        <li>Modify role from "user" to "admin"</li>
+                                        <li>Change user ID to access other accounts</li>
+                                        <li>Add administrative permissions to scope</li>
+                                        <li>Inject additional roles or groups</li>
+                                        <li>Modify tenant/organization IDs</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>🟡 Medium Priority Security Checks</h2>
+                    <p class="text-warning"><strong>Priority 3:</strong> Important security considerations for robust implementation</p>
+
+                    <div class="checklist-section">
+                        <div class="checklist-item medium">
+                            <div class="item-header">
+                                <input type="checkbox" id="check7">
+                                <label for="check7">
+                                    <i class="fas fa-clock"></i>
+                                    <strong>Timestamp Validation</strong>
+                                </label>
+                                <span class="risk-level medium">MEDIUM</span>
+                            </div>
+                            <div class="item-content">
+                                <p><strong>What to Check:</strong> Time-based claims are properly validated</p>
+                                <div class="timestamp-tests">
+                                    <h4>Tests to Perform:</h4>
+                                    <ul>
+                                        <li>Expired tokens (past exp claim)</li>
+                                        <li>Future-dated tokens (exp in year 2100)</li>
+                                        <li>Missing iat (issued at) claims</li>
+                                        <li>nbf (not before) in the past</li>
+                                        <li>Clock skew tolerance testing</li>
+                                        <li>Negative timestamp values</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checklist-item medium">
+                            <div class="item-header">
+                                <input type="checkbox" id="check8">
+                                <label for="check8">
+                                    <i class="fas fa-code"></i>
+                                    <strong>JSON Structure Validation</strong>
+                                </label>
+                                <span class="risk-level medium">MEDIUM</span>
+                            </div>
+                            <div class="item-content">
+                                <p><strong>What to Check:</strong> Malformed JSON should be rejected</p>
+                                <div class="json-tests">
+                                    <h4>Malformation Tests:</h4>
+                                    <ul>
+                                        <li>Invalid JSON syntax</li>
+                                        <li>Nested object injection</li>
+                                        <li>Array vs object confusion</li>
+                                        <li>Unicode character exploits</li>
+                                        <li>Extremely large payloads (DoS)</li>
+                                        <li>Duplicate key handling</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checklist-item medium">
+                            <div class="item-header">
+                                <input type="checkbox" id="check9">
+                                <label for="check9">
+                                    <i class="fas fa-random"></i>
+                                    <strong>Algorithm Downgrade Protection</strong>
+                                </label>
+                                <span class="risk-level medium">MEDIUM</span>
+                            </div>
+                            <div class="item-content">
+                                <p><strong>What to Check:</strong> Weak algorithms should be rejected</p>
+                                <div class="algorithm-tests">
+                                    <h4>Weak Algorithms to Test:</h4>
+                                    <ul>
+                                        <li>HS1 (HMAC-SHA1) - deprecated</li>
+                                        <li>RS1 (RSA-SHA1) - collision vulnerable</li>
+                                        <li>Custom algorithms - non-standard</li>
+                                        <li>ES256K - Bitcoin curve issues</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>🟢 Best Practice Checks</h2>
+                    <p class="text-success"><strong>Priority 4:</strong> Additional hardening and monitoring capabilities</p>
+
+                    <div class="checklist-section">
+                        <div class="checklist-item low">
+                            <div class="item-header">
+                                <input type="checkbox" id="check10">
+                                <label for="check10">
+                                    <i class="fas fa-chart-line"></i>
+                                    <strong>Rate Limiting and Monitoring</strong>
+                                </label>
+                                <span class="risk-level low">BEST PRACTICE</span>
+                            </div>
+                            <div class="item-content">
+                                <p><strong>What to Check:</strong> Implement comprehensive monitoring</p>
+                                <div class="monitoring-checks">
+                                    <h4>Monitoring Capabilities:</h4>
+                                    <ul>
+                                        <li>Failed verification attempt logging</li>
+                                        <li>Brute force attack detection</li>
+                                        <li>Suspicious algorithm usage alerts</li>
+                                        <li>Rate limiting on token validation</li>
+                                        <li>Audit trails for key operations</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checklist-item low">
+                            <div class="item-header">
+                                <input type="checkbox" id="check11">
+                                <label for="check11">
+                                    <i class="fas fa-sync"></i>
+                                    <strong>Key Rotation and Management</strong>
+                                </label>
+                                <span class="risk-level low">BEST PRACTICE</span>
+                            </div>
+                            <div class="item-content">
+                                <p><strong>What to Check:</strong> Proper key lifecycle management</p>
+                                <div class="key-management">
+                                    <h4>Key Management Practices:</h4>
+                                    <ul>
+                                        <li>Regular key rotation schedule</li>
+                                        <li>Secure key storage (HSM/KMS)</li>
+                                        <li>Key versioning support</li>
+                                        <li>Emergency key revocation</li>
+                                        <li>Key backup and recovery</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="checklist-item low">
+                            <div class="item-header">
+                                <input type="checkbox" id="check12">
+                                <label for="check12">
+                                    <i class="fas fa-mobile-alt"></i>
+                                    <strong>Client-side Security</strong>
+                                </label>
+                                <span class="risk-level low">BEST PRACTICE</span>
+                            </div>
+                            <div class="item-content">
+                                <p><strong>What to Check:</strong> Secure token handling on client</p>
+                                <div class="client-security">
+                                    <h4>Client Security Measures:</h4>
+                                    <ul>
+                                        <li>HttpOnly cookie storage (vs localStorage)</li>
+                                        <li>Secure flag for HTTPS-only cookies</li>
+                                        <li>SameSite attribute configuration</li>
+                                        <li>CSRF protection mechanisms</li>
+                                        <li>Token automatic refresh handling</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>🛠️ Testing Tools and Resources</h2>
+
+                    <div class="tool-overview">
+                        <div class="tool-card">
+                            <h3><i class="fas fa-search"></i> JWTAuditor</h3>
+                            <p>Automated scanning for all checklist items with detailed reporting and remediation guidance.</p>
+                            <a href="../index.html" class="tool-link">Start Audit <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <div class="tool-card">
+                            <h3><i class="fas fa-terminal"></i> Manual Testing</h3>
+                            <p>Command-line tools for detailed analysis: jwt_tool, PyJWT, and custom scripts.</p>
+                            <a href="tool-guides/decoder-analyzer.html" class="tool-link">Learn Tools <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <div class="tool-card">
+                            <h3><i class="fas fa-file-download"></i> Checklist Downloads</h3>
+                            <p>Get printable PDF, Excel spreadsheet, or JSON format for your security audits.</p>
+                            <a href="#downloads" class="tool-link">Download <i class="fas fa-arrow-right"></i></a>
+                        </div>
+
+                        <div class="tool-card">
+                            <h3><i class="fas fa-graduation-cap"></i> Training Materials</h3>
+                            <p>Video tutorials, example vulnerabilities, and hands-on labs for security teams.</p>
+                            <a href="jwt-attack-vectors.html" class="tool-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>📋 Quick Reference Summary</h2>
+
+                    <div class="summary-stats">
+                        <div class="stat-card critical">
+                            <div class="stat-icon"><i class="fas fa-skull-crossbones"></i></div>
+                            <div class="stat-number">3</div>
+                            <div class="stat-label">Critical Checks</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar"><div class="progress-fill critical" style="width: 100%"></div></div>
+                            </div>
+                        </div>
+                        <div class="stat-card high">
+                            <div class="stat-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                            <div class="stat-number">15</div>
+                            <div class="stat-label">High Priority</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar"><div class="progress-fill high" style="width: 85%"></div></div>
+                            </div>
+                        </div>
+                        <div class="stat-card medium">
+                            <div class="stat-icon"><i class="fas fa-exclamation"></i></div>
+                            <div class="stat-number">25</div>
+                            <div class="stat-label">Medium Priority</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar"><div class="progress-fill medium" style="width: 70%"></div></div>
+                            </div>
+                        </div>
+                        <div class="stat-card low">
+                            <div class="stat-icon"><i class="fas fa-shield-alt"></i></div>
+                            <div class="stat-number">12</div>
+                            <div class="stat-label">Best Practices</div>
+                            <div class="stat-progress">
+                                <div class="progress-bar"><div class="progress-fill low" style="width: 60%"></div></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="critical-summary">
+                        <h3>🚨 Must-Fix Vulnerabilities</h3>
+                        <ul>
+                            <li><span class="check-icon critical">✗</span> Algorithm "none" acceptance</li>
+                            <li><span class="check-icon critical">✗</span> Key confusion (RS256→HS256)</li>
+                            <li><span class="check-icon critical">✗</span> Weak HMAC secrets</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="next-steps">
+                    <h3>Continue Your Security Journey</h3>
+                    <div class="next-links">
+                        <a href="jwt-attack-vectors.html" class="next-link">
+                            <i class="fas fa-bug"></i>
+                            Attack Vectors Guide
+                        </a>
+                        <a href="secure-jwt-implementation.html" class="next-link">
+                            <i class="fas fa-shield-alt"></i>
+                            Secure Implementation
+                        </a>
+                        <a href="../index.html" class="next-link">
+                            <i class="fas fa-play"></i>
+                            Test Your JWTs
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <style>
+    .checklist-section {
+        margin: 2rem 0;
+    }
+
+    .checklist-item {
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--border-color);
+        transition: all 0.2s ease;
+    }
+
+    .checklist-item.critical {
+        border-left: 4px solid var(--danger-color);
+    }
+
+    .checklist-item.high {
+        border-left: 4px solid #ff9800;
+    }
+
+    .checklist-item.medium {
+        border-left: 4px solid var(--warning-color);
+    }
+
+    .checklist-item.low {
+        border-left: 4px solid var(--success-color);
+    }
+
+    .item-header {
+        display: flex;
+        align-items: center;
+        padding: 1.25rem;
+        border-bottom: 1px solid var(--border-color);
+        cursor: pointer;
+    }
+
+    .item-header input[type="checkbox"] {
+        margin-right: 1rem;
+        transform: scale(1.2);
+    }
+
+    .item-header label {
+        flex: 1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 1.1rem;
+    }
+
+    .item-header i {
+        margin-right: 0.75rem;
+        font-size: 1.2rem;
+    }
+
+    .risk-level {
+        padding: 0.25rem 0.75rem;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .risk-level.critical {
+        background: rgba(239, 68, 68, 0.2);
+        color: var(--danger-color);
+    }
+
+    .risk-level.high {
+        background: rgba(255, 152, 0, 0.2);
+        color: #ff9800;
+    }
+
+    .risk-level.medium {
+        background: rgba(245, 158, 11, 0.2);
+        color: var(--warning-color);
+    }
+
+    .risk-level.low {
+        background: rgba(16, 185, 129, 0.2);
+        color: var(--success-color);
+    }
+
+    .item-content {
+        padding: 1.5rem;
+    }
+
+    .test-method, .remediation, .attack-vectors, .injection-tests {
+        margin: 1rem 0;
+        padding: 1rem;
+        background: var(--dark-surface);
+        border-radius: 6px;
+        border: 1px solid var(--border-color);
+    }
+
+    .impact {
+        margin-top: 1rem;
+        padding: 0.75rem;
+        background: rgba(239, 68, 68, 0.1);
+        border-radius: 6px;
+        color: var(--danger-color);
+        font-weight: 500;
+    }
+
+    .summary-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+
+    .stat-card {
+        text-align: center;
+        padding: 2rem 1.5rem;
+        border-radius: 16px;
+        border: 2px solid var(--border-color);
+        position: relative;
+        transition: all 0.3s ease;
+        overflow: hidden;
+    }
+
+    .stat-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--primary-color);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .stat-card:hover::before {
+        transform: scaleX(1);
+    }
+
+    .stat-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    }
+
+    .stat-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        opacity: 0.8;
+    }
+
+    .stat-progress {
+        margin-top: 1rem;
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        border-radius: 3px;
+        transition: width 1s ease;
+        background: linear-gradient(90deg, currentColor 0%, rgba(255, 255, 255, 0.3) 100%);
+    }
+
+    .progress-fill.critical {
+        background: linear-gradient(90deg, var(--danger-color) 0%, #ff6b6b 100%);
+    }
+
+    .progress-fill.high {
+        background: linear-gradient(90deg, #ff9800 0%, #ffb74d 100%);
+    }
+
+    .progress-fill.medium {
+        background: linear-gradient(90deg, var(--warning-color) 0%, #ffeb3b 100%);
+    }
+
+    .progress-fill.low {
+        background: linear-gradient(90deg, var(--success-color) 0%, #81c784 100%);
+    }
+
+    .stat-card.critical {
+        background: rgba(239, 68, 68, 0.1);
+        border-color: var(--danger-color);
+    }
+
+    .stat-card.high {
+        background: rgba(255, 152, 0, 0.1);
+        border-color: #ff9800;
+    }
+
+    .stat-card.medium {
+        background: rgba(245, 158, 11, 0.1);
+        border-color: var(--warning-color);
+    }
+
+    .stat-card.low {
+        background: rgba(16, 185, 129, 0.1);
+        border-color: var(--success-color);
+    }
+
+    .stat-number {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text-primary);
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        margin-top: 0.5rem;
+    }
+
+    .critical-summary {
+        background: rgba(239, 68, 68, 0.1);
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--danger-color);
+        margin: 2rem 0;
+    }
+
+    .check-icon {
+        display: inline-block;
+        width: 20px;
+        font-weight: bold;
+        margin-right: 0.5rem;
+    }
+
+    .check-icon.critical {
+        color: var(--danger-color);
+    }
+    </style>
+
+    <script src="js/docs.js"></script>
+    <script>
+    // Interactive checklist functionality
+    document.addEventListener('DOMContentLoaded', () => {
+        const checkboxes = document.querySelectorAll('.checklist-item input[type="checkbox"]');
+        const progress = document.createElement('div');
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', updateProgress);
+        });
+
+        function updateProgress() {
+            const total = checkboxes.length;
+            const checked = document.querySelectorAll('.checklist-item input[type="checkbox"]:checked').length;
+            const percentage = Math.round((checked / total) * 100);
+
+            console.log(`Security Audit Progress: ${checked}/${total} (${percentage}%)`);
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JWT Security Tools Comparison Guide 2024 | JWTAuditor</title>
+    <meta name="description" content="Comprehensive comparison of JWT security testing tools including JWTAuditor, jwt_tool, Burp Suite extensions, and more. Find the best JWT pentesting tools for your needs.">
+    <meta name="keywords" content="JWT tools, JWT testing tools, jwt_tool, Burp Suite JWT, JWT pentesting, JWT security tools, JWT analysis tools, JWT debugging tools, JSON Web Token tools">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="JWT Security Tools Comparison Guide 2024">
+    <meta property="og:description" content="Compare 15+ JWT security testing tools. Find the best JWT pentesting and analysis tools for your security workflow.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://jwtauditor.com/docs/jwt-tools-comparison.html">
+    <meta property="og:image" content="https://jwtauditor.com/img/jwt-tools-comparison-og.png">
+
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="css/docs.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+</head>
+<body class="docs-body">
+    <header>
+        <div class="logo">
+            <i class="fas fa-user-secret"></i>
+            <h1>JWTAuditor</h1>
+        </div>
+        <div class="subtitle">Documentation & Learning Resources</div>
+        <div class="header-actions">
+            <a href="../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> Back to Tool</a>
+        </div>
+    </header>
+
+    <main class="docs-main">
+        <div class="docs-container">
+            <aside class="docs-sidebar">
+                <div class="sidebar-header">
+                    <h2>Documentation</h2>
+                </div>
+                <nav class="docs-nav">
+                    <div class="nav-section">
+                        <h3>JWT Fundamentals</h3>
+                        <ul>
+                            <li><a href="jwt-fundamentals.html">Understanding JWT Structure</a></li>
+                            <li><a href="jwt-claims.html">JWT Claims Explained</a></li>
+                            <li><a href="jwt-vs-sessions.html">JWT vs. Session Auth</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h3>Security Guides</h3>
+                        <ul>
+                            <li><a href="jwt-vulnerabilities-guide.html">JWT Vulnerabilities Guide</a></li>
+                            <li><a href="jwt-attack-vectors.html">Complete Attack Vectors</a></li>
+                            <li><a href="jwt-security-checklist.html">Security Checklist</a></li>
+                            <li><a href="jwt-tools-comparison.html" class="active">Tools Comparison</a></li>
+                            <li><a href="secure-jwt-implementation.html">Secure Implementation</a></li>
+                            <li><a href="jwt-attack-techniques.html">Attack Techniques</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h3>Tool Guides</h3>
+                        <ul>
+                            <li><a href="tool-guides/decoder-analyzer.html">Decoder & Analyzer</a></li>
+                            <li><a href="tool-guides/secret-bruteforcer.html">Secret Bruteforcer</a></li>
+                            <li><a href="tool-guides/jwt-editor.html">JWT Editor</a></li>
+                            <li><a href="tool-guides/jwt-generator.html">JWT Generator</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-section">
+                        <h3>Reference</h3>
+                        <ul>
+                            <li><a href="reference/jwt-header-parameters.html">Header Parameters</a></li>
+                            <li><a href="reference/jwt-claim-registry.html">Claim Registry</a></li>
+                            <li><a href="reference/jwt-algorithms.html">JWT Algorithms</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+
+            <div class="docs-content">
+                <div class="docs-header">
+                    <h1>JWT Security Tools Comparison Guide</h1>
+                    <div class="docs-meta">
+                        <span><i class="fas fa-tools"></i> Tool Analysis</span>
+                        <span><i class="fas fa-clock"></i> Updated: December 2024</span>
+                        <span><i class="fas fa-star"></i> Expert Review</span>
+                    </div>
+                </div>
+
+                <div class="docs-section intro-section">
+                    <p class="lead">
+                        Compare 15+ JWT security testing tools across features, usability, and effectiveness. This comprehensive guide helps security professionals, penetration testers, and developers choose the right JWT analysis tools for their workflow.
+                    </p>
+
+                    <div class="info-box">
+                        <div class="info-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="info-content">
+                            <p><strong>Tool Selection Guide:</strong> Each tool excels in different scenarios. We'll help you understand when to use web-based tools, CLI utilities, or Burp Suite extensions.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>🏆 Top JWT Security Tools Overview</h2>
+
+                    <div class="tools-overview">
+                        <div class="tool-category web-based">
+                            <h3><i class="fas fa-globe"></i> Web-Based Tools</h3>
+                            <div class="category-tools">
+                                <div class="tool-card featured">
+                                    <div class="tool-header">
+                                        <h4>JWTAuditor</h4>
+                                        <div class="tool-rating">
+                                            <span class="stars">★★★★★</span>
+                                            <span class="score">9.5/10</span>
+                                        </div>
+                                    </div>
+                                    <div class="tool-features">
+                                        <div class="feature-grid">
+                                            <span class="feature">✓ Vulnerability Scanner</span>
+                                            <span class="feature">✓ Secret Bruteforcing</span>
+                                            <span class="feature">✓ Attack Vector Testing</span>
+                                            <span class="feature">✓ Privacy-First</span>
+                                        </div>
+                                    </div>
+                                    <div class="tool-description">
+                                        <p><strong>Best For:</strong> Comprehensive security auditing, automated vulnerability detection</p>
+                                        <p><strong>Strengths:</strong> Client-side processing, extensive attack coverage, beginner-friendly</p>
+                                        <p><strong>Use Case:</strong> Complete JWT security assessment in one tool</p>
+                                    </div>
+                                    <div class="tool-pricing">
+                                        <span class="price">Free</span>
+                                        <span class="license">Open Source</span>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-header">
+                                        <h4>JWT.io</h4>
+                                        <div class="tool-rating">
+                                            <span class="stars">★★★☆☆</span>
+                                            <span class="score">7.0/10</span>
+                                        </div>
+                                    </div>
+                                    <div class="tool-features">
+                                        <div class="feature-grid">
+                                            <span class="feature">✓ Token Decoding</span>
+                                            <span class="feature">✓ Basic Validation</span>
+                                            <span class="feature">✗ Security Testing</span>
+                                            <span class="feature">✗ Attack Detection</span>
+                                        </div>
+                                    </div>
+                                    <div class="tool-description">
+                                        <p><strong>Best For:</strong> Quick token inspection and debugging</p>
+                                        <p><strong>Limitations:</strong> No security testing capabilities, basic functionality only</p>
+                                    </div>
+                                    <div class="tool-pricing">
+                                        <span class="price">Free</span>
+                                        <span class="license">Auth0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tool-category cli-tools">
+                            <h3><i class="fas fa-terminal"></i> Command-Line Tools</h3>
+                            <div class="category-tools">
+                                <div class="tool-card featured">
+                                    <div class="tool-header">
+                                        <h4>jwt_tool</h4>
+                                        <div class="tool-rating">
+                                            <span class="stars">★★★★★</span>
+                                            <span class="score">9.2/10</span>
+                                        </div>
+                                    </div>
+                                    <div class="tool-features">
+                                        <div class="feature-grid">
+                                            <span class="feature">✓ Comprehensive Testing</span>
+                                            <span class="feature">✓ Automation Ready</span>
+                                            <span class="feature">✓ Custom Attacks</span>
+                                            <span class="feature">✓ Wordlist Support</span>
+                                        </div>
+                                    </div>
+                                    <div class="tool-description">
+                                        <p><strong>Best For:</strong> Advanced pentesting, custom attack scenarios, automation</p>
+                                        <p><strong>Strengths:</strong> Highly configurable, extensive attack modules</p>
+                                        <p><strong>Learning Curve:</strong> Intermediate to advanced</p>
+                                    </div>
+                                    <div class="tool-pricing">
+                                        <span class="price">Free</span>
+                                        <span class="license">GPL-3.0</span>
+                                    </div>
+                                    <div class="install-command">
+                                        <code>pip install jwt-tool</code>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-header">
+                                        <h4>PyJWT</h4>
+                                        <div class="tool-rating">
+                                            <span class="stars">★★★★☆</span>
+                                            <span class="score">8.0/10</span>
+                                        </div>
+                                    </div>
+                                    <div class="tool-features">
+                                        <div class="feature-grid">
+                                            <span class="feature">✓ Python Library</span>
+                                            <span class="feature">✓ Custom Scripts</span>
+                                            <span class="feature">✓ Algorithm Support</span>
+                                            <span class="feature">✗ Built-in Attacks</span>
+                                        </div>
+                                    </div>
+                                    <div class="tool-description">
+                                        <p><strong>Best For:</strong> Custom tool development, Python integration</p>
+                                        <p><strong>Use Case:</strong> Building custom JWT testing scripts</p>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-header">
+                                        <h4>hashcat</h4>
+                                        <div class="tool-rating">
+                                            <span class="stars">★★★★☆</span>
+                                            <span class="score">8.5/10</span>
+                                        </div>
+                                    </div>
+                                    <div class="tool-features">
+                                        <div class="feature-grid">
+                                            <span class="feature">✓ GPU Acceleration</span>
+                                            <span class="feature">✓ High-Speed Cracking</span>
+                                            <span class="feature">✓ Multiple Algorithms</span>
+                                            <span class="feature">✗ JWT-Specific Features</span>
+                                        </div>
+                                    </div>
+                                    <div class="tool-description">
+                                        <p><strong>Best For:</strong> HMAC secret brute force attacks</p>
+                                        <p><strong>Specialty:</strong> High-performance password cracking</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tool-category burp-extensions">
+                            <h3><i class="fas fa-puzzle-piece"></i> Burp Suite Extensions</h3>
+                            <div class="category-tools">
+                                <div class="tool-card featured">
+                                    <div class="tool-header">
+                                        <h4>JWT Editor</h4>
+                                        <div class="tool-rating">
+                                            <span class="stars">★★★★★</span>
+                                            <span class="score">9.0/10</span>
+                                        </div>
+                                    </div>
+                                    <div class="tool-features">
+                                        <div class="feature-grid">
+                                            <span class="feature">✓ Real-time Editing</span>
+                                            <span class="feature">✓ Attack Testing</span>
+                                            <span class="feature">✓ Key Management</span>
+                                            <span class="feature">✓ Proxy Integration</span>
+                                        </div>
+                                    </div>
+                                    <div class="tool-description">
+                                        <p><strong>Best For:</strong> Interactive web app testing, real-time JWT manipulation</p>
+                                        <p><strong>Integration:</strong> Seamless Burp Suite workflow</p>
+                                    </div>
+                                    <div class="tool-pricing">
+                                        <span class="price">Free</span>
+                                        <span class="license">Burp Extension</span>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-header">
+                                        <h4>Auth Analyzer</h4>
+                                        <div class="tool-rating">
+                                            <span class="stars">★★★★☆</span>
+                                            <span class="score">8.2/10</span>
+                                        </div>
+                                    </div>
+                                    <div class="tool-features">
+                                        <div class="feature-grid">
+                                            <span class="feature">✓ Session Analysis</span>
+                                            <span class="feature">✓ Privilege Testing</span>
+                                            <span class="feature">✓ Multi-User Testing</span>
+                                            <span class="feature">✗ JWT-Specific</span>
+                                        </div>
+                                    </div>
+                                    <div class="tool-description">
+                                        <p><strong>Best For:</strong> Authorization testing, privilege escalation detection</p>
+                                        <p><strong>Scope:</strong> General auth testing (not JWT-specific)</p>
+                                    </div>
+                                </div>
+
+                                <div class="tool-card">
+                                    <div class="tool-header">
+                                        <h4>JSON Web Token Attacker</h4>
+                                        <div class="tool-rating">
+                                            <span class="stars">★★★☆☆</span>
+                                            <span class="score">7.5/10</span>
+                                        </div>
+                                    </div>
+                                    <div class="tool-features">
+                                        <div class="feature-grid">
+                                            <span class="feature">✓ Attack Templates</span>
+                                            <span class="feature">✓ Signature Testing</span>
+                                            <span class="feature">✗ Limited Updates</span>
+                                            <span class="feature">✗ Basic Features</span>
+                                        </div>
+                                    </div>
+                                    <div class="tool-description">
+                                        <p><strong>Status:</strong> Legacy tool, limited maintenance</p>
+                                        <p><strong>Alternative:</strong> Consider JWT Editor instead</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>📊 Feature Comparison Matrix</h2>
+
+                    <div class="comparison-table-container">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>JWTAuditor</th>
+                                    <th>jwt_tool</th>
+                                    <th>JWT Editor</th>
+                                    <th>JWT.io</th>
+                                    <th>PyJWT</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Token Decoding</strong></td>
+                                    <td class="feature-yes">✓ Advanced</td>
+                                    <td class="feature-yes">✓ Complete</td>
+                                    <td class="feature-yes">✓ Interactive</td>
+                                    <td class="feature-yes">✓ Basic</td>
+                                    <td class="feature-yes">✓ Library</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Vulnerability Detection</strong></td>
+                                    <td class="feature-yes">✓ Automated</td>
+                                    <td class="feature-yes">✓ Comprehensive</td>
+                                    <td class="feature-partial">~ Manual</td>
+                                    <td class="feature-no">✗</td>
+                                    <td class="feature-no">✗</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Secret Bruteforcing</strong></td>
+                                    <td class="feature-yes">✓ Built-in</td>
+                                    <td class="feature-yes">✓ Advanced</td>
+                                    <td class="feature-no">✗</td>
+                                    <td class="feature-no">✗</td>
+                                    <td class="feature-no">✗</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Algorithm Confusion</strong></td>
+                                    <td class="feature-yes">✓ Automated</td>
+                                    <td class="feature-yes">✓ Manual</td>
+                                    <td class="feature-yes">✓ Interactive</td>
+                                    <td class="feature-no">✗</td>
+                                    <td class="feature-no">✗</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Key Confusion Testing</strong></td>
+                                    <td class="feature-yes">✓ Automated</td>
+                                    <td class="feature-yes">✓ Expert</td>
+                                    <td class="feature-yes">✓ Manual</td>
+                                    <td class="feature-no">✗</td>
+                                    <td class="feature-no">✗</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Real-time Editing</strong></td>
+                                    <td class="feature-yes">✓ Yes</td>
+                                    <td class="feature-no">✗</td>
+                                    <td class="feature-yes">✓ Excellent</td>
+                                    <td class="feature-yes">✓ Basic</td>
+                                    <td class="feature-no">✗</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Privacy Protection</strong></td>
+                                    <td class="feature-yes">✓ Client-side</td>
+                                    <td class="feature-yes">✓ Local</td>
+                                    <td class="feature-yes">✓ Local</td>
+                                    <td class="feature-partial">~ Limited</td>
+                                    <td class="feature-yes">✓ Local</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Automation Support</strong></td>
+                                    <td class="feature-partial">~ API</td>
+                                    <td class="feature-yes">✓ CLI</td>
+                                    <td class="feature-no">✗</td>
+                                    <td class="feature-no">✗</td>
+                                    <td class="feature-yes">✓ Python</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Learning Curve</strong></td>
+                                    <td class="feature-yes">✓ Easy</td>
+                                    <td class="feature-no">✗ Steep</td>
+                                    <td class="feature-partial">~ Medium</td>
+                                    <td class="feature-yes">✓ Easy</td>
+                                    <td class="feature-no">✗ Technical</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Cost</strong></td>
+                                    <td class="feature-yes">Free</td>
+                                    <td class="feature-yes">Free</td>
+                                    <td class="feature-partial">Burp Suite</td>
+                                    <td class="feature-yes">Free</td>
+                                    <td class="feature-yes">Free</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>🎯 Use Case Recommendations</h2>
+
+                    <div class="use-cases">
+                        <div class="use-case-card">
+                            <div class="use-case-header">
+                                <i class="fas fa-shield-alt"></i>
+                                <h3>Security Auditing & Pentesting</h3>
+                            </div>
+                            <div class="recommended-tools">
+                                <div class="tool-recommendation primary">
+                                    <strong>Primary:</strong> JWTAuditor + jwt_tool
+                                </div>
+                                <div class="tool-recommendation secondary">
+                                    <strong>Secondary:</strong> JWT Editor (Burp)
+                                </div>
+                            </div>
+                            <div class="use-case-description">
+                                <p><strong>Workflow:</strong> Start with JWTAuditor for automated vulnerability discovery, then use jwt_tool for detailed exploitation and custom attacks.</p>
+                                <p><strong>Benefits:</strong> Comprehensive coverage, automated + manual testing</p>
+                            </div>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-header">
+                                <i class="fas fa-globe"></i>
+                                <h3>Web Application Testing</h3>
+                            </div>
+                            <div class="recommended-tools">
+                                <div class="tool-recommendation primary">
+                                    <strong>Primary:</strong> JWT Editor (Burp Suite)
+                                </div>
+                                <div class="tool-recommendation secondary">
+                                    <strong>Secondary:</strong> JWTAuditor
+                                </div>
+                            </div>
+                            <div class="use-case-description">
+                                <p><strong>Workflow:</strong> Intercept and modify JWTs in real-time during web app testing using Burp Suite proxy.</p>
+                                <p><strong>Benefits:</strong> Seamless integration with existing testing workflow</p>
+                            </div>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-header">
+                                <i class="fas fa-code"></i>
+                                <h3>Development & Debugging</h3>
+                            </div>
+                            <div class="recommended-tools">
+                                <div class="tool-recommendation primary">
+                                    <strong>Primary:</strong> JWTAuditor
+                                </div>
+                                <div class="tool-recommendation secondary">
+                                    <strong>Secondary:</strong> JWT.io
+                                </div>
+                            </div>
+                            <div class="use-case-description">
+                                <p><strong>Workflow:</strong> Quick token inspection, claim validation, and security verification during development.</p>
+                                <p><strong>Benefits:</strong> Developer-friendly interface, immediate feedback</p>
+                            </div>
+                        </div>
+
+                        <div class="use-case-card">
+                            <div class="use-case-header">
+                                <i class="fas fa-robot"></i>
+                                <h3>Automated Security Testing</h3>
+                            </div>
+                            <div class="recommended-tools">
+                                <div class="tool-recommendation primary">
+                                    <strong>Primary:</strong> jwt_tool
+                                </div>
+                                <div class="tool-recommendation secondary">
+                                    <strong>Secondary:</strong> Custom PyJWT scripts
+                                </div>
+                            </div>
+                            <div class="use-case-description">
+                                <p><strong>Workflow:</strong> Integrate JWT security testing into CI/CD pipelines and automated security scans.</p>
+                                <p><strong>Benefits:</strong> Scriptable, comprehensive automation support</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>🚀 Advanced Tool Combinations</h2>
+
+                    <div class="tool-combinations">
+                        <div class="combo-card">
+                            <h3><i class="fas fa-crown"></i> The Complete Security Arsenal</h3>
+                            <div class="combo-tools">
+                                <span class="combo-tool primary">JWTAuditor</span>
+                                <span class="combo-plus">+</span>
+                                <span class="combo-tool">jwt_tool</span>
+                                <span class="combo-plus">+</span>
+                                <span class="combo-tool">hashcat</span>
+                                <span class="combo-plus">+</span>
+                                <span class="combo-tool">JWT Editor</span>
+                            </div>
+                            <div class="combo-workflow">
+                                <h4>Workflow:</h4>
+                                <ol>
+                                    <li><strong>Discovery:</strong> JWTAuditor for initial vulnerability assessment</li>
+                                    <li><strong>Exploitation:</strong> jwt_tool for custom attacks and detailed testing</li>
+                                    <li><strong>Brute Force:</strong> hashcat for high-speed secret cracking</li>
+                                    <li><strong>Interactive:</strong> JWT Editor for real-time web app testing</li>
+                                </ol>
+                            </div>
+                            <div class="combo-benefits">
+                                <h4>Benefits:</h4>
+                                <ul>
+                                    <li>Complete attack surface coverage</li>
+                                    <li>Both automated and manual testing capabilities</li>
+                                    <li>High-performance secret cracking</li>
+                                    <li>Real-time testing integration</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="combo-card">
+                            <h3><i class="fas fa-flash"></i> The Speed Runner</h3>
+                            <div class="combo-tools">
+                                <span class="combo-tool primary">JWTAuditor</span>
+                                <span class="combo-plus">+</span>
+                                <span class="combo-tool">Burp Suite Pro</span>
+                            </div>
+                            <div class="combo-description">
+                                <p><strong>Best For:</strong> Quick assessments and time-constrained penetration tests</p>
+                                <p><strong>Advantage:</strong> Maximum efficiency with minimal tool switching</p>
+                            </div>
+                        </div>
+
+                        <div class="combo-card">
+                            <h3><i class="fas fa-graduation-cap"></i> The Learning Path</h3>
+                            <div class="combo-tools">
+                                <span class="combo-tool primary">JWT.io</span>
+                                <span class="combo-arrow">→</span>
+                                <span class="combo-tool">JWTAuditor</span>
+                                <span class="combo-arrow">→</span>
+                                <span class="combo-tool">jwt_tool</span>
+                            </div>
+                            <div class="combo-description">
+                                <p><strong>Progression:</strong> Start with basics, move to comprehensive testing, advance to expert-level tools</p>
+                                <p><strong>Timeline:</strong> Beginner → Intermediate → Advanced (3-6 months)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>🎓 Tool Selection Decision Tree</h2>
+
+                    <div class="decision-tree">
+                        <div class="decision-node root">
+                            <div class="question">What's your primary use case?</div>
+                            <div class="options">
+                                <div class="option" data-target="security-testing">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Security Testing</span>
+                                </div>
+                                <div class="option" data-target="development">
+                                    <i class="fas fa-code"></i>
+                                    <span>Development</span>
+                                </div>
+                                <div class="option" data-target="learning">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Learning</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="decision-node" id="security-testing" style="display: none;">
+                            <div class="question">What's your experience level?</div>
+                            <div class="recommendations">
+                                <div class="rec-card">
+                                    <h4>Beginner</h4>
+                                    <div class="rec-tool">🥇 JWTAuditor</div>
+                                    <p>Automated scanning, guided tutorials</p>
+                                </div>
+                                <div class="rec-card">
+                                    <h4>Intermediate</h4>
+                                    <div class="rec-tool">🥇 JWTAuditor + JWT Editor</div>
+                                    <p>Comprehensive testing with Burp integration</p>
+                                </div>
+                                <div class="rec-card">
+                                    <h4>Advanced</h4>
+                                    <div class="rec-tool">🥇 jwt_tool + Custom Scripts</div>
+                                    <p>Full control and automation capabilities</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="docs-section">
+                    <h2>📈 Market Trends & Future Outlook</h2>
+
+                    <div class="trends-analysis">
+                        <div class="trend-card">
+                            <h3><i class="fas fa-arrow-up"></i> Growing Trends</h3>
+                            <ul>
+                                <li><strong>AI-Powered Analysis:</strong> Machine learning for vulnerability detection</li>
+                                <li><strong>Cloud-Native Tools:</strong> Kubernetes and container-aware JWT testing</li>
+                                <li><strong>API Security Focus:</strong> GraphQL and REST API-specific JWT tools</li>
+                                <li><strong>DevSecOps Integration:</strong> Built-in CI/CD pipeline support</li>
+                            </ul>
+                        </div>
+
+                        <div class="trend-card">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Emerging Challenges</h3>
+                            <ul>
+                                <li><strong>JWE Support:</strong> Encrypted JWT testing capabilities</li>
+                                <li><strong>Zero-Trust Architecture:</strong> Multi-token environment testing</li>
+                                <li><strong>Post-Quantum Cryptography:</strong> Future-proof algorithm support</li>
+                                <li><strong>Privacy Regulations:</strong> GDPR/CCPA compliant testing tools</li>
+                            </ul>
+                        </div>
+
+                        <div class="trend-card">
+                            <h3><i class="fas fa-crystal-ball"></i> Future Predictions</h3>
+                            <ul>
+                                <li><strong>Unified Platforms:</strong> All-in-one JWT security platforms</li>
+                                <li><strong>Real-time Monitoring:</strong> Production JWT monitoring tools</li>
+                                <li><strong>Automated Remediation:</strong> Self-healing JWT implementations</li>
+                                <li><strong>Compliance Automation:</strong> Built-in regulatory compliance checking</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="next-steps">
+                    <h3>Get Started With Your Tools</h3>
+                    <div class="next-links">
+                        <a href="../index.html" class="next-link primary">
+                            <i class="fas fa-rocket"></i>
+                            Try JWTAuditor Now
+                        </a>
+                        <a href="jwt-security-checklist.html" class="next-link">
+                            <i class="fas fa-clipboard-check"></i>
+                            Security Checklist
+                        </a>
+                        <a href="jwt-attack-vectors.html" class="next-link">
+                            <i class="fas fa-bug"></i>
+                            Attack Techniques
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <button class="sidebar-toggle" aria-label="Toggle sidebar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <style>
+    .tools-overview {
+        margin: 2rem 0;
+    }
+
+    .tool-category {
+        margin-bottom: 3rem;
+    }
+
+    .tool-category h3 {
+        margin-bottom: 1.5rem;
+        color: var(--text-primary);
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 0.5rem;
+    }
+
+    .category-tools {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .tool-card {
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+    }
+
+    .tool-card.featured {
+        border: 2px solid var(--primary-color);
+        box-shadow: 0 4px 20px rgba(0, 212, 170, 0.2);
+    }
+
+    .tool-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .tool-header h4 {
+        margin: 0;
+        color: var(--text-primary);
+        font-size: 1.3rem;
+    }
+
+    .tool-rating {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .stars {
+        color: #ffd700;
+        font-size: 1.1rem;
+    }
+
+    .score {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        font-weight: 600;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0.5rem;
+        margin: 1rem 0;
+    }
+
+    .feature {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.85rem;
+        border-radius: 15px;
+        text-align: center;
+    }
+
+    .feature:contains("✓") {
+        background: rgba(16, 185, 129, 0.2);
+        color: var(--success-color);
+    }
+
+    .feature:contains("✗") {
+        background: rgba(239, 68, 68, 0.2);
+        color: var(--danger-color);
+    }
+
+    .tool-pricing {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    .price {
+        font-weight: 600;
+        color: var(--success-color);
+    }
+
+    .license {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+    }
+
+    .install-command {
+        background: var(--dark-surface);
+        padding: 0.5rem;
+        border-radius: 4px;
+        margin-top: 0.5rem;
+    }
+
+    .install-command code {
+        color: var(--primary-color);
+        font-family: monospace;
+    }
+
+    .comparison-table-container {
+        overflow-x: auto;
+        margin: 2rem 0;
+    }
+
+    .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 800px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .comparison-table th {
+        background: var(--dark-surface);
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    .feature-yes {
+        color: var(--success-color);
+        font-weight: 600;
+    }
+
+    .feature-no {
+        color: var(--danger-color);
+        font-weight: 600;
+    }
+
+    .feature-partial {
+        color: var(--warning-color);
+        font-weight: 600;
+    }
+
+    .use-cases {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .use-case-card {
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        border: 1px solid var(--border-color);
+    }
+
+    .use-case-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .use-case-header i {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-right: 0.75rem;
+    }
+
+    .recommended-tools {
+        margin: 1rem 0;
+    }
+
+    .tool-recommendation {
+        padding: 0.5rem 0;
+    }
+
+    .tool-recommendation.primary {
+        color: var(--primary-color);
+        font-weight: 600;
+    }
+
+    .tool-combinations {
+        margin: 2rem 0;
+    }
+
+    .combo-card {
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--border-color);
+    }
+
+    .combo-tools {
+        display: flex;
+        align-items: center;
+        margin: 1rem 0;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .combo-tool {
+        padding: 0.5rem 1rem;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 0.9rem;
+    }
+
+    .combo-tool.primary {
+        background: var(--primary-color);
+        box-shadow: 0 2px 10px rgba(0, 212, 170, 0.3);
+    }
+
+    .combo-plus, .combo-arrow {
+        color: var(--text-secondary);
+        font-weight: bold;
+        margin: 0 0.5rem;
+    }
+
+    .decision-tree {
+        margin: 2rem 0;
+    }
+
+    .decision-node {
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--border-color);
+    }
+
+    .question {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .options {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .option {
+        padding: 1rem 1.5rem;
+        background: var(--dark-surface);
+        border-radius: var(--border-radius);
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        border: 2px solid transparent;
+    }
+
+    .option:hover {
+        border-color: var(--primary-color);
+        transform: translateY(-2px);
+    }
+
+    .option i {
+        display: block;
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .recommendations {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+
+    .rec-card {
+        background: var(--dark-surface);
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        text-align: center;
+    }
+
+    .rec-tool {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        margin: 0.5rem 0;
+    }
+
+    .trends-analysis {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+    }
+
+    .trend-card {
+        background: var(--card-bg);
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        border: 1px solid var(--border-color);
+    }
+
+    .trend-card h3 i {
+        margin-right: 0.5rem;
+    }
+
+    .next-link.primary {
+        background: var(--primary-color);
+        color: white;
+        font-weight: 600;
+    }
+    </style>
+
+    <script src="js/docs.js"></script>
+</body>
+</html>

@@ -296,23 +296,119 @@
 /* Attack techniques grid */
 .attack-techniques {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
     margin: 2rem 0;
 }
 
 .attack-technique {
-    padding: 1.5rem;
+    padding: 2rem;
     background: var(--dark-surface);
-    border-radius: var(--border-radius);
+    border-radius: 12px;
     border: 1px solid var(--border-color);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all 0.3s ease;
     box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.attack-technique::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--danger-color), #ff6b6b, var(--warning-color));
+    opacity: 0.8;
 }
 
 .attack-technique:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--box-shadow-lg);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary-color);
+}
+
+.attack-technique:hover::before {
+    background: linear-gradient(90deg, var(--primary-color), #00d4aa, var(--primary-light));
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+/* Enhanced CVSS Score Display */
+.cvss-score {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.score-circle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+    position: relative;
+    background: conic-gradient(
+        from 0deg,
+        var(--danger-color) 0deg,
+        var(--danger-color) 340deg,
+        transparent 340deg
+    );
+    animation: rotate-score 3s ease-in-out infinite;
+}
+
+.score-circle::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    background: var(--dark-surface);
+}
+
+.score-circle.critical {
+    background: conic-gradient(
+        from 0deg,
+        #ff0000 0deg,
+        #ff4444 95%,
+        transparent 95%
+    );
+}
+
+.score-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.score-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 600;
+}
+
+.score-desc {
+    font-size: 1rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+@keyframes rotate-score {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .attack-technique h3 {
@@ -1866,27 +1962,57 @@ pre:hover .copy-button {
     .docs-container {
         flex-direction: column;
         padding: 0 1rem;
+        position: relative;
     }
 
     .docs-sidebar {
         width: 100%;
-        position: static;
-        max-height: none;
-        display: none;
-        margin-bottom: 2rem;
-        order: 2;
+        position: fixed;
+        top: 0;
+        left: -100%;
+        max-height: 100vh;
+        background-color: var(--card-bg);
+        z-index: 999;
+        transition: left 0.3s ease;
+        overflow-y: auto;
+        border-right: 1px solid var(--border-color);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     }
 
     .docs-sidebar.active {
-        display: block;
+        left: 0;
     }
 
     .docs-content {
         order: 1;
+        margin-top: 0;
     }
 
     .sidebar-toggle {
         display: flex;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 1001;
+    }
+
+    /* Overlay for mobile sidebar */
+    .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 998;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+        opacity: 1;
     }
 
     .next-links {

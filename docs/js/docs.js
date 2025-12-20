@@ -7,20 +7,49 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile sidebar toggle
     const sidebarToggle = document.querySelector('.sidebar-toggle');
     const sidebar = document.querySelector('.docs-sidebar');
-    
+
     if (sidebarToggle && sidebar) {
-        sidebarToggle.addEventListener('click', () => {
+        // Create overlay element
+        const overlay = document.createElement('div');
+        overlay.className = 'sidebar-overlay';
+        document.body.appendChild(overlay);
+
+        sidebarToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = sidebar.classList.contains('active') ? 'hidden' : '';
         });
-        
+
+        // Close sidebar when clicking overlay
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
         // Close sidebar when clicking outside on mobile
         document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 768 && 
-                !sidebar.contains(e.target) && 
+            if (window.innerWidth <= 1024 &&
+                !sidebar.contains(e.target) &&
                 !sidebarToggle.contains(e.target) &&
                 sidebar.classList.contains('active')) {
                 sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
             }
+        });
+
+        // Handle navigation link clicks on mobile
+        const navLinks = sidebar.querySelectorAll('.docs-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 1024) {
+                    sidebar.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
         });
     }
     
@@ -110,6 +139,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Escape key to close mobile sidebar
         if (e.key === 'Escape' && sidebar && sidebar.classList.contains('active')) {
             sidebar.classList.remove('active');
+            const overlay = document.querySelector('.sidebar-overlay');
+            if (overlay) overlay.classList.remove('active');
+            document.body.style.overflow = '';
         }
     });
 });
