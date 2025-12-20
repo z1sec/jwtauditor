@@ -1,16 +1,35 @@
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://jwtauditor.com/sitemap.xml
+# AI Crawlers - Explicitly allowed for training and search
+User-agent: ChatGPT-User
+Allow: /
 
-# Preferred domain
-Host: jwtauditor.com
+User-agent: GPTBot
+Allow: /
 
-# Crawl delay for polite crawling
-Crawl-delay: 1
+User-agent: Google-Extended
+Allow: /
 
-# Allow all major search engines
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+User-agent: BardBot
+Allow: /
+
+User-agent: AnthropicAI
+Allow: /
+
+User-agent: OpenAI-SearchBot
+Allow: /
+
+# Traditional Search Engines
 User-agent: Googlebot
 Allow: /
 
@@ -28,6 +47,15 @@ Allow: /
 
 User-agent: YandexBot
 Allow: /
+
+# Sitemap
+Sitemap: https://jwtauditor.com/sitemap.xml
+
+# Preferred domain
+Host: jwtauditor.com
+
+# Crawl delay for polite crawling
+Crawl-delay: 1
 
 # Block common bad bots while allowing legitimate security scanners
 User-agent: AhrefsBot

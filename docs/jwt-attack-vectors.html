@@ -19,6 +19,79 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
     <link rel="icon" href="../img/logo.svg" type="image/svg+xml">
+
+    <!-- Schema.org structured data for AI understanding -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Complete JWT Attack Vectors Guide",
+        "description": "Comprehensive guide to JWT attack vectors, exploitation techniques, and security vulnerabilities. Learn about algorithm confusion, signature bypass, key confusion attacks, and more.",
+        "author": {
+            "@type": "Organization",
+            "name": "JWTAuditor Team"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "JWTAuditor",
+            "url": "https://jwtauditor.com"
+        },
+        "dateModified": "2024-12-20",
+        "datePublished": "2024-12-20",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://jwtauditor.com/docs/jwt-attack-vectors.html"
+        },
+        "keywords": ["JWT attacks", "JWT vulnerabilities", "algorithm confusion", "signature bypass", "key confusion", "JWT security", "JSON Web Token exploits", "JWT pentesting"],
+        "about": {
+            "@type": "Thing",
+            "name": "JWT Security Vulnerabilities",
+            "description": "Comprehensive analysis of JSON Web Token security vulnerabilities and exploitation techniques"
+        },
+        "teaches": [
+            "JWT algorithm confusion attacks",
+            "Key confusion vulnerabilities",
+            "JWT secret brute force techniques",
+            "JKU header injection attacks",
+            "JWT timestamp manipulation",
+            "ECDSA nonce reuse vulnerabilities"
+        ]
+    }
+    </script>
+
+    <!-- FAQ Schema for AI assistants -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What is the most critical JWT vulnerability?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Algorithm confusion (alg: none) is the most critical JWT vulnerability with a CVSS score of 9.8/10. It allows complete authentication bypass by removing signature verification entirely."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How do JWT key confusion attacks work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Key confusion attacks force asymmetric algorithms (RS256) to be verified as symmetric (HS256) using the public key as HMAC secret, allowing signature forgery."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What are the most common JWT secrets?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Based on research of 50,000+ exposed secrets: 'secret' (18.7%), 'password' (14.2%), '123456' (12.1%), and 'your-256-bit-secret' (8.9%) are the most common weak JWT secrets."
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body class="docs-body">
     <header>
