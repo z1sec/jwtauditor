@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JWT Generator Guide - JWTAuditor Documentation</title>
-    <meta name="description" content="Learn how to use JWTAuditor's JWT Generator tool to create new JWT tokens from scratch with custom claims and signatures.">
-    <meta name="keywords" content="JWT, generator, create, custom claims, signature, token generation">
+    <title>JWT生成器指南 - JWTAuditor 文档</title>
+    <meta name="description" content="学习如何使用JWTAuditor的JWT生成器工具从头开始创建具有自定义声明和签名的新JWT令牌。">
+    <meta name="keywords" content="JWT, 生成器, 创建, 自定义声明, 签名, 令牌生成">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../css/docs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -28,43 +28,43 @@
         <div class="docs-container">
             <aside class="docs-sidebar">
                 <div class="sidebar-header">
-                    <h2>Documentation</h2>
+                    <h2>文档</h2>
                 </div>
                 <nav class="docs-nav">
                     <div class="nav-section">
-                        <h3>JWT Fundamentals</h3>
+                        <h3>JWT基础</h3>
                         <ul>
-                            <li><a href="../jwt-fundamentals.html">Understanding JWT Structure</a></li>
-                            <li><a href="../jwt-claims.html">JWT Claims Explained</a></li>
-                            <li><a href="../jwt-vs-sessions.html">JWT vs. Session Auth</a></li>
+                            <li><a href="../jwt-fundamentals.html">理解JWT结构</a></li>
+                            <li><a href="../jwt-claims.html">JWT声明详解</a></li>
+                            <li><a href="../jwt-vs-sessions.html">JWT与会话认证</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Security Guides</h3>
+                        <h3>安全指南</h3>
                         <ul>
-                            <li><a href="../jwt-vulnerabilities-guide.html">JWT Vulnerabilities Guide</a></li>
-                            <li><a href="../jwt-attack-vectors.html">Complete Attack Vectors</a></li>
-                            <li><a href="../jwt-security-checklist.html">Security Checklist</a></li>
-                            <li><a href="../jwt-tools-comparison.html">Tools Comparison</a></li>
-                            <li><a href="../secure-jwt-implementation.html">Secure Implementation</a></li>
-                            <li><a href="../jwt-attack-techniques.html">Attack Techniques</a></li>
+                            <li><a href="../jwt-vulnerabilities-guide.html">JWT漏洞指南</a></li>
+                            <li><a href="../jwt-attack-vectors.html">完整攻击向量</a></li>
+                            <li><a href="../jwt-security-checklist.html">安全检查清单</a></li>
+                            <li><a href="../jwt-tools-comparison.html">工具对比</a></li>
+                            <li><a href="../secure-jwt-implementation.html">安全实施</a></li>
+                            <li><a href="../jwt-attack-techniques.html">攻击技术</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Tool Guides</h3>
+                        <h3>工具指南</h3>
                         <ul>
-                            <li><a href="decoder-analyzer.html">Decoder & Analyzer</a></li>
-                            <li><a href="secret-bruteforcer.html">Secret Bruteforcer</a></li>
-                            <li><a href="jwt-editor.html">JWT Editor</a></li>
-                            <li><a href="jwt-generator.html" class="active">JWT Generator</a></li>
+                            <li><a href="decoder-analyzer.html">解码器与分析器</a></li>
+                            <li><a href="secret-bruteforcer.html">密钥暴力破解器</a></li>
+                            <li><a href="jwt-editor.html">JWT编辑器</a></li>
+                            <li><a href="jwt-generator.html" class="active">JWT生成器</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Reference</h3>
+                        <h3>参考</h3>
                         <ul>
-                            <li><a href="../reference/jwt-header-parameters.html">Header Parameters</a></li>
-                            <li><a href="../reference/jwt-claim-registry.html">Claim Registry</a></li>
-                            <li><a href="../reference/jwt-algorithms.html">JWT Algorithms</a></li>
+                            <li><a href="../reference/jwt-header-parameters.html">头部参数</a></li>
+                            <li><a href="../reference/jwt-claim-registry.html">声明注册表</a></li>
+                            <li><a href="../reference/jwt-algorithms.html">JWT算法</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -72,69 +72,69 @@
 
             <div class="docs-content">
                 <div class="docs-header">
-                    <h1>JWT Generator Guide</h1>
+                    <h1>JWT生成器指南</h1>
                     <div class="docs-meta">
-                        <span><i class="fas fa-plus-circle"></i> Creation Tool</span>
-                        <span><i class="fas fa-clock"></i> Updated: May 2024</span>
+                        <span><i class="fas fa-plus-circle"></i> 创建工具</span>
+                        <span><i class="fas fa-clock"></i> 更新时间: 2024年5月</span>
                     </div>
                 </div>
 
                 <div class="docs-section intro-section">
                     <p class="lead">
-                        The JWT Generator allows you to create new JWT tokens from scratch with custom headers, payloads, and signatures. This tool is essential for testing applications, creating proof-of-concept tokens, and understanding JWT construction.
+                        JWT生成器允许您从头开始创建具有自定义头部、载荷和签名的新JWT令牌。此工具对于测试应用程序、创建概念验证令牌和了解JWT构建至关重要。
                     </p>
                 </div>
 
                 <div class="docs-section">
-                    <h2>What is JWT Generation?</h2>
+                    <h2>什么是JWT生成？</h2>
                     <p>
-                        JWT generation is the process of creating a new JSON Web Token by:
+                        JWT生成是通过以下方式创建新的JSON网络令牌的过程：
                     </p>
                     <ul>
-                        <li><strong>Defining the header:</strong> Specifying algorithm, type, and other metadata</li>
-                        <li><strong>Creating the payload:</strong> Adding claims that represent the token's information</li>
-                        <li><strong>Generating the signature:</strong> Cryptographically signing the token</li>
-                        <li><strong>Assembling the token:</strong> Combining all parts into a complete JWT</li>
+                        <li><strong>定义头部:</strong> 指定算法、类型和其他元数据</li>
+                        <li><strong>创建载荷:</strong> 添加表示令牌信息的声明</li>
+                        <li><strong>生成签名:</strong> 对令牌进行加密签名</li>
+                        <li><strong>组装令牌:</strong> 将所有部分组合成完整的JWT</li>
                     </ul>
                     
                     <div class="info-box">
                         <i class="fas fa-info-circle info-icon"></i>
                         <div class="info-content">
-                            <strong>Use Cases:</strong> Testing authentication flows, creating demo tokens, prototyping applications, and security research.
+                            <strong>使用场景:</strong> 测试身份验证流程、创建演示令牌、原型应用程序和安全研究。
                         </div>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>How to Use the JWT Generator</h2>
+                    <h2>如何使用JWT生成器</h2>
                     
-                    <h3>Step 1: Navigate to the Tool</h3>
-                    <p>Click on the "🔧 JWT Generator" tab in the main JWTAuditor interface.</p>
+                    <h3>步骤1: 导航到工具</h3>
+                    <p>点击主JWTAuditor界面中的"🔧 JWT生成器"标签。</p>
 
-                    <h3>Step 2: Configure the Header</h3>
-                    <p>The header editor comes pre-populated with a default header. You can modify it as needed:</p>
+                    <h3>步骤2: 配置头部</h3>
+                    <p>头部编辑器预填充了默认头部。您可以根据需要进行修改：</p>
                     
                     <div class="code-example">
-                        <h4>Default Header</h4>
+                        <h4>默认头部</h4>
                         <pre><code class="language-json">{
   "alg": "HS256",
   "typ": "JWT"
 }</code></pre>
                     </div>
 
-                    <p>Common header modifications:</p>
+                    <p>常见头部修改：</p>
                     <ul>
-                        <li><strong>Algorithm:</strong> Change between HS256, HS384, HS512, RS256, RS384, RS512, or none</li>
-                        <li><strong>Key ID:</strong> Add a "kid" parameter for key identification</li>
-                        <li><strong>Content Type:</strong> Add "cty" for nested JWTs</li>
-                        <li><strong>Custom parameters:</strong> Add application-specific header claims</li>
+                        <li><strong>算法:</strong> 在HS256、HS384、HS512、RS256、RS384、RS512或none之间更改</li>
+                        <li><strong>密钥ID:</strong> 添加"kid"参数用于密钥识别</li>
+                        <li><strong>内容类型:</strong> 为嵌套JWT添加"cty"</li>
+                        <li><strong>自定义参数:</strong> 添加特定于应用程序的头部声明</li>
                     </ul>
 
-                    <h3>Step 3: Build the Payload</h3>
-                    <p>The payload editor includes a default payload with common claims. You can:</p>
+                    <h3>步骤3: 构建载荷</h3>
+                    <p>载荷编辑器包含带有常见声明的默认载荷。您可以：</p>
                     
                     <div class="code-example">
-                        <h4>Default Payload</h4>
+                        <h4>默认载荷</h4>
                         <pre><code class="language-json">{
   "sub": "1234567890",
   "name": "John Doe",
@@ -143,97 +143,97 @@
 }</code></pre>
                     </div>
 
-                    <h4>Adding Standard Claims</h4>
-                    <p>Use the claim buttons to quickly add standard JWT claims:</p>
+                    <h4>添加标准声明</h4>
+                    <p>使用声明按钮快速添加标准JWT声明：</p>
                     
                     <div class="claim-buttons-demo">
                         <div class="claim-button-group">
                             <button class="claim-btn-demo">sub</button>
-                            <span>Subject - The user identifier</span>
+                            <span>主题 - 用户标识符</span>
                         </div>
                         <div class="claim-button-group">
                             <button class="claim-btn-demo">iss</button>
-                            <span>Issuer - Who issued the token</span>
+                            <span>签发者 - 谁签发了令牌</span>
                         </div>
                         <div class="claim-button-group">
                             <button class="claim-btn-demo">aud</button>
-                            <span>Audience - Who the token is for</span>
+                            <span>受众 - 令牌的接收对象</span>
                         </div>
                         <div class="claim-button-group">
                             <button class="claim-btn-demo">exp</button>
-                            <span>Expiration - When the token expires</span>
+                            <span>过期时间 - 令牌何时过期</span>
                         </div>
                         <div class="claim-button-group">
                             <button class="claim-btn-demo">nbf</button>
-                            <span>Not Before - When the token becomes valid</span>
+                            <span>生效时间 - 令牌何时生效</span>
                         </div>
                         <div class="claim-button-group">
                             <button class="claim-btn-demo">iat</button>
-                            <span>Issued At - When the token was issued</span>
+                            <span>签发时间 - 令牌何时签发</span>
                         </div>
                         <div class="claim-button-group">
                             <button class="claim-btn-demo">jti</button>
-                            <span>JWT ID - Unique identifier for the token</span>
+                            <span>JWT ID - 令牌的唯一标识符</span>
                         </div>
                     </div>
 
-                    <h3>Step 4: Configure Signature Options</h3>
-                    <p>Choose the signing algorithm and provide the necessary credentials:</p>
+                    <h3>步骤4: 配置签名选项</h3>
+                    <p>选择签名算法并提供必要的凭证：</p>
                     
                     <div class="signature-options">
                         <div class="option-card">
-                            <h4>none Algorithm</h4>
-                            <p>Creates an unsigned token. Useful for testing if applications accept unsigned tokens.</p>
-                            <p><strong>Security Risk:</strong> No cryptographic protection</p>
+                            <h4>none算法</h4>
+                            <p>创建未签名的令牌。用于测试应用程序是否接受未签名的令牌。</p>
+                            <p><strong>安全风险:</strong> 没有加密保护</p>
                         </div>
                         
                         <div class="option-card">
-                            <h4>HMAC Algorithms (HS256, HS384, HS512)</h4>
-                            <p>Uses a shared secret key for signing. Enter your secret key in the "Secret Key" field.</p>
-                            <p><strong>Example:</strong> <code>your-256-bit-secret</code></p>
+                            <h4>HMAC算法 (HS256, HS384, HS512)</h4>
+                            <p>使用共享密钥进行签名。在"密钥"字段中输入您的密钥。</p>
+                            <p><strong>示例:</strong> <code>your-256-bit-secret</code></p>
                         </div>
                         
                         <div class="option-card">
-                            <h4>RSA Algorithms (RS256, RS384, RS512)</h4>
-                            <p>Uses RSA private key for signing. You can:</p>
+                            <h4>RSA算法 (RS256, RS384, RS512)</h4>
+                            <p>使用RSA私钥进行签名。您可以：</p>
                             <ul>
-                                <li>Paste an existing private key</li>
-                                <li>Generate a new key pair using the "Generate RSA Key Pair" button</li>
+                                <li>粘贴现有私钥</li>
+                                <li>使用"生成RSA密钥对"按钮生成新密钥对</li>
                             </ul>
                         </div>
                     </div>
 
-                    <h3>Step 5: Generate RSA Keys (Optional)</h3>
-                    <p>For RSA algorithms, you can generate a new key pair:</p>
+                    <h3>步骤5: 生成RSA密钥(可选)</h3>
+                    <p>对于RSA算法，您可以生成新密钥对：</p>
                     <ol>
-                        <li>Select an RSA algorithm (RS256, RS384, or RS512)</li>
-                        <li>Click "Generate RSA Key Pair"</li>
-                        <li>The tool will generate a 2048-bit RSA key pair</li>
-                        <li>The private key will be used for signing</li>
-                        <li>The public key will be displayed for verification purposes</li>
+                        <li>选择RSA算法(RS256、RS384或RS512)</li>
+                        <li>点击"生成RSA密钥对"</li>
+                        <li>工具将生成2048位RSA密钥对</li>
+                        <li>私钥将用于签名</li>
+                        <li>公钥将显示用于验证目的</li>
                     </ol>
 
-                    <h3>Step 6: Generate the JWT</h3>
-                    <p>Click "Generate JWT" to create your token. The tool will:</p>
+                    <h3>步骤6: 生成JWT</h3>
+                    <p>点击"生成JWT"创建您的令牌。该工具将：</p>
                     <ul>
-                        <li>Validate the JSON syntax</li>
-                        <li>Update timestamp claims (iat, exp, nbf) if present</li>
-                        <li>Generate the appropriate signature</li>
-                        <li>Display the complete JWT token</li>
+                        <li>验证JSON语法</li>
+                        <li>更新时间戳声明(iat、exp、nbf)(如果存在)</li>
+                        <li>生成适当的签名</li>
+                        <li>显示完整的JWT令牌</li>
                     </ul>
 
-                    <h3>Step 7: Copy and Use</h3>
-                    <p>Use the "Copy to Clipboard" button to copy the generated token for use in your applications or testing.</p>
+                    <h3>步骤7: 复制和使用</h3>
+                    <p>使用"复制到剪贴板"按钮复制生成的令牌以在您的应用程序或测试中使用。</p>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Common Use Cases</h2>
+                    <h2>常见使用场景</h2>
                     
-                    <h3>1. Testing Authentication Flow</h3>
-                    <p>Create tokens with different user roles to test application access control:</p>
+                    <h3>1. 测试身份验证流程</h3>
+                    <p>创建具有不同用户角色的令牌来测试应用程序访问控制：</p>
                     
                     <div class="code-example">
-                        <h4>Admin User Token</h4>
+                        <h4>管理员用户令牌</h4>
                         <pre><code class="language-json">{
   "sub": "admin",
   "name": "Administrator",
@@ -245,7 +245,7 @@
                     </div>
 
                     <div class="code-example">
-                        <h4>Regular User Token</h4>
+                        <h4>普通用户令牌</h4>
                         <pre><code class="language-json">{
   "sub": "user123",
   "name": "John Doe",
@@ -256,11 +256,11 @@
 }</code></pre>
                     </div>
 
-                    <h3>2. API Testing</h3>
-                    <p>Create tokens for testing API endpoints with different scopes:</p>
+                    <h3>2. API测试</h3>
+                    <p>创建用于测试具有不同作用域的API端点的令牌：</p>
                     
                     <div class="code-example">
-                        <h4>API Access Token</h4>
+                        <h4>API访问令牌</h4>
                         <pre><code class="language-json">{
   "sub": "api-client",
   "aud": "https://api.example.com",
@@ -271,11 +271,11 @@
 }</code></pre>
                     </div>
 
-                    <h3>3. Microservices Communication</h3>
-                    <p>Generate tokens for service-to-service communication:</p>
+                    <h3>3. 微服务通信</h3>
+                    <p>为服务间通信生成令牌：</p>
                     
                     <div class="code-example">
-                        <h4>Service Token</h4>
+                        <h4>服务令牌</h4>
                         <pre><code class="language-json">{
   "sub": "user-service",
   "aud": "order-service",
@@ -286,11 +286,11 @@
 }</code></pre>
                     </div>
 
-                    <h3>4. Security Testing</h3>
-                    <p>Create tokens for security testing scenarios:</p>
+                    <h3>4. 安全测试</h3>
+                    <p>为安全测试场景创建令牌：</p>
                     
                     <div class="code-example">
-                        <h4>Privilege Escalation Test</h4>
+                        <h4>权限提升测试</h4>
                         <pre><code class="language-json">{
   "sub": "user123",
   "name": "John Doe",
@@ -304,21 +304,21 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>Advanced Features</h2>
+                    <h2>高级功能</h2>
                     
-                    <h3>Automatic Timestamp Updates</h3>
-                    <p>The generator automatically updates timestamp claims when generating tokens:</p>
+                    <h3>自动时间戳更新</h3>
+                    <p>生成器在生成令牌时自动更新时间戳声明：</p>
                     <ul>
-                        <li><strong>iat (Issued At):</strong> Set to current timestamp</li>
-                        <li><strong>exp (Expiration):</strong> Updated relative to current time</li>
-                        <li><strong>nbf (Not Before):</strong> Set to current timestamp</li>
+                        <li><strong>iat (签发时间):</strong> 设置为当前时间戳</li>
+                        <li><strong>exp (过期时间):</strong> 相对于当前时间更新</li>
+                        <li><strong>nbf (生效时间):</strong> 设置为当前时间戳</li>
                     </ul>
 
-                    <h3>Custom Claims</h3>
-                    <p>Add any custom claims to the payload by editing the JSON directly:</p>
+                    <h3>自定义声明</h3>
+                    <p>通过直接编辑JSON向载荷添加任何自定义声明：</p>
                     
                     <div class="code-example">
-                        <h4>Custom Claims Example</h4>
+                        <h4>自定义声明示例</h4>
                         <pre><code class="language-json">{
   "sub": "1234567890",
   "name": "John Doe",
@@ -335,11 +335,11 @@
 }</code></pre>
                     </div>
 
-                    <h3>Nested JWTs</h3>
-                    <p>Create nested JWTs by setting the content type in the header:</p>
+                    <h3>嵌套JWT</h3>
+                    <p>通过在头部设置内容类型来创建嵌套JWT：</p>
                     
                     <div class="code-example">
-                        <h4>Nested JWT Header</h4>
+                        <h4>嵌套JWT头部</h4>
                         <pre><code class="language-json">{
   "alg": "HS256",
   "typ": "JWT",
@@ -347,11 +347,11 @@
 }</code></pre>
                     </div>
 
-                    <h3>Key ID (kid) Parameter</h3>
-                    <p>Add key identifiers for key management:</p>
+                    <h3>密钥ID(kid)参数</h3>
+                    <p>添加密钥标识符用于密钥管理：</p>
                     
                     <div class="code-example">
-                        <h4>Header with Key ID</h4>
+                        <h4>带密钥ID的头部</h4>
                         <pre><code class="language-json">{
   "alg": "RS256",
   "typ": "JWT",
@@ -361,50 +361,50 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>Best Practices</h2>
+                    <h2>最佳实践</h2>
                     
-                    <h3>Security Best Practices</h3>
+                    <h3>安全最佳实践</h3>
                     <ul>
-                        <li><strong>Use strong secrets:</strong> For HMAC algorithms, use cryptographically secure random secrets</li>
-                        <li><strong>Set appropriate expiration:</strong> Don't create tokens that live too long</li>
-                        <li><strong>Include necessary claims:</strong> Add issuer, audience, and other validation claims</li>
-                        <li><strong>Use appropriate algorithms:</strong> Consider RS256 for production systems</li>
-                        <li><strong>Validate inputs:</strong> Ensure all claims are properly validated</li>
+                        <li><strong>使用强密钥:</strong> 对于HMAC算法，使用密码学安全的随机密钥</li>
+                        <li><strong>设置适当的过期时间:</strong> 不要创建存活时间过长的令牌</li>
+                        <li><strong>包含必要声明:</strong> 添加签发者、受众和其他验证声明</li>
+                        <li><strong>使用适当算法:</strong> 考虑在生产系统中使用RS256</li>
+                        <li><strong>验证输入:</strong> 确保所有声明都经过适当验证</li>
                     </ul>
 
-                    <h3>Testing Best Practices</h3>
+                    <h3>测试最佳实践</h3>
                     <ul>
-                        <li><strong>Test different scenarios:</strong> Create tokens for various user types and permissions</li>
-                        <li><strong>Test edge cases:</strong> Create tokens with missing claims, invalid timestamps, etc.</li>
-                        <li><strong>Document test cases:</strong> Keep track of different token configurations</li>
-                        <li><strong>Validate behavior:</strong> Ensure your application handles tokens correctly</li>
+                        <li><strong>测试不同场景:</strong> 为各种用户类型和权限创建令牌</li>
+                        <li><strong>测试边界情况:</strong> 创建缺少声明、无效时间戳等的令牌</li>
+                        <li><strong>记录测试用例:</strong> 跟踪不同的令牌配置</li>
+                        <li><strong>验证行为:</strong> 确保您的应用程序正确处理令牌</li>
                     </ul>
 
-                    <h3>Development Best Practices</h3>
+                    <h3>开发最佳实践</h3>
                     <ul>
-                        <li><strong>Use consistent claim names:</strong> Standardize claim names across your application</li>
-                        <li><strong>Include version information:</strong> Add version claims for token format changes</li>
-                        <li><strong>Add debugging information:</strong> Include claims that help with debugging</li>
-                        <li><strong>Consider token size:</strong> Keep tokens reasonably small for performance</li>
+                        <li><strong>使用一致的声明名称:</strong> 在应用程序中标准化声明名称</li>
+                        <li><strong>包含版本信息:</strong> 为令牌格式更改添加版本声明</li>
+                        <li><strong>添加调试信息:</strong> 包含有助于调试的声明</li>
+                        <li><strong>考虑令牌大小:</strong> 为性能保持令牌合理小</li>
                     </ul>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Working with RSA Keys</h2>
+                    <h2>使用RSA密钥</h2>
                     
-                    <h3>Key Generation</h3>
-                    <p>The built-in RSA key generator creates 2048-bit keys suitable for testing:</p>
+                    <h3>密钥生成</h3>
+                    <p>内置RSA密钥生成器创建适用于测试的2048位密钥：</p>
                     <ul>
-                        <li><strong>Private key:</strong> Used for signing tokens</li>
-                        <li><strong>Public key:</strong> Used for verification (displayed for reference)</li>
-                        <li><strong>Format:</strong> PEM format compatible with most systems</li>
+                        <li><strong>私钥:</strong> 用于签署令牌</li>
+                        <li><strong>公钥:</strong> 用于验证(显示供参考)</li>
+                        <li><strong>格式:</strong> 与大多数系统兼容的PEM格式</li>
                     </ul>
 
-                    <h3>External Key Management</h3>
-                    <p>You can also use externally generated keys:</p>
+                    <h3>外部密钥管理</h3>
+                    <p>您也可以使用外部生成的密钥：</p>
                     
                     <div class="code-example">
-                        <h4>Generate keys with OpenSSL</h4>
+                        <h4>使用OpenSSL生成密钥</h4>
                         <pre><code class="language-bash"># Generate private key
 openssl genrsa -out private.pem 2048
 
@@ -415,69 +415,69 @@ openssl rsa -in private.pem -pubout -out public.pem
 openssl rsa -in private.pem -text -noout</code></pre>
                     </div>
 
-                    <h3>Key Security</h3>
+                    <h3>密钥安全</h3>
                     <ul>
-                        <li><strong>Private key protection:</strong> Never share or commit private keys</li>
-                        <li><strong>Key rotation:</strong> Regularly rotate keys in production</li>
-                        <li><strong>Key storage:</strong> Use secure key management systems</li>
-                        <li><strong>Testing keys:</strong> Use separate keys for testing and production</li>
+                        <li><strong>私钥保护:</strong> 切勿分享或提交私钥</li>
+                        <li><strong>密钥轮换:</strong> 定期轮换生产环境中的密钥</li>
+                        <li><strong>密钥存储:</strong> 使用安全的密钥管理系统</li>
+                        <li><strong>测试密钥:</strong> 为测试和生产使用单独的密钥</li>
                     </ul>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Troubleshooting</h2>
+                    <h2>故障排除</h2>
                     
                     <div class="faq-item">
-                        <h4>Q: I get "Invalid JSON" when generating tokens</h4>
-                        <p>A: Check that your header and payload JSON is properly formatted. Use proper quotes around strings and ensure commas are correctly placed.</p>
+                        <h4>问: 生成令牌时出现"无效JSON"</h4>
+                        <p>答: 检查您的头部和载荷JSON格式是否正确。对字符串使用适当的引号并确保逗号位置正确。</p>
                     </div>
 
                     <div class="faq-item">
-                        <h4>Q: The generated token doesn't work in my application</h4>
-                        <p>A: Verify that you're using the correct algorithm and secret key. Also check that your application expects the claims you've included.</p>
+                        <h4>问: 生成的令牌在我的应用程序中不起作用</h4>
+                        <p>答: 验证您是否使用了正确的算法和密钥。还要检查您的应用程序是否期望您包含的声明。</p>
                     </div>
 
                     <div class="faq-item">
-                        <h4>Q: RSA key generation fails</h4>
-                        <p>A: Ensure your browser supports the Web Crypto API. Try refreshing the page or using a different browser.</p>
+                        <h4>问: RSA密钥生成失败</h4>
+                        <p>答: 确保您的浏览器支持Web Crypto API。尝试刷新页面或使用其他浏览器。</p>
                     </div>
 
                     <div class="faq-item">
-                        <h4>Q: How do I know if my token is valid?</h4>
-                        <p>A: Use the Decoder & Analyzer tool to decode and validate your generated token. It will show any issues with the token structure.</p>
+                        <h4>问: 如何知道我的令牌是否有效？</h4>
+                        <p>答: 使用解码器和分析器工具解码和验证您生成的令牌。它将显示令牌结构的任何问题。</p>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Security Considerations</h2>
+                    <h2>安全注意事项</h2>
                     
                     <div class="info-box">
                         <i class="fas fa-shield-alt info-icon"></i>
                         <div class="info-content">
-                            <strong>Privacy:</strong> All token generation is performed locally in your browser. No tokens, keys, or secrets are transmitted to external servers.
+                            <strong>隐私:</strong> 所有令牌生成都在您的浏览器中本地执行。没有任何令牌、密钥或密钥传输到外部服务器。
                         </div>
                     </div>
 
                     <div class="warning-box">
                         <i class="fas fa-exclamation-triangle warning-icon"></i>
                         <div class="warning-content">
-                            <strong>Important:</strong> Generated RSA keys are for testing purposes only. For production use, generate keys using secure, offline methods.
+                            <strong>重要:</strong> 生成的RSA密钥仅用于测试目的。对于生产用途，请使用安全的离线方法生成密钥。
                         </div>
                     </div>
 
-                    <p>Additional security considerations:</p>
+                    <p>其他安全注意事项：</p>
                     <ul>
-                        <li>Don't use generated tokens in production without proper validation</li>
-                        <li>Be careful when sharing tokens - they may contain sensitive information</li>
-                        <li>Use appropriate key sizes for your security requirements</li>
-                        <li>Consider the implications of token expiration and rotation</li>
+                        <li>未经适当验证，请勿在生产环境中使用生成的令牌</li>
+                        <li>分享令牌时要小心 - 它们可能包含敏感信息</li>
+                        <li>根据您的安全需求使用适当的密钥长度</li>
+                        <li>考虑令牌过期和轮换的影响</li>
                     </ul>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Integration Examples</h2>
+                    <h2>集成示例</h2>
                     
-                    <h3>Node.js Verification</h3>
+                    <h3>Node.js验证</h3>
                     <div class="code-example">
                         <pre><code class="language-javascript">const jwt = require('jsonwebtoken');
 
@@ -493,7 +493,7 @@ try {
 }</code></pre>
                     </div>
 
-                    <h3>Python Verification</h3>
+                    <h3>Python验证</h3>
                     <div class="code-example">
                         <pre><code class="language-python">import jwt
 
@@ -508,7 +508,7 @@ except jwt.InvalidTokenError as e:
     print('Token verification failed:', str(e))</code></pre>
                     </div>
 
-                    <h3>curl Testing</h3>
+                    <h3>curl测试</h3>
                     <div class="code-example">
                         <pre><code class="language-bash"># Test with generated token
 curl -H "Authorization: Bearer your-generated-token" \
@@ -517,31 +517,31 @@ curl -H "Authorization: Bearer your-generated-token" \
                 </div>
 
                 <div class="docs-section">
-                    <h2>Related Tools</h2>
-                    <p>Combine the JWT Generator with other JWTAuditor tools for comprehensive JWT workflows:</p>
+                    <h2>相关工具</h2>
+                    <p>将JWT生成器与其他JWTAuditor工具结合使用，以实现全面的JWT工作流程：</p>
                     
                     <div class="tool-links">
                         <a href="decoder-analyzer.html" class="tool-link">
                             <i class="fas fa-search"></i>
                             <div>
-                                <h4>Decoder & Analyzer</h4>
-                                <p>Validate and analyze your generated tokens</p>
+                                <h4>解码器和分析器</h4>
+                                <p>验证和分析您生成的令牌</p>
                             </div>
                         </a>
                         
                         <a href="jwt-editor.html" class="tool-link">
                             <i class="fas fa-edit"></i>
                             <div>
-                                <h4>JWT Editor</h4>
-                                <p>Modify existing tokens or fine-tune generated ones</p>
+                                <h4>JWT编辑器</h4>
+                                <p>修改现有令牌或微调生成的令牌</p>
                             </div>
                         </a>
                         
                         <a href="secret-bruteforcer.html" class="tool-link">
                             <i class="fas fa-key"></i>
                             <div>
-                                <h4>Secret Bruteforcer</h4>
-                                <p>Test token security by attempting to discover secrets</p>
+                                <h4>密钥暴力破解器</h4>
+                                <p>通过尝试发现密钥来测试令牌安全性</p>
                             </div>
                         </a>
                     </div>
@@ -554,14 +554,14 @@ curl -H "Authorization: Bearer your-generated-token" \
         <div class="footer-container">
             <div class="footer-section">
                 <h3>JWTAuditor</h3>
-                <p>Professional JWT security testing platform for penetration testers and cybersecurity professionals. Decode, analyze vulnerabilities, and audit JSON Web Token implementations with complete client-side privacy.</p>
+                <p>面向渗透测试人员和网络安全专业人员的专业JWT安全测试平台。解码、分析漏洞并审计JSON Web Token实现，确保完整的客户端隐私。</p>
             </div>
             <div class="footer-section">
-                <h3>Documentation</h3>
+                <h3>文档</h3>
                 <ul class="footer-links">
-                    <li><a href="../jwt-fundamentals.html">JWT Fundamentals</a></li>
-                    <li><a href="../jwt-vulnerabilities-guide.html">Vulnerabilities Guide</a></li>
-                    <li><a href="../secure-jwt-implementation.html">Secure Implementation</a></li>
+                    <li><a href="../jwt-fundamentals.html">JWT基础</a></li>
+                    <li><a href="../jwt-vulnerabilities-guide.html">漏洞指南</a></li>
+                    <li><a href="../secure-jwt-implementation.html">安全实施</a></li>
                 </ul>
             </div>
             <div class="footer-section">

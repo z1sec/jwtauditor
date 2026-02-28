@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JWT Vulnerabilities Guide - JWTAuditor</title>
-    <meta name="description" content="Comprehensive guide to JWT security vulnerabilities, exploitation techniques, and mitigation strategies.">
-    <meta name="keywords" content="JWT, security, vulnerabilities, algorithm none, key confusion, brute force">
+    <title>JWT漏洞指南 - JWTAuditor</title>
+    <meta name="description" content="JWT安全漏洞、利用技术和缓解策略的综合指南。">
+    <meta name="keywords" content="JWT, 安全, 漏洞, 算法none, 密钥混淆, 暴力破解">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="css/docs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,9 +18,9 @@
             <i class="fas fa-user-secret"></i>
             <h1>JWTAuditor</h1>
         </div>
-        <div class="subtitle">Documentation & Learning Resources</div>
+        <div class="subtitle">文档与学习资源</div>
         <div class="header-actions">
-            <a href="../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> Back to Tool</a>
+            <a href="../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> 返回工具</a>
         </div>
     </header>
 
@@ -28,43 +28,43 @@
         <div class="docs-container">
             <aside class="docs-sidebar">
                 <div class="sidebar-header">
-                    <h2>Documentation</h2>
+                    <h2>文档</h2>
                 </div>
                 <nav class="docs-nav">
                     <div class="nav-section">
-                        <h3>JWT Fundamentals</h3>
+                        <h3>JWT基础</h3>
                         <ul>
-                            <li><a href="jwt-fundamentals.html">Understanding JWT Structure</a></li>
-                            <li><a href="jwt-claims.html">JWT Claims Explained</a></li>
-                            <li><a href="jwt-vs-sessions.html">JWT vs. Session Auth</a></li>
+                            <li><a href="jwt-fundamentals.html">理解JWT结构</a></li>
+                            <li><a href="jwt-claims.html">JWT声明详解</a></li>
+                            <li><a href="jwt-vs-sessions.html">JWT与会话认证</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Security Guides</h3>
+                        <h3>安全指南</h3>
                         <ul>
-                            <li><a href="jwt-vulnerabilities-guide.html" class="active">JWT Vulnerabilities Guide</a></li>
-                            <li><a href="jwt-attack-vectors.html">Complete Attack Vectors</a></li>
-                            <li><a href="jwt-security-checklist.html">Security Checklist</a></li>
-                            <li><a href="jwt-tools-comparison.html">Tools Comparison</a></li>
-                            <li><a href="secure-jwt-implementation.html">Secure Implementation</a></li>
-                            <li><a href="jwt-attack-techniques.html">Attack Techniques</a></li>
+                            <li><a href="jwt-vulnerabilities-guide.html" class="active">JWT漏洞指南</a></li>
+                            <li><a href="jwt-attack-vectors.html">完整攻击向量</a></li>
+                            <li><a href="jwt-security-checklist.html">安全检查清单</a></li>
+                            <li><a href="jwt-tools-comparison.html">工具对比</a></li>
+                            <li><a href="secure-jwt-implementation.html">安全实施</a></li>
+                            <li><a href="jwt-attack-techniques.html">攻击技术</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Tool Guides</h3>
+                        <h3>工具指南</h3>
                         <ul>
-                            <li><a href="tool-guides/decoder-analyzer.html">Decoder & Analyzer</a></li>
-                            <li><a href="tool-guides/secret-bruteforcer.html">Secret Bruteforcer</a></li>
-                            <li><a href="tool-guides/jwt-editor.html">JWT Editor</a></li>
-                            <li><a href="tool-guides/jwt-generator.html">JWT Generator</a></li>
+                            <li><a href="tool-guides/decoder-analyzer.html">解码器与分析器</a></li>
+                            <li><a href="tool-guides/secret-bruteforcer.html">密钥暴力破解器</a></li>
+                            <li><a href="tool-guides/jwt-editor.html">JWT编辑器</a></li>
+                            <li><a href="tool-guides/jwt-generator.html">JWT生成器</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Reference</h3>
+                        <h3>参考</h3>
                         <ul>
-                            <li><a href="reference/jwt-header-parameters.html">Header Parameters</a></li>
-                            <li><a href="reference/jwt-claim-registry.html">Claim Registry</a></li>
-                            <li><a href="reference/jwt-algorithms.html">JWT Algorithms</a></li>
+                            <li><a href="reference/jwt-header-parameters.html">头部参数</a></li>
+                            <li><a href="reference/jwt-claim-registry.html">声明注册表</a></li>
+                            <li><a href="reference/jwt-algorithms.html">JWT算法</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -72,134 +72,134 @@
 
             <div class="docs-content">
                 <div class="docs-header">
-                    <h1>JWT Vulnerabilities Guide</h1>
+                    <h1>JWT漏洞指南</h1>
                     <div class="docs-meta">
-                        <span><i class="fas fa-user-secret"></i> Security Guide</span>
+                        <span><i class="fas fa-user-secret"></i> 安全指南</span>
                         <span><i class="fas fa-clock"></i> Reading time: 15 min</span>
                     </div>
                 </div>
 
                 <div class="docs-section intro-section">
                     <p class="lead">
-                        JSON Web Tokens (JWTs) have become the de facto standard for implementing authentication and authorization in modern web applications. However, their widespread adoption has also made them a prime target for attackers. This guide explores common JWT vulnerabilities, exploitation techniques, and best practices for secure implementation.
+                        JSON Web Token（JWT）已成为在现代Web应用程序中实现身份验证和授权的事实标准。然而，它们的广泛采用也使其成为攻击者的主要目标。本指南探讨了常见的JWT漏洞、利用技术以及安全实现的最佳实践。
                     </p>
                     
                     <div class="warning-box">
                         <div class="warning-icon"><i class="fas fa-exclamation-triangle"></i></div>
                         <div class="warning-content">
-                            <p><strong>Important:</strong> This guide is provided for educational purposes only. Always use your knowledge responsibly and ethically. Never attempt to exploit vulnerabilities in systems without explicit permission.</p>
+                            <p><strong>重要提示：</strong> 本指南仅供教育目的。请负责任且道德地使用您的知识。切勿在未经明确许可的情况下尝试利用系统的漏洞。</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Table of Contents</h2>
+                    <h2>目录</h2>
                     <ul class="toc-list">
-                        <li><a href="#algorithm-none">Algorithm None Attack</a></li>
-                        <li><a href="#symmetric-key">Symmetric Key Bruteforcing</a></li>
-                        <li><a href="#algorithm-confusion">Algorithm Confusion Attack</a></li>
-                        <li><a href="#jwk-injection">JWK Header Injection</a></li>
-                        <li><a href="#jku-injection">JWK Set URL Injection</a></li>
-                        <li><a href="#kid-injection">Key ID (kid) Parameter Injection</a></li>
-                        <li><a href="#arbitrary-signatures">Accepting Arbitrary Signatures</a></li>
-                        <li><a href="#x5c-injection">X.509 Certificate Chain Injection</a></li>
-                        <li><a href="#cty-manipulation">Content Type Manipulation</a></li>
-                        <li><a href="#sensitive-data">Sensitive Data Exposure</a></li>
-                        <li><a href="#missing-claims">Missing or Misused Claims</a></li>
-                        <li><a href="#replay-attacks">Replay Attacks</a></li>
-                        <li><a href="#weak-secrets">Weak Secrets</a></li>
-                        <li><a href="#token-invalidation">Token Invalidation Issues</a></li>
-                        <li><a href="#token-substitution">Token Substitution Attacks</a></li>
+                        <li><a href="#algorithm-none">None算法攻击</a></li>
+                        <li><a href="#symmetric-key">对称密钥暴力破解</a></li>
+                        <li><a href="#algorithm-confusion">算法混淆攻击</a></li>
+                        <li><a href="#jwk-injection">JWK头部注入</a></li>
+                        <li><a href="#jku-injection">JWK集URL注入</a></li>
+                        <li><a href="#kid-injection">密钥ID（kid）参数注入</a></li>
+                        <li><a href="#arbitrary-signatures">接受任意签名</a></li>
+                        <li><a href="#x5c-injection">X.509证书链注入</a></li>
+                        <li><a href="#cty-manipulation">内容类型操纵</a></li>
+                        <li><a href="#sensitive-data">敏感数据泄露</a></li>
+                        <li><a href="#missing-claims">缺少或误用声明</a></li>
+                        <li><a href="#replay-attacks">重放攻击</a></li>
+                        <li><a href="#weak-secrets">弱密钥</a></li>
+                        <li><a href="#token-invalidation">令牌失效问题</a></li>
+                        <li><a href="#token-substitution">令牌替换攻击</a></li>
                     </ul>
                 </div>
 
                 <div id="algorithm-none" class="docs-section">
-                    <h2>Algorithm None Attack</h2>
+                    <h2>None算法攻击</h2>
                     
-                    <h3>What is this issue?</h3>
+                    <h3>什么是这个问题？</h3>
                     <p>
-                        The JWT specification allows for an "alg" value of "none" to indicate that the token is unsecured. Some JWT libraries may accept tokens with the "alg" header set to "none" and skip signature verification entirely.
+                        JWT规范允许使用"alg"值为"none"来表示令牌是不安全的。一些JWT库可能接受"alg"头部设置为"none"的令牌并完全跳过签名验证。
                     </p>
                     
-                    <h3>Why is it dangerous?</h3>
+                    <h3>为什么危险？</h3>
                     <p>
-                        If a server accepts tokens with the "alg" header set to "none", an attacker can forge valid tokens without knowing the secret key, effectively bypassing authentication.
+                        如果服务器接受"alg"头部设置为"none"的令牌，攻击者就可以在不知道密钥的情况下伪造有效令牌，从而有效地绕过身份验证。
                     </p>
                     
-                    <h3>How to exploit it</h3>
+                    <h3>如何利用它</h3>
                     <ol>
-                        <li>Decode an existing JWT to access its payload</li>
-                        <li>Create a new JWT with the same payload but change the header to <code>{"alg": "none"}</code></li>
-                        <li>Set the signature part to an empty string</li>
-                        <li>Send the modified token to the server</li>
+                        <li>解码现有JWT以访问其有效载荷</li>
+                        <li>创建一个新的JWT，使用相同的有效载荷但将头部更改为 <code>{"alg": "none"}</code></li>
+                        <li>将签名部分设置为空字符串</li>
+                        <li>将修改后的令牌发送到服务器</li>
                     </ol>
                     
-                    <pre><code class="language-text">// Original token
+                    <pre><code class="language-text">// 原始令牌
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
 
-// Modified token with "alg: none"
+// 使用"alg: none"修改的令牌
 eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.</code></pre>
                     
-                    <h3>How to fix it</h3>
+                    <h3>如何修复</h3>
                     <ol>
-                        <li>Explicitly reject tokens with "alg: none" in your JWT verification code</li>
-                        <li>Use a library that doesn't support "none" algorithm by default</li>
-                        <li>Implement a whitelist of allowed algorithms rather than a blacklist of disallowed ones</li>
+                        <li>在JWT验证代码中明确拒绝"alg: none"的令牌</li>
+                        <li>使用默认不支持"none"算法的库</li>
+                        <li>实现允许算法的白名单，而不是不允许算法的黑名单</li>
                     </ol>
                     
-                    <pre><code class="language-javascript">// Example in Node.js with jsonwebtoken library
+                    <pre><code class="language-javascript">// 在Node.js中使用jsonwebtoken库的示例
 jwt.verify(token, secret, { 
-  algorithms: ['HS256', 'RS256'] // Explicitly specify allowed algorithms
+  algorithms: ['HS256', 'RS256'] // 明确指定允许的算法
 });</code></pre>
                 </div>
 
                 <div id="symmetric-key" class="docs-section">
-                    <h2>Symmetric Key Bruteforcing</h2>
+                    <h2>对称密钥暴力破解</h2>
                     
-                    <h3>What is this issue?</h3>
+                    <h3>什么是这个问题？</h3>
                     <p>
-                        When JWTs are signed with HMAC algorithms (HS256, HS384, HS512), they rely on a shared secret key. If this secret is weak, predictable, or has low entropy, it can be bruteforced by attackers.
+                        当JWT使用HMAC算法（HS256、HS384、HS512）签名时，它们依赖于共享密钥。如果此密钥很弱、可预测或熵值低，攻击者就可以暴力破解它。
                     </p>
                     
-                    <h3>Why is it dangerous?</h3>
+                    <h3>为什么危险？</h3>
                     <p>
-                        Once an attacker discovers the secret key, they can:
+                        一旦攻击者发现密钥，他们就可以：
                     </p>
                     <ul>
-                        <li>Create new tokens with any payload they want</li>
-                        <li>Modify existing tokens without detection</li>
-                        <li>Impersonate any user in the system</li>
-                        <li>Escalate privileges to administrator level</li>
+                        <li>创建具有任何他们想要的有效载荷的新令牌</li>
+                        <li>修改现有令牌而不被检测到</li>
+                        <li>冒充系统中的任何用户</li>
+                        <li>将权限提升到管理员级别</li>
                     </ul>
                     
-                    <h3>How to exploit it</h3>
+                    <h3>如何利用它</h3>
                     <ol>
-                        <li>Obtain a valid JWT token</li>
-                        <li>Use a dictionary or brute force attack to guess the secret</li>
-                        <li>Common weak secrets include: "secret", "password", "123456", company names, etc.</li>
-                        <li>Use tools like JWTAuditor Secret Bruteforcer, hashcat, or custom scripts</li>
+                        <li>获取一个有效的JWT令牌</li>
+                        <li>使用字典或暴力攻击来猜测密钥</li>
+                        <li>常见的弱密钥包括："secret"、"password"、"123456"、公司名称等</li>
+                        <li>使用像JWTAuditor密钥暴力破解器、hashcat或自定义脚本等工具</li>
                     </ol>
                     
-                    <h4>Using Hashcat for JWT Secret Brute-forcing</h4>
-                    <p>Hashcat is one of the most effective tools for brute-forcing JWT secrets:</p>
+                    <h4>使用Hashcat进行JWT密钥暴力破解</h4>
+                    <p>Hashcat是暴力破解JWT密钥的最有效工具之一：</p>
                     
-                    <pre><code class="language-bash"># Basic hashcat command for JWT (mode 16500)
+                    <pre><code class="language-bash"># JWT的基本hashcat命令（模式16500）
 hashcat -a 0 -m 16500 jwt.txt wordlist.txt
 
-# With optimized workload
+# 使用优化的工作负载
 hashcat -a 0 -m 16500 -w 3 jwt.txt wordlist.txt
 
-# Show cracked results
+# 显示破解结果
 hashcat -a 0 -m 16500 jwt.txt wordlist.txt --show
 
-# Using a popular JWT secrets wordlist
+# 使用流行的JWT密钥词表
 wget https://raw.githubusercontent.com/wallarm/jwt-secrets/master/jwt_auditor_potential_secrets.txt
 hashcat -a 0 -m 16500 jwt.txt jwt_auditor_potential_secrets.txt</code></pre>
                     
-                    <p>Hashcat output format when secret is found:</p>
+                    <p>找到密钥时Hashcat的输出格式：</p>
                     <pre><code class="language-text">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c:secret</code></pre>
                     
-                    <h4>Common weak secrets to test</h4>
+                    <h4>要测试的常见弱密钥</h4>
                     <ul>
                         <li><code>secret</code></li>
                         <li><code>password</code></li>
@@ -210,127 +210,127 @@ hashcat -a 0 -m 16500 jwt.txt jwt_auditor_potential_secrets.txt</code></pre>
                         <li><code>default</code></li>
                         <li><code>admin</code></li>
                         <li><code>secretkey</code></li>
-                        <li>Company name or project name</li>
-                        <li>Default examples from documentation</li>
+                        <li>公司名称或项目名称</li>
+                        <li>来自文档的默认示例</li>
                     </ul>
                     
                     <h4>Other tools for JWT secret brute-forcing</h4>
-                    <pre><code class="language-bash"># Using jwt-cracker (Node.js tool)
+                    <pre><code class="language-bash"># 使用jwt-cracker（Node.js工具）
 npm install -g jwt-cracker
 jwt-cracker "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." "secret"
 
-# Using custom Python script
+# 使用自定义Python脚本
 python3 jwt_bruteforce.py --jwt "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." --wordlist wordlist.txt</code></pre>
                     
-                    <h3>How to fix it</h3>
+                    <h3>如何修复</h3>
                     <ul>
-                        <li>Use cryptographically secure random secrets of at least 256 bits (32 bytes)</li>
-                        <li>Never use dictionary words, predictable patterns, or company-related terms</li>
-                        <li>Consider using asymmetric algorithms (RS256, ES256) instead</li>
-                        <li>Rotate secrets regularly</li>
-                        <li>Use environment variables or secure key management systems</li>
+                        <li>使用至少256位（32字节）的加密安全随机密钥</li>
+                        <li>永远不要使用字典词汇、可预测模式或与公司相关的术语</li>
+                        <li>考虑使用非对称算法（RS256、ES256）代替</li>
+                        <li>定期轮换密钥</li>
+                        <li>使用环境变量或安全的密钥管理系统</li>
                     </ul>
                     
-                    <pre><code class="language-javascript">// Good: Generate a strong secret
+                    <pre><code class="language-javascript">// 好的：生成强密钥
 const crypto = require('crypto');
 const secret = crypto.randomBytes(32).toString('hex');
 
-// Bad: Weak secrets
+// 不好的：弱密钥
 const secret = "secret";
 const secret = "mycompany123";
 const secret = "password";</code></pre>
                 </div>
 
                 <div id="algorithm-confusion" class="docs-section">
-                    <h2>Algorithm Confusion Attack</h2>
+                    <h2>算法混淆攻击</h2>
                     
-                    <h3>What is this issue?</h3>
+                    <h3>什么是这个问题？</h3>
                     <p>
-                        Algorithm confusion attacks exploit JWT implementations that don't properly validate the algorithm specified in the token header. The most common variant involves switching from an asymmetric algorithm (like RS256) to a symmetric one (like HS256).
+                        算法混淆攻击利用了未正确验证令牌头部中指定算法的JWT实现。最常见的变体是从非对称算法（如RS256）切换到对称算法（如HS256）。
                     </p>
                     
-                    <h3>Why is it dangerous?</h3>
+                    <h3>为什么危险？</h3>
                     <p>
-                        In a typical RS256 setup, the server uses a private key to sign tokens and a public key to verify them. If an attacker can change the algorithm to HS256, the server might use the public key as an HMAC secret, allowing the attacker to forge valid tokens.
+                        在典型的RS256设置中，服务器使用私钥签署令牌并使用公钥验证它们。如果攻击者可以将算法更改为HS256，服务器可能会使用公钥作为HMAC密钥，允许攻击者伪造有效令牌。
                     </p>
                     
-                    <h3>How to exploit it</h3>
+                    <h3>如何利用它</h3>
                     <ol>
-                        <li>Obtain a JWT signed with RS256</li>
-                        <li>Extract or find the public key (often available at /.well-known/jwks.json)</li>
-                        <li>Change the algorithm from RS256 to HS256 in the header</li>
-                        <li>Sign the token using HS256 with the public key as the secret</li>
-                        <li>Send the modified token to the server</li>
+                        <li>获取使用RS256签名的JWT</li>
+                        <li>提取或查找公钥（通常可在/.well-known/jwks.json获得）</li>
+                        <li>将头部中的算法从RS256更改为HS256</li>
+                        <li>使用HS256和公钥作为密钥签署令牌</li>
+                        <li>将修改后的令牌发送到服务器</li>
                     </ol>
                     
-                    <pre><code class="language-javascript">// Original header
+                    <pre><code class="language-javascript">// 原始头部
 {
   "alg": "RS256",
   "typ": "JWT"
 }
 
-// Modified header
+// 修改后的头部
 {
   "alg": "HS256",
   "typ": "JWT"
 }
 
-// Python example to create the attack token
+// 创建攻击令牌的Python示例
 import jwt
 
-# Public key extracted from the server
+# 从服务器提取的公钥
 public_key = """-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA...
 -----END PUBLIC KEY-----"""
 
-# Create a malicious token
+# 创建恶意令牌
 payload = {"sub": "admin", "role": "administrator"}
 malicious_token = jwt.encode(payload, public_key, algorithm="HS256")</code></pre>
                     
-                    <h3>How to fix it</h3>
+                    <h3>如何修复</h3>
                     <ul>
-                        <li>Always validate the algorithm and reject unexpected algorithms</li>
-                        <li>Use algorithm whitelisting, not blacklisting</li>
-                        <li>Ensure your JWT library performs strict algorithm validation</li>
-                        <li>Use different keys for different algorithms</li>
+                        <li>始终验证算法并拒绝意外的算法</li>
+                        <li>使用算法白名单，而不是黑名单</li>
+                        <li>确保您的JWT库执行严格的算法验证</li>
+                        <li>为不同算法使用不同的密钥</li>
                     </ul>
                     
-                    <pre><code class="language-javascript">// Node.js example - secure verification
+                    <pre><code class="language-javascript">// Node.js示例 - 安全验证
 const jwt = require('jsonwebtoken');
 
 try {
     const decoded = jwt.verify(token, publicKey, {
-        algorithms: ['RS256'], // Only allow RS256
+        algorithms: ['RS256'], // 仅允许RS256
         issuer: 'trusted-issuer',
         audience: 'my-service'
     });
 } catch (err) {
-    // Token is invalid
-    console.error('Token verification failed:', err.message);
+    // 令牌无效
+    console.error('令牌验证失败:', err.message);
 }</code></pre>
                 </div>
 
                 <div id="jwk-injection" class="docs-section">
-                    <h2>JWK Header Injection</h2>
+                    <h2>JWK头部注入</h2>
                     
-                    <h3>What is this issue?</h3>
+                    <h3>什么是这个问题？</h3>
                     <p>
-                        The JSON Web Signature (JWS) specification allows an optional "jwk" header parameter, which can embed a public key directly within the token in JWK format. Misconfigured servers may accept any key provided in this parameter without proper validation.
+                        JSON Web Signature（JWS）规范允许一个可选的"jwk"头部参数，它可以将公钥直接嵌入令牌中的JWK格式。配置错误的服务器可能在接受此参数中提供的任何密钥时缺乏适当的验证。
                     </p>
                     
-                    <h3>Why is it dangerous?</h3>
+                    <h3>为什么危险？</h3>
                     <p>
-                        If a server accepts tokens with arbitrary "jwk" header parameters, attackers can:
+                        如果服务器接受带有任意"jwk"头部参数的令牌，攻击者可以：
                     </p>
                     <ul>
-                        <li>Generate their own RSA key pair</li>
-                        <li>Sign a malicious JWT with their private key</li>
-                        <li>Embed the corresponding public key in the "jwk" header</li>
-                        <li>The server will use the attacker's public key to verify the signature</li>
+                        <li>生成他们自己的RSA密钥对</li>
+                        <li>使用他们的私钥签署恶意JWT</li>
+                        <li>在"jwk"头部中嵌入相应的公钥</li>
+                        <li>服务器将使用攻击者的公钥来验证签名</li>
                     </ul>
                     
-                    <h3>Example attack</h3>
-                    <p>Here's how an attacker might exploit this vulnerability:</p>
+                    <h3>攻击示例</h3>
+                    <p>攻击者可能这样利用此漏洞：</p>
                     
                     <pre><code class="language-json">{
   "alg": "RS256",
@@ -343,25 +343,25 @@ try {
   }
 }</code></pre>
                     
-                    <h3>How to fix it</h3>
+                    <h3>如何修复</h3>
                     <ul>
-                        <li>Never accept arbitrary keys from JWT headers</li>
-                        <li>Use a strict whitelist of trusted public keys</li>
-                        <li>Store trusted keys server-side, not in the token</li>
-                        <li>If using "jwk" parameter, validate the key against a known set</li>
+                        <li>绝不接受来自JWT头部的任意密钥</li>
+                        <li>使用受信任公钥的严格白名单</li>
+                        <li>将受信任的密钥存储在服务器端，而不是在令牌中</li>
+                        <li>如果使用"jwk"参数，请针对已知集合验证密钥</li>
                     </ul>
                     
-                    <pre><code class="language-javascript">// Node.js example - secure key validation
+                    <pre><code class="language-javascript">// Node.js示例 - 安全密钥验证
 const trustedKeys = [
     { kid: 'key-1', key: fs.readFileSync('public-key-1.pem') },
     { kid: 'key-2', key: fs.readFileSync('public-key-2.pem') }
 ];
 
 function getVerificationKey(header) {
-    // Only use pre-configured trusted keys
+    // 仅使用预配置的受信任密钥
     const trustedKey = trustedKeys.find(k => k.kid === header.kid);
     if (!trustedKey) {
-        throw new Error('Untrusted key ID');
+        throw new Error('不受信任的密钥ID');
     }
     return trustedKey.key;
 }</code></pre>
@@ -404,120 +404,120 @@ function getVerificationKey(header) {
       "kty": "RSA",
       "kid": "attacker-key-1",
       "e": "AQAB",
-      "n": "malicious-key-data..."
+      "n": "恶意密钥数据..."
     }
   ]
 }</code></pre>
                     
-                    <h3>How to fix it</h3>
+                    <h3>如何修复</h3>
                     <ul>
-                        <li>Implement strict URL validation and whitelisting</li>
-                        <li>Only allow JWK Set URLs from trusted domains</li>
-                        <li>Use URL parsing libraries that prevent bypasses</li>
-                        <li>Implement proper error handling for unreachable URLs</li>
-                        <li>Consider disabling "jku" parameter entirely</li>
+                        <li>实施严格的URL验证和白名单</li>
+                        <li>仅允许来自受信任域的JWK集URL</li>
+                        <li>使用防止绕过的URL解析库</li>
+                        <li>为无法访问的URL实施适当的错误处理</li>
+                        <li>考虑完全禁用"jku"参数</li>
                     </ul>
                     
-                    <pre><code class="language-javascript">// Node.js example - secure JKU validation
+                    <pre><code class="language-javascript">// Node.js示例 - 安全JKU验证
 const TRUSTED_DOMAINS = ['auth.company.com', 'keys.company.com'];
 
 function validateJkuUrl(jku) {
     try {
         const url = new URL(jku);
         
-        // Only allow HTTPS
+        // 仅允许HTTPS
         if (url.protocol !== 'https:') {
-            throw new Error('JKU must use HTTPS');
+            throw new Error('JKU必须使用HTTPS');
         }
         
-        // Check against trusted domains
+        // 对照受信任域进行检查
         if (!TRUSTED_DOMAINS.includes(url.hostname)) {
-            throw new Error('JKU domain not trusted');
+            throw new Error('JKU域不受信任');
         }
         
         return true;
     } catch (error) {
-        console.error('Invalid JKU URL:', error.message);
+        console.error('无效的JKU URL:', error.message);
         return false;
     }
 }</code></pre>
                 </div>
 
                 <div id="arbitrary-signatures" class="docs-section">
-                    <h2>Accepting Arbitrary Signatures</h2>
+                    <h2>接受任意签名</h2>
                     
-                    <h3>What is this issue?</h3>
+                    <h3>什么是这个问题？</h3>
                     <p>
-                        Some JWT implementations fail to properly verify signatures at all. This can happen when developers confuse JWT decoding methods with verification methods, or when signature verification is accidentally bypassed.
+                        一些JWT实现根本没有正确验证签名。当开发人员混淆JWT解码方法和验证方法，或者签名验证意外被绕过时，就会发生这种情况。
                     </p>
                     
-                    <h3>Why is it dangerous?</h3>
+                    <h3>为什么危险？</h3>
                     <p>
-                        Without proper signature verification:
+                        没有适当的签名验证：
                     </p>
                     <ul>
-                        <li>Attackers can modify any part of the JWT payload</li>
-                        <li>Token integrity is completely compromised</li>
-                        <li>Authentication and authorization can be bypassed</li>
-                        <li>Any arbitrary claims can be injected</li>
+                        <li>攻击者可以修改JWT有效载荷的任何部分</li>
+                        <li>令牌完整性完全受损</li>
+                        <li>身份验证和授权可以被绕过</li>
+                        <li>可以注入任何任意声明</li>
                     </ul>
                     
-                    <h3>Common vulnerable patterns</h3>
+                    <h3>常见的易受攻击模式</h3>
                     
-                    <h4>1. Using decode() instead of verify()</h4>
-                    <pre><code class="language-javascript">// VULNERABLE - No signature verification
+                    <h4>1. 使用decode()而不是verify()</h4>
+                    <pre><code class="language-javascript">// 易受攻击 - 无签名验证
 const decoded = jwt.decode(token);
 const userId = decoded.sub;
 
-// SECURE - Proper signature verification
+// 安全 - 适当的签名验证
 const decoded = jwt.verify(token, secretKey);
 const userId = decoded.sub;</code></pre>
                     
-                    <h4>2. Catching verification errors incorrectly</h4>
-                    <pre><code class="language-javascript">// VULNERABLE - Accepting tokens even if verification fails
+                    <h4>2. 错误地捕获验证错误</h4>
+                    <pre><code class="language-javascript">// 易受攻击 - 即使验证失败也接受令牌
 try {
     const decoded = jwt.verify(token, secretKey);
 } catch (error) {
-    // Still processing the token despite verification failure
+    // 尽管验证失败仍在处理令牌
     const decoded = jwt.decode(token);
     return decoded;
 }</code></pre>
                     
-                    <h4>3. Conditional verification bypass</h4>
-                    <pre><code class="language-python"># VULNERABLE - Bypassing verification in certain conditions
+                    <h4>3. 条件验证绕过</h4>
+                    <pre><code class="language-python"># 易受攻击 - 在某些条件下绕过验证
 def verify_token(token):
     if is_development_mode():
         return jwt.decode(token, options={"verify_signature": False})
     else:
         return jwt.decode(token, secret_key, algorithms=["HS256"])</code></pre>
                     
-                    <h3>How to fix it</h3>
+                    <h3>如何修复</h3>
                     <ul>
-                        <li>Always use proper verification methods (verify(), not decode())</li>
-                        <li>Never bypass signature verification, even in development</li>
-                        <li>Handle verification errors securely</li>
-                        <li>Use JWT libraries correctly and follow their documentation</li>
-                        <li>Implement proper error handling that doesn't fall back to unsafe methods</li>
+                        <li>始终使用适当的验证方法（verify()，而不是decode()）</li>
+                        <li>永不绕过签名验证，即使在开发环境中</li>
+                        <li>安全地处理验证错误</li>
+                        <li>正确使用JWT库并遵循其文档</li>
+                        <li>实施适当的错误处理，不要回退到不安全的方法</li>
                     </ul>
                 </div>
 
                 <div id="x5c-injection" class="docs-section">
-                    <h2>X.509 Certificate Chain Injection</h2>
+                    <h2>X.509证书链注入</h2>
                     
-                    <h3>What is this issue?</h3>
+                    <h3>什么是这个问题？</h3>
                     <p>
-                        The "x5c" (X.509 Certificate Chain) header parameter can contain X.509 public key certificates. If not properly validated, attackers can inject self-signed certificates to bypass signature verification.
+                        "x5c"（X.509证书链）头部参数可以包含X.509公钥证书。如果没有经过适当验证，攻击者可以注入自签名证书来绕过签名验证。
                     </p>
                     
-                    <h3>Why is it dangerous?</h3>
+                    <h3>为什么危险？</h3>
                     <p>
-                        Vulnerable implementations may:
+                        易受攻击的实现可能：
                     </p>
                     <ul>
-                        <li>Accept self-signed certificates without validation</li>
-                        <li>Trust any certificate provided in the header</li>
-                        <li>Skip proper certificate chain validation</li>
-                        <li>Allow attackers to sign tokens with their own certificates</li>
+                        <li>接受未经验证的自签名证书</li>
+                        <li>信任头部中提供的任何证书</li>
+                        <li>跳过适当的证书链验证</li>
+                        <li>允许攻击者使用他们自己的证书签署令牌</li>
                     </ul>
                     
                     <h3>Example attack</h3>
@@ -608,60 +608,60 @@ def validate_x5c_certificates(x5c_header):
   &lt;role&gt;admin&lt;/role&gt;
 &lt;/user&gt;</code></pre>
                     
-                    <h3>How to fix it</h3>
+                    <h3>如何修复</h3>
                     <ul>
-                        <li>Always verify JWT signatures properly</li>
-                        <li>Don't process content-type headers from unverified tokens</li>
-                        <li>Use strict content-type validation</li>
-                        <li>Disable XML processing for JWT payloads</li>
-                        <li>Implement proper input validation regardless of content type</li>
+                        <li>始终正确验证JWT签名</li>
+                        <li>不处理来自未经验证令牌的内容类型头部</li>
+                        <li>使用严格的内容类型验证</li>
+                        <li>为JWT有效载荷禁用XML处理</li>
+                        <li>实施适当输入验证，无论内容类型如何</li>
                     </ul>
                     
-                    <pre><code class="language-javascript">// Node.js example - secure content type handling
+                    <pre><code class="language-javascript">// Node.js示例 - 安全内容类型处理
 function processJWT(token) {
-    // Always verify signature first
+    // 始终先验证签名
     const decoded = jwt.verify(token, secretKey);
     
-    // Only accept standard JSON payloads
+    // 仅接受标准JSON有效载荷
     if (decoded.header.cty && decoded.header.cty !== 'application/json') {
-        throw new Error('Unsupported content type');
+        throw new Error('不支持的内容类型');
     }
     
-    // Process the verified payload
+    // 处理已验证的有效载荷
     return decoded.payload;
 }</code></pre>
                 </div>
 
                 <div id="sensitive-data" class="docs-section">
-                    <h2>Sensitive Data Exposure</h2>
+                    <h2>敏感数据泄露</h2>
                     
-                    <h3>What is this issue?</h3>
+                    <h3>什么是这个问题？</h3>
                     <p>
-                        JWTs are encoded (Base64URL) but not encrypted by default. The payload is easily readable by anyone who has the token. Developers sometimes mistakenly include sensitive information in JWT payloads.
+                        JWT默认情况下是编码（Base64URL）而不是加密的。任何拥有令牌的人都可以轻松读取有效载荷。开发人员有时会错误地在JWT有效载荷中包含敏感信息。
                     </p>
                     
-                    <h3>Why is it dangerous?</h3>
+                    <h3>为什么危险？</h3>
                     <p>
-                        Sensitive data in JWT payloads can be:
+                        JWT有效载荷中的敏感数据可能会被：
                     </p>
                     <ul>
-                        <li>Viewed by anyone with access to the token</li>
-                        <li>Logged in server logs, browser history, or network traffic</li>
-                        <li>Exposed through XSS attacks if stored in localStorage</li>
-                        <li>Accidentally shared in URLs or error messages</li>
+                        <li>任何有权访问令牌的人查看</li>
+                        <li>记录在服务器日志、浏览器历史记录或网络流量中</li>
+                        <li>如果存储在localStorage中，通过XSS攻击暴露</li>
+                        <li>意外地在URL或错误消息中分享</li>
                     </ul>
                     
-                    <h3>Examples of sensitive data</h3>
+                    <h3>敏感数据示例</h3>
                     <ul>
-                        <li>Passwords or password hashes</li>
-                        <li>Social security numbers</li>
-                        <li>Credit card information</li>
-                        <li>Personal identification numbers</li>
-                        <li>Internal system information</li>
-                        <li>Database connection strings</li>
+                        <li>密码或密码哈希</li>
+                        <li>社会安全号码</li>
+                        <li>信用卡信息</li>
+                        <li>个人识别号码</li>
+                        <li>内部系统信息</li>
+                        <li>数据库连接字符串</li>
                     </ul>
                     
-                    <pre><code class="language-json">// BAD: Sensitive data in JWT
+                    <pre><code class="language-json">// 不好：JWT中的敏感数据
 {
   "sub": "user123",
   "name": "John Doe",
@@ -692,53 +692,53 @@ function processJWT(token) {
                 </div>
 
                 <div id="missing-claims" class="docs-section">
-                    <h2>Missing or Misused Claims</h2>
+                    <h2>缺少或误用声明</h2>
                     
-                    <h3>What is this issue?</h3>
+                    <h3>什么是这个问题？</h3>
                     <p>
-                        JWT provides several standard claims (exp, iat, nbf, aud, iss, sub, jti) that help ensure tokens are used correctly. Missing or improperly validated claims can lead to security vulnerabilities.
+                        JWT提供多个标准声明（exp、iat、nbf、aud、iss、sub、jti），有助于确保令牌被正确使用。缺少或验证不当的声明可能导致安全漏洞。
                     </p>
                     
-                    <h3>Common missing claims and their risks</h3>
+                    <h3>常见的缺失声明及其风险</h3>
                     
-                    <h4>1. Missing Expiration (exp)</h4>
+                    <h4>1. 缺少过期时间（exp）</h4>
                     <ul>
-                        <li>Tokens never expire, creating indefinite access</li>
-                        <li>Compromised tokens remain valid forever</li>
-                        <li>No mechanism to force re-authentication</li>
+                        <li>令牌永远不会过期，造成无限期访问</li>
+                        <li>受损的令牌将永久有效</li>
+                        <li>没有强制重新身份验证的机制</li>
                     </ul>
                     
-                    <h4>2. Missing Audience (aud)</h4>
+                    <h4>2. 缺少受众（aud）</h4>
                     <ul>
-                        <li>Token substitution attacks across different services</li>
-                        <li>Tokens intended for one service can be used on another</li>
-                        <li>Lack of service-specific validation</li>
+                        <li>跨不同服务的令牌替换攻击</li>
+                        <li>为一个服务设计的令牌可在另一个服务上使用</li>
+                        <li>缺乏特定服务的验证</li>
                     </ul>
                     
-                    <h4>3. Missing Issuer (iss)</h4>
+                    <h4>3. 缺少签发者（iss）</h4>
                     <ul>
-                        <li>Can't verify which service created the token</li>
-                        <li>Tokens from untrusted sources may be accepted</li>
-                        <li>Difficult to trace token origin</li>
+                        <li>无法验证哪个服务创建了令牌</li>
+                        <li>可能接受来自不可信源的令牌</li>
+                        <li>难以追踪令牌来源</li>
                     </ul>
                     
-                    <h4>4. Missing Not Before (nbf)</h4>
+                    <h4>4. 缺少不早于（nbf）</h4>
                     <ul>
-                        <li>Tokens can be used before their intended activation time</li>
-                        <li>Premature token usage</li>
+                        <li>令牌可在预期激活时间之前使用</li>
+                        <li>提前使用令牌</li>
                     </ul>
                     
-                    <h3>How to fix it</h3>
+                    <h3>如何修复</h3>
                     <ul>
-                        <li>Always include expiration (exp) claims</li>
-                        <li>Set appropriate expiration times (15-30 minutes for access tokens)</li>
-                        <li>Include audience (aud) claims and validate them</li>
-                        <li>Include issuer (iss) claims and validate them</li>
-                        <li>Use issued at (iat) claims for clock skew handling</li>
-                        <li>Include JWT ID (jti) for token revocation capabilities</li>
+                        <li>始终包含过期时间（exp）声明</li>
+                        <li>设置适当的过期时间（访问令牌为15-30分钟）</li>
+                        <li>包含受众（aud）声明并验证它们</li>
+                        <li>包含签发者（iss）声明并验证它们</li>
+                        <li>使用签发时间（iat）声明处理时钟偏差</li>
+                        <li>包含JWT ID（jti）用于令牌撤销功能</li>
                     </ul>
                     
-                    <pre><code class="language-javascript">// Complete token validation
+                    <pre><code class="language-javascript">// 完整的令牌验证
 const jwt = require('jsonwebtoken');
 
 const options = {
@@ -751,34 +751,34 @@ const options = {
 try {
     const decoded = jwt.verify(token, publicKey, options);
     
-    // Additional validations
+    // 附加验证
     if (!decoded.sub) {
-        throw new Error('Missing subject claim');
+        throw new Error('缺少主题声明');
     }
     
     if (!decoded.iat) {
-        throw new Error('Missing issued at claim');
+        throw new Error('缺少签发时间声明');
     }
     
-    // Check clock skew
+    // 检查时钟偏差
     const now = Math.floor(Date.now() / 1000);
-    const clockSkew = 60; // Allow 60 seconds of clock skew
+    const clockSkew = 60; // 允许60秒的时钟偏差
     
     if (decoded.iat > now + clockSkew) {
-        throw new Error('Token used before issued');
+        throw new Error('令牌在签发前使用');
     }
     
 } catch (err) {
-    console.error('Token validation failed:', err.message);
+    console.error('令牌验证失败:', err.message);
 }</code></pre>
                 </div>
 
                 <div id="kid-injection" class="docs-section">
-                    <h2>Key ID (kid) Parameter Injection</h2>
+                    <h2>密钥ID（kid）参数注入</h2>
                     
-                    <h3>What is this issue?</h3>
+                    <h3>什么是这个问题？</h3>
                     <p>
-                        The "kid" (Key ID) parameter in JWT headers specifies which key should be used for verification. Servers may use this parameter to identify the correct key from a database, file system, or JWK Set. If not properly validated, attackers can manipulate this parameter to exploit various vulnerabilities.
+                        JWT头部中的"kid"（密钥ID）参数指定应用于验证的密钥。服务器可能使用此参数从数据库、文件系统或JWK集识别正确的密钥。如果没有经过适当验证，攻击者可以操纵此参数利用各种漏洞。
                     </p>
                     
                     <h3>Why is it dangerous?</h3>
@@ -803,206 +803,206 @@ try {
   "kid": "../../etc/passwd"
 }</code></pre>
                     
-                    <h4>2. Empty Key Attack (/dev/null)</h4>
-                    <p>One of the most effective attacks is to point the "kid" parameter to a predictable, empty file like /dev/null:</p>
+                    <h4>2. 空密钥攻击（/dev/null）</h4>
+                    <p>最有效的攻击之一是指向可预测的空文件，如/dev/null的"kid"参数：</p>
                     <pre><code class="language-json">{
   "alg": "HS256",
   "typ": "JWT",
   "kid": "../../../../dev/null"
 }</code></pre>
-                    <p>Since /dev/null is empty, the server will use an empty string as the signing key. An attacker can then sign their malicious JWT with an empty string.</p>
+                    <p>由于/dev/null是空的，服务器将使用空字符串作为签名密钥。攻击者随后可以使用空字符串签署他们的恶意JWT。</p>
                     
-                    <h4>3. SQL Injection</h4>
-                    <p>If the "kid" parameter is used in SQL queries without proper sanitization:</p>
+                    <h4>3. SQL注入</h4>
+                    <p>如果"kid"参数在SQL查询中使用而没有适当的清理：</p>
                     <pre><code class="language-json">{
   "alg": "HS256",
   "typ": "JWT",
   "kid": "key1' UNION SELECT 'attack-key' FROM users WHERE admin=1--"
 }</code></pre>
                     
-                    <h4>4. Command Injection</h4>
+                    <h4>4. 命令注入</h4>
                     <pre><code class="language-json">{
   "alg": "HS256",
   "typ": "JWT",
   "kid": "key1; cat /etc/passwd"
 }</code></pre>
                     
-                    <h4>5. URL Manipulation</h4>
+                    <h4>5. URL操纵</h4>
                     <pre><code class="language-json">{
   "alg": "HS256",
   "typ": "JWT",
   "kid": "http://attacker.com/malicious-key"
 }</code></pre>
                     
-                    <h3>Practical exploitation example</h3>
-                    <p>Here's how an attacker might exploit the /dev/null technique:</p>
+                    <h3>实际利用示例</h3>
+                    <p>攻击者可能这样利用/dev/null技术：</p>
                     
-                    <pre><code class="language-bash"># Step 1: Create a malicious JWT with /dev/null as the kid
-# Header: {"alg": "HS256", "typ": "JWT", "kid": "../../../../dev/null"}
-# Payload: {"sub": "admin", "role": "admin", "exp": 1999999999}
+                    <pre><code class="language-bash"># 步骤1：创建以/dev/null为kid的恶意JWT
+# 头部: {"alg": "HS256", "typ": "JWT", "kid": "../../../../dev/null"}
+# 有效载荷: {"sub": "admin", "role": "admin", "exp": 1999999999}
 
-# Step 2: Sign the JWT with an empty string as the key
+# 步骤2：使用空字符串作为密钥签署JWT
 import jwt
 payload = {"sub": "admin", "role": "admin", "exp": 1999999999}
 malicious_token = jwt.encode(payload, "", algorithm="HS256")
 
-# Step 3: Use the malicious token to bypass authentication</code></pre>
+# 步骤3：使用恶意令牌绕过身份验证</code></pre>
                     
-                    <h3>How to fix it</h3>
+                    <h3>如何修复</h3>
                     <ul>
-                        <li>Implement strict whitelist validation for "kid" values</li>
-                        <li>Use only alphanumeric characters and underscores in key IDs</li>
-                        <li>Never use the "kid" parameter directly in file paths or SQL queries</li>
-                        <li>Store keys in a secure location inaccessible via path traversal</li>
-                        <li>Use parameterized queries if storing keys in a database</li>
-                        <li>Implement proper input validation and sanitization</li>
-                        <li>Use a whitelist of allowed key IDs</li>
-                        <li>Avoid using file paths directly in "kid" values</li>
-                        <li>Use parameterized queries for database lookups</li>
-                        <li>Implement proper input validation</li>
+                        <li>为"kid"值实施严格的白名单验证</li>
+                        <li>在密钥ID中仅使用字母数字字符和下划线</li>
+                        <li>切勿在文件路径或SQL查询中直接使用"kid"参数</li>
+                        <li>将密钥存储在无法通过路径遍历访问的安全位置</li>
+                        <li>如果将密钥存储在数据库中，请使用参数化查询</li>
+                        <li>实施适当的输入验证和清理</li>
+                        <li>使用允许密钥ID的白名单</li>
+                        <li>避免在"kid"值中直接使用文件路径</li>
+                        <li>为数据库查找使用参数化查询</li>
+                        <li>实施适当的输入验证</li>
                     </ul>
                     
-                    <pre><code class="language-javascript">// Secure kid validation
+                    <pre><code class="language-javascript">// 安全kid验证
 function validateKid(kid) {
-    // Whitelist of allowed key IDs
+    // 允许密钥ID的白名单
     const allowedKids = ['key1', 'key2', 'key3', 'production-key'];
     
     if (!allowedKids.includes(kid)) {
-        throw new Error('Invalid key ID');
+        throw new Error('无效的密钥ID');
     }
     
-    // Additional validation
+    // 附加验证
     if (kid.includes('..') || kid.includes('/') || kid.includes('\\')) {
-        throw new Error('Invalid key ID format');
+        throw new Error('无效的密钥ID格式');
     }
     
     return kid;
 }
 
-// Usage
+// 用法
 try {
     const header = jwt.decode(token, { complete: true }).header;
     const validKid = validateKid(header.kid);
     const key = getKeyById(validKid);
     const decoded = jwt.verify(token, key);
 } catch (err) {
-    console.error('Token validation failed:', err.message);
+    console.error('令牌验证失败:', err.message);
 }</code></pre>
                 </div>
 
                 <div id="replay-attacks" class="docs-section">
-                    <h2>Replay Attacks</h2>
+                    <h2>重放攻击</h2>
                     
-                    <h3>What is this issue?</h3>
+                    <h3>什么是这个问题？</h3>
                     <p>
-                        Replay attacks occur when an attacker captures a valid JWT and reuses it to gain unauthorized access. This is particularly dangerous when tokens have long expiration times or when there's no mechanism to track token usage.
+                        当攻击者捕获有效JWT并重复使用以获得未授权访问时，会发生重放攻击。当令牌有过长的过期时间或没有跟踪令牌使用的机制时，这尤其危险。
                     </p>
                     
-                    <h3>Why is it dangerous?</h3>
+                    <h3>为什么危险？</h3>
                     <p>
-                        Replay attacks can lead to:
+                        重放攻击可能导致：
                     </p>
                     <ul>
-                        <li>Unauthorized access after user logout</li>
-                        <li>Session hijacking</li>
-                        <li>Persistent access even after password changes</li>
-                        <li>Abuse of privileged operations</li>
+                        <li>用户注销后的未授权访问</li>
+                        <li>会话劫持</li>
+                        <li>即使更改密码后仍保持持久访问</li>
+                        <li>特权操作的滥用</li>
                     </ul>
                     
-                    <h3>Attack scenarios</h3>
+                    <h3>攻击场景</h3>
                     <ol>
-                        <li><strong>Network Interception</strong>: Attacker captures tokens from network traffic</li>
-                        <li><strong>XSS Attacks</strong>: Malicious scripts steal tokens from client storage</li>
-                        <li><strong>Log File Exposure</strong>: Tokens exposed in server logs or error messages</li>
-                        <li><strong>Shared Computer</strong>: Tokens left in browser storage on shared devices</li>
+                        <li><strong>网络拦截</strong>: 攻击者从网络流量中捕获令牌</li>
+                        <li><strong>XSS攻击</strong>: 恶意脚本从客户端存储中窃取令牌</li>
+                        <li><strong>日志文件暴露</strong>: 令牌在服务器日志或错误消息中暴露</li>
+                        <li><strong>共享计算机</strong>: 令牌留在共享设备上的浏览器存储中</li>
                     </ol>
                     
-                    <h3>How to fix it</h3>
+                    <h3>如何修复</h3>
                     
-                    <h4>1. Short Token Expiration</h4>
+                    <h4>1. 短令牌过期时间</h4>
                     <ul>
-                        <li>Use short-lived access tokens (15-30 minutes)</li>
-                        <li>Implement refresh token rotation</li>
-                        <li>Force re-authentication for sensitive operations</li>
+                        <li>使用短寿命访问令牌（15-30分钟）</li>
+                        <li>实施刷新令牌轮换</li>
+                        <li>对敏感操作强制重新身份验证</li>
                     </ul>
                     
-                    <h4>2. Token Blacklisting</h4>
+                    <h4>2. 令牌黑名单</h4>
                     <ul>
-                        <li>Maintain a blacklist of revoked tokens</li>
-                        <li>Check blacklist on each request</li>
-                        <li>Add tokens to blacklist on logout</li>
+                        <li>维护已撤销令牌的黑名单</li>
+                        <li>每次请求检查黑名单</li>
+                        <li>注销时将令牌添加到黑名单</li>
                     </ul>
                     
-                    <h4>3. Jti (JWT ID) Tracking</h4>
+                    <h4>3. Jti（JWT ID）跟踪</h4>
                     <ul>
-                        <li>Include unique "jti" claim in each token</li>
-                        <li>Track used tokens to prevent replay</li>
-                        <li>Implement token revocation by jti</li>
+                        <li>在每个令牌中包含唯一的"jti"声明</li>
+                        <li>跟踪已使用的令牌以防止重放</li>
+                        <li>通过jti实施令牌撤销</li>
                     </ul>
                     
-                    <h4>4. Additional Security Measures</h4>
+                    <h4>4. 额外安全措施</h4>
                     <ul>
-                        <li>Use HTTPS for all token transmissions</li>
-                        <li>Implement proper CORS policies</li>
-                        <li>Use HttpOnly cookies when possible</li>
-                        <li>Implement session binding</li>
+                        <li>对所有令牌传输使用HTTPS</li>
+                        <li>实施适当的CORS策略</li>
+                        <li>尽可能使用HttpOnly cookie</li>
+                        <li>实施会话绑定</li>
                     </ul>
                     
-                    <pre><code class="language-javascript">// Token blacklist implementation
+                    <pre><code class="language-javascript">// 令牌黑名单实现
 const blacklistedTokens = new Set();
 
 function blacklistToken(jti) {
     blacklistedTokens.add(jti);
-    // Also store in database for persistence
+    // 同样存储在数据库中以保持持久性
 }
 
 function isTokenBlacklisted(jti) {
     return blacklistedTokens.has(jti);
 }
 
-// Middleware to check blacklist
+// 中间件检查黑名单
 function validateToken(req, res, next) {
     try {
         const token = req.headers.authorization?.split(' ')[1];
         const decoded = jwt.verify(token, secretKey);
         
         if (isTokenBlacklisted(decoded.jti)) {
-            return res.status(401).json({ error: 'Token has been revoked' });
+            return res.status(401).json({ error: '令牌已被撤销' });
         }
         
         req.user = decoded;
         next();
     } catch (err) {
-        res.status(401).json({ error: 'Invalid token' });
+        res.status(401).json({ error: '无效令牌' });
     }
 }
 
-// Logout endpoint
+// 注销端点
 app.post('/logout', validateToken, (req, res) => {
     blacklistToken(req.user.jti);
-    res.json({ message: 'Logged out successfully' });
+    res.json({ message: '成功注销' });
 });</code></pre>
                 </div>
 
                 <div id="weak-secrets" class="docs-section">
-                    <h2>Weak Secrets</h2>
+                    <h2>弱密钥</h2>
                     
-                    <h3>What is this issue?</h3>
+                    <h3>什么是这个问题？</h3>
                     <p>
-                        Many JWT implementations use weak or predictable secrets for HMAC signing. This makes them vulnerable to brute force attacks and dictionary attacks.
+                        许多JWT实现使用弱或可预测的密钥进行HMAC签名。这使得它们容易受到暴力破解攻击和字典攻击。
                     </p>
                     
-                    <h3>Common weak secrets</h3>
+                    <h3>常见的弱密钥</h3>
                     <ul>
-                        <li>Default or example secrets from documentation</li>
-                        <li>Simple passwords or phrases</li>
-                        <li>Company names or product names</li>
-                        <li>Sequential or patterned strings</li>
-                        <li>Short secrets with low entropy</li>
+                        <li>来自文档的默认或示例密钥</li>
+                        <li>简单密码或短语</li>
+                        <li>公司名称或产品名称</li>
+                        <li>连续或有模式的字符串</li>
+                        <li>低熵的短密钥</li>
                     </ul>
                     
-                    <h3>Examples of weak secrets</h3>
-                    <pre><code class="language-javascript">// VERY BAD: Common weak secrets
+                    <h3>弱密钥示例</h3>
+                    <pre><code class="language-javascript">// 非常不好：常见的弱密钥
 const secrets = [
     "secret",
     "password",
@@ -1016,82 +1016,82 @@ const secrets = [
     "token"
 ];</code></pre>
                     
-                    <h3>How to fix it</h3>
+                    <h3>如何修复</h3>
                     
-                    <h4>1. Generate Strong Secrets</h4>
+                    <h4>1. 生成强密钥</h4>
                     <ul>
-                        <li>Use cryptographically secure random number generators</li>
-                        <li>Minimum 256 bits (32 bytes) for HS256</li>
-                        <li>Higher entropy for better security</li>
+                        <li>使用密码学安全的随机数生成器</li>
+                        <li>HS256至少需要256位（32字节）</li>
+                        <li>更高的熵以获得更好的安全性</li>
                     </ul>
                     
-                    <pre><code class="language-javascript">// Generate strong secrets
+                    <pre><code class="language-javascript">// 生成强密钥
 const crypto = require('crypto');
 
-// Generate a 256-bit secret
+// 生成256位密钥
 const secret256 = crypto.randomBytes(32).toString('hex');
 
-// Generate a 512-bit secret
+// 生成512位密钥
 const secret512 = crypto.randomBytes(64).toString('hex');
 
-// Using base64 encoding
+// 使用base64编码
 const secretBase64 = crypto.randomBytes(32).toString('base64');</code></pre>
                     
-                    <h4>2. Use Asymmetric Algorithms</h4>
+                    <h4>2. 使用非对称算法</h4>
                     <ul>
-                        <li>Consider using RS256 or ES256 instead of HS256</li>
-                        <li>Private key for signing, public key for verification</li>
-                        <li>Eliminates the need for shared secrets</li>
+                        <li>考虑使用RS256或ES256而不是HS256</li>
+                        <li>私钥用于签名，公钥用于验证</li>
+                        <li>消除对共享密钥的需求</li>
                     </ul>
                     
-                    <h4>3. Secret Management</h4>
+                    <h4>3. 密钥管理</h4>
                     <ul>
-                        <li>Store secrets in environment variables</li>
-                        <li>Use key management services (AWS KMS, Azure Key Vault)</li>
-                        <li>Implement secret rotation</li>
-                        <li>Never hardcode secrets in source code</li>
+                        <li>将密钥存储在环境变量中</li>
+                        <li>使用密钥管理服务（AWS KMS、Azure Key Vault）</li>
+                        <li>实施密钥轮换</li>
+                        <li>永远不要在源代码中硬编码密钥</li>
                     </ul>
                     
-                    <pre><code class="language-javascript">// Secure secret management
+                    <pre><code class="language-javascript">// 安全密钥管理
 const secret = process.env.JWT_SECRET;
 
 if (!secret) {
-    throw new Error('JWT_SECRET environment variable is required');
+    throw new Error('需要JWT_SECRET环境变量');
 }
 
 if (secret.length < 32) {
-    throw new Error('JWT secret must be at least 32 characters long');
+    throw new Error('JWT密钥长度必须至少为32个字符');
 }
 
-// Check for common weak secrets
+// 检查常见弱密钥
 const weakSecrets = ['secret', 'password', '123456', 'your-256-bit-secret'];
 if (weakSecrets.includes(secret.toLowerCase())) {
-    throw new Error('Weak JWT secret detected');
+    throw new Error('检测到弱JWT密钥');
 }</code></pre>
                 </div>
 
                 <div id="token-invalidation" class="docs-section">
-                    <h2>Token Invalidation Issues</h2>
+                    <h2>令牌失效问题</h2>
                     
-                    <h3>What is this issue?</h3>
+                    <h3>什么是这个问题？</h3>
                     <p>
-                        Unlike session-based authentication, JWTs are stateless by design. This makes it challenging to invalidate tokens before their expiration time, leading to security issues when users log out, change passwords, or have their privileges revoked.
+                        与基于会话的身份验证不同，JWT在设计上是无状态的。这使得在过期时间之前使令牌失效变得困难，导致用户注销、更改密码或权限被撤销时出现安全问题。
                     </p>
                     
-                    <h3>Why is it dangerous?</h3>
+                    <h3>为什么危险？</h3>
                     <ul>
-                        <li>Tokens remain valid after user logout</li>
-                        <li>Compromised tokens can't be immediately revoked</li>
-                        <li>Privilege changes don't take effect until token expiration</li>
-                        <li>Terminated employees may retain access</li>
+                        <li>令牌在用户注销后仍然有效</li>
+                        <li>受损的令牌无法立即撤销</li>
+                        <li>权限更改在令牌过期前不会生效</li>
+                        <li>被终止的员工可能保留访问权限</li>
                     </ul>
                     
-                    <h3>Solutions</h3>
+                    <h3>解决方案</h3>
                     
-                    <h4>1. Token Blacklisting</h4>
-                    <p>Maintain a blacklist of revoked tokens and check it on each request.</p>
+                    <h4>1. 令牌黑名单</h4>
+                    <p>维护已撤销令牌的黑名单并在每个请求上检查它。</p>
                     
-                    <pre><code class="language-javascript">// Redis-based token blacklist
+                    <pre><code class="language-javascript">// 基于Redis的令牌黑名单
 const redis = require('redis');
 const client = redis.createClient();
 
@@ -1105,28 +1105,28 @@ async function isTokenBlacklisted(jti) {
     return result === 'revoked';
 }
 
-// Middleware
+// 中间件
 async function validateToken(req, res, next) {
     try {
         const token = req.headers.authorization?.split(' ')[1];
         const decoded = jwt.verify(token, secretKey);
         
         if (await isTokenBlacklisted(decoded.jti)) {
-            return res.status(401).json({ error: 'Token revoked' });
+            return res.status(401).json({ error: '令牌已撤销' });
         }
         
         req.user = decoded;
         next();
     } catch (err) {
-        res.status(401).json({ error: 'Invalid token' });
+        res.status(401).json({ error: '无效令牌' });
     }
 }</code></pre>
                     
-                    <h4>2. Short-lived Tokens with Refresh</h4>
-                    <p>Use short-lived access tokens (15-30 minutes) with refresh tokens.</p>
+                    <h4>2. 使用刷新令牌的短寿命令牌</h4>
+                    <p>使用短寿命访问令牌（15-30分钟）和刷新令牌。</p>
                     
-                    <pre><code class="language-javascript">// Refresh token implementation
-const refreshTokens = new Map(); // Use database in production
+                    <pre><code class="language-javascript">// 刷新令牌实现
+const refreshTokens = new Map(); // 生产环境中使用数据库
 
 function generateTokens(user) {
     const accessToken = jwt.sign(
@@ -1145,25 +1145,25 @@ app.post('/refresh', async (req, res) => {
     const { refreshToken } = req.body;
     
     if (!refreshTokens.has(refreshToken)) {
-        return res.status(401).json({ error: 'Invalid refresh token' });
+        return res.status(401).json({ error: '无效的刷新令牌' });
     }
     
     const userId = refreshTokens.get(refreshToken);
     const user = await getUserById(userId);
     
-    // Generate new tokens
+    // 生成新令牌
     const tokens = generateTokens(user);
     
-    // Revoke old refresh token
+    // 撤销旧的刷新令牌
     refreshTokens.delete(refreshToken);
     
     res.json(tokens);
 });</code></pre>
                     
-                    <h4>3. Version-based Invalidation</h4>
-                    <p>Include a version number in tokens and increment it when invalidation is needed.</p>
+                    <h4>3. 基于版本的失效</h4>
+                    <p>在令牌中包含版本号，并在需要失效时增加它。</p>
                     
-                    <pre><code class="language-javascript">// Version-based invalidation
+                    <pre><code class="language-javascript">// 基于版本的失效
 const userTokenVersions = new Map();
 
 function generateToken(user) {
@@ -1185,7 +1185,7 @@ function invalidateUserTokens(userId) {
     userTokenVersions.set(userId, currentVersion + 1);
 }
 
-// Middleware
+// 中间件
 function validateToken(req, res, next) {
     try {
         const token = req.headers.authorization?.split(' ')[1];
@@ -1193,42 +1193,42 @@ function validateToken(req, res, next) {
         
         const currentVersion = userTokenVersions.get(decoded.sub) || 0;
         if (decoded.version < currentVersion) {
-            return res.status(401).json({ error: 'Token version mismatch' });
+            return res.status(401).json({ error: '令牌版本不匹配' });
         }
         
         req.user = decoded;
         next();
     } catch (err) {
-        res.status(401).json({ error: 'Invalid token' });
+        res.status(401).json({ error: '无效令牌' });
     }
 }</code></pre>
                 </div>
 
                 <div id="token-substitution" class="docs-section">
-                    <h2>Token Substitution Attacks</h2>
+                    <h2>令牌替换攻击</h2>
                     
-                    <h3>What is this issue?</h3>
+                    <h3>什么是这个问题？</h3>
                     <p>
-                        Token substitution attacks occur when an attacker uses a token intended for one context in a different context. This can happen when tokens lack proper audience validation or when the same token is used across multiple services.
+                        当攻击者在一个不同的上下文中使用为一个上下文设计的令牌时，会发生令牌替换攻击。当令牌缺少适当的受众验证或在多个服务中使用相同令牌时，可能会发生这种情况。
                     </p>
                     
-                    <h3>Types of substitution attacks</h3>
+                    <h3>替换攻击类型</h3>
                     
-                    <h4>1. Cross-Service Token Reuse</h4>
-                    <p>Using a token issued for Service A to access Service B</p>
+                    <h4>1. 跨服务令牌复用</h4>
+                    <p>使用为服务A颁发的令牌访问服务B</p>
                     
-                    <h4>2. Privilege Escalation</h4>
-                    <p>Using a token with limited scope in a context requiring higher privileges</p>
+                    <h4>2. 权限提升</h4>
+                    <p>在需要更高权限的上下文中使用作用域有限的令牌</p>
                     
-                    <h4>3. Cross-Domain Attacks</h4>
-                    <p>Using tokens across different domains or applications</p>
+                    <h4>3. 跨域攻击</h4>
+                    <p>在不同域或应用程序之间使用令牌</p>
                     
-                    <h3>How to fix it</h3>
+                    <h3>如何修复</h3>
                     
-                    <h4>1. Audience Validation</h4>
-                    <p>Always include and validate the audience (aud) claim</p>
+                    <h4>1. 受众验证</h4>
+                    <p>始终包含并验证受众（aud）声明</p>
                     
-                    <pre><code class="language-javascript">// Service-specific token validation
+                    <pre><code class="language-javascript">// 特定服务的令牌验证
 function validateToken(token, expectedAudience) {
     try {
         const decoded = jwt.verify(token, secretKey, {
@@ -1237,21 +1237,21 @@ function validateToken(token, expectedAudience) {
         });
         return decoded;
     } catch (err) {
-        throw new Error('Token validation failed');
+        throw new Error('令牌验证失败');
     }
 }
 
-// Usage in different services
-// Service A
+// 在不同服务中的用法
+// 服务A
 const userServiceToken = validateToken(token, 'user-service');
 
-// Service B  
+// 服务B  
 const paymentServiceToken = validateToken(token, 'payment-service');</code></pre>
                     
-                    <h4>2. Scope-based Authorization</h4>
-                    <p>Include specific scopes in tokens and validate them</p>
+                    <h4>2. 基于作用域的授权</h4>
+                    <p>在令牌中包含特定作用域并验证它们</p>
                     
-                    <pre><code class="language-javascript">// Scope-based token
+                    <pre><code class="language-javascript">// 基于作用域的令牌
 const token = jwt.sign({
     sub: user.id,
     aud: 'payment-service',
@@ -1259,7 +1259,7 @@ const token = jwt.sign({
     exp: Math.floor(Date.now() / 1000) + 3600
 }, secretKey);
 
-// Scope validation middleware
+// 作用域验证中间件
 function requireScope(requiredScope) {
     return (req, res, next) => {
         const token = req.headers.authorization?.split(' ')[1];
@@ -1268,30 +1268,30 @@ function requireScope(requiredScope) {
             const decoded = jwt.verify(token, secretKey);
             
             if (!decoded.scope || !decoded.scope.includes(requiredScope)) {
-                return res.status(403).json({ error: 'Insufficient scope' });
+                return res.status(403).json({ error: '作用域不足' });
             }
             
             req.user = decoded;
             next();
         } catch (err) {
-            res.status(401).json({ error: 'Invalid token' });
+            res.status(401).json({ error: '无效令牌' });
         }
     };
 }
 
-// Usage
+// 用法
 app.get('/payments', requireScope('read:payments'), (req, res) => {
-    // Handle payment reading
+    // 处理支付读取
 });
 
 app.post('/payments', requireScope('write:payments'), (req, res) => {
-    // Handle payment creation
+    // 处理支付创建
 });</code></pre>
                     
-                    <h4>3. Context-Specific Tokens</h4>
-                    <p>Generate different tokens for different contexts</p>
+                    <h4>3. 特定上下文的令牌</h4>
+                    <p>为不同上下文生成不同的令牌</p>
                     
-                    <pre><code class="language-javascript">// Context-specific token generation
+                    <pre><code class="language-javascript">// 特定上下文的令牌生成
 function generateContextToken(user, context) {
     const basePayload = {
         sub: user.id,
@@ -1325,44 +1325,44 @@ function generateContextToken(user, context) {
             }, secretKey);
             
         default:
-            throw new Error('Invalid context');
+            throw new Error('无效上下文');
     }
 }</code></pre>
                 </div>
 
                 <div class="docs-section">
-                    <h2>JSON Web Encryption (JWE)</h2>
+                    <h2>JSON Web加密（JWE）</h2>
                     
-                    <h3>What is JWE?</h3>
+                    <h3>什么是JWE？</h3>
                     <p>
-                        JSON Web Encryption (JWE) is a standard for encrypting JWT payloads to ensure confidentiality. Unlike JWS (JSON Web Signature) which only provides integrity and authenticity, JWE encrypts the payload so that only authorized parties can read it.
+                        JSON Web加密（JWE）是一种用于加密JWT有效载荷以确保机密性的标准。与仅提供完整性和真实性的JWS（JSON Web签名）不同，JWE加密有效载荷，以便只有授权方可以阅读它。
                     </p>
                     
-                    <h3>When to use JWE</h3>
+                    <h3>何时使用JWE</h3>
                     <ul>
-                        <li>When JWT payload contains sensitive information</li>
-                        <li>Compliance requirements (GDPR, HIPAA, etc.)</li>
-                        <li>Additional layer of security for critical applications</li>
-                        <li>When tokens are transmitted through untrusted channels</li>
+                        <li>当JWT有效载荷包含敏感信息时</li>
+                        <li>合规要求（GDPR、HIPAA等）</li>
+                        <li>关键应用程序的额外安全层</li>
+                        <li>当令牌通过不可信通道传输时</li>
                     </ul>
                     
-                    <h3>JWE Structure</h3>
-                    <p>JWE consists of five parts separated by dots:</p>
-                    <pre><code class="language-text">BASE64URL(UTF8(JWE Protected Header)) + '.' +
-BASE64URL(JWE Encrypted Key) + '.' +
-BASE64URL(JWE Initialization Vector) + '.' +
-BASE64URL(JWE Ciphertext) + '.' +
-BASE64URL(JWE Authentication Tag)</code></pre>
+                    <h3>JWE结构</h3>
+                    <p>JWE由五个部分组成，以点分隔：</p>
+                    <pre><code class="language-text">BASE64URL(UTF8(JWE受保护头部)) + '.' +
+BASE64URL(JWE加密密钥) + '.' +
+BASE64URL(JWE初始化向量) + '.' +
+BASE64URL(JWE密文) + '.' +
+BASE64URL(JWE认证标签)</code></pre>
                     
-                    <h3>JWE Implementation Example</h3>
-                    <pre><code class="language-javascript">// Node.js JWE implementation using jose library
+                    <h3>JWE实现示例</h3>
+                    <pre><code class="language-javascript">// 使用jose库的Node.js JWE实现
 const { EncryptJWT, jwtDecrypt } = require('jose');
 const crypto = require('crypto');
 
-// Generate a symmetric key
+// 生成对称密钥
 const secret = crypto.randomBytes(32);
 
-// Create an encrypted JWT
+// 创建加密JWT
 async function createJWE(payload) {
     const jwt = await new EncryptJWT(payload)
         .setProtectedHeader({ alg: 'A256KW', enc: 'A256GCM' })
@@ -1373,13 +1373,13 @@ async function createJWE(payload) {
     return jwt;
 }
 
-// Decrypt and verify JWE
+// 解密并验证JWE
 async function verifyJWE(jwe) {
     const { payload, protectedHeader } = await jwtDecrypt(jwe, secret);
     return payload;
 }
 
-// Usage
+// 用法
 async function example() {
     const sensitivePayload = {
         sub: 'user123',
@@ -1388,50 +1388,50 @@ async function example() {
         role: 'admin'
     };
     
-    // Create encrypted JWT
+    // 创建加密JWT
     const jwe = await createJWE(sensitivePayload);
-    console.log('Encrypted JWT:', jwe);
+    console.log('加密JWT:', jwe);
     
-    // Decrypt and verify
+    // 解密并验证
     const decrypted = await verifyJWE(jwe);
-    console.log('Decrypted payload:', decrypted);
+    console.log('解密有效载荷:', decrypted);
 }</code></pre>
                     
-                    <h3>JWE vs JWS Comparison</h3>
+                    <h3>JWE与JWS比较</h3>
                     <div class="table-responsive">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Feature</th>
-                                    <th>JWS (JSON Web Signature)</th>
-                                    <th>JWE (JSON Web Encryption)</th>
+                                    <th>特性</th>
+                                    <th>JWS（JSON Web签名）</th>
+                                    <th>JWE（JSON Web加密）</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Purpose</td>
-                                    <td>Integrity and authenticity</td>
-                                    <td>Confidentiality</td>
+                                    <td>目的</td>
+                                    <td>完整性和真实性</td>
+                                    <td>机密性</td>
                                 </tr>
                                 <tr>
-                                    <td>Payload Visibility</td>
-                                    <td>Visible (Base64 encoded)</td>
-                                    <td>Encrypted (not visible)</td>
+                                    <td>有效载荷可见性</td>
+                                    <td>可见（Base64编码）</td>
+                                    <td>加密（不可见）</td>
                                 </tr>
                                 <tr>
-                                    <td>Performance</td>
-                                    <td>Faster</td>
-                                    <td>Slower (encryption overhead)</td>
+                                    <td>性能</td>
+                                    <td>更快</td>
+                                    <td>更慢（加密开销）</td>
                                 </tr>
                                 <tr>
-                                    <td>Size</td>
-                                    <td>Smaller</td>
-                                    <td>Larger (encryption metadata)</td>
+                                    <td>大小</td>
+                                    <td>更小</td>
+                                    <td>更大（加密元数据）</td>
                                 </tr>
                                 <tr>
-                                    <td>Use Case</td>
-                                    <td>Standard authentication</td>
-                                    <td>Sensitive data transmission</td>
+                                    <td>用例</td>
+                                    <td>标准身份验证</td>
+                                    <td>敏感数据传输</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1439,15 +1439,15 @@ async function example() {
                 </div>
 
                 <div class="docs-section">
-                    <h2>Additional Resources</h2>
+                    <h2>附加资源</h2>
                     
                     <ul class="resource-list">
                         <li>
                             <a href="https://auth0.com/blog/critical-vulnerabilities-in-json-web-token-libraries/" target="_blank" class="resource-link">
                                 <i class="fas fa-file-alt"></i>
                                 <div>
-                                    <h4>Critical Vulnerabilities in JSON Web Token Libraries</h4>
-                                    <p>Auth0's research on critical JWT vulnerabilities</p>
+                                    <h4>JSON Web Token库中的关键漏洞</h4>
+                                    <p>Auth0对关键JWT漏洞的研究</p>
                                 </div>
                             </a>
                         </li>
@@ -1455,8 +1455,8 @@ async function example() {
                             <a href="https://github.com/ticarpi/jwt_tool/wiki" target="_blank" class="resource-link">
                                 <i class="fas fa-tools"></i>
                                 <div>
-                                    <h4>JWT Attack Playbook</h4>
-                                    <p>Comprehensive guide to JWT attacks and techniques</p>
+                                    <h4>JWT攻击手册</h4>
+                                    <p>JWT攻击和技术综合指南</p>
                                 </div>
                             </a>
                         </li>
@@ -1464,23 +1464,23 @@ async function example() {
                             <a href="https://portswigger.net/web-security/jwt" target="_blank" class="resource-link">
                                 <i class="fas fa-graduation-cap"></i>
                                 <div>
-                                    <h4>PortSwigger Web Security Academy: JWT Attacks</h4>
-                                    <p>Interactive labs and tutorials on JWT vulnerabilities</p>
+                                    <h4>PortSwigger网络安全学院：JWT攻击</h4>
+                                    <p>JWT漏洞的交互式实验室和教程</p>
                                 </div>
                             </a>
                         </li>
                     </ul>
                     
                     <div class="next-steps">
-                        <h3>Next Steps</h3>
+                        <h3>下一步</h3>
                         <div class="next-links">
                             <a href="secure-jwt-implementation.html" class="next-link">
                                 <i class="fas fa-lock"></i>
-                                <span>Learn Secure Implementation</span>
+                                <span>学习安全实现</span>
                             </a>
                             <a href="tool-guides/decoder-analyzer.html" class="next-link">
                                 <i class="fas fa-search"></i>
-                                <span>Try JWT Analyzer Tool</span>
+                                <span>尝试JWT分析工具</span>
                             </a>
                         </div>
                     </div>
@@ -1493,29 +1493,29 @@ async function example() {
         <div class="footer-container">
             <div class="footer-section">
                 <h3>JWTAuditor</h3>
-                <p>Professional JWT security testing platform for penetration testers and cybersecurity professionals. Decode, analyze vulnerabilities, and audit JSON Web Token implementations with complete client-side privacy.</p>
+                <p>专业的JWT安全测试平台，面向渗透测试人员和网络安全专业人员。使用完整的客户端隐私解码、分析漏洞和审计JSON Web Token实现。</p>
             </div>
             <div class="footer-section">
-                <h3>Documentation</h3>
+                <h3>文档</h3>
                 <ul class="footer-links">
-                    <li><a href="jwt-fundamentals.html">JWT Fundamentals</a></li>
-                    <li><a href="jwt-vulnerabilities-guide.html">Vulnerabilities Guide</a></li>
-                    <li><a href="secure-jwt-implementation.html">Secure Implementation</a></li>
+                    <li><a href="jwt-fundamentals.html">JWT基础</a></li>
+                    <li><a href="jwt-vulnerabilities-guide.html">漏洞指南</a></li>
+                    <li><a href="secure-jwt-implementation.html">安全实现</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Resources</h3>
+                <h3>资源</h3>
                 <ul class="footer-links">
-                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="../about.html">关于我们</a></li>
                     <li><a href="https://jwt.io/" target="_blank">JWT.io</a></li>
-                    <li><a href="https://portswigger.net/web-security/jwt" target="_blank">PortSwigger JWT Attacks</a></li>
+                    <li><a href="https://portswigger.net/web-security/jwt" target="_blank">PortSwigger JWT攻击</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-<p>&copy; 2025 A Project by 
+<p>&copy; 2025 由
   <a href="https://github.com/dr34mhacks" style="color: var(--primary-color);">Sid</a> & 
-  <a href="https://github.com/thecybersandeep" style="color: var(--primary-color);">Sandeep</a> • 
+  <a href="https://github.com/thecybersandeep" style="color: var(--primary-color);">Sandeep</a> 开发的项目 • 
   
 </p>            <div class="social-links">
                 <a href="https://x.com/infosecmania" target="_blank"><i class="fab fa-twitter"></i></a>

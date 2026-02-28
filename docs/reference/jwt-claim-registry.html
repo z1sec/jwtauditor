@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JWT Claim Registry Reference - JWTAuditor</title>
-    <meta name="description" content="Complete reference of registered JWT claims and their proper usage in JSON Web Tokens.">
-    <meta name="keywords" content="JWT, claims, registry, sub, iss, aud, exp, iat, nbf, jti">
+    <title>JWT声明注册表参考 - JWTAuditor</title>
+    <meta name="description" content="注册JWT声明的完整参考及其在JSON Web Token中的正确使用。">
+    <meta name="keywords" content="JWT, 声明, 注册表, sub, iss, aud, exp, iat, nbf, jti">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../css/docs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,9 +18,9 @@
             <i class="fas fa-user-secret"></i>
             <h1>JWTAuditor</h1>
         </div>
-        <div class="subtitle">Documentation & Learning Resources</div>
+        <div class="subtitle">文档与学习资源</div>
         <div class="header-actions">
-            <a href="../../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> Back to Tool</a>
+            <a href="../../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> 返回工具</a>
         </div>
     </header>
 
@@ -28,43 +28,43 @@
         <div class="docs-container">
             <aside class="docs-sidebar">
                 <div class="sidebar-header">
-                    <h2>Documentation</h2>
+                    <h2>文档</h2>
                 </div>
                 <nav class="docs-nav">
                     <div class="nav-section">
-                        <h3>JWT Fundamentals</h3>
+                        <h3>JWT基础</h3>
                         <ul>
-                            <li><a href="../jwt-fundamentals.html">Understanding JWT Structure</a></li>
-                            <li><a href="../jwt-claims.html">JWT Claims Explained</a></li>
-                            <li><a href="../jwt-vs-sessions.html">JWT vs. Session Auth</a></li>
+                            <li><a href="../jwt-fundamentals.html">理解JWT结构</a></li>
+                            <li><a href="../jwt-claims.html">JWT声明详解</a></li>
+                            <li><a href="../jwt-vs-sessions.html">JWT与会话认证</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Security Guides</h3>
+                        <h3>安全指南</h3>
                         <ul>
-                            <li><a href="../jwt-vulnerabilities-guide.html">JWT Vulnerabilities Guide</a></li>
-                            <li><a href="../jwt-attack-vectors.html">Complete Attack Vectors</a></li>
-                            <li><a href="../jwt-security-checklist.html">Security Checklist</a></li>
-                            <li><a href="../jwt-tools-comparison.html">Tools Comparison</a></li>
-                            <li><a href="../secure-jwt-implementation.html">Secure Implementation</a></li>
-                            <li><a href="../jwt-attack-techniques.html">Attack Techniques</a></li>
+                            <li><a href="../jwt-vulnerabilities-guide.html">JWT漏洞指南</a></li>
+                            <li><a href="../jwt-attack-vectors.html">完整攻击向量</a></li>
+                            <li><a href="../jwt-security-checklist.html">安全检查清单</a></li>
+                            <li><a href="../jwt-tools-comparison.html">工具对比</a></li>
+                            <li><a href="../secure-jwt-implementation.html">安全实施</a></li>
+                            <li><a href="../jwt-attack-techniques.html">攻击技术</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Tool Guides</h3>
+                        <h3>工具指南</h3>
                         <ul>
-                            <li><a href="../tool-guides/decoder-analyzer.html">Decoder & Analyzer</a></li>
-                            <li><a href="../tool-guides/secret-bruteforcer.html">Secret Bruteforcer</a></li>
-                            <li><a href="../tool-guides/jwt-editor.html">JWT Editor</a></li>
-                            <li><a href="../tool-guides/jwt-generator.html">JWT Generator</a></li>
+                            <li><a href="../tool-guides/decoder-analyzer.html">解码器与分析器</a></li>
+                            <li><a href="../tool-guides/secret-bruteforcer.html">密钥暴力破解器</a></li>
+                            <li><a href="../tool-guides/jwt-editor.html">JWT编辑器</a></li>
+                            <li><a href="../tool-guides/jwt-generator.html">JWT生成器</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Reference</h3>
+                        <h3>参考</h3>
                         <ul>
-                            <li><a href="jwt-header-parameters.html">Header Parameters</a></li>
-                            <li><a href="jwt-claim-registry.html" class="active">Claim Registry</a></li>
-                            <li><a href="jwt-algorithms.html">JWT Algorithms</a></li>
+                            <li><a href="jwt-header-parameters.html">头部参数</a></li>
+                            <li><a href="jwt-claim-registry.html" class="active">声明注册表</a></li>
+                            <li><a href="jwt-algorithms.html">JWT算法</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -72,96 +72,96 @@
 
             <div class="docs-content">
                 <div class="docs-header">
-                    <h1>JWT Claim Registry Reference</h1>
+                    <h1>JWT声明注册表参考</h1>
                     <div class="docs-meta">
-                        <span><i class="fas fa-list"></i> Reference Guide</span>
-                        <span><i class="fas fa-clock"></i> Reading time: 10 min</span>
+                        <span><i class="fas fa-list"></i> 参考指南</span>
+                        <span><i class="fas fa-clock"></i> 阅读时间：10分钟</span>
                     </div>
                 </div>
 
                 <div class="docs-section intro-section">
                     <p class="lead">
-                        This reference guide provides a comprehensive list of registered JWT claims, their meanings, data types, and proper usage. Understanding these claims is essential for implementing secure and interoperable JWT-based systems.
+                        本参考指南提供了注册JWT声明的全面列表，包括它们的含义、数据类型和正确使用方法。了解这些声明对于实现安全和可互操作的基于JWT的系统至关重要。
                     </p>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Registered Claims Overview</h2>
+                    <h2>注册声明概述</h2>
                     <p>
-                        Registered claims are predefined claims specified in RFC 7519 that provide a set of useful, interoperable claims. While their use is optional, they provide standardized ways to convey common information.
+                        注册声明是在RFC 7519中指定的预定义声明，提供了一组有用、可互操作的声明。虽然它们的使用是可选的，但它们提供了标准化的方式来传达常见信息。
                     </p>
                     
                     <div class="info-box">
                         <div class="info-icon"><i class="fas fa-info-circle"></i></div>
                         <div class="info-content">
-                            <p><strong>Note:</strong> All timestamp-related claims use NumericDate format, which represents the number of seconds from 1970-01-01T00:00:00Z UTC until the specified UTC date/time.</p>
+                            <p><strong>注意：</strong> 所有与时间戳相关的声明都使用NumericDate格式，该格式表示从1970-01-01T00:00:00Z UTC到指定UTC日期/时间的秒数。</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Core Registered Claims</h2>
+                    <h2>核心注册声明</h2>
                     
                     <div class="table-responsive">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Claim</th>
-                                    <th>Name</th>
-                                    <th>Type</th>
-                                    <th>Required</th>
-                                    <th>Description</th>
+                                    <th>声明</th>
+                                    <th>名称</th>
+                                    <th>类型</th>
+                                    <th>必需</th>
+                                    <th>描述</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><code>iss</code></td>
-                                    <td>Issuer</td>
-                                    <td>String or URI</td>
-                                    <td>No</td>
-                                    <td>Principal that issued the JWT</td>
+                                    <td>签发者</td>
+                                    <td>字符串或URI</td>
+                                    <td>否</td>
+                                    <td>签发JWT的主体</td>
                                 </tr>
                                 <tr>
                                     <td><code>sub</code></td>
-                                    <td>Subject</td>
-                                    <td>String or URI</td>
-                                    <td>No</td>
-                                    <td>Principal that is the subject of the JWT</td>
+                                    <td>主题</td>
+                                    <td>字符串或URI</td>
+                                    <td>否</td>
+                                    <td>作为JWT主题的主体</td>
                                 </tr>
                                 <tr>
                                     <td><code>aud</code></td>
-                                    <td>Audience</td>
-                                    <td>String, URI, or Array</td>
-                                    <td>No</td>
-                                    <td>Recipients that the JWT is intended for</td>
+                                    <td>受众</td>
+                                    <td>字符串、URI或数组</td>
+                                    <td>否</td>
+                                    <td>JWT的预期接收者</td>
                                 </tr>
                                 <tr>
                                     <td><code>exp</code></td>
-                                    <td>Expiration Time</td>
+                                    <td>过期时间</td>
                                     <td>NumericDate</td>
-                                    <td>No</td>
-                                    <td>Time after which the JWT expires</td>
+                                    <td>否</td>
+                                    <td>JWT过期的时间点</td>
                                 </tr>
                                 <tr>
                                     <td><code>nbf</code></td>
-                                    <td>Not Before</td>
+                                    <td>不可用之前</td>
                                     <td>NumericDate</td>
-                                    <td>No</td>
-                                    <td>Time before which the JWT must not be accepted</td>
+                                    <td>否</td>
+                                    <td>JWT不应被接受的时间点</td>
                                 </tr>
                                 <tr>
                                     <td><code>iat</code></td>
-                                    <td>Issued At</td>
+                                    <td>签发于</td>
                                     <td>NumericDate</td>
-                                    <td>No</td>
-                                    <td>Time at which the JWT was issued</td>
+                                    <td>否</td>
+                                    <td>JWT签发的时间点</td>
                                 </tr>
                                 <tr>
                                     <td><code>jti</code></td>
                                     <td>JWT ID</td>
-                                    <td>String</td>
-                                    <td>No</td>
-                                    <td>Unique identifier for the JWT</td>
+                                    <td>字符串</td>
+                                    <td>否</td>
+                                    <td>JWT的唯一标识符</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -169,275 +169,275 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>Detailed Claim Descriptions</h2>
+                    <h2>详细声明说明</h2>
                     
-                    <h3>Issuer (iss)</h3>
-                    <p>The "iss" claim identifies the principal that issued the JWT. This claim should be a StringOrURI value that uniquely identifies the issuer.</p>
+                    <h3>签发者 (iss)</h3>
+                    <p>"iss"声明标识签发JWT的主体。此声明应为唯一标识签发者的StringOrURI值。</p>
                     
                     <div class="claim-examples">
                         <h4>Valid Examples:</h4>
-                        <pre><code class="language-json">// String identifier
+                        <pre><code class="language-json">// 字符串标识符
 "iss": "my-auth-service"
 
-// URI identifier
+// URI标识符
 "iss": "https://auth.example.com"
 
-// Domain-based identifier
+// 基于域名的标识符
 "iss": "example.com"</code></pre>
                     </div>
                     
                     <div class="usage-tips">
                         <h4>Usage Tips:</h4>
                         <ul>
-                            <li>Use consistent issuer values across your application</li>
-                            <li>Consider using URIs for better uniqueness</li>
-                            <li>Validate the issuer claim on token verification</li>
-                            <li>Use different issuers for different environments (dev, staging, prod)</li>
+                            <li>在整个应用程序中使用一致的签发者值</li>
+                            <li>考虑使用URI以获得更好的唯一性</li>
+                            <li>在令牌验证期间验证签发者声明</li>
+                            <li>在不同环境（开发、预发布、生产）中使用不同的签发者</li>
                         </ul>
                     </div>
 
-                    <h3>Subject (sub)</h3>
-                    <p>The "sub" claim identifies the principal that is the subject of the JWT. The subject value must be unique within the issuer's context or globally unique.</p>
+                    <h3>主题 (sub)</h3>
+                    <p>"sub"声明标识作为JWT主题的主体。主题值必须在签发者上下文中唯一或全局唯一。</p>
                     
                     <div class="claim-examples">
                         <h4>Valid Examples:</h4>
-                        <pre><code class="language-json">// User ID
+                        <pre><code class="language-json">// 用户ID
 "sub": "1234567890"
 
-// Username
+// 用户名
 "sub": "john.doe@example.com"
 
 // UUID
 "sub": "550e8400-e29b-41d4-a716-446655440000"
 
-// URI format
+// URI格式
 "sub": "https://example.com/users/1234567890"</code></pre>
                     </div>
                     
                     <div class="usage-tips">
-                        <h4>Usage Tips:</h4>
+                        <h4>使用提示：</h4>
                         <ul>
-                            <li>Use immutable identifiers when possible</li>
-                            <li>Don't use personally identifiable information directly</li>
-                            <li>Ensure uniqueness within the issuer's scope</li>
-                            <li>Consider using UUIDs for better privacy</li>
+                            <li>尽可能使用不可变的标识符</li>
+                            <li>不要直接使用个人身份信息</li>
+                            <li>确保在签发者范围内唯一</li>
+                            <li>考虑使用UUID以获得更好的隐私保护</li>
                         </ul>
                     </div>
 
-                    <h3>Audience (aud)</h3>
-                    <p>The "aud" claim identifies the recipients that the JWT is intended for. This can be a single string/URI or an array of strings/URIs.</p>
+                    <h3>受众 (aud)</h3>
+                    <p>"aud"声明标识JWT的预期接收者。这可以是单个字符串/URI或字符串/URI数组。</p>
                     
                     <div class="claim-examples">
                         <h4>Valid Examples:</h4>
-                        <pre><code class="language-json">// Single audience
+                        <pre><code class="language-json">// 单一受众
 "aud": "my-api-service"
 
-// Multiple audiences
+// 多个受众
 "aud": ["api-service", "admin-panel", "mobile-app"]
 
-// URI-based audience
+// 基于URI的受众
 "aud": "https://api.example.com"</code></pre>
                     </div>
                     
                     <div class="usage-tips">
-                        <h4>Usage Tips:</h4>
+                        <h4>使用提示：</h4>
                         <ul>
-                            <li>Always validate the audience claim</li>
-                            <li>Use specific audience values for different services</li>
-                            <li>Consider token substitution attacks when using multiple audiences</li>
-                            <li>Document your audience naming conventions</li>
+                            <li>始终验证受众声明</li>
+                            <li>为不同服务使用特定的受众值</li>
+                            <li>使用多个受众时考虑令牌替换攻击</li>
+                            <li>记录您的受众命名约定</li>
                         </ul>
                     </div>
 
-                    <h3>Expiration Time (exp)</h3>
-                    <p>The "exp" claim identifies the expiration time on or after which the JWT must not be accepted for processing.</p>
+                    <h3>过期时间 (exp)</h3>
+                    <p>"exp"声明标识JWT不应被接受处理的过期时间点。</p>
                     
                     <div class="claim-examples">
                         <h4>Valid Examples:</h4>
-                        <pre><code class="language-json">// Expires in 1 hour (3600 seconds from Unix epoch)
+                        <pre><code class="language-json">// 1小时后过期（Unix纪元后的3600秒）
 "exp": 1516242622
 
-// Expires on specific date
-"exp": 1672531199  // December 31, 2022 23:59:59 UTC</code></pre>
+// 特定日期过期
+"exp": 1672531199  // 2022年12月31日 23:59:59 UTC</code></pre>
                     </div>
                     
                     <div class="usage-tips">
-                        <h4>Usage Tips:</h4>
+                        <h4>使用提示：</h4>
                         <ul>
-                            <li>Always include expiration times for security</li>
-                            <li>Use short expiration times for access tokens (15-30 minutes)</li>
-                            <li>Account for clock skew between systems</li>
-                            <li>Implement token refresh mechanisms for longer sessions</li>
+                            <li>出于安全原因始终包含过期时间</li>
+                            <li>访问令牌使用较短的过期时间（15-30分钟）</li>
+                            <li>考虑系统之间的时钟偏移</li>
+                            <li>为较长会话实现令牌刷新机制</li>
                         </ul>
                     </div>
 
-                    <h3>Not Before (nbf)</h3>
-                    <p>The "nbf" claim identifies the time before which the JWT must not be accepted for processing.</p>
+                    <h3>不可用之前 (nbf)</h3>
+                    <p>"nbf"声明标识JWT不应被接受处理之前的时间点。</p>
                     
                     <div class="claim-examples">
                         <h4>Valid Examples:</h4>
-                        <pre><code class="language-json">// Valid starting from specific time
+                        <pre><code class="language-json">// 从特定时间开始有效
 "nbf": 1516239022
 
-// Valid immediately (current time)
+// 立即有效（当前时间）
 "nbf": 1516239022</code></pre>
                     </div>
                     
                     <div class="usage-tips">
-                        <h4>Usage Tips:</h4>
+                        <h4>使用提示：</h4>
                         <ul>
-                            <li>Use for scheduled token activation</li>
-                            <li>Helpful for pre-issued tokens</li>
-                            <li>Account for clock skew in validation</li>
-                            <li>Consider timezone differences</li>
+                            <li>用于计划的令牌激活</li>
+                            <li>对预签发的令牌有帮助</li>
+                            <li>验证时考虑时钟偏移</li>
+                            <li>考虑时区差异</li>
                         </ul>
                     </div>
 
-                    <h3>Issued At (iat)</h3>
-                    <p>The "iat" claim identifies the time at which the JWT was issued.</p>
+                    <h3>签发于 (iat)</h3>
+                    <p>"iat"声明标识JWT签发的时间点。</p>
                     
                     <div class="claim-examples">
                         <h4>Valid Examples:</h4>
-                        <pre><code class="language-json">// Token issued at specific time
+                        <pre><code class="language-json">// 特定时间签发的令牌
 "iat": 1516239022</code></pre>
                     </div>
                     
                     <div class="usage-tips">
-                        <h4>Usage Tips:</h4>
+                        <h4>使用提示：</h4>
                         <ul>
-                            <li>Useful for token age validation</li>
-                            <li>Helps with clock skew handling</li>
-                            <li>Can be used for token freshness checks</li>
-                            <li>Valuable for audit trails</li>
+                            <li>对令牌年龄验证很有用</li>
+                            <li>有助于处理时钟偏移</li>
+                            <li>可用于令牌新鲜度检查</li>
+                            <li>对审计追踪有价值</li>
                         </ul>
                     </div>
 
                     <h3>JWT ID (jti)</h3>
-                    <p>The "jti" claim provides a unique identifier for the JWT. This can be used to prevent JWT replay attacks.</p>
+                    <p>"jti"声明为JWT提供唯一标识符。这可以用来防止JWT重放攻击。</p>
                     
                     <div class="claim-examples">
                         <h4>Valid Examples:</h4>
-                        <pre><code class="language-json">// UUID format
+                        <pre><code class="language-json">// UUID格式
 "jti": "550e8400-e29b-41d4-a716-446655440000"
 
-// Random string
+// 随机字符串
 "jti": "abc123def456"
 
-// Timestamp-based ID
+// 基于时间戳的ID
 "jti": "1516239022-user123"</code></pre>
                     </div>
                     
                     <div class="usage-tips">
-                        <h4>Usage Tips:</h4>
+                        <h4>使用提示：</h4>
                         <ul>
-                            <li>Use for token revocation mechanisms</li>
-                            <li>Ensure uniqueness across all tokens</li>
-                            <li>Consider using UUIDs or cryptographically secure random values</li>
-                            <li>Store JTIs for blacklisting capabilities</li>
+                            <li>用于令牌撤销机制</li>
+                            <li>确保在所有令牌中唯一</li>
+                            <li>考虑使用UUID或密码学安全的随机值</li>
+                            <li>存储JTIs以实现黑名单功能</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Public Claims Registry</h2>
+                    <h2>公共声明注册表</h2>
                     <p>
-                        In addition to registered claims, there are public claims that are registered in the IANA JSON Web Token Claims Registry. Here are some commonly used public claims:
+                        除了注册声明外，还有在IANA JSON Web Token声明注册表中注册的公共声明。以下是一些常用的公共声明：
                     </p>
                     
                     <div class="table-responsive">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Claim</th>
-                                    <th>Name</th>
-                                    <th>Type</th>
-                                    <th>Description</th>
+                                    <th>声明</th>
+                                    <th>名称</th>
+                                    <th>类型</th>
+                                    <th>描述</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><code>name</code></td>
-                                    <td>Full Name</td>
-                                    <td>String</td>
-                                    <td>End-user's full name</td>
+                                    <td>全名</td>
+                                    <td>字符串</td>
+                                    <td>最终用户的全名</td>
                                 </tr>
                                 <tr>
                                     <td><code>given_name</code></td>
-                                    <td>Given Name</td>
-                                    <td>String</td>
-                                    <td>Given name(s) or first name(s)</td>
+                                    <td>名字</td>
+                                    <td>字符串</td>
+                                    <td>名字</td>
                                 </tr>
                                 <tr>
                                     <td><code>family_name</code></td>
-                                    <td>Family Name</td>
-                                    <td>String</td>
-                                    <td>Surname(s) or last name(s)</td>
+                                    <td>姓氏</td>
+                                    <td>字符串</td>
+                                    <td>姓氏</td>
                                 </tr>
                                 <tr>
                                     <td><code>email</code></td>
-                                    <td>Email Address</td>
-                                    <td>String</td>
-                                    <td>End-user's preferred e-mail address</td>
+                                    <td>电子邮件地址</td>
+                                    <td>字符串</td>
+                                    <td>最终用户首选的电子邮箱地址</td>
                                 </tr>
                                 <tr>
                                     <td><code>email_verified</code></td>
-                                    <td>Email Verified</td>
-                                    <td>Boolean</td>
-                                    <td>True if email address has been verified</td>
+                                    <td>邮件已验证</td>
+                                    <td>布尔值</td>
+                                    <td>如果电子邮箱地址已验证则为真</td>
                                 </tr>
                                 <tr>
                                     <td><code>phone_number</code></td>
-                                    <td>Phone Number</td>
-                                    <td>String</td>
-                                    <td>End-user's preferred telephone number</td>
+                                    <td>电话号码</td>
+                                    <td>字符串</td>
+                                    <td>最终用户首选的电话号码</td>
                                 </tr>
                                 <tr>
                                     <td><code>address</code></td>
-                                    <td>Address</td>
-                                    <td>Object</td>
-                                    <td>End-user's preferred postal address</td>
+                                    <td>地址</td>
+                                    <td>对象</td>
+                                    <td>最终用户首选的邮政地址</td>
                                 </tr>
                                 <tr>
                                     <td><code>picture</code></td>
-                                    <td>Picture</td>
-                                    <td>String (URL)</td>
-                                    <td>URL of the end-user's profile picture</td>
+                                    <td>头像</td>
+                                    <td>字符串 (URL)</td>
+                                    <td>最终用户头像图片的URL</td>
                                 </tr>
                                 <tr>
                                     <td><code>website</code></td>
-                                    <td>Website</td>
-                                    <td>String (URL)</td>
-                                    <td>URL of the end-user's website</td>
+                                    <td>网站</td>
+                                    <td>字符串 (URL)</td>
+                                    <td>最终用户网站的URL</td>
                                 </tr>
                                 <tr>
                                     <td><code>gender</code></td>
-                                    <td>Gender</td>
-                                    <td>String</td>
-                                    <td>End-user's gender</td>
+                                    <td>性别</td>
+                                    <td>字符串</td>
+                                    <td>最终用户性别</td>
                                 </tr>
                                 <tr>
                                     <td><code>birthdate</code></td>
-                                    <td>Birth Date</td>
-                                    <td>String (ISO 8601)</td>
-                                    <td>End-user's birthday</td>
+                                    <td>出生日期</td>
+                                    <td>字符串 (ISO 8601)</td>
+                                    <td>最终用户生日</td>
                                 </tr>
                                 <tr>
                                     <td><code>zoneinfo</code></td>
-                                    <td>Time Zone</td>
-                                    <td>String</td>
-                                    <td>End-user's time zone</td>
+                                    <td>时区</td>
+                                    <td>字符串</td>
+                                    <td>最终用户时区</td>
                                 </tr>
                                 <tr>
                                     <td><code>locale</code></td>
-                                    <td>Locale</td>
-                                    <td>String</td>
-                                    <td>End-user's locale</td>
+                                    <td>区域设置</td>
+                                    <td>字符串</td>
+                                    <td>最终用户区域设置</td>
                                 </tr>
                                 <tr>
                                     <td><code>updated_at</code></td>
-                                    <td>Updated At</td>
+                                    <td>更新于</td>
                                     <td>NumericDate</td>
-                                    <td>Time user information was last updated</td>
+                                    <td>用户信息最后更新的时间</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -445,50 +445,50 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>Custom Claims Best Practices</h2>
+                    <h2>自定义声明最佳实践</h2>
                     
-                    <h3>Private Claims</h3>
-                    <p>Private claims are custom claims created to share information between parties that agree on using them.</p>
+                    <h3>私有声明</h3>
+                    <p>私有声明是为同意使用它们的各方之间共享信息而创建的自定义声明。</p>
                     
                     <div class="claim-examples">
-                        <h4>Examples:</h4>
+                        <h4>示例：</h4>
                         <pre><code class="language-json">{
-  // Application-specific claims
+  // 应用程序特定的声明
   "role": "admin",
   "permissions": ["read", "write", "delete"],
   "organization": "acme-corp",
   "plan": "premium",
   
-  // Use namespaces to avoid collisions
+  // 使用命名空间避免冲突
   "https://example.com/claims/department": "engineering",
   "example.com/user_type": "employee"
 }</code></pre>
                     </div>
                     
-                    <h3>Naming Conventions</h3>
+                    <h3>命名约定</h3>
                     <ul>
-                        <li>Use descriptive, lowercase names with underscores</li>
-                        <li>Avoid conflicts with registered and public claims</li>
-                        <li>Consider using namespaces (URIs) for organization-specific claims</li>
-                        <li>Document all custom claims in your API documentation</li>
+                        <li>使用描述性的、带下划线的小写名称</li>
+                        <li>避免与注册和公共声明冲突</li>
+                        <li>考虑为组织特定声明使用命名空间（URIs）</li>
+                        <li>在API文档中记录所有自定义声明</li>
                     </ul>
                     
-                    <h3>Security Considerations</h3>
+                    <h3>安全注意事项</h3>
                     <ul>
-                        <li>Never include sensitive information in claims</li>
-                        <li>Keep JWT payloads small for performance</li>
-                        <li>Validate all claims during token verification</li>
-                        <li>Consider using JWE for confidential claims</li>
+                        <li>切勿在声明中包含敏感信息</li>
+                        <li>为性能考虑保持JWT载荷较小</li>
+                        <li>在令牌验证期间验证所有声明</li>
+                        <li>考虑对机密声明使用JWE</li>
                     </ul>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Complete JWT Example</h2>
+                    <h2>完整的JWT示例</h2>
                     
-                    <p>Here's an example of a JWT with properly formatted claims:</p>
+                    <p>以下是带有正确格式化声明的JWT示例：</p>
                     
                     <pre><code class="language-json">{
-  // Registered claims
+  // 注册声明
   "iss": "https://auth.example.com",
   "sub": "550e8400-e29b-41d4-a716-446655440000",
   "aud": ["api.example.com", "mobile.example.com"],
@@ -497,13 +497,13 @@
   "iat": 1516238022,
   "jti": "abc123def456",
   
-  // Public claims
+  // 公共声明
   "name": "John Doe",
   "email": "john.doe@example.com",
   "email_verified": true,
   "picture": "https://example.com/avatars/john.jpg",
   
-  // Private claims
+  // 私有声明
   "role": "admin",
   "permissions": ["users:read", "users:write", "posts:read", "posts:write"],
   "organization": "acme-corp",
@@ -512,106 +512,106 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>Validation Examples</h2>
+                    <h2>验证示例</h2>
                     
-                    <h3>Node.js Claim Validation</h3>
+                    <h3>Node.js声明验证</h3>
                     <pre><code class="language-javascript">function validateJWTClaims(payload) {
     const now = Math.floor(Date.now() / 1000);
-    const clockSkew = 60; // 60 seconds
+    const clockSkew = 60; // 60秒
     
-    // Validate expiration
+    // 验证过期时间
     if (payload.exp && payload.exp <= now) {
-        throw new Error('Token has expired');
+        throw new Error('令牌已过期');
     }
     
-    // Validate not before
+    // 验证不可用之前
     if (payload.nbf && payload.nbf > now + clockSkew) {
-        throw new Error('Token not yet valid');
+        throw new Error('令牌尚未生效');
     }
     
-    // Validate issued at (prevent tokens from future)
+    // 验证签发时间（防止来自未来的令牌）
     if (payload.iat && payload.iat > now + clockSkew) {
-        throw new Error('Token issued in the future');
+        throw new Error('令牌在未来签发');
     }
     
-    // Validate issuer
+    // 验证签发者
     const allowedIssuers = ['https://auth.example.com'];
     if (payload.iss && !allowedIssuers.includes(payload.iss)) {
-        throw new Error('Invalid issuer');
+        throw new Error('无效的签发者');
     }
     
-    // Validate audience
+    // 验证受众
     const expectedAudience = 'api.example.com';
     if (payload.aud) {
         const audiences = Array.isArray(payload.aud) ? payload.aud : [payload.aud];
         if (!audiences.includes(expectedAudience)) {
-            throw new Error('Invalid audience');
+            throw new Error('无效的受众');
         }
     }
     
-    // Validate subject
+    // 验证主题
     if (!payload.sub) {
-        throw new Error('Missing subject claim');
+        throw new Error('缺少主题声明');
     }
     
     return payload;
 }</code></pre>
 
-                    <h3>Python Claim Validation</h3>
+                    <h3>Python声明验证</h3>
                     <pre><code class="language-python">import time
 from datetime import datetime
 
 def validate_jwt_claims(payload):
     now = int(time.time())
-    clock_skew = 60  # 60 seconds
+    clock_skew = 60  # 60秒
     
-    # Validate expiration
+    # 验证过期时间
     if 'exp' in payload and payload['exp'] <= now:
-        raise ValueError('Token has expired')
+        raise ValueError('令牌已过期')
     
-    # Validate not before
+    # 验证不可用之前
     if 'nbf' in payload and payload['nbf'] > now + clock_skew:
-        raise ValueError('Token not yet valid')
+        raise ValueError('令牌尚未生效')
     
-    # Validate issued at
+    # 验证签发时间
     if 'iat' in payload and payload['iat'] > now + clock_skew:
-        raise ValueError('Token issued in the future')
+        raise ValueError('令牌在未来签发')
     
-    # Validate issuer
+    # 验证签发者
     allowed_issuers = ['https://auth.example.com']
     if 'iss' in payload and payload['iss'] not in allowed_issuers:
-        raise ValueError('Invalid issuer')
+        raise ValueError('无效的签发者')
     
-    # Validate audience
+    # 验证受众
     expected_audience = 'api.example.com'
     if 'aud' in payload:
         audiences = payload['aud'] if isinstance(payload['aud'], list) else [payload['aud']]
         if expected_audience not in audiences:
-            raise ValueError('Invalid audience')
+            raise ValueError('无效的受众')
     
-    # Validate subject
+    # 验证主题
     if 'sub' not in payload:
-        raise ValueError('Missing subject claim')
+        raise ValueError('缺少主题声明')
     
     return payload</code></pre>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Conclusion</h2>
+                    <h2>结论</h2>
                     <p>
-                        Understanding and properly implementing JWT claims is crucial for building secure and interoperable authentication systems. Always validate claims according to your security requirements and follow established standards when possible.
+                        理解和正确实现JWT声明对于构建安全和可互操作的认证系统至关重要。始终根据您的安全要求验证声明，并在可能的情况下遵循既定标准。
                     </p>
                     
                     <div class="next-steps">
-                        <h3>Related Resources</h3>
+                        <h3>相关资源</h3>
                         <div class="next-links">
                             <a href="../jwt-claims.html" class="next-link">
                                 <i class="fas fa-info-circle"></i>
-                                <span>JWT Claims Explained</span>
+                                <span>JWT声明详解</span>
                             </a>
                             <a href="../secure-jwt-implementation.html" class="next-link">
                                 <i class="fas fa-lock"></i>
-                                <span>Secure JWT Implementation</span>
+                                <span>安全的JWT实现</span>
                             </a>
                         </div>
                     </div>
@@ -624,20 +624,20 @@ def validate_jwt_claims(payload):
         <div class="footer-container">
             <div class="footer-section">
                 <h3>JWTAuditor</h3>
-                <p>Professional JWT security testing platform for penetration testers and cybersecurity professionals. Decode, analyze vulnerabilities, and audit JSON Web Token implementations with complete client-side privacy.</p>
+                <p>专为渗透测试人员和网络安全专业人员设计的专业JWT安全测试平台。解码、分析漏洞并审计JSON Web Token实现，完全保护客户端隐私。</p>
             </div>
             <div class="footer-section">
-                <h3>Documentation</h3>
+                <h3>文档</h3>
                 <ul class="footer-links">
-                    <li><a href="../jwt-fundamentals.html">JWT Fundamentals</a></li>
-                    <li><a href="../jwt-vulnerabilities-guide.html">Vulnerabilities Guide</a></li>
-                    <li><a href="../secure-jwt-implementation.html">Secure Implementation</a></li>
+                    <li><a href="../jwt-fundamentals.html">JWT基础</a></li>
+                    <li><a href="../jwt-vulnerabilities-guide.html">漏洞指南</a></li>
+                    <li><a href="../secure-jwt-implementation.html">安全实现</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Resources</h3>
+                <h3>资源</h3>
                 <ul class="footer-links">
-                    <li><a href="../../about.html">About Us</a></li>
+                    <li><a href="../../about.html">关于我们</a></li>
                     <li><a href="https://jwt.io/" target="_blank">JWT.io</a></li>
                     <li><a href="https://portswigger.net/web-security/jwt" target="_blank">PortSwigger JWT Attacks</a></li>
                 </ul>

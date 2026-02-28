@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JWT Algorithms Reference - JWTAuditor</title>
-    <meta name="description" content="Comprehensive reference guide to JWT signing and encryption algorithms, including HMAC, RSA, ECDSA, and more.">
-    <meta name="keywords" content="JWT, algorithms, HS256, RS256, ES256, PS256, encryption, signing">
+    <title>JWT算法参考 - JWTAuditor</title>
+    <meta name="description" content="JWT签名和加密算法的综合参考指南，包括HMAC、RSA、ECDSA等。">
+    <meta name="keywords" content="JWT, 算法, HS256, RS256, ES256, PS256, 加密, 签名">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../css/docs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,9 +18,9 @@
             <i class="fas fa-user-secret"></i>
             <h1>JWTAuditor</h1>
         </div>
-        <div class="subtitle">Documentation & Learning Resources</div>
+        <div class="subtitle">文档与学习资源</div>
         <div class="header-actions">
-            <a href="../../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> Back to Tool</a>
+            <a href="../../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> 返回工具</a>
         </div>
     </header>
 
@@ -28,43 +28,43 @@
         <div class="docs-container">
             <aside class="docs-sidebar">
                 <div class="sidebar-header">
-                    <h2>Documentation</h2>
+                    <h2>文档</h2>
                 </div>
                 <nav class="docs-nav">
                     <div class="nav-section">
-                        <h3>JWT Fundamentals</h3>
+                        <h3>JWT基础</h3>
                         <ul>
-                            <li><a href="../jwt-fundamentals.html">Understanding JWT Structure</a></li>
-                            <li><a href="../jwt-claims.html">JWT Claims Explained</a></li>
-                            <li><a href="../jwt-vs-sessions.html">JWT vs. Session Auth</a></li>
+                            <li><a href="../jwt-fundamentals.html">理解JWT结构</a></li>
+                            <li><a href="../jwt-claims.html">JWT声明详解</a></li>
+                            <li><a href="../jwt-vs-sessions.html">JWT与会话认证</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Security Guides</h3>
+                        <h3>安全指南</h3>
                         <ul>
-                            <li><a href="../jwt-vulnerabilities-guide.html">JWT Vulnerabilities Guide</a></li>
-                            <li><a href="../jwt-attack-vectors.html">Complete Attack Vectors</a></li>
-                            <li><a href="../jwt-security-checklist.html">Security Checklist</a></li>
-                            <li><a href="../jwt-tools-comparison.html">Tools Comparison</a></li>
-                            <li><a href="../secure-jwt-implementation.html">Secure Implementation</a></li>
-                            <li><a href="../jwt-attack-techniques.html">Attack Techniques</a></li>
+                            <li><a href="../jwt-vulnerabilities-guide.html">JWT漏洞指南</a></li>
+                            <li><a href="../jwt-attack-vectors.html">完整攻击向量</a></li>
+                            <li><a href="../jwt-security-checklist.html">安全检查清单</a></li>
+                            <li><a href="../jwt-tools-comparison.html">工具对比</a></li>
+                            <li><a href="../secure-jwt-implementation.html">安全实施</a></li>
+                            <li><a href="../jwt-attack-techniques.html">攻击技术</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Tool Guides</h3>
+                        <h3>工具指南</h3>
                         <ul>
-                            <li><a href="../tool-guides/decoder-analyzer.html">Decoder & Analyzer</a></li>
-                            <li><a href="../tool-guides/secret-bruteforcer.html">Secret Bruteforcer</a></li>
-                            <li><a href="../tool-guides/jwt-editor.html">JWT Editor</a></li>
-                            <li><a href="../tool-guides/jwt-generator.html">JWT Generator</a></li>
+                            <li><a href="../tool-guides/decoder-analyzer.html">解码器与分析器</a></li>
+                            <li><a href="../tool-guides/secret-bruteforcer.html">密钥暴力破解器</a></li>
+                            <li><a href="../tool-guides/jwt-editor.html">JWT编辑器</a></li>
+                            <li><a href="../tool-guides/jwt-generator.html">JWT生成器</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Reference</h3>
+                        <h3>参考</h3>
                         <ul>
-                            <li><a href="jwt-header-parameters.html">Header Parameters</a></li>
-                            <li><a href="jwt-claim-registry.html">Claim Registry</a></li>
-                            <li><a href="jwt-algorithms.html" class="active">JWT Algorithms</a></li>
+                            <li><a href="jwt-header-parameters.html">头部参数</a></li>
+                            <li><a href="jwt-claim-registry.html">声明注册表</a></li>
+                            <li><a href="jwt-algorithms.html" class="active">JWT算法</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -72,158 +72,158 @@
 
             <div class="docs-content">
                 <div class="docs-header">
-                    <h1>JWT Algorithms Reference</h1>
+                    <h1>JWT算法参考</h1>
                     <div class="docs-meta">
-                        <span><i class="fas fa-book"></i> Reference Guide</span>
-                        <span><i class="fas fa-clock"></i> Reading time: 10 min</span>
+                        <span><i class="fas fa-book"></i> 参考指南</span>
+                        <span><i class="fas fa-clock"></i> 阅读时间：10分钟</span>
                     </div>
                 </div>
 
                 <div class="docs-section intro-section">
                     <p class="lead">
-                        JWT algorithms are used for signing and encrypting tokens. This reference guide provides detailed information about the various algorithms supported by the JWT standard, their security characteristics, and recommendations for their use.
+                        JWT算法用于签名和加密令牌。本参考指南提供了关于JWT标准支持的各种算法的详细信息、其安全特性以及使用建议。
                     </p>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Algorithm Categories</h2>
+                    <h2>算法类别</h2>
                     
-                    <p>JWT algorithms fall into several categories based on their purpose and cryptographic approach:</p>
+                    <p>JWT算法根据其目的和密码学方法分为几个类别：</p>
                     
                     <div class="algorithm-categories">
                         <div class="algorithm-category">
-                            <h3><i class="fas fa-signature"></i> Signature Algorithms</h3>
-                            <p>Used to sign JWTs to ensure integrity and authenticity.</p>
+                            <h3><i class="fas fa-signature"></i> 签名算法</h3>
+                            <p>用于签署JWT以确保完整性和真实性。</p>
                         </div>
                         
                         <div class="algorithm-category">
-                            <h3><i class="fas fa-lock"></i> Encryption Algorithms</h3>
-                            <p>Used to encrypt JWTs to ensure confidentiality (JWE).</p>
+                            <h3><i class="fas fa-lock"></i> 加密算法</h3>
+                            <p>用于加密JWT以确保机密性（JWE）。</p>
                         </div>
                         
                         <div class="algorithm-category">
-                            <h3><i class="fas fa-key"></i> Key Management Algorithms</h3>
-                            <p>Used to encrypt or agree upon keys for JWE.</p>
+                            <h3><i class="fas fa-key"></i> 密钥管理算法</h3>
+                            <p>用于加密或协商JWE的密钥。</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Signature Algorithms (JWS)</h2>
+                    <h2>签名算法 (JWS)</h2>
                     
                     <p>
-                        JSON Web Signature (JWS) algorithms are used to sign JWTs. The signature is created using the header and payload of the JWT, ensuring that the token hasn't been tampered with.
+                        JSON Web Signature (JWS)算法用于签署JWT。签名使用JWT的头部和载荷创建，确保令牌未被篡改。
                     </p>
                     
                     <div class="table-responsive">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Algorithm</th>
-                                    <th>Description</th>
-                                    <th>Key Type</th>
-                                    <th>Security Level</th>
-                                    <th>Recommended</th>
+                                    <th>算法</th>
+                                    <th>描述</th>
+                                    <th>密钥类型</th>
+                                    <th>安全级别</th>
+                                    <th>推荐</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><code>none</code></td>
-                                    <td>No signature (unsecured JWT)</td>
-                                    <td>None</td>
-                                    <td class="security-low">Very Low</td>
-                                    <td><i class="fas fa-times text-danger"></i> Never use in production</td>
+                                    <td>无签名（非安全JWT）</td>
+                                    <td>无</td>
+                                    <td class="security-low">非常低</td>
+                                    <td><i class="fas fa-times text-danger"></i> 生产环境中绝不要使用</td>
                                 </tr>
                                 <tr>
                                     <td><code>HS256</code></td>
-                                    <td>HMAC with SHA-256</td>
-                                    <td>Symmetric</td>
-                                    <td class="security-medium">Medium</td>
-                                    <td><i class="fas fa-check text-success"></i> With strong secret</td>
+                                    <td>使用SHA-256的HMAC</td>
+                                    <td>对称</td>
+                                    <td class="security-medium">中等</td>
+                                    <td><i class="fas fa-check text-success"></i> 使用强密钥</td>
                                 </tr>
                                 <tr>
                                     <td><code>HS384</code></td>
-                                    <td>HMAC with SHA-384</td>
-                                    <td>Symmetric</td>
-                                    <td class="security-high">High</td>
-                                    <td><i class="fas fa-check text-success"></i> With strong secret</td>
+                                    <td>使用SHA-384的HMAC</td>
+                                    <td>对称</td>
+                                    <td class="security-high">高</td>
+                                    <td><i class="fas fa-check text-success"></i> 使用强密钥</td>
                                 </tr>
                                 <tr>
                                     <td><code>HS512</code></td>
-                                    <td>HMAC with SHA-512</td>
-                                    <td>Symmetric</td>
-                                    <td class="security-high">High</td>
-                                    <td><i class="fas fa-check text-success"></i> With strong secret</td>
+                                    <td>使用SHA-512的HMAC</td>
+                                    <td>对称</td>
+                                    <td class="security-high">高</td>
+                                    <td><i class="fas fa-check text-success"></i> 使用强密钥</td>
                                 </tr>
                                 <tr>
                                     <td><code>RS256</code></td>
-                                    <td>RSASSA-PKCS1-v1_5 with SHA-256</td>
-                                    <td>Asymmetric</td>
-                                    <td class="security-high">High</td>
-                                    <td><i class="fas fa-check text-success"></i> Recommended</td>
+                                    <td>使用SHA-256的RSASSA-PKCS1-v1_5</td>
+                                    <td>非对称</td>
+                                    <td class="security-high">高</td>
+                                    <td><i class="fas fa-check text-success"></i> 推荐</td>
                                 </tr>
                                 <tr>
                                     <td><code>RS384</code></td>
-                                    <td>RSASSA-PKCS1-v1_5 with SHA-384</td>
-                                    <td>Asymmetric</td>
-                                    <td class="security-high">High</td>
-                                    <td><i class="fas fa-check text-success"></i> Recommended</td>
+                                    <td>使用SHA-384的RSASSA-PKCS1-v1_5</td>
+                                    <td>非对称</td>
+                                    <td class="security-high">高</td>
+                                    <td><i class="fas fa-check text-success"></i> 推荐</td>
                                 </tr>
                                 <tr>
                                     <td><code>RS512</code></td>
-                                    <td>RSASSA-PKCS1-v1_5 with SHA-512</td>
-                                    <td>Asymmetric</td>
-                                    <td class="security-high">High</td>
-                                    <td><i class="fas fa-check text-success"></i> Recommended</td>
+                                    <td>使用SHA-512的RSASSA-PKCS1-v1_5</td>
+                                    <td>非对称</td>
+                                    <td class="security-high">高</td>
+                                    <td><i class="fas fa-check text-success"></i> 推荐</td>
                                 </tr>
                                 <tr>
                                     <td><code>ES256</code></td>
-                                    <td>ECDSA with P-256 and SHA-256</td>
-                                    <td>Asymmetric</td>
-                                    <td class="security-high">High</td>
-                                    <td><i class="fas fa-check text-success"></i> Recommended</td>
+                                    <td>使用P-256和SHA-256的ECDSA</td>
+                                    <td>非对称</td>
+                                    <td class="security-high">高</td>
+                                    <td><i class="fas fa-check text-success"></i> 推荐</td>
                                 </tr>
                                 <tr>
                                     <td><code>ES384</code></td>
-                                    <td>ECDSA with P-384 and SHA-384</td>
-                                    <td>Asymmetric</td>
-                                    <td class="security-high">High</td>
-                                    <td><i class="fas fa-check text-success"></i> Recommended</td>
+                                    <td>使用P-384和SHA-384的ECDSA</td>
+                                    <td>非对称</td>
+                                    <td class="security-high">高</td>
+                                    <td><i class="fas fa-check text-success"></i> 推荐</td>
                                 </tr>
                                 <tr>
                                     <td><code>ES512</code></td>
-                                    <td>ECDSA with P-521 and SHA-512</td>
-                                    <td>Asymmetric</td>
-                                    <td class="security-high">High</td>
-                                    <td><i class="fas fa-check text-success"></i> Recommended</td>
+                                    <td>使用P-521和SHA-512的ECDSA</td>
+                                    <td>非对称</td>
+                                    <td class="security-high">高</td>
+                                    <td><i class="fas fa-check text-success"></i> 推荐</td>
                                 </tr>
                                 <tr>
                                     <td><code>PS256</code></td>
-                                    <td>RSASSA-PSS with SHA-256</td>
-                                    <td>Asymmetric</td>
-                                    <td class="security-high">High</td>
-                                    <td><i class="fas fa-check text-success"></i> Recommended</td>
+                                    <td>使用SHA-256的RSASSA-PSS</td>
+                                    <td>非对称</td>
+                                    <td class="security-high">高</td>
+                                    <td><i class="fas fa-check text-success"></i> 推荐</td>
                                 </tr>
                                 <tr>
                                     <td><code>PS384</code></td>
-                                    <td>RSASSA-PSS with SHA-384</td>
-                                    <td>Asymmetric</td>
-                                    <td class="security-high">High</td>
-                                    <td><i class="fas fa-check text-success"></i> Recommended</td>
+                                    <td>使用SHA-384的RSASSA-PSS</td>
+                                    <td>非对称</td>
+                                    <td class="security-high">高</td>
+                                    <td><i class="fas fa-check text-success"></i> 推荐</td>
                                 </tr>
                                 <tr>
                                     <td><code>PS512</code></td>
-                                    <td>RSASSA-PSS with SHA-512</td>
-                                    <td>Asymmetric</td>
-                                    <td class="security-high">High</td>
-                                    <td><i class="fas fa-check text-success"></i> Recommended</td>
+                                    <td>使用SHA-512的RSASSA-PSS</td>
+                                    <td>非对称</td>
+                                    <td class="security-high">高</td>
+                                    <td><i class="fas fa-check text-success"></i> 推荐</td>
                                 </tr>
                                 <tr>
                                     <td><code>EdDSA</code></td>
-                                    <td>Edwards-curve Digital Signature Algorithm</td>
-                                    <td>Asymmetric</td>
-                                    <td class="security-high">High</td>
-                                    <td><i class="fas fa-check text-success"></i> Recommended</td>
+                                    <td>爱德华兹曲线数字签名算法</td>
+                                    <td>非对称</td>
+                                    <td class="security-high">高</td>
+                                    <td><i class="fas fa-check text-success"></i> 推荐</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -231,128 +231,128 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>Algorithm Characteristics</h2>
+                    <h2>算法特性</h2>
                     
-                    <h3>HMAC Algorithms (HS256, HS384, HS512)</h3>
+                    <h3>HMAC算法 (HS256, HS384, HS512)</h3>
                     <ul>
-                        <li><strong>Type:</strong> Symmetric key algorithms</li>
-                        <li><strong>Key Requirements:</strong> Same secret key for both signing and verification</li>
-                        <li><strong>Advantages:</strong> Fast, simple implementation</li>
-                        <li><strong>Disadvantages:</strong> Secret must be shared between all parties that sign or verify tokens</li>
-                        <li><strong>Use Case:</strong> Single server environments or tightly controlled microservices</li>
-                        <li><strong>Security Considerations:</strong> Secret must be strong and kept secure</li>
+                        <li><strong>类型：</strong> 对称密钥算法</li>
+                        <li><strong>密钥要求：</strong> 签名和验证使用相同的密钥</li>
+                        <li><strong>优点：</strong> 快速，实现简单</li>
+                        <li><strong>缺点：</strong> 密钥必须在所有签名或验证令牌的各方之间共享</li>
+                        <li><strong>使用场景：</strong> 单服务器环境或严格控制的微服务</li>
+                        <li><strong>安全考虑：</strong> 密钥必须强壮且保持安全</li>
                     </ul>
                     
-                    <h3>RSA Algorithms (RS256, RS384, RS512)</h3>
+                    <h3>RSA算法 (RS256, RS384, RS512)</h3>
                     <ul>
-                        <li><strong>Type:</strong> Asymmetric key algorithms</li>
-                        <li><strong>Key Requirements:</strong> Private key for signing, public key for verification</li>
-                        <li><strong>Advantages:</strong> Public key can be distributed widely without compromising security</li>
-                        <li><strong>Disadvantages:</strong> Slower than HMAC, larger signatures</li>
-                        <li><strong>Use Case:</strong> Multi-server environments, public-facing APIs</li>
-                        <li><strong>Security Considerations:</strong> Private key must be kept secure</li>
+                        <li><strong>类型：</strong> 非对称密钥算法</li>
+                        <li><strong>密钥要求：</strong> 私钥用于签名，公钥用于验证</li>
+                        <li><strong>优点：</strong> 公钥可以广泛分发而不影响安全性</li>
+                        <li><strong>缺点：</strong> 比HMAC慢，签名更大</li>
+                        <li><strong>使用场景：</strong> 多服务器环境，面向公众的API</li>
+                        <li><strong>安全考虑：</strong> 私钥必须保持安全</li>
                     </ul>
                     
-                    <h3>ECDSA Algorithms (ES256, ES384, ES512)</h3>
+                    <h3>ECDSA算法 (ES256, ES384, ES512)</h3>
                     <ul>
-                        <li><strong>Type:</strong> Asymmetric key algorithms based on elliptic curves</li>
-                        <li><strong>Key Requirements:</strong> Private key for signing, public key for verification</li>
-                        <li><strong>Advantages:</strong> Smaller keys and signatures than RSA for equivalent security</li>
-                        <li><strong>Disadvantages:</strong> Implementation complexity, potential patent issues in some jurisdictions</li>
-                        <li><strong>Use Case:</strong> Mobile applications, environments with bandwidth constraints</li>
-                        <li><strong>Security Considerations:</strong> Requires secure random number generation</li>
+                        <li><strong>类型：</strong> 基于椭圆曲线的非对称密钥算法</li>
+                        <li><strong>密钥要求：</strong> 私钥用于签名，公钥用于验证</li>
+                        <li><strong>优点：</strong> 相同安全级别下比RSA更小的密钥和签名</li>
+                        <li><strong>缺点：</strong> 实现复杂，在某些地区可能存在专利问题</li>
+                        <li><strong>使用场景：</strong> 移动应用程序，带宽受限的环境</li>
+                        <li><strong>安全考虑：</strong> 需要安全的随机数生成</li>
                     </ul>
                     
-                    <h3>RSASSA-PSS Algorithms (PS256, PS384, PS512)</h3>
+                    <h3>RSASSA-PSS算法 (PS256, PS384, PS512)</h3>
                     <ul>
-                        <li><strong>Type:</strong> Asymmetric key algorithms (improved RSA)</li>
-                        <li><strong>Key Requirements:</strong> Private key for signing, public key for verification</li>
-                        <li><strong>Advantages:</strong> More secure than RSASSA-PKCS1-v1_5 (RS*) against certain attacks</li>
-                        <li><strong>Disadvantages:</strong> Less widely supported than RS* algorithms</li>
-                        <li><strong>Use Case:</strong> High-security environments</li>
-                        <li><strong>Security Considerations:</strong> Preferred over RS* when supported</li>
+                        <li><strong>类型：</strong> 非对称密钥算法（改进的RSA）</li>
+                        <li><strong>密钥要求：</strong> 私钥用于签名，公钥用于验证</li>
+                        <li><strong>优点：</strong> 针对某些攻击比RSASSA-PKCS1-v1_5 (RS*) 更安全</li>
+                        <li><strong>缺点：</strong> 支持度不如RS*算法广泛</li>
+                        <li><strong>使用场景：</strong> 高安全环境</li>
+                        <li><strong>安全考虑：</strong> 在支持的情况下优于RS*</li>
                     </ul>
                     
-                    <h3>EdDSA Algorithm</h3>
+                    <h3>EdDSA算法</h3>
                     <ul>
-                        <li><strong>Type:</strong> Asymmetric key algorithm based on Edwards curves</li>
-                        <li><strong>Key Requirements:</strong> Private key for signing, public key for verification</li>
-                        <li><strong>Advantages:</strong> Fast, secure, resistant to side-channel attacks</li>
-                        <li><strong>Disadvantages:</strong> Newer, less widely supported</li>
-                        <li><strong>Use Case:</strong> High-security environments, modern applications</li>
-                        <li><strong>Security Considerations:</strong> Excellent security properties</li>
+                        <li><strong>类型：</strong> 基于爱德华兹曲线的非对称密钥算法</li>
+                        <li><strong>密钥要求：</strong> 私钥用于签名，公钥用于验证</li>
+                        <li><strong>优点：</strong> 快速，安全，抗侧信道攻击</li>
+                        <li><strong>缺点：</strong> 较新，支持度较低</li>
+                        <li><strong>使用场景：</strong> 高安全环境，现代应用程序</li>
+                        <li><strong>安全考虑：</strong> 出色的安全特性</li>
                     </ul>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Algorithm Selection Guidelines</h2>
+                    <h2>算法选择指南</h2>
                     
-                    <h3>Recommended Algorithms</h3>
+                    <h3>推荐的算法</h3>
                     <p>
-                        For most applications, we recommend the following algorithms:
+                        对于大多数应用程序，我们推荐以下算法：
                     </p>
                     <ul>
-                        <li><strong>Single-server applications:</strong> HS256 with a strong secret (at least 256 bits)</li>
-                        <li><strong>Multi-server or public-facing applications:</strong> RS256, ES256, or PS256</li>
-                        <li><strong>High-security applications:</strong> ES384, PS384, or EdDSA</li>
+                        <li><strong>单服务器应用程序：</strong> 使用强密钥（至少256位）的HS256</li>
+                        <li><strong>多服务器或面向公众的应用程序：</strong> RS256、ES256或PS256</li>
+                        <li><strong>高安全应用程序：</strong> ES384、PS384或EdDSA</li>
                     </ul>
                     
-                    <h3>Algorithms to Avoid</h3>
+                    <h3>应避免的算法</h3>
                     <ul>
-                        <li><strong>none:</strong> Never use the "none" algorithm in production</li>
-                        <li><strong>HS256 with weak secrets:</strong> Avoid using passwords, dictionary words, or short strings as secrets</li>
+                        <li><strong>none：</strong> 生产环境中绝不要使用"none"算法</li>
+                        <li><strong>使用弱密钥的HS256：</strong> 避免使用密码、字典单词或短字符串作为密钥</li>
                     </ul>
                     
                     <div class="warning-box">
                         <div class="warning-icon"><i class="fas fa-exclamation-triangle"></i></div>
                         <div class="warning-content">
-                            <p><strong>Warning:</strong> Always ensure your JWT library explicitly rejects the "none" algorithm, as this is a common security vulnerability.</p>
+                            <p><strong>警告：</strong> 始终确保您的JWT库明确拒绝"none"算法，因为这是一个常见的安全漏洞。</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Key Size Recommendations</h2>
+                    <h2>密钥长度建议</h2>
                     
                     <div class="table-responsive">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Algorithm</th>
-                                    <th>Minimum Key Size</th>
-                                    <th>Recommended Key Size</th>
+                                    <th>算法</th>
+                                    <th>最小密钥长度</th>
+                                    <th>推荐密钥长度</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>HMAC (HS256, HS384, HS512)</td>
-                                    <td>Same as hash output length</td>
-                                    <td>≥ 256 bits (32 bytes)</td>
+                                    <td>与哈希输出长度相同</td>
+                                    <td>≥ 256位 (32字节)</td>
                                 </tr>
                                 <tr>
                                     <td>RSA (RS256, RS384, RS512, PS256, PS384, PS512)</td>
-                                    <td>2048 bits</td>
-                                    <td>3072 or 4096 bits</td>
+                                    <td>2048位</td>
+                                    <td>3072或4096位</td>
                                 </tr>
                                 <tr>
                                     <td>ECDSA (ES256)</td>
-                                    <td>P-256 (256 bits)</td>
-                                    <td>P-256 (256 bits)</td>
+                                    <td>P-256 (256位)</td>
+                                    <td>P-256 (256位)</td>
                                 </tr>
                                 <tr>
                                     <td>ECDSA (ES384)</td>
-                                    <td>P-384 (384 bits)</td>
-                                    <td>P-384 (384 bits)</td>
+                                    <td>P-384 (384位)</td>
+                                    <td>P-384 (384位)</td>
                                 </tr>
                                 <tr>
                                     <td>ECDSA (ES512)</td>
-                                    <td>P-521 (521 bits)</td>
-                                    <td>P-521 (521 bits)</td>
+                                    <td>P-521 (521位)</td>
+                                    <td>P-521 (521位)</td>
                                 </tr>
                                 <tr>
                                     <td>EdDSA (Ed25519)</td>
-                                    <td>255 bits</td>
-                                    <td>255 bits</td>
+                                    <td>255位</td>
+                                    <td>255位</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -360,28 +360,28 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>Algorithm Implementation Examples</h2>
+                    <h2>算法实现示例</h2>
                     
-                    <h3>Node.js Example (jsonwebtoken library)</h3>
+                    <h3>Node.js 示例 (jsonwebtoken 库)</h3>
                     <pre><code class="language-javascript">const jwt = require('jsonwebtoken');
 
-// HS256 (HMAC with SHA-256)
+// HS256 (使用SHA-256的HMAC)
 const hmacSecret = 'your-strong-secret-key-at-least-32-characters';
 const hmacToken = jwt.sign({ sub: 'user123' }, hmacSecret, { algorithm: 'HS256' });
 
-// RS256 (RSA with SHA-256)
+// RS256 (使用SHA-256的RSA)
 const privateKey = fs.readFileSync('private.key');
 const rsaToken = jwt.sign({ sub: 'user123' }, privateKey, { algorithm: 'RS256' });
 
-// ES256 (ECDSA with P-256 and SHA-256)
+// ES256 (使用P-256和SHA-256的ECDSA)
 const ecPrivateKey = fs.readFileSync('ec-private.key');
 const ecdsaToken = jwt.sign({ sub: 'user123' }, ecPrivateKey, { algorithm: 'ES256' });</code></pre>
                     
-                    <h3>Python Example (PyJWT library)</h3>
+                    <h3>Python 示例 (PyJWT 库)</h3>
                     <pre><code class="language-python">import jwt
 import datetime
 
-# HS256 (HMAC with SHA-256)
+# HS256 (使用SHA-256的HMAC)
 hmac_secret = 'your-strong-secret-key-at-least-32-characters'
 hmac_token = jwt.encode(
     {'sub': 'user123', 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=1)},
@@ -389,7 +389,7 @@ hmac_token = jwt.encode(
     algorithm='HS256'
 )
 
-# RS256 (RSA with SHA-256)
+# RS256 (使用SHA-256的RSA)
 with open('private.key', 'r') as f:
     private_key = f.read()
     
@@ -401,24 +401,24 @@ rsa_token = jwt.encode(
                 </div>
 
                 <div class="docs-section">
-                    <h2>Conclusion</h2>
+                    <h2>结论</h2>
                     <p>
-                        Choosing the right JWT algorithm is crucial for the security of your application. Consider your specific requirements, security needs, and deployment environment when selecting an algorithm.
+                        选择正确的JWT算法对应用程序的安全性至关重要。选择算法时，请考虑您的具体需求、安全要求和部署环境。
                     </p>
                     <p>
-                        For most applications, asymmetric algorithms like RS256 or ES256 provide a good balance of security and usability. Always ensure you're using appropriate key sizes and following best practices for key management.
+                        对于大多数应用程序，像RS256或ES256这样的非对称算法在安全性和可用性之间提供了良好的平衡。始终确保您使用适当的密钥长度并遵循密钥管理的最佳实践。
                     </p>
                     
                     <div class="next-steps">
-                        <h3>Related Resources</h3>
+                        <h3>相关资源</h3>
                         <div class="next-links">
                             <a href="../secure-jwt-implementation.html" class="next-link">
                                 <i class="fas fa-lock"></i>
-                                <span>Secure JWT Implementation</span>
+                                <span>安全的JWT实现</span>
                             </a>
                             <a href="../jwt-vulnerabilities-guide.html" class="next-link">
                                 <i class="fas fa-user-secret"></i>
-                                <span>JWT Vulnerabilities Guide</span>
+                                <span>JWT漏洞指南</span>
                             </a>
                         </div>
                     </div>
@@ -431,20 +431,20 @@ rsa_token = jwt.encode(
         <div class="footer-container">
             <div class="footer-section">
                 <h3>JWTAuditor</h3>
-                <p>Professional JWT security testing platform for penetration testers and cybersecurity professionals. Decode, analyze vulnerabilities, and audit JSON Web Token implementations with complete client-side privacy.</p>
+                <p>专为渗透测试人员和网络安全专业人员设计的专业JWT安全测试平台。解码、分析漏洞并审计JSON Web Token实现，完全保护客户端隐私。</p>
             </div>
             <div class="footer-section">
-                <h3>Documentation</h3>
+                <h3>文档</h3>
                 <ul class="footer-links">
-                    <li><a href="../jwt-fundamentals.html">JWT Fundamentals</a></li>
-                    <li><a href="../jwt-vulnerabilities-guide.html">Vulnerabilities Guide</a></li>
-                    <li><a href="../secure-jwt-implementation.html">Secure Implementation</a></li>
+                    <li><a href="../jwt-fundamentals.html">JWT基础</a></li>
+                    <li><a href="../jwt-vulnerabilities-guide.html">漏洞指南</a></li>
+                    <li><a href="../secure-jwt-implementation.html">安全实现</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Resources</h3>
+                <h3>资源</h3>
                 <ul class="footer-links">
-                    <li><a href="../../about.html">About Us</a></li>
+                    <li><a href="../../about.html">关于我们</a></li>
                     <li><a href="https://jwt.io/" target="_blank">JWT.io</a></li>
                     <li><a href="https://portswigger.net/web-security/jwt" target="_blank">PortSwigger JWT Attacks</a></li>
                 </ul>

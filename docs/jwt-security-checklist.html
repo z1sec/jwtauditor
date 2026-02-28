@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JWT Security Checklist - Complete Audit Guide | JWTAuditor</title>
-    <meta name="description" content="Comprehensive JWT security checklist for developers, security engineers, and penetration testers. 50+ security checks covering implementation, cryptography, and best practices.">
-    <meta name="keywords" content="JWT security checklist, JWT audit, JWT security testing, JSON Web Token security, JWT best practices, JWT vulnerability assessment, JWT security review">
+    <title>JWT安全检查清单 - 完整审计指南 | JWTAuditor</title>
+    <meta name="description" content="面向开发人员、安全工程师和渗透测试人员的JWT安全检查清单。50多项安全检查，涵盖实施、密码学和最佳实践。">
+    <meta name="keywords" content="JWT安全检查清单, JWT审计, JWT安全测试, JSON Web Token安全, JWT最佳实践, JWT漏洞评估, JWT安全审查">
 
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="JWT Security Checklist - Complete Audit Guide">
@@ -25,9 +25,9 @@
             <i class="fas fa-user-secret"></i>
             <h1>JWTAuditor</h1>
         </div>
-        <div class="subtitle">Documentation & Learning Resources</div>
+        <div class="subtitle">文档与学习资源</div>
         <div class="header-actions">
-            <a href="../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> Back to Tool</a>
+            <a href="../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> 返回工具</a>
         </div>
     </header>
 
@@ -35,42 +35,42 @@
         <div class="docs-container">
             <aside class="docs-sidebar">
                 <div class="sidebar-header">
-                    <h2>Documentation</h2>
+                    <h2>文档</h2>
                 </div>
                 <nav class="docs-nav">
                     <div class="nav-section">
-                        <h3>JWT Fundamentals</h3>
+                        <h3>JWT基础</h3>
                         <ul>
-                            <li><a href="jwt-fundamentals.html">Understanding JWT Structure</a></li>
-                            <li><a href="jwt-claims.html">JWT Claims Explained</a></li>
-                            <li><a href="jwt-vs-sessions.html">JWT vs. Session Auth</a></li>
+                            <li><a href="jwt-fundamentals.html">理解JWT结构</a></li>
+                            <li><a href="jwt-claims.html">JWT声明详解</a></li>
+                            <li><a href="jwt-vs-sessions.html">JWT与会话认证</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Security Guides</h3>
+                        <h3>安全指南</h3>
                         <ul>
-                            <li><a href="jwt-vulnerabilities-guide.html">JWT Vulnerabilities Guide</a></li>
-                            <li><a href="jwt-attack-vectors.html">Complete Attack Vectors</a></li>
-                            <li><a href="jwt-security-checklist.html" class="active">Security Checklist</a></li>
-                            <li><a href="secure-jwt-implementation.html">Secure Implementation</a></li>
-                            <li><a href="jwt-attack-techniques.html">Attack Techniques</a></li>
+                            <li><a href="jwt-vulnerabilities-guide.html">JWT漏洞指南</a></li>
+                            <li><a href="jwt-attack-vectors.html">完整攻击向量</a></li>
+                            <li><a href="jwt-security-checklist.html" class="active">安全检查清单</a></li>
+                            <li><a href="secure-jwt-implementation.html">安全实施</a></li>
+                            <li><a href="jwt-attack-techniques.html">攻击技术</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Tool Guides</h3>
+                        <h3>工具指南</h3>
                         <ul>
-                            <li><a href="tool-guides/decoder-analyzer.html">Decoder & Analyzer</a></li>
-                            <li><a href="tool-guides/secret-bruteforcer.html">Secret Bruteforcer</a></li>
-                            <li><a href="tool-guides/jwt-editor.html">JWT Editor</a></li>
-                            <li><a href="tool-guides/jwt-generator.html">JWT Generator</a></li>
+                            <li><a href="tool-guides/decoder-analyzer.html">解码器与分析器</a></li>
+                            <li><a href="tool-guides/secret-bruteforcer.html">密钥暴力破解器</a></li>
+                            <li><a href="tool-guides/jwt-editor.html">JWT编辑器</a></li>
+                            <li><a href="tool-guides/jwt-generator.html">JWT生成器</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Reference</h3>
+                        <h3>参考</h3>
                         <ul>
-                            <li><a href="reference/jwt-header-parameters.html">Header Parameters</a></li>
-                            <li><a href="reference/jwt-claim-registry.html">Claim Registry</a></li>
-                            <li><a href="reference/jwt-algorithms.html">JWT Algorithms</a></li>
+                            <li><a href="reference/jwt-header-parameters.html">头部参数</a></li>
+                            <li><a href="reference/jwt-claim-registry.html">声明注册表</a></li>
+                            <li><a href="reference/jwt-algorithms.html">JWT算法</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -102,8 +102,8 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>🔴 Critical Security Checks</h2>
-                    <p class="text-danger"><strong>Priority 1:</strong> These vulnerabilities can lead to complete authentication bypass</p>
+                    <h2>🔴 关键安全检查</h2>
+                    <p class="text-danger"><strong>优先级1：</strong> 这些漏洞可能导致完全的身份验证绕过</p>
 
                     <div class="checklist-section">
                         <div class="checklist-item critical">
@@ -111,31 +111,31 @@
                                 <input type="checkbox" id="check1">
                                 <label for="check1">
                                     <i class="fas fa-exclamation-triangle"></i>
-                                    <strong>Algorithm None Attack Prevention</strong>
+                                    <strong>算法None攻击防护</strong>
                                 </label>
                                 <span class="risk-level critical">CRITICAL</span>
                             </div>
                             <div class="item-content">
-                                <p><strong>What to Check:</strong> Verify application rejects tokens with "alg": "none"</p>
+                                <p><strong>检查内容：</strong> 验证应用程序是否拒绝带有"alg": "none"的令牌</p>
                                 <div class="test-method">
-                                    <h4>Test Method:</h4>
+                                    <h4>测试方法：</h4>
                                     <ol>
-                                        <li>Modify JWT header: <code>{"alg": "none", "typ": "JWT"}</code></li>
-                                        <li>Remove signature portion entirely</li>
-                                        <li>Submit token without trailing dots</li>
-                                        <li>Test with empty signature: <code>jwt.header.payload.</code></li>
+                                        <li>修改JWT头部：<code>{"alg": "none", "typ": "JWT"}</code></li>
+                                        <li>完全移除签名部分</li>
+                                        <li>提交不带尾随点的令牌</li>
+                                        <li>使用空签名测试：<code>jwt.header.payload.</code></li>
                                     </ol>
                                 </div>
                                 <div class="remediation">
-                                    <h4>Remediation:</h4>
+                                    <h4>修复方法：</h4>
                                     <ul>
-                                        <li>Implement algorithm whitelist (never include "none")</li>
-                                        <li>Always verify signatures exist and are valid</li>
-                                        <li>Use library security modes that reject unsigned tokens</li>
+                                        <li>实施算法白名单（永不包含"none"）</li>
+                                        <li>始终验证签名存在且有效</li>
+                                        <li>使用拒绝未签名令牌的库安全模式</li>
                                     </ul>
                                 </div>
                                 <div class="impact">
-                                    <strong>Impact:</strong> Complete authentication bypass, privilege escalation to any user/role
+                                    <strong>影响：</strong> 完全身份验证绕过，权限提升至任何用户/角色
                                 </div>
                             </div>
                         </div>
@@ -150,33 +150,33 @@
                                 <span class="risk-level critical">CRITICAL</span>
                             </div>
                             <div class="item-content">
-                                <p><strong>What to Check:</strong> Ensure asymmetric tokens can't be verified as symmetric</p>
+                                <p><strong>检查内容：</strong> 确保非对称令牌不能作为对称令牌验证</p>
                                 <div class="test-method">
-                                    <h4>Test Method:</h4>
+                                    <h4>测试方法：</h4>
                                     <ol>
-                                        <li>Obtain public key from JWKS endpoint or certificate</li>
-                                        <li>Change algorithm from RS256 to HS256</li>
-                                        <li>Sign token using public key as HMAC secret</li>
-                                        <li>Test if application accepts the forged token</li>
+                                        <li>从JWKS端点或证书获取公钥</li>
+                                        <li>将算法从RS256改为HS256</li>
+                                        <li>使用公钥作为HMAC密钥签署令牌</li>
+                                        <li>测试应用程序是否接受伪造的令牌</li>
                                     </ol>
                                 </div>
                                 <div class="code-example">
-                                    <h4>Attack Payload:</h4>
-                                    <pre><code>// Original RS256 header
+                                    <h4>攻击载荷：</h4>
+                                    <pre><code>// 原始RS256头部
 {"alg": "RS256", "typ": "JWT"}
 
-// Modified to HS256
+// 修改为HS256
 {"alg": "HS256", "typ": "JWT"}
 
-// Sign with public key as secret
+// 使用公钥作为密钥签署
 hmac_sha256(public_key, header.payload)</code></pre>
                                 </div>
                                 <div class="remediation">
-                                    <h4>Remediation:</h4>
+                                    <h4>修复方法：</h4>
                                     <ul>
-                                        <li>Verify algorithm matches expected key type</li>
-                                        <li>Use separate validation logic for symmetric vs asymmetric</li>
-                                        <li>Implement strict algorithm checking</li>
+                                        <li>验证算法与预期密钥类型匹配</li>
+                                        <li>对对称和非对称使用单独的验证逻辑</li>
+                                        <li>实施严格的算法检查</li>
                                     </ul>
                                 </div>
                             </div>
@@ -187,23 +187,23 @@ hmac_sha256(public_key, header.payload)</code></pre>
                                 <input type="checkbox" id="check3">
                                 <label for="check3">
                                     <i class="fas fa-shield-alt"></i>
-                                    <strong>Weak Secret Detection</strong>
+                                    <strong>弱密钥检测</strong>
                                 </label>
                                 <span class="risk-level critical">CRITICAL</span>
                             </div>
                             <div class="item-content">
-                                <p><strong>What to Check:</strong> HMAC secrets should resist brute force attacks</p>
+                                <p><strong>检查内容：</strong> HMAC密钥应能抵抗暴力破解攻击</p>
                                 <div class="test-method">
-                                    <h4>Test Method:</h4>
+                                    <h4>测试方法：</h4>
                                     <ol>
-                                        <li>Run dictionary attack against HMAC signatures</li>
-                                        <li>Test common passwords: secret, password, 123456, etc.</li>
-                                        <li>Try company name + year combinations</li>
-                                        <li>Test Base64/hex encoded common words</li>
+                                        <li>对HMAC签名运行字典攻击</li>
+                                        <li>测试常见密码：secret、password、123456等</li>
+                                        <li>尝试公司名称+年份组合</li>
+                                        <li>测试Base64/hex编码的常见词汇</li>
                                     </ol>
                                 </div>
                                 <div class="weak-secrets">
-                                    <h4>Common Weak Secrets to Test:</h4>
+                                    <h4>要测试的常见弱密钥：</h4>
                                     <pre><code>secret
 password
 123456
@@ -216,12 +216,12 @@ test
 company_name_2024</code></pre>
                                 </div>
                                 <div class="remediation">
-                                    <h4>Remediation:</h4>
+                                    <h4>修复方法：</h4>
                                     <ul>
-                                        <li>Use minimum 256-bit cryptographically secure random secrets</li>
-                                        <li>Implement secret rotation policies</li>
-                                        <li>Use environment variables or key management systems</li>
-                                        <li>Regular secret strength auditing</li>
+                                        <li>使用最小256位密码学安全随机密钥</li>
+                                        <li>实施密钥轮换策略</li>
+                                        <li>使用环境变量或密钥管理系统</li>
+                                        <li>定期密钥强度审计</li>
                                     </ul>
                                 </div>
                             </div>
@@ -230,8 +230,8 @@ company_name_2024</code></pre>
                 </div>
 
                 <div class="docs-section">
-                    <h2>🟠 High Priority Security Checks</h2>
-                    <p class="text-warning"><strong>Priority 2:</strong> Significant security risks requiring immediate attention</p>
+                    <h2>🟠 高优先级安全检查</h2>
+                    <p class="text-warning"><strong>优先级2：</strong> 需要立即关注的重大安全风险</p>
 
                     <div class="checklist-section">
                         <div class="checklist-item high">
@@ -286,20 +286,20 @@ company_name_2024</code></pre>
                                 <input type="checkbox" id="check6">
                                 <label for="check6">
                                     <i class="fas fa-user-shield"></i>
-                                    <strong>Privilege Escalation Testing</strong>
+                                    <strong>权限提升测试</strong>
                                 </label>
                                 <span class="risk-level high">HIGH</span>
                             </div>
                             <div class="item-content">
-                                <p><strong>What to Check:</strong> User claims should be immutable and validated</p>
+                                <p><strong>检查内容：</strong> 用户声明应该是不可变的并经过验证</p>
                                 <div class="escalation-tests">
-                                    <h4>Escalation Tests:</h4>
+                                    <h4>提升测试：</h4>
                                     <ul>
-                                        <li>Modify role from "user" to "admin"</li>
-                                        <li>Change user ID to access other accounts</li>
-                                        <li>Add administrative permissions to scope</li>
-                                        <li>Inject additional roles or groups</li>
-                                        <li>Modify tenant/organization IDs</li>
+                                        <li>将角色从"user"修改为"admin"</li>
+                                        <li>更改用户ID以访问其他账户</li>
+                                        <li>向范围添加管理权限</li>
+                                        <li>注入额外的角色或组</li>
+                                        <li>修改租户/组织ID</li>
                                     </ul>
                                 </div>
                             </div>
@@ -308,8 +308,8 @@ company_name_2024</code></pre>
                 </div>
 
                 <div class="docs-section">
-                    <h2>🟡 Medium Priority Security Checks</h2>
-                    <p class="text-warning"><strong>Priority 3:</strong> Important security considerations for robust implementation</p>
+                    <h2>🟡 中优先级安全检查</h2>
+                    <p class="text-warning"><strong>优先级3：</strong> 用于健壮实现的重要安全注意事项</p>
 
                     <div class="checklist-section">
                         <div class="checklist-item medium">
@@ -317,21 +317,21 @@ company_name_2024</code></pre>
                                 <input type="checkbox" id="check7">
                                 <label for="check7">
                                     <i class="fas fa-clock"></i>
-                                    <strong>Timestamp Validation</strong>
+                                    <strong>时间戳验证</strong>
                                 </label>
                                 <span class="risk-level medium">MEDIUM</span>
                             </div>
                             <div class="item-content">
-                                <p><strong>What to Check:</strong> Time-based claims are properly validated</p>
+                                <p><strong>检查内容：</strong> 基于时间的声明得到适当验证</p>
                                 <div class="timestamp-tests">
-                                    <h4>Tests to Perform:</h4>
+                                    <h4>要执行的测试：</h4>
                                     <ul>
-                                        <li>Expired tokens (past exp claim)</li>
-                                        <li>Future-dated tokens (exp in year 2100)</li>
-                                        <li>Missing iat (issued at) claims</li>
-                                        <li>nbf (not before) in the past</li>
-                                        <li>Clock skew tolerance testing</li>
-                                        <li>Negative timestamp values</li>
+                                        <li>过期令牌（过去的exp声明）</li>
+                                        <li>未来日期的令牌（2100年的exp）</li>
+                                        <li>缺少iat（签发时间）声明</li>
+                                        <li>过去时间的nbf（不早于）</li>
+                                        <li>时钟偏移容差测试</li>
+                                        <li>负时间戳值</li>
                                     </ul>
                                 </div>
                             </div>
@@ -342,21 +342,21 @@ company_name_2024</code></pre>
                                 <input type="checkbox" id="check8">
                                 <label for="check8">
                                     <i class="fas fa-code"></i>
-                                    <strong>JSON Structure Validation</strong>
+                                    <strong>JSON结构验证</strong>
                                 </label>
                                 <span class="risk-level medium">MEDIUM</span>
                             </div>
                             <div class="item-content">
-                                <p><strong>What to Check:</strong> Malformed JSON should be rejected</p>
+                                <p><strong>检查内容：</strong> 格式错误的JSON应被拒绝</p>
                                 <div class="json-tests">
-                                    <h4>Malformation Tests:</h4>
+                                    <h4>格式错误测试：</h4>
                                     <ul>
-                                        <li>Invalid JSON syntax</li>
-                                        <li>Nested object injection</li>
-                                        <li>Array vs object confusion</li>
-                                        <li>Unicode character exploits</li>
-                                        <li>Extremely large payloads (DoS)</li>
-                                        <li>Duplicate key handling</li>
+                                        <li>无效的JSON语法</li>
+                                        <li>嵌套对象注入</li>
+                                        <li>数组与对象混淆</li>
+                                        <li>Unicode字符利用</li>
+                                        <li>极大的载荷（DoS）</li>
+                                        <li>重复键处理</li>
                                     </ul>
                                 </div>
                             </div>
@@ -367,19 +367,19 @@ company_name_2024</code></pre>
                                 <input type="checkbox" id="check9">
                                 <label for="check9">
                                     <i class="fas fa-random"></i>
-                                    <strong>Algorithm Downgrade Protection</strong>
+                                    <strong>算法降级保护</strong>
                                 </label>
                                 <span class="risk-level medium">MEDIUM</span>
                             </div>
                             <div class="item-content">
-                                <p><strong>What to Check:</strong> Weak algorithms should be rejected</p>
+                                <p><strong>检查内容：</strong> 弱算法应被拒绝</p>
                                 <div class="algorithm-tests">
-                                    <h4>Weak Algorithms to Test:</h4>
+                                    <h4>要测试的弱算法：</h4>
                                     <ul>
-                                        <li>HS1 (HMAC-SHA1) - deprecated</li>
-                                        <li>RS1 (RSA-SHA1) - collision vulnerable</li>
-                                        <li>Custom algorithms - non-standard</li>
-                                        <li>ES256K - Bitcoin curve issues</li>
+                                        <li>HS1 (HMAC-SHA1) - 已弃用</li>
+                                        <li>RS1 (RSA-SHA1) - 易受碰撞攻击</li>
+                                        <li>自定义算法 - 非标准</li>
+                                        <li>ES256K - 比特币曲线问题</li>
                                     </ul>
                                 </div>
                             </div>
@@ -421,20 +421,20 @@ company_name_2024</code></pre>
                                 <input type="checkbox" id="check11">
                                 <label for="check11">
                                     <i class="fas fa-sync"></i>
-                                    <strong>Key Rotation and Management</strong>
+                                    <strong>密钥轮换和管理</strong>
                                 </label>
                                 <span class="risk-level low">BEST PRACTICE</span>
                             </div>
                             <div class="item-content">
-                                <p><strong>What to Check:</strong> Proper key lifecycle management</p>
+                                <p><strong>检查内容：</strong> 适当的密钥生命周期管理</p>
                                 <div class="key-management">
-                                    <h4>Key Management Practices:</h4>
+                                    <h4>密钥管理实践：</h4>
                                     <ul>
-                                        <li>Regular key rotation schedule</li>
-                                        <li>Secure key storage (HSM/KMS)</li>
-                                        <li>Key versioning support</li>
-                                        <li>Emergency key revocation</li>
-                                        <li>Key backup and recovery</li>
+                                        <li>定期密钥轮换计划</li>
+                                        <li>安全密钥存储（HSM/KMS）</li>
+                                        <li>密钥版本控制支持</li>
+                                        <li>紧急密钥撤销</li>
+                                        <li>密钥备份和恢复</li>
                                     </ul>
                                 </div>
                             </div>
@@ -445,20 +445,20 @@ company_name_2024</code></pre>
                                 <input type="checkbox" id="check12">
                                 <label for="check12">
                                     <i class="fas fa-mobile-alt"></i>
-                                    <strong>Client-side Security</strong>
+                                    <strong>客户端安全</strong>
                                 </label>
                                 <span class="risk-level low">BEST PRACTICE</span>
                             </div>
                             <div class="item-content">
-                                <p><strong>What to Check:</strong> Secure token handling on client</p>
+                                <p><strong>检查内容：</strong> 客户端的安全令牌处理</p>
                                 <div class="client-security">
-                                    <h4>Client Security Measures:</h4>
+                                    <h4>客户端安全措施：</h4>
                                     <ul>
-                                        <li>HttpOnly cookie storage (vs localStorage)</li>
-                                        <li>Secure flag for HTTPS-only cookies</li>
-                                        <li>SameSite attribute configuration</li>
-                                        <li>CSRF protection mechanisms</li>
-                                        <li>Token automatic refresh handling</li>
+                                        <li>HttpOnly cookie存储（对比localStorage）</li>
+                                        <li>仅HTTPS cookie的安全标志</li>
+                                        <li>SameSite属性配置</li>
+                                        <li>CSRF保护机制</li>
+                                        <li>令牌自动刷新处理</li>
                                     </ul>
                                 </div>
                             </div>
@@ -497,13 +497,13 @@ company_name_2024</code></pre>
                 </div>
 
                 <div class="docs-section">
-                    <h2>📋 Quick Reference Summary</h2>
+                    <h2>📋 快速参考摘要</h2>
 
                     <div class="summary-stats">
                         <div class="stat-card critical">
                             <div class="stat-icon"><i class="fas fa-skull-crossbones"></i></div>
                             <div class="stat-number">3</div>
-                            <div class="stat-label">Critical Checks</div>
+                            <div class="stat-label">关键检查</div>
                             <div class="stat-progress">
                                 <div class="progress-bar"><div class="progress-fill critical" style="width: 100%"></div></div>
                             </div>
@@ -511,7 +511,7 @@ company_name_2024</code></pre>
                         <div class="stat-card high">
                             <div class="stat-icon"><i class="fas fa-exclamation-triangle"></i></div>
                             <div class="stat-number">15</div>
-                            <div class="stat-label">High Priority</div>
+                            <div class="stat-label">高优先级</div>
                             <div class="stat-progress">
                                 <div class="progress-bar"><div class="progress-fill high" style="width: 85%"></div></div>
                             </div>
@@ -519,7 +519,7 @@ company_name_2024</code></pre>
                         <div class="stat-card medium">
                             <div class="stat-icon"><i class="fas fa-exclamation"></i></div>
                             <div class="stat-number">25</div>
-                            <div class="stat-label">Medium Priority</div>
+                            <div class="stat-label">中优先级</div>
                             <div class="stat-progress">
                                 <div class="progress-bar"><div class="progress-fill medium" style="width: 70%"></div></div>
                             </div>
@@ -527,7 +527,7 @@ company_name_2024</code></pre>
                         <div class="stat-card low">
                             <div class="stat-icon"><i class="fas fa-shield-alt"></i></div>
                             <div class="stat-number">12</div>
-                            <div class="stat-label">Best Practices</div>
+                            <div class="stat-label">最佳实践</div>
                             <div class="stat-progress">
                                 <div class="progress-bar"><div class="progress-fill low" style="width: 60%"></div></div>
                             </div>
@@ -535,29 +535,29 @@ company_name_2024</code></pre>
                     </div>
 
                     <div class="critical-summary">
-                        <h3>🚨 Must-Fix Vulnerabilities</h3>
+                        <h3>🚨 必须修复的漏洞</h3>
                         <ul>
-                            <li><span class="check-icon critical">✗</span> Algorithm "none" acceptance</li>
-                            <li><span class="check-icon critical">✗</span> Key confusion (RS256→HS256)</li>
-                            <li><span class="check-icon critical">✗</span> Weak HMAC secrets</li>
+                            <li><span class="check-icon critical">✗</span> 接受算法"none"</li>
+                            <li><span class="check-icon critical">✗</span> 密钥混淆（RS256→HS256）</li>
+                            <li><span class="check-icon critical">✗</span> 弱HMAC密钥</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="next-steps">
-                    <h3>Continue Your Security Journey</h3>
+                    <h3>继续您的安全之旅</h3>
                     <div class="next-links">
                         <a href="jwt-attack-vectors.html" class="next-link">
                             <i class="fas fa-bug"></i>
-                            Attack Vectors Guide
+                            攻击向量指南
                         </a>
                         <a href="secure-jwt-implementation.html" class="next-link">
                             <i class="fas fa-shield-alt"></i>
-                            Secure Implementation
+                            安全实施
                         </a>
                         <a href="../index.html" class="next-link">
                             <i class="fas fa-play"></i>
-                            Test Your JWTs
+                            测试您的JWT
                         </a>
                     </div>
                 </div>

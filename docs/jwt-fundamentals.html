@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JWT Fundamentals: Understanding JSON Web Tokens - JWTAuditor</title>
-    <meta name="description" content="Learn about JWT structure, claims, and concepts. Understand how JSON Web Tokens work and their use cases in modern authentication systems.">
-    <meta name="keywords" content="JWT, JSON Web Token, structure, claims, authentication, authorization">
+    <title>JWT基础：理解JSON Web Token - JWTAuditor</title>
+    <meta name="description" content="了解JWT结构、声明和概念。理解JSON Web Token的工作原理及其在现代身份验证系统中的用例。">
+    <meta name="keywords" content="JWT, JSON Web Token, 结构, 声明, 身份验证, 授权">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="css/docs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,9 +18,9 @@
             <i class="fas fa-user-secret"></i>
             <h1>JWTAuditor</h1>
         </div>
-        <div class="subtitle">Documentation & Learning Resources</div>
+        <div class="subtitle">文档与学习资源</div>
         <div class="header-actions">
-            <a href="../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> Back to Tool</a>
+            <a href="../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> 返回工具</a>
         </div>
     </header>
 
@@ -28,43 +28,43 @@
         <div class="docs-container">
             <aside class="docs-sidebar">
                 <div class="sidebar-header">
-                    <h2>Documentation</h2>
+                    <h2>文档</h2>
                 </div>
                 <nav class="docs-nav">
                     <div class="nav-section">
-                        <h3>JWT Fundamentals</h3>
+                        <h3>JWT基础</h3>
                         <ul>
-                            <li><a href="jwt-fundamentals.html" class="active">Understanding JWT Structure</a></li>
-                            <li><a href="jwt-claims.html">JWT Claims Explained</a></li>
-                            <li><a href="jwt-vs-sessions.html">JWT vs. Session Auth</a></li>
+                            <li><a href="jwt-fundamentals.html" class="active">理解JWT结构</a></li>
+                            <li><a href="jwt-claims.html">JWT声明详解</a></li>
+                            <li><a href="jwt-vs-sessions.html">JWT与会话认证</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Security Guides</h3>
+                        <h3>安全指南</h3>
                         <ul>
-                            <li><a href="jwt-vulnerabilities-guide.html">JWT Vulnerabilities Guide</a></li>
-                            <li><a href="jwt-attack-vectors.html">Complete Attack Vectors</a></li>
-                            <li><a href="jwt-security-checklist.html">Security Checklist</a></li>
-                            <li><a href="jwt-tools-comparison.html">Tools Comparison</a></li>
-                            <li><a href="secure-jwt-implementation.html">Secure Implementation</a></li>
-                            <li><a href="jwt-attack-techniques.html">Attack Techniques</a></li>
+                            <li><a href="jwt-vulnerabilities-guide.html">JWT漏洞指南</a></li>
+                            <li><a href="jwt-attack-vectors.html">完整攻击向量</a></li>
+                            <li><a href="jwt-security-checklist.html">安全检查清单</a></li>
+                            <li><a href="jwt-tools-comparison.html">工具对比</a></li>
+                            <li><a href="secure-jwt-implementation.html">安全实施</a></li>
+                            <li><a href="jwt-attack-techniques.html">攻击技术</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Tool Guides</h3>
+                        <h3>工具指南</h3>
                         <ul>
-                            <li><a href="tool-guides/decoder-analyzer.html">Decoder & Analyzer</a></li>
-                            <li><a href="tool-guides/secret-bruteforcer.html">Secret Bruteforcer</a></li>
-                            <li><a href="tool-guides/jwt-editor.html">JWT Editor</a></li>
-                            <li><a href="tool-guides/jwt-generator.html">JWT Generator</a></li>
+                            <li><a href="tool-guides/decoder-analyzer.html">解码器与分析器</a></li>
+                            <li><a href="tool-guides/secret-bruteforcer.html">密钥暴力破解器</a></li>
+                            <li><a href="tool-guides/jwt-editor.html">JWT编辑器</a></li>
+                            <li><a href="tool-guides/jwt-generator.html">JWT生成器</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Reference</h3>
+                        <h3>参考</h3>
                         <ul>
-                            <li><a href="reference/jwt-header-parameters.html">Header Parameters</a></li>
-                            <li><a href="reference/jwt-claim-registry.html">Claim Registry</a></li>
-                            <li><a href="reference/jwt-algorithms.html">JWT Algorithms</a></li>
+                            <li><a href="reference/jwt-header-parameters.html">头部参数</a></li>
+                            <li><a href="reference/jwt-claim-registry.html">声明注册表</a></li>
+                            <li><a href="reference/jwt-algorithms.html">JWT算法</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -72,115 +72,115 @@
 
             <div class="docs-content">
                 <div class="docs-header">
-                    <h1>JWT Fundamentals: Understanding JSON Web Tokens</h1>
+                    <h1>JWT基础：理解JSON Web Token</h1>
                     <div class="docs-meta">
-                        <span><i class="fas fa-book"></i> Core Concepts</span>
-                        <span><i class="fas fa-clock"></i> Reading time: 10 min</span>
+                        <span><i class="fas fa-book"></i> 核心概念</span>
+                        <span><i class="fas fa-clock"></i> 阅读时间：10分钟</span>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>What is a JWT?</h2>
+                    <h2>什么是JWT？</h2>
                     <p class="lead">
-                        JSON Web Token (JWT) is an open standard (<a href="https://tools.ietf.org/html/rfc7519" target="_blank">RFC 7519</a>) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed.
+                        JSON Web Token (JWT) 是一个开放标准（<a href="https://tools.ietf.org/html/rfc7519" target="_blank">RFC 7519</a>），它定义了一种紧凑且自包含的安全传输信息的方式，信息以JSON对象的形式在各方之间传递。由于信息经过数字签名，因此可以被验证和信任。
                     </p>
                     
                     <div class="info-box">
                         <div class="info-icon"><i class="fas fa-info-circle"></i></div>
                         <div class="info-content">
-                            <p>JWTs can be signed using a secret (with the HMAC algorithm) or a public/private key pair using RSA or ECDSA. Signed tokens can verify the integrity of the claims contained within them, while encrypted tokens hide those claims from other parties.</p>
+                            <p>JWT可以使用密钥（配合HMAC算法）或使用RSA或ECDSA的公钥/私钥对进行签名。签名令牌可以验证其中包含的声明的完整性，而加密令牌则可以向其他方隐藏这些声明。</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>JWT Structure</h2>
+                    <h2>JWT结构</h2>
                     <p>
-                        A JWT consists of three parts separated by dots (<code>.</code>):
+                        JWT由三个部分组成，用点（<code>.</code>）分隔：
                     </p>
                     
                     <pre><code class="language-text">xxxxx.yyyyy.zzzzz</code></pre>
                     
-                    <p>These parts are:</p>
+                    <p>这些部分是：</p>
                     
                     <ol>
-                        <li><strong>Header</strong> - Contains metadata about the token</li>
-                        <li><strong>Payload</strong> - Contains the claims or assertions</li>
-                        <li><strong>Signature</strong> - Verifies the token hasn't been altered</li>
+                        <li><strong>头部</strong> - 包含关于令牌的元数据</li>
+                        <li><strong>载荷</strong> - 包含声明或断言</li>
+                        <li><strong>签名</strong> - 验证令牌未被篡改</li>
                     </ol>
                     
-                    <p>Let's examine each part in detail:</p>
+                    <p>让我们详细检查每个部分：</p>
                     
-                    <h3>Header</h3>
+                    <h3>头部</h3>
                     <p>
-                        The header typically consists of two parts:
+                        头部通常由两部分组成：
                     </p>
                     <ul>
-                        <li>The type of token, which is JWT</li>
-                        <li>The signing algorithm being used, such as HMAC SHA256 or RSA</li>
+                        <li>令牌类型，即JWT</li>
+                        <li>使用的签名算法，如HMAC SHA256或RSA</li>
                     </ul>
                     
-                    <p>Example:</p>
+                    <p>示例：</p>
                     <pre><code class="language-json">{
   "alg": "HS256",
   "typ": "JWT"
 }</code></pre>
                     
-                    <p>This JSON is Base64Url encoded to form the first part of the JWT.</p>
+                    <p>这个JSON被Base64Url编码以形成JWT的第一部分。</p>
                     
-                    <h3>Payload</h3>
+                    <h3>载荷</h3>
                     <p>
-                        The payload contains the claims. Claims are statements about an entity (typically, the user) and additional data. There are three types of claims:
+                        载荷包含声明。声明是关于实体（通常是用户）和附加数据的语句。声明有三种类型：
                     </p>
                     
                     <ol>
                         <li>
-                            <strong>Registered claims</strong>: Predefined claims which are not mandatory but recommended
+                            <strong>注册声明</strong>：预定义的声明，不是强制性的但推荐使用
                             <ul>
-                                <li><code>iss</code> (issuer): who issued the token</li>
-                                <li><code>sub</code> (subject): who the token refers to</li>
-                                <li><code>aud</code> (audience): who the token is intended for</li>
-                                <li><code>exp</code> (expiration time): when the token expires</li>
-                                <li><code>nbf</code> (not before): when the token starts being valid</li>
-                                <li><code>iat</code> (issued at): when the token was issued</li>
-                                <li><code>jti</code> (JWT ID): unique identifier for the token</li>
+                                <li><code>iss</code>（签发者）：谁签发了该令牌</li>
+                                <li><code>sub</code>（主题）：令牌所指的对象</li>
+                                <li><code>aud</code>（受众）：令牌的目标受众</li>
+                                <li><code>exp</code>（过期时间）：令牌何时过期</li>
+                                <li><code>nbf</code>（生效时间）：令牌何时开始有效</li>
+                                <li><code>iat</code>（签发时间）：令牌何时签发</li>
+                                <li><code>jti</code>（JWT ID）：令牌的唯一标识符</li>
                             </ul>
                         </li>
                         <li>
-                            <strong>Public claims</strong>: Claims defined by those using JWTs
+                            <strong>公共声明</strong>：由使用JWT的人定义的声明
                             <ul>
-                                <li>Should be defined in the <a href="https://www.iana.org/assignments/jwt/jwt.xhtml" target="_blank">IANA JSON Web Token Registry</a> or as a URI that contains a collision-resistant namespace</li>
+                                <li>应在 <a href="https://www.iana.org/assignments/jwt/jwt.xhtml" target="_blank">IANA JSON Web Token注册表</a> 中定义，或作为包含防冲突命名空间的URI定义</li>
                             </ul>
                         </li>
                         <li>
-                            <strong>Private claims</strong>: Custom claims created to share information between parties
+                            <strong>私有声明</strong>：为在各方之间共享信息而创建的自定义声明
                         </li>
                     </ol>
                     
-                    <p>Example:</p>
+                    <p>示例：</p>
                     <pre><code class="language-json">{
   "sub": "1234567890",
-  "name": "John Doe",
+  "name": "张三",
   "admin": true,
   "iat": 1516239022,
   "exp": 1516242622
 }</code></pre>
                     
-                    <p>This JSON is Base64Url encoded to form the second part of the JWT.</p>
+                    <p>这个JSON被Base64Url编码以形成JWT的第二部分。</p>
                     
                     <div class="warning-box">
                         <div class="warning-icon"><i class="fas fa-exclamation-triangle"></i></div>
                         <div class="warning-content">
-                            <p><strong>Security Note:</strong> The payload is only Base64Url encoded, not encrypted. Anyone can decode it to view its contents. Never put sensitive information like passwords in the JWT payload unless you're using JWE (JSON Web Encryption).</p>
+                            <p><strong>安全注意事项：</strong> 载荷仅经过Base64Url编码，而不是加密。任何人都可以解码它来查看其内容。除非您使用JWE（JSON Web加密），否则永远不要在JWT载荷中放置密码等敏感信息。</p>
                         </div>
                     </div>
                     
-                    <h3>Signature</h3>
+                    <h3>签名</h3>
                     <p>
-                        The signature is created by taking the encoded header, the encoded payload, a secret, and the algorithm specified in the header, and signing them.
+                        签名是通过获取编码的头部、编码的载荷、密钥和头部中指定的算法，并对它们进行签名来创建的。
                     </p>
                     
-                    <p>For example, if you're using the HMAC SHA256 algorithm:</p>
+                    <p>例如，如果您使用HMAC SHA256算法：</p>
                     
                     <pre><code class="language-text">HMACSHA256(
   base64UrlEncode(header) + "." + base64UrlEncode(payload),
@@ -188,19 +188,19 @@
 )</code></pre>
                     
                     <p>
-                        The signature is used to verify that the message wasn't changed along the way, and, in the case of tokens signed with a private key, it can also verify that the sender of the JWT is who it says it is.
+                        签名用于验证消息在传输过程中未被更改，对于使用私钥签名的令牌，还可以验证JWT发送者确实是其声称的身份。
                     </p>
                 </div>
 
                 <div class="docs-section">
-                    <h2>JWT Encoding Process</h2>
+                    <h2>JWT编码过程</h2>
                     <ol>
-                        <li>Create a header JSON object</li>
-                        <li>Create a payload JSON object</li>
-                        <li>Base64Url encode the header</li>
-                        <li>Base64Url encode the payload</li>
-                        <li>Create a signature using the encoded header, encoded payload, and a secret</li>
-                        <li>Concatenate the encoded header, encoded payload, and signature with dots</li>
+                        <li>创建头部JSON对象</li>
+                        <li>创建载荷JSON对象</li>
+                        <li>对头部进行Base64Url编码</li>
+                        <li>对载荷进行Base64Url编码</li>
+                        <li>使用编码后的头部、编码后的载荷和密钥创建签名</li>
+                        <li>用点连接编码后的头部、编码后的载荷和签名</li>
                     </ol>
                     
                     <div class="code-diagram">
@@ -225,10 +225,10 @@
                         <div class="diagram-step">
                             <div class="step-number">3</div>
                             <div class="step-content">
-                                <h4>Payload</h4>
+                                <h4>载荷</h4>
                                 <pre><code class="language-json">{
   "sub": "1234567890",
-  "name": "John Doe",
+  "name": "张三",
   "iat": 1516239022
 }</code></pre>
                             </div>
@@ -263,57 +263,57 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>JWT Verification Process</h2>
+                    <h2>JWT验证过程</h2>
                     <ol>
-                        <li>Split the JWT into its three parts</li>
-                        <li>Base64Url decode the header and payload</li>
-                        <li>Verify the signature using the algorithm specified in the header</li>
-                        <li>Check the claims (exp, nbf, iss, etc.) to ensure they're valid</li>
-                        <li>Process the JWT according to the application's requirements</li>
+                        <li>将JWT拆分为三个部分</li>
+                        <li>对头部和载荷进行Base64Url解码</li>
+                        <li>使用头部中指定的算法验证签名</li>
+                        <li>检查声明（exp、nbf、iss等）以确保它们有效</li>
+                        <li>根据应用程序的要求处理JWT</li>
                     </ol>
                 </div>
 
                 <div class="docs-section">
-                    <h2>JWT vs. Session Tokens</h2>
+                    <h2>JWT与会话令牌</h2>
                     <div class="table-responsive">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Feature</th>
+                                    <th>特性</th>
                                     <th>JWT</th>
-                                    <th>Session Tokens</th>
+                                    <th>会话令牌</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Storage</td>
-                                    <td>Client-side</td>
-                                    <td>Server-side</td>
+                                    <td>存储</td>
+                                    <td>客户端</td>
+                                    <td>服务器端</td>
                                 </tr>
                                 <tr>
-                                    <td>Scalability</td>
-                                    <td>Highly scalable (stateless)</td>
-                                    <td>Requires session storage</td>
+                                    <td>可扩展性</td>
+                                    <td>高度可扩展（无状态）</td>
+                                    <td>需要会话存储</td>
                                 </tr>
                                 <tr>
-                                    <td>Security</td>
-                                    <td>Signed, can be encrypted</td>
-                                    <td>Opaque reference</td>
+                                    <td>安全性</td>
+                                    <td>已签名，可以加密</td>
+                                    <td>不透明引用</td>
                                 </tr>
                                 <tr>
-                                    <td>Size</td>
-                                    <td>Larger (contains claims)</td>
-                                    <td>Smaller (just an ID)</td>
+                                    <td>大小</td>
+                                    <td>较大（包含声明）</td>
+                                    <td>较小（只是一个ID）</td>
                                 </tr>
                                 <tr>
-                                    <td>Expiration</td>
-                                    <td>Self-contained</td>
-                                    <td>Controlled by server</td>
+                                    <td>过期</td>
+                                    <td>自包含</td>
+                                    <td>由服务器控制</td>
                                 </tr>
                                 <tr>
-                                    <td>Revocation</td>
-                                    <td>Difficult without a blacklist</td>
-                                    <td>Easy (delete from store)</td>
+                                    <td>撤销</td>
+                                    <td>没有黑名单则困难</td>
+                                    <td>容易（从存储中删除）</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -321,85 +321,85 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>Common JWT Use Cases</h2>
+                    <h2>JWT常见用例</h2>
                     
                     <div class="use-case">
                         <div class="use-case-icon"><i class="fas fa-user-check"></i></div>
                         <div class="use-case-content">
-                            <h3>Authentication</h3>
-                            <p>After a user logs in, each subsequent request will include the JWT, allowing the user to access routes, services, and resources that are permitted with that token.</p>
+                            <h3>身份验证</h3>
+                            <p>用户登录后，每个后续请求都将包含JWT，允许用户访问该令牌许可的路由、服务和资源。</p>
                         </div>
                     </div>
                     
                     <div class="use-case">
                         <div class="use-case-icon"><i class="fas fa-exchange-alt"></i></div>
                         <div class="use-case-content">
-                            <h3>Information Exchange</h3>
-                            <p>JWTs are a good way of securely transmitting information between parties because they can be signed, which means you can be sure the senders are who they say they are.</p>
+                            <h3>信息交换</h3>
+                            <p>JWT是各方之间安全传输信息的好方法，因为它们可以被签名，这意味着您可以确信发送者就是他们声称的人。</p>
                         </div>
                     </div>
                     
                     <div class="use-case">
                         <div class="use-case-icon"><i class="fas fa-lock"></i></div>
                         <div class="use-case-content">
-                            <h3>Authorization</h3>
-                            <p>Once a user is logged in, an application can allow access to specific resources based on permissions encoded in the JWT.</p>
+                            <h3>授权</h3>
+                            <p>用户登录后，应用程序可以根据JWT中编码的权限允许访问特定资源。</p>
                         </div>
                     </div>
                     
                     <div class="use-case">
                         <div class="use-case-icon"><i class="fas fa-id-card"></i></div>
                         <div class="use-case-content">
-                            <h3>Federated Identity</h3>
-                            <p>JWTs are used in single sign-on (SSO) scenarios where a user logs in once and gains access to multiple systems without being prompted to log in again.</p>
+                            <h3>联合身份</h3>
+                            <p>JWT在单点登录（SSO）场景中使用，用户只需登录一次即可访问多个系统，而无需再次提示登录。</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>JWT Best Practices</h2>
+                    <h2>JWT最佳实践</h2>
                     
-                    <h3>Security</h3>
+                    <h3>安全性</h3>
                     <ol>
                         <li>
-                            <strong>Use HTTPS</strong>: Always transmit JWTs over HTTPS to prevent token theft through network eavesdropping.
+                            <strong>使用HTTPS</strong>: 始终通过HTTPS传输JWT以防止通过网络窃听窃取令牌。
                         </li>
                         <li>
-                            <strong>Set Proper Expiration</strong>: Use short-lived tokens (minutes to hours, not days) to minimize the damage if a token is compromised.
+                            <strong>设置适当的过期时间</strong>: 使用短期令牌（分钟到小时，而不是天）以在令牌被泄露时最小化损害。
                         </li>
                         <li>
-                            <strong>Validate All Claims</strong>: Always validate the issuer, audience, expiration, and other claims.
+                            <strong>验证所有声明</strong>: 始终验证签发者、受众、过期时间和其它声明。
                         </li>
                         <li>
-                            <strong>Use Strong Secrets/Keys</strong>: For HMAC algorithms, use a strong, randomly generated secret. For RSA/ECDSA, use proper key lengths.
+                            <strong>使用强密钥</strong>: 对于HMAC算法，使用强的、随机生成的密钥。对于RSA/ECDSA，使用适当的密钥长度。
                         </li>
                         <li>
-                            <strong>Consider Using Refresh Tokens</strong>: Implement a refresh token system for obtaining new access tokens without requiring the user to re-authenticate.
+                            <strong>考虑使用刷新令牌</strong>: 实现刷新令牌系统以在不需要用户重新认证的情况下获取新的访问令牌。
                         </li>
                     </ol>
                     
-                    <h3>Implementation</h3>
+                    <h3>实施</h3>
                     <ol>
                         <li>
-                            <strong>Don't Store Sensitive Data</strong>: JWTs are not encrypted by default, so don't store sensitive information in the payload.
+                            <strong>不要存储敏感数据</strong>: JWT默认不加密，所以不要在载荷中存储敏感信息。
                         </li>
                         <li>
-                            <strong>Implement Token Revocation</strong>: Have a strategy for revoking tokens when needed (user logout, password change, etc.).
+                            <strong>实现令牌撤销</strong>: 制定在需要时撤销令牌的策略（用户登出、密码更改等）。
                         </li>
                         <li>
-                            <strong>Use Appropriate Algorithms</strong>: Prefer asymmetric algorithms (RS256, ES256) over symmetric ones (HS256) for production systems with multiple verification points.
+                            <strong>使用适当的算法</strong>: 对于具有多个验证点的生产系统，优先使用非对称算法（RS256、ES256）而不是对称算法（HS256）。
                         </li>
                         <li>
-                            <strong>Validate Input</strong>: Always validate and sanitize user input before including it in a JWT.
+                            <strong>验证输入</strong>: 在将用户输入包含在JWT中之前，始终验证和清理用户输入。
                         </li>
                         <li>
-                            <strong>Handle Errors Securely</strong>: Don't expose detailed error messages that might help an attacker.
+                            <strong>安全处理错误</strong>: 不要暴露可能帮助攻击者的详细错误消息。
                         </li>
                     </ol>
                 </div>
 
                 <div class="docs-section">
-                    <h2>JWT Libraries</h2>
+                    <h2>JWT库</h2>
                     
                     <div class="library-list">
                         <div class="library-item">
@@ -452,24 +452,24 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>Conclusion</h2>
+                    <h2>结论</h2>
                     <p>
-                        JWTs provide a powerful, standardized way to handle authentication and authorization in modern applications. By understanding their structure, capabilities, and security considerations, you can implement them effectively and securely in your projects.
+                        JWT为在现代应用程序中处理身份验证和授权提供了强大、标准化的方法。通过了解它们的结构、功能和安全注意事项，您可以在项目中有效地安全地实现它们。
                     </p>
                     <p>
-                        Remember that while JWTs offer many advantages, they're not a silver bullet for all authentication scenarios. Consider your specific requirements and security needs when deciding whether to use JWTs or alternative authentication mechanisms.
+                        请记住，尽管JWT提供了许多优势，但它们并不是适用于所有身份验证场景的万能解决方案。在决定是否使用JWT或替代身份验证机制时，请考虑您的具体要求和安全需求。
                     </p>
                     
                     <div class="next-steps">
-                        <h3>Next Steps</h3>
+                        <h3>下一步</h3>
                         <div class="next-links">
                             <a href="jwt-vulnerabilities-guide.html" class="next-link">
                                 <i class="fas fa-user-secret"></i>
-                                <span>Explore JWT Vulnerabilities</span>
+                                <span>探索JWT漏洞</span>
                             </a>
                             <a href="secure-jwt-implementation.html" class="next-link">
                                 <i class="fas fa-lock"></i>
-                                <span>Learn Secure Implementation</span>
+                                <span>学习安全实施</span>
                             </a>
                         </div>
                     </div>
@@ -482,20 +482,20 @@
         <div class="footer-container">
             <div class="footer-section">
                 <h3>JWTAuditor</h3>
-                <p>Professional JWT security testing platform for penetration testers and cybersecurity professionals. Decode, analyze vulnerabilities, and audit JSON Web Token implementations with complete client-side privacy.</p>
+                <p>专为渗透测试人员和网络安全专业人员设计的专业JWT安全测试平台。解码、分析漏洞并审计JSON Web Token实现，完全保护客户端隐私。</p>
             </div>
             <div class="footer-section">
-                <h3>Documentation</h3>
+                <h3>文档</h3>
                 <ul class="footer-links">
-                    <li><a href="jwt-fundamentals.html">JWT Fundamentals</a></li>
-                    <li><a href="jwt-vulnerabilities-guide.html">Vulnerabilities Guide</a></li>
-                    <li><a href="secure-jwt-implementation.html">Secure Implementation</a></li>
+                    <li><a href="jwt-fundamentals.html">JWT基础</a></li>
+                    <li><a href="jwt-vulnerabilities-guide.html">漏洞指南</a></li>
+                    <li><a href="secure-jwt-implementation.html">安全实现</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Resources</h3>
+                <h3>资源</h3>
                 <ul class="footer-links">
-                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="../about.html">关于我们</a></li>
                     <li><a href="https://jwt.io/" target="_blank">JWT.io</a></li>
                     <li><a href="https://portswigger.net/web-security/jwt" target="_blank">PortSwigger JWT Attacks</a></li>
                 </ul>

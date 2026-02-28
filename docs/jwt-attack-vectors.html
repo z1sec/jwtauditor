@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Complete JWT Attack Vectors Guide - JWTAuditor</title>
-    <meta name="description" content="Comprehensive guide to JWT attack vectors, exploitation techniques, and security vulnerabilities. Learn about algorithm confusion, signature bypass, key confusion attacks, and more.">
-    <meta name="keywords" content="JWT attacks, JWT vulnerabilities, algorithm confusion, signature bypass, key confusion, JWT security, JSON Web Token exploits, JWT pentesting, JWT hacking, JWT audit">
+    <title>完整的JWT攻击向量指南 - JWTAuditor</title>
+    <meta name="description" content="JWT攻击向量、利用技术和安全漏洞的综合指南。了解算法混淆、签名绕过、密钥混淆攻击等。">
+    <meta name="keywords" content="JWT攻击, JWT漏洞, 算法混淆, 签名绕过, 密钥混淆, JWT安全, JSON Web Token利用, JWT渗透测试, JWT黑客, JWT审计">
 
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="Complete JWT Attack Vectors Guide - JWTAuditor">
@@ -99,9 +99,9 @@
             <i class="fas fa-user-secret"></i>
             <h1>JWTAuditor</h1>
         </div>
-        <div class="subtitle">Documentation & Learning Resources</div>
+        <div class="subtitle">文档与学习资源</div>
         <div class="header-actions">
-            <a href="../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> Back to Tool</a>
+            <a href="../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> 返回工具</a>
         </div>
     </header>
 
@@ -109,41 +109,41 @@
         <div class="docs-container">
             <aside class="docs-sidebar">
                 <div class="sidebar-header">
-                    <h2>Documentation</h2>
+                    <h2>文档</h2>
                 </div>
                 <nav class="docs-nav">
                     <div class="nav-section">
-                        <h3>JWT Fundamentals</h3>
+                        <h3>JWT基础</h3>
                         <ul>
-                            <li><a href="jwt-fundamentals.html">Understanding JWT Structure</a></li>
-                            <li><a href="jwt-claims.html">JWT Claims Explained</a></li>
-                            <li><a href="jwt-vs-sessions.html">JWT vs. Session Auth</a></li>
+                            <li><a href="jwt-fundamentals.html">理解JWT结构</a></li>
+                            <li><a href="jwt-claims.html">JWT声明详解</a></li>
+                            <li><a href="jwt-vs-sessions.html">JWT与会话认证</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Security Guides</h3>
+                        <h3>安全指南</h3>
                         <ul>
-                            <li><a href="jwt-vulnerabilities-guide.html">JWT Vulnerabilities Guide</a></li>
-                            <li><a href="jwt-attack-vectors.html" class="active">Complete Attack Vectors</a></li>
-                            <li><a href="secure-jwt-implementation.html">Secure Implementation</a></li>
-                            <li><a href="jwt-attack-techniques.html">Attack Techniques</a></li>
+                            <li><a href="jwt-vulnerabilities-guide.html">JWT漏洞指南</a></li>
+                            <li><a href="jwt-attack-vectors.html" class="active">完整攻击向量</a></li>
+                            <li><a href="secure-jwt-implementation.html">安全实施</a></li>
+                            <li><a href="jwt-attack-techniques.html">攻击技术</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Tool Guides</h3>
+                        <h3>工具指南</h3>
                         <ul>
-                            <li><a href="tool-guides/decoder-analyzer.html">Decoder & Analyzer</a></li>
-                            <li><a href="tool-guides/secret-bruteforcer.html">Secret Bruteforcer</a></li>
-                            <li><a href="tool-guides/jwt-editor.html">JWT Editor</a></li>
-                            <li><a href="tool-guides/jwt-generator.html">JWT Generator</a></li>
+                            <li><a href="tool-guides/decoder-analyzer.html">解码器与分析器</a></li>
+                            <li><a href="tool-guides/secret-bruteforcer.html">密钥暴力破解器</a></li>
+                            <li><a href="tool-guides/jwt-editor.html">JWT编辑器</a></li>
+                            <li><a href="tool-guides/jwt-generator.html">JWT生成器</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Reference</h3>
+                        <h3>参考</h3>
                         <ul>
-                            <li><a href="reference/jwt-header-parameters.html">Header Parameters</a></li>
-                            <li><a href="reference/jwt-claim-registry.html">Claim Registry</a></li>
-                            <li><a href="reference/jwt-algorithms.html">JWT Algorithms</a></li>
+                            <li><a href="reference/jwt-header-parameters.html">头部参数</a></li>
+                            <li><a href="reference/jwt-claim-registry.html">声明注册表</a></li>
+                            <li><a href="reference/jwt-algorithms.html">JWT算法</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -151,17 +151,17 @@
 
             <div class="docs-content">
                 <div class="docs-header">
-                    <h1>Complete JWT Attack Vectors Guide</h1>
+                    <h1>完整的JWT攻击向量指南</h1>
                     <div class="docs-meta">
-                        <span><i class="fas fa-shield-alt"></i> Security Research</span>
-                        <span><i class="fas fa-clock"></i> Updated: December 2024</span>
-                        <span><i class="fas fa-eye"></i> Advanced Level</span>
+                        <span><i class="fas fa-shield-alt"></i> 安全研究</span>
+                        <span><i class="fas fa-clock"></i> 更新于: 2024年12月</span>
+                        <span><i class="fas fa-eye"></i> 高级水平</span>
                     </div>
                 </div>
 
                 <div class="docs-section intro-section">
                     <p class="lead">
-                        Master JWT security with this comprehensive guide covering 15+ attack vectors used in real-world penetration testing. Learn exploitation techniques, detection methods, and prevention strategies for each vulnerability class.
+                        通过本综合指南掌握JWT安全，涵盖现实世界渗透测试中使用的15多种攻击向量。学习每种漏洞类型的利用技术、检测方法和预防策略。
                     </p>
 
                     <div class="info-box">
@@ -169,29 +169,29 @@
                             <i class="fas fa-info-circle"></i>
                         </div>
                         <div class="info-content">
-                            <p><strong>For Security Professionals:</strong> This guide covers attack vectors for defensive security testing only. Use JWTAuditor to identify and fix these vulnerabilities in your applications.</p>
+                            <p><strong>面向安全专业人员：</strong> 本指南仅涵盖用于防御性安全测试的攻击向量。使用JWTAuditor在您的应用程序中识别和修复这些漏洞。</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Critical JWT Attack Vectors</h2>
+                    <h2>关键JWT攻击向量</h2>
 
                     <div class="attack-techniques">
                         <div class="attack-technique">
                             <h3><i class="fas fa-exclamation-triangle"></i> Algorithm Confusion (alg: none)</h3>
                             <div class="vulnerability critical">
-                                <h4><i class="fas fa-skull-crossbones"></i> Critical Severity</h4>
+                                <h4><i class="fas fa-skull-crossbones"></i> 严重级别</h4>
                                 <div class="cvss-score">
                                     <div class="score-circle critical">9.8</div>
                                     <div class="score-details">
                                         <span class="score-label">CVSS v3.1</span>
-                                        <span class="score-desc">Complete authentication bypass</span>
+                                        <span class="score-desc">完全认证绕过</span>
                                     </div>
                                 </div>
-                                <p><strong>Description:</strong> Attackers modify the algorithm header to "none", removing signature verification entirely.</p>
+                                <p><strong>描述：</strong> 攻击者将算法头部修改为"none"，完全移除签名验证。</p>
 
-                                <h4>Attack Payload Example:</h4>
+                                <h4>攻击载荷示例：</h4>
                                 <pre><code>{
   "alg": "none",
   "typ": "JWT"
@@ -202,98 +202,98 @@
   "exp": 9999999999
 }</code></pre>
 
-                                <h4>Detection Methods:</h4>
+                                <h4>检测方法：</h4>
                                 <ul>
-                                    <li>Check if application accepts "alg": "none" tokens</li>
-                                    <li>Test removing signature portion entirely</li>
-                                    <li>Verify server rejects unsigned tokens</li>
+                                    <li>检查应用程序是否接受"alg": "none"令牌</li>
+                                    <li>测试完全移除签名部分</li>
+                                    <li>验证服务器是否拒绝未签名的令牌</li>
                                 </ul>
 
-                                <h4>Real-world Impact:</h4>
-                                <p><strong>CVE-2015-2951:</strong> Auth0 Node.js library accepted "alg": "none" tokens</p>
-                                <p><strong>CVE-2016-10555:</strong> PyJWT library vulnerability affecting thousands of applications</p>
-                                <p><strong>Impact Scale:</strong> Millions of applications worldwide were vulnerable to this attack</p>
+                                <h4>现实影响：</h4>
+                                <p><strong>CVE-2015-2951：</strong> Auth0 Node.js 库接受"alg": "none"令牌</p>
+                                <p><strong>CVE-2016-10555：</strong> 影响数千个应用程序的PyJWT库漏洞</p>
+                                <p><strong>影响规模：</strong> 全世界数百万应用程序曾易受此攻击</p>
                             </div>
                         </div>
 
                         <div class="attack-technique">
-                            <h3><i class="fas fa-key"></i> Key Confusion (RS256 → HS256)</h3>
+                            <h3><i class="fas fa-key"></i> 密钥混淆 (RS256 → HS256)</h3>
                             <div class="vulnerability critical">
-                                <h4><i class="fas fa-skull-crossbones"></i> Critical Severity</h4>
+                                <h4><i class="fas fa-skull-crossbones"></i> 严重级别</h4>
                                 <div class="cvss-score">
                                     <div class="score-circle critical">9.1</div>
                                     <div class="score-details">
                                         <span class="score-label">CVSS v3.1</span>
-                                        <span class="score-desc">Signature forgery using public key</span>
+                                        <span class="score-desc">使用公钥伪造签名</span>
                                     </div>
                                 </div>
-                                <p><strong>Description:</strong> Force asymmetric algorithm (RS256) to be verified as symmetric (HS256) using the public key as HMAC secret.</p>
+                                <p><strong>描述：</strong> 强制非对称算法（RS256）被验证为对称算法（HS256），使用公钥作为HMAC密钥。</p>
 
-                                <h4>Attack Steps:</h4>
+                                <h4>攻击步骤：</h4>
                                 <div class="attack-steps">
                                     <div class="attack-step">
                                         <div class="step-number">1</div>
                                         <div class="step-content">
-                                            <p>Obtain the public key from /.well-known/jwks.json or certificate</p>
+                                            <p>从/.well-known/jwks.json或证书获取公钥</p>
                                         </div>
                                     </div>
                                     <div class="attack-step">
                                         <div class="step-number">2</div>
                                         <div class="step-content">
-                                            <p>Change algorithm from RS256 to HS256 in header</p>
+                                            <p>在头部将算法从RS256改为HS256</p>
                                         </div>
                                     </div>
                                     <div class="attack-step">
                                         <div class="step-number">3</div>
                                         <div class="step-content">
-                                            <p>Sign token using public key as HMAC-SHA256 secret</p>
+                                            <p>使用公钥作为HMAC-SHA256密钥签署令牌</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <h4>Exploitation Tools:</h4>
+                                <h4>利用工具：</h4>
                                 <ul>
-                                    <li>JWTAuditor - Automated key confusion testing</li>
-                                    <li>PyJWT with custom signing</li>
-                                    <li>Burp Suite JWT Editor extension</li>
+                                    <li>JWTAuditor - 自动化密钥混淆测试</li>
+                                    <li>PyJWT与自定义签名</li>
+                                    <li>Burp Suite JWT编辑器扩展</li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="attack-technique">
-                            <h3><i class="fas fa-hammer"></i> JWT Secret Brute Force</h3>
+                            <h3><i class="fas fa-hammer"></i> JWT密钥暴力破解</h3>
                             <div class="vulnerability medium">
-                                <h4><i class="fas fa-exclamation-triangle"></i> High Severity</h4>
-                                <p><strong>CVSS Score: 7.5</strong> - Weak secret discovery</p>
-                                <p><strong>Description:</strong> Crack weak HMAC secrets using dictionary attacks or rainbow tables.</p>
+                                <h4><i class="fas fa-exclamation-triangle"></i> 高危级别</h4>
+                                <p><strong>CVSS评分: 7.5</strong> - 弱密钥发现</p>
+                                <p><strong>描述：</strong> 使用字典攻击或彩虹表破解弱HMAC密钥。</p>
 
-                                <h4>Top 10 Most Common JWT Secrets (2024 Research):</h4>
-                                <pre><code># Based on analysis of 50,000+ exposed JWT secrets
-1. secret           (Found in 18.7% of cases)
-2. password         (Found in 14.2% of cases)
-3. 123456          (Found in 12.1% of cases)
-4. your-256-bit-secret  (Found in 8.9% of cases)
-5. jwt_secret      (Found in 7.3% of cases)
-6. SECRET_KEY      (Found in 6.8% of cases)
-7. default         (Found in 5.4% of cases)
-8. admin           (Found in 4.7% of cases)
-9. test            (Found in 4.2% of cases)
-10. key            (Found in 3.9% of cases)</code></pre>
+                                <h4>最常见的10个JWT密钥（2024年研究）：</h4>
+                                <pre><code># 基于分析50,000多个暴露的JWT密钥
+1. secret           （在18.7%的情况下发现）
+2. password         （在14.2%的情况下发现）
+3. 123456          （在12.1%的情况下发现）
+4. your-256-bit-secret  （在8.9%的情况下发现）
+5. jwt_secret      （在7.3%的情况下发现）
+6. SECRET_KEY      （在6.8%的情况下发现）
+7. default         （在5.4%的情况下发现）
+8. admin           （在4.7%的情况下发现）
+9. test            （在4.2%的情况下发现）
+10. key            （在3.9%的情况下发现）</code></pre>
 
-                                <h4>Advanced Brute Force Techniques:</h4>
+                                <h4>高级暴力破解技术：</h4>
                                 <ul>
-                                    <li><strong>Dictionary Attack:</strong> Test 10M+ common passwords</li>
-                                    <li><strong>Pattern-based:</strong> company_name + year combinations</li>
-                                    <li><strong>Hybrid Attack:</strong> Base64/hex variations of common words</li>
-                                    <li><strong>Time-based:</strong> Secrets containing current date/time</li>
+                                    <li><strong>字典攻击：</strong> 测试超过1000万个常见密码</li>
+                                    <li><strong>基于模式：</strong> company_name + 年份组合</li>
+                                    <li><strong>混合攻击：</strong> 常见单词的Base64/hex变体</li>
+                                    <li><strong>基于时间：</strong> 包含当前日期/时间的密钥</li>
                                 </ul>
 
-                                <h4>Prevention:</h4>
+                                <h4>预防措施：</h4>
                                 <ul>
-                                    <li>Minimum 256-bit entropy for HMAC secrets</li>
-                                    <li>Use cryptographically secure random generators</li>
-                                    <li>Rotate secrets regularly</li>
-                                    <li>Monitor for brute force attempts</li>
+                                    <li>HMAC密钥最小256位熵</li>
+                                    <li>使用密码学安全的随机生成器</li>
+                                    <li>定期轮换密钥</li>
+                                    <li>监控暴力破解尝试</li>
                                 </ul>
                             </div>
                         </div>
@@ -301,48 +301,48 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>Advanced Attack Techniques</h2>
+                    <h2>高级攻击技术</h2>
 
                     <div class="attack-techniques">
                         <div class="attack-technique">
-                            <h3><i class="fas fa-bug"></i> JKU/X5U Header Injection</h3>
+                            <h3><i class="fas fa-bug"></i> JKU/X5U头部注入</h3>
                             <div class="vulnerability high">
-                                <h4><i class="fas fa-skull-crossbones"></i> Critical Severity</h4>
-                                <p><strong>Description:</strong> Manipulate jku (JSON Web Key Set URL) or x5u (X.509 Certificate Chain URL) headers to point to attacker-controlled endpoints.</p>
+                                <h4><i class="fas fa-skull-crossbones"></i> 严重级别</h4>
+                                <p><strong>描述：</strong> 操纵jku（JSON Web密钥集URL）或x5u（X.509证书链URL）头部，使其指向攻击者控制的端点。</p>
 
-                                <h4>Attack Payload:</h4>
+                                <h4>攻击载荷：</h4>
                                 <pre><code>{
   "alg": "RS256",
   "typ": "JWT",
   "jku": "https://attacker.com/jwks.json"
 }</code></pre>
 
-                                <h4>Exploitation Scenarios:</h4>
+                                <h4>利用场景：</h4>
                                 <ul>
-                                    <li><strong>External JWK Injection:</strong> Host malicious JWKS at attacker domain</li>
-                                    <li><strong>Path Traversal:</strong> ../../../malicious/jwks.json</li>
-                                    <li><strong>Protocol Smuggling:</strong> file:// or internal:// schemes</li>
-                                    <li><strong>DNS Rebinding:</strong> Bypass localhost restrictions</li>
+                                    <li><strong>外部JWK注入：</strong> 在攻击者域托管恶意JWKS</li>
+                                    <li><strong>路径遍历：</strong> ../../../malicious/jwks.json</li>
+                                    <li><strong>协议走私：</strong> file:// 或 internal:// 方案</li>
+                                    <li><strong>DNS重新绑定：</strong> 绕过localhost限制</li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="attack-technique">
-                            <h3><i class="fas fa-fingerprint"></i> Kid (Key ID) Manipulation</h3>
+                            <h3><i class="fas fa-fingerprint"></i> Kid（密钥ID）操纵</h3>
                             <div class="vulnerability medium">
-                                <h4><i class="fas fa-exclamation-triangle"></i> High Severity</h4>
-                                <p><strong>Description:</strong> Abuse the "kid" header parameter to perform path traversal, command injection, or SQL injection.</p>
+                                <h4><i class="fas fa-exclamation-triangle"></i> 高危级别</h4>
+                                <p><strong>描述：</strong> 滥用"kid"头部参数执行路径遍历、命令注入或SQL注入。</p>
 
-                                <h4>Attack Vectors:</h4>
+                                <h4>攻击向量：</h4>
                                 <ul>
-                                    <li><strong>Path Traversal:</strong> "../../../dev/null" → empty key</li>
-                                    <li><strong>Command Injection:</strong> "key.pem; rm -rf /"</li>
-                                    <li><strong>SQL Injection:</strong> "' UNION SELECT 'secret'--"</li>
-                                    <li><strong>File Inclusion:</strong> "http://attacker.com/malicious.key"</li>
+                                    <li><strong>路径遍历：</strong> "../../../dev/null" → 空密钥</li>
+                                    <li><strong>命令注入：</strong> "key.pem; rm -rf /"</li>
+                                    <li><strong>SQL注入：</strong> "' UNION SELECT 'secret'--"</li>
+                                    <li><strong>文件包含：</strong> "http://attacker.com/malicious.key"</li>
                                 </ul>
 
-                                <h4>Common Vulnerable Patterns:</h4>
-                                <pre><code>// Vulnerable code examples
+                                <h4>常见的易受攻击模式：</h4>
+                                <pre><code>// 易受攻击的代码示例
 file_get_contents("/keys/" . $kid . ".pem")
 exec("cat /keys/" . $kid . ".pem")
 SELECT key FROM keys WHERE id = '" . $kid . "'"</code></pre>
@@ -350,24 +350,24 @@ SELECT key FROM keys WHERE id = '" . $kid . "'"</code></pre>
                         </div>
 
                         <div class="attack-technique">
-                            <h3><i class="fas fa-clock"></i> JWT Timestamp Manipulation</h3>
+                            <h3><i class="fas fa-clock"></i> JWT时间戳操纵</h3>
                             <div class="vulnerability medium">
-                                <h4><i class="fas fa-exclamation-triangle"></i> Medium Severity</h4>
-                                <p><strong>Description:</strong> Exploit weak timestamp validation in exp, iat, and nbf claims.</p>
+                                <h4><i class="fas fa-exclamation-triangle"></i> 中危级别</h4>
+                                <p><strong>描述：</strong> 利用exp、iat和nbf声明中的弱时间戳验证。</p>
 
-                                <h4>Time-based Attacks:</h4>
+                                <h4>基于时间的攻击：</h4>
                                 <ul>
-                                    <li><strong>Replay Attacks:</strong> Remove iat claim to bypass timing checks</li>
-                                    <li><strong>Future Dating:</strong> Set exp to distant future (year 2100+)</li>
-                                    <li><strong>Clock Skew:</strong> Exploit server time synchronization issues</li>
-                                    <li><strong>Timezone Confusion:</strong> UTC vs local time interpretation</li>
+                                    <li><strong>重放攻击：</strong> 移除iat声明以绕过时间检查</li>
+                                    <li><strong>未来日期：</strong> 将exp设置为遥远的未来（2100年+）</li>
+                                    <li><strong>时钟偏移：</strong> 利用服务器时间同步问题</li>
+                                    <li><strong>时区混乱：</strong> UTC与本地时间解释</li>
                                 </ul>
 
-                                <h4>Payload Examples:</h4>
+                                <h4>载荷示例：</h4>
                                 <pre><code>{
-  "exp": 4102444800,    // Year 2100
-  "iat": null,          // Remove issued at
-  "nbf": -1             // Negative not before
+  "exp": 4102444800,    // 2100年
+  "iat": null,          // 移除签发时间
+  "nbf": -1             // 负数不早于
 }</code></pre>
                             </div>
                         </div>
@@ -375,53 +375,53 @@ SELECT key FROM keys WHERE id = '" . $kid . "'"</code></pre>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Cryptographic Attack Vectors</h2>
+                    <h2>密码学攻击向量</h2>
 
                     <div class="attack-techniques">
                         <div class="attack-technique">
-                            <h3><i class="fas fa-shield-alt"></i> Weak Signature Algorithms</h3>
+                            <h3><i class="fas fa-shield-alt"></i> 弱签名算法</h3>
                             <div class="vulnerability medium">
-                                <h4><i class="fas fa-exclamation-triangle"></i> Medium Severity</h4>
-                                <p><strong>Description:</strong> Target deprecated or weak cryptographic algorithms still supported by some implementations.</p>
+                                <h4><i class="fas fa-exclamation-triangle"></i> 中危级别</h4>
+                                <p><strong>描述：</strong> 针对某些实现仍支持的已弃用或弱密码学算法。</p>
 
-                                <h4>Vulnerable Algorithms:</h4>
+                                <h4>易受攻击的算法：</h4>
                                 <ul>
-                                    <li><strong>HS1 (HMAC-SHA1):</strong> SHA-1 collision vulnerabilities</li>
-                                    <li><strong>RS1 (RSA-SHA1):</strong> Chosen-prefix collision attacks</li>
-                                    <li><strong>ES256K:</strong> Bitcoin secp256k1 curve issues</li>
-                                    <li><strong>Custom algorithms:</strong> Non-standard implementations</li>
+                                    <li><strong>HS1 (HMAC-SHA1)：</strong> SHA-1碰撞漏洞</li>
+                                    <li><strong>RS1 (RSA-SHA1)：</strong> 选择前缀碰撞攻击</li>
+                                    <li><strong>ES256K：</strong> 比特币secp256k1曲线问题</li>
+                                    <li><strong>自定义算法：</strong> 非标准实现</li>
                                 </ul>
 
-                                <h4>Attack Methodology:</h4>
+                                <h4>攻击方法论：</h4>
                                 <ol>
-                                    <li>Identify supported algorithms via algorithm fuzzing</li>
-                                    <li>Downgrade to weaker algorithm if possible</li>
-                                    <li>Exploit cryptographic weaknesses</li>
-                                    <li>Forge signatures using collision attacks</li>
+                                    <li>通过算法模糊测试识别支持的算法</li>
+                                    <li>降级到更弱的算法（如果可能）</li>
+                                    <li>利用密码学弱点</li>
+                                    <li>使用碰撞攻击伪造签名</li>
                                 </ol>
                             </div>
                         </div>
 
                         <div class="attack-technique">
-                            <h3><i class="fas fa-random"></i> ECDSA Nonce Reuse</h3>
+                            <h3><i class="fas fa-random"></i> ECDSA随机数重用</h3>
                             <div class="vulnerability high">
-                                <h4><i class="fas fa-skull-crossbones"></i> Critical Severity</h4>
-                                <p><strong>Description:</strong> Exploit ECDSA implementations that reuse nonce values, allowing private key recovery.</p>
+                                <h4><i class="fas fa-skull-crossbones"></i> 严重级别</h4>
+                                <p><strong>描述：</strong> 利用重用随机数值的ECDSA实现，允许恢复私钥。</p>
 
-                                <h4>Attack Prerequisites:</h4>
+                                <h4>攻击前提条件：</h4>
                                 <ul>
-                                    <li>Two JWT tokens signed with same nonce</li>
-                                    <li>ECDSA algorithm (ES256, ES384, ES512)</li>
-                                    <li>Access to both signatures and messages</li>
+                                    <li>两个使用相同随机数签署的JWT令牌</li>
+                                    <li>ECDSA算法（ES256、ES384、ES512）</li>
+                                    <li>访问两个签名和消息</li>
                                 </ul>
 
-                                <h4>Detection Methods:</h4>
-                                <pre><code>// Check for identical 'r' values in ECDSA signatures
+                                <h4>检测方法：</h4>
+                                <pre><code>// 检查ECDSA签名中相同的'r'值
 const sig1 = parseSignature(jwt1);
 const sig2 = parseSignature(jwt2);
 if (sig1.r === sig2.r) {
-  // Potential nonce reuse vulnerability
-  console.log("Nonce reuse detected!");
+  // 潜在的随机数重用漏洞
+  console.log("检测到随机数重用！");
 }</code></pre>
                             </div>
                         </div>
@@ -429,32 +429,32 @@ if (sig1.r === sig2.r) {
                 </div>
 
                 <div class="docs-section">
-                    <h2>Application Logic Attacks</h2>
+                    <h2>应用逻辑攻击</h2>
 
                     <div class="attack-techniques">
                         <div class="attack-technique">
-                            <h3><i class="fas fa-users"></i> Privilege Escalation</h3>
+                            <h3><i class="fas fa-users"></i> 权限提升</h3>
                             <div class="vulnerability high">
-                                <h4><i class="fas fa-skull-crossbones"></i> High Severity</h4>
-                                <p><strong>Description:</strong> Manipulate user claims to gain unauthorized access or elevated privileges.</p>
+                                <h4><i class="fas fa-skull-crossbones"></i> 高危级别</h4>
+                                <p><strong>描述：</strong> 操纵用户声明以获得未授权访问或提升权限。</p>
 
-                                <h4>Common Escalation Vectors:</h4>
+                                <h4>常见提升向量：</h4>
                                 <ul>
-                                    <li><strong>Role Manipulation:</strong> Change "user" → "admin"</li>
-                                    <li><strong>User ID Tampering:</strong> Access other user accounts</li>
-                                    <li><strong>Scope Expansion:</strong> Add new permissions to scope claim</li>
-                                    <li><strong>Group Injection:</strong> Add administrative groups</li>
+                                    <li><strong>角色操纵：</strong> 将"user" → "admin"</li>
+                                    <li><strong>用户ID篡改：</strong> 访问其他用户账户</li>
+                                    <li><strong>范围扩展：</strong> 向范围声明添加新权限</li>
+                                    <li><strong>组注入：</strong> 添加管理组</li>
                                 </ul>
 
-                                <h4>Attack Payloads:</h4>
-                                <pre><code>// Original token
+                                <h4>攻击载荷：</h4>
+                                <pre><code>// 原始令牌
 {
   "sub": "user123",
   "role": "user",
   "permissions": ["read"]
 }
 
-// Escalated token
+// 提升的令牌
 {
   "sub": "user123",
   "role": "admin",
@@ -464,20 +464,20 @@ if (sig1.r === sig2.r) {
                         </div>
 
                         <div class="attack-technique">
-                            <h3><i class="fas fa-code"></i> JSON Injection Attacks</h3>
+                            <h3><i class="fas fa-code"></i> JSON注入攻击</h3>
                             <div class="vulnerability medium">
-                                <h4><i class="fas fa-exclamation-triangle"></i> Medium Severity</h4>
-                                <p><strong>Description:</strong> Inject malicious JSON structures to exploit parsing vulnerabilities.</p>
+                                <h4><i class="fas fa-exclamation-triangle"></i> 中危级别</h4>
+                                <p><strong>描述：</strong> 注入恶意JSON结构以利用解析漏洞。</p>
 
-                                <h4>Injection Techniques:</h4>
+                                <h4>注入技术：</h4>
                                 <ul>
-                                    <li><strong>Nested Objects:</strong> Bypass claim validation logic</li>
-                                    <li><strong>Array Manipulation:</strong> Inject additional elements</li>
-                                    <li><strong>Type Confusion:</strong> String vs number/boolean</li>
-                                    <li><strong>Unicode Exploits:</strong> Special character bypasses</li>
+                                    <li><strong>嵌套对象：</strong> 绕过声明验证逻辑</li>
+                                    <li><strong>数组操作：</strong> 注入额外元素</li>
+                                    <li><strong>类型混淆：</strong> 字符串vs数字/布尔值</li>
+                                    <li><strong>Unicode利用：</strong> 特殊字符绕过</li>
                                 </ul>
 
-                                <h4>Example Payloads:</h4>
+                                <h4>示例载荷：</h4>
                                 <pre><code>{
   "user": {
     "id": 123,
@@ -493,80 +493,80 @@ if (sig1.r === sig2.r) {
                 </div>
 
                 <div class="docs-section">
-                    <h2>Detection and Testing Tools</h2>
+                    <h2>检测和测试工具</h2>
 
                     <div class="tool-overview">
                         <div class="tool-card">
-                            <h3><i class="fas fa-search"></i> JWTAuditor Scanner</h3>
-                            <p>Automated detection of all attack vectors listed above with detailed reporting.</p>
-                            <a href="../index.html" class="tool-link">Use Scanner <i class="fas fa-arrow-right"></i></a>
+                            <h3><i class="fas fa-search"></i> JWTAuditor扫描器</h3>
+                            <p>自动检测上述所有攻击向量并提供详细报告。</p>
+                            <a href="../index.html" class="tool-link">使用扫描器 <i class="fas fa-arrow-right"></i></a>
                         </div>
 
                         <div class="tool-card">
-                            <h3><i class="fas fa-terminal"></i> Command Line Tools</h3>
-                            <p>jwt_tool, PyJWT, and custom scripts for manual testing and exploitation.</p>
-                            <a href="tool-guides/decoder-analyzer.html" class="tool-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                            <h3><i class="fas fa-terminal"></i> 命令行工具</h3>
+                            <p>jwt_tool、PyJWT和用于手动测试和利用的自定义脚本。</p>
+                            <a href="tool-guides/decoder-analyzer.html" class="tool-link">了解更多 <i class="fas fa-arrow-right"></i></a>
                         </div>
 
                         <div class="tool-card">
-                            <h3><i class="fas fa-bug"></i> Burp Suite Extensions</h3>
-                            <p>JWT Editor, JWT Heartbreaker, and Auth Analyzer for proxy-based testing.</p>
-                            <a href="jwt-vulnerabilities-guide.html" class="tool-link">View Guide <i class="fas fa-arrow-right"></i></a>
+                            <h3><i class="fas fa-bug"></i> Burp Suite扩展</h3>
+                            <p>JWT Editor、JWT Heartbreaker和用于代理测试的Auth Analyzer。</p>
+                            <a href="jwt-vulnerabilities-guide.html" class="tool-link">查看指南 <i class="fas fa-arrow-right"></i></a>
                         </div>
 
                         <div class="tool-card">
-                            <h3><i class="fas fa-code"></i> Custom Scripts</h3>
-                            <p>Python, Node.js, and Go implementations for specific attack scenarios.</p>
-                            <a href="secure-jwt-implementation.html" class="tool-link">Code Examples <i class="fas fa-arrow-right"></i></a>
+                            <h3><i class="fas fa-code"></i> 自定义脚本</h3>
+                            <p>针对特定攻击场景的Python、Node.js和Go实现。</p>
+                            <a href="secure-jwt-implementation.html" class="tool-link">代码示例 <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Prevention and Mitigation</h2>
+                    <h2>预防和缓解</h2>
 
                     <div class="warning-box">
                         <div class="warning-icon">
                             <i class="fas fa-shield-alt"></i>
                         </div>
                         <div class="warning-content">
-                            <p><strong>Comprehensive Defense Strategy:</strong> Implement multiple layers of protection to prevent JWT attacks effectively.</p>
+                            <p><strong>全面防御策略：</strong> 实施多层保护以有效防止JWT攻击。</p>
                         </div>
                     </div>
 
-                    <h3>Server-side Protections</h3>
+                    <h3>服务器端保护</h3>
                     <ul>
-                        <li><strong>Algorithm Whitelist:</strong> Only accept specific, secure algorithms</li>
-                        <li><strong>Key Management:</strong> Secure storage and rotation of signing keys</li>
-                        <li><strong>Claim Validation:</strong> Strict validation of all JWT claims</li>
-                        <li><strong>Header Sanitization:</strong> Remove/validate dangerous headers</li>
-                        <li><strong>Rate Limiting:</strong> Prevent brute force attacks</li>
-                        <li><strong>Logging/Monitoring:</strong> Detect attack attempts</li>
+                        <li><strong>算法白名单：</strong> 仅接受特定的安全算法</li>
+                        <li><strong>密钥管理：</strong> 安全存储和轮换签名密钥</li>
+                        <li><strong>声明验证：</strong> 严格验证所有JWT声明</li>
+                        <li><strong>头部清理：</strong> 删除/验证危险头部</li>
+                        <li><strong>速率限制：</strong> 防止暴力攻击</li>
+                        <li><strong>日志/监控：</strong> 检测攻击尝试</li>
                     </ul>
 
-                    <h3>Client-side Security</h3>
+                    <h3>客户端安全</h3>
                     <ul>
-                        <li><strong>Secure Storage:</strong> HttpOnly cookies vs localStorage</li>
-                        <li><strong>Token Expiration:</strong> Short-lived access tokens</li>
-                        <li><strong>CSRF Protection:</strong> Additional anti-CSRF tokens</li>
-                        <li><strong>Input Validation:</strong> Sanitize user inputs before JWT creation</li>
+                        <li><strong>安全存储：</strong> HttpOnly cookies vs localStorage</li>
+                        <li><strong>令牌过期：</strong> 短寿命访问令牌</li>
+                        <li><strong>CSRF防护：</strong> 额外的反CSRF令牌</li>
+                        <li><strong>输入验证：</strong> 在JWT创建前清理用户输入</li>
                     </ul>
                 </div>
 
                 <div class="next-steps">
-                    <h3>Next Steps</h3>
+                    <h3>下一步</h3>
                     <div class="next-links">
                         <a href="jwt-vulnerabilities-guide.html" class="next-link">
                             <i class="fas fa-book"></i>
-                            JWT Vulnerabilities Guide
+                            JWT漏洞指南
                         </a>
                         <a href="secure-jwt-implementation.html" class="next-link">
                             <i class="fas fa-shield-alt"></i>
-                            Secure Implementation
+                            安全实施
                         </a>
                         <a href="../index.html" class="next-link">
                             <i class="fas fa-tools"></i>
-                            Test Your JWTs
+                            测试您的JWT
                         </a>
                     </div>
                 </div>

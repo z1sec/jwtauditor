@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JWT Decoder & Analyzer Tool Guide - JWTAuditor</title>
-    <meta name="description" content="Learn how to use JWTAuditor's Decoder & Analyzer tool to inspect and analyze JWT tokens for security vulnerabilities.">
-    <meta name="keywords" content="JWT, decoder, analyzer, security, token analysis">
+    <title>JWT解码器和分析器工具指南 - JWTAuditor</title>
+    <meta name="description" content="学习如何使用JWTAuditor的解码器和分析器工具来检查和分析JWT令牌的安全漏洞。">
+    <meta name="keywords" content="JWT, 解码器, 分析器, 安全, 令牌分析">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../css/docs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -28,43 +28,43 @@
         <div class="docs-container">
             <aside class="docs-sidebar">
                 <div class="sidebar-header">
-                    <h2>Documentation</h2>
+                    <h2>文档</h2>
                 </div>
                 <nav class="docs-nav">
                     <div class="nav-section">
-                        <h3>JWT Fundamentals</h3>
+                        <h3>JWT基础</h3>
                         <ul>
-                            <li><a href="../jwt-fundamentals.html">Understanding JWT Structure</a></li>
-                            <li><a href="../jwt-claims.html">JWT Claims Explained</a></li>
-                            <li><a href="../jwt-vs-sessions.html">JWT vs. Session Auth</a></li>
+                            <li><a href="../jwt-fundamentals.html">理解JWT结构</a></li>
+                            <li><a href="../jwt-claims.html">JWT声明详解</a></li>
+                            <li><a href="../jwt-vs-sessions.html">JWT与会话认证</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Security Guides</h3>
+                        <h3>安全指南</h3>
                         <ul>
-                            <li><a href="../jwt-vulnerabilities-guide.html">JWT Vulnerabilities Guide</a></li>
-                            <li><a href="../jwt-attack-vectors.html">Complete Attack Vectors</a></li>
-                            <li><a href="../jwt-security-checklist.html">Security Checklist</a></li>
-                            <li><a href="../jwt-tools-comparison.html">Tools Comparison</a></li>
-                            <li><a href="../secure-jwt-implementation.html">Secure Implementation</a></li>
-                            <li><a href="../jwt-attack-techniques.html">Attack Techniques</a></li>
+                            <li><a href="../jwt-vulnerabilities-guide.html">JWT漏洞指南</a></li>
+                            <li><a href="../jwt-attack-vectors.html">完整攻击向量</a></li>
+                            <li><a href="../jwt-security-checklist.html">安全检查清单</a></li>
+                            <li><a href="../jwt-tools-comparison.html">工具对比</a></li>
+                            <li><a href="../secure-jwt-implementation.html">安全实施</a></li>
+                            <li><a href="../jwt-attack-techniques.html">攻击技术</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Tool Guides</h3>
+                        <h3>工具指南</h3>
                         <ul>
-                            <li><a href="decoder-analyzer.html" class="active">Decoder & Analyzer</a></li>
-                            <li><a href="secret-bruteforcer.html">Secret Bruteforcer</a></li>
-                            <li><a href="jwt-editor.html">JWT Editor</a></li>
-                            <li><a href="jwt-generator.html">JWT Generator</a></li>
+                            <li><a href="decoder-analyzer.html" class="active">解码器与分析器</a></li>
+                            <li><a href="secret-bruteforcer.html">密钥暴力破解器</a></li>
+                            <li><a href="jwt-editor.html">JWT编辑器</a></li>
+                            <li><a href="jwt-generator.html">JWT生成器</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Reference</h3>
+                        <h3>参考</h3>
                         <ul>
-                            <li><a href="../reference/jwt-header-parameters.html">Header Parameters</a></li>
-                            <li><a href="../reference/jwt-claim-registry.html">Claim Registry</a></li>
-                            <li><a href="../reference/jwt-algorithms.html">JWT Algorithms</a></li>
+                            <li><a href="../reference/jwt-header-parameters.html">头部参数</a></li>
+                            <li><a href="../reference/jwt-claim-registry.html">声明注册表</a></li>
+                            <li><a href="../reference/jwt-algorithms.html">JWT算法</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -72,174 +72,174 @@
 
             <div class="docs-content">
                 <div class="docs-header">
-                    <h1>JWT Decoder & Analyzer Tool Guide</h1>
+                    <h1>JWT解码器和分析器工具指南</h1>
                     <div class="docs-meta">
-                        <span><i class="fas fa-search"></i> Tool Guide</span>
-                        <span><i class="fas fa-clock"></i> Reading time: 5 min</span>
+                        <span><i class="fas fa-search"></i> 工具指南</span>
+                        <span><i class="fas fa-clock"></i> 阅读时间: 5分钟</span>
                     </div>
                 </div>
 
                 <div class="docs-section intro-section">
                     <p class="lead">
-                        The JWT Decoder & Analyzer is the core tool in JWTAuditor that allows you to inspect and analyze JWT tokens for security vulnerabilities. This guide will help you understand how to use this tool effectively.
+                        JWT解码器和分析器是JWTAuditor的核心工具，允许您检查和分析JWT令牌的安全漏洞。本指南将帮助您了解如何有效地使用此工具。
                     </p>
                     
                     <div class="tool-screenshot">
-                        <img src="../../img/decoder.jpg" alt="JWT Decoder & Analyzer Screenshot" class="screenshot">
-                        <div class="screenshot-caption">JWT Decoder & Analyzer interface</div>
+                        <img src="../../img/decoder.jpg" alt="JWT解码器和分析器截图" class="screenshot">
+                        <div class="screenshot-caption">JWT解码器和分析器界面</div>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Features</h2>
+                    <h2>功能</h2>
                     <ul>
-                        <li>Decode JWT tokens to view header, payload, and signature</li>
-                        <li>Comprehensive security analysis with severity ratings</li>
-                        <li>Identify weak algorithms (none, HS256) and deprecated cryptography</li>
-                        <li>Detect algorithm confusion vulnerabilities</li>
-                        <li>Check for missing or weak claims</li>
-                        <li>Verify expiration and issuance times</li>
-                        <li>Identify sensitive data and PII in payload</li>
-                        <li>Detect potential SQL injection, path traversal, and command injection in header parameters</li>
-                        <li>Analyze signature strength and validity</li>
-                        <li>Identify tokens vulnerable to bruteforce attacks</li>
-                        <li>Direct integration with Secret Bruteforcer for testing weak secrets</li>
-                        <li>Security summary with actionable recommendations</li>
+                        <li>解码JWT令牌以查看头部、载荷和签名</li>
+                        <li>全面的安全分析，包含严重程度评级</li>
+                        <li>识别弱算法(none、HS256)和已弃用的加密</li>
+                        <li>检测算法混淆漏洞</li>
+                        <li>检查缺失或弱声明</li>
+                        <li>验证过期和签发时间</li>
+                        <li>识别载荷中的敏感数据和个人身份信息</li>
+                        <li>检测头部参数中的潜在SQL注入、路径遍历和命令注入</li>
+                        <li>分析签名强度和有效性</li>
+                        <li>识别容易受到暴力破解攻击的令牌</li>
+                        <li>与密钥暴力破解器直接集成以测试弱密钥</li>
+                        <li>包含可操作建议的安全摘要</li>
                     </ul>
                 </div>
 
                 <div class="docs-section">
-                    <h2>How to Use</h2>
+                    <h2>如何使用</h2>
                     
-                    <h3>Step 1: Enter a JWT Token</h3>
+                    <h3>步骤1: 输入JWT令牌</h3>
                     <p>
-                        In the main interface, locate the "Decoder" tab and enter your JWT token in the input field. You can paste a token from your clipboard or type it manually.
+                        在主界面中，找到"解码器"标签并在输入字段中输入您的JWT令牌。您可以从剪贴板粘贴令牌或手动输入。
                     </p>
                     
                     <div class="tip-box">
                         <div class="tip-icon"><i class="fas fa-lightbulb"></i></div>
                         <div class="tip-content">
-                            <p><strong>Tip:</strong> JWT tokens typically follow the format <code>xxxxx.yyyyy.zzzzz</code> where each part is Base64Url encoded.</p>
+                            <p><strong>提示:</strong> JWT令牌通常遵循<code>xxxxx.yyyyy.zzzzz</code>格式，其中每个部分都是Base64Url编码的。</p>
                         </div>
                     </div>
                     
-                    <h3>Step 2: Decode the Token</h3>
+                    <h3>步骤2: 解码令牌</h3>
                     <p>
-                        Click the "Decode" button to process the token. The tool will automatically:
+                        点击"解码"按钮处理令牌。该工具将自动：
                     </p>
                     <ul>
-                        <li>Split the token into its three parts (header, payload, signature)</li>
-                        <li>Decode the Base64Url encoded header and payload</li>
-                        <li>Display the decoded JSON in a readable format</li>
+                        <li>将令牌拆分为三个部分(头部、载荷、签名)</li>
+                        <li>解码Base64Url编码的头部和载荷</li>
+                        <li>以可读格式显示解码后的JSON</li>
                     </ul>
                     
-                    <h3>Step 3: Review the Decoded Information</h3>
+                    <h3>步骤3: 查看解码信息</h3>
                     <p>
-                        The decoded information will be displayed in three sections:
+                        解码信息将在三个部分中显示：
                     </p>
                     <ul>
-                        <li><strong>Header</strong>: Contains metadata about the token type and signing algorithm</li>
-                        <li><strong>Payload</strong>: Contains the claims (data) stored in the token</li>
-                        <li><strong>Signature</strong>: The cryptographic signature that verifies the token's authenticity</li>
+                        <li><strong>头部</strong>: 包含有关令牌类型和签名算法的元数据</li>
+                        <li><strong>载荷</strong>: 包含存储在令牌中的声明(数据)</li>
+                        <li><strong>签名</strong>: 验证令牌真实性的加密签名</li>
                     </ul>
                     
-                    <h3>Step 4: Analyze for Vulnerabilities</h3>
+                    <h3>步骤4: 分析漏洞</h3>
                     <p>
-                        After decoding, the tool automatically analyzes the token for common security issues. The analysis results will be displayed in the "Analysis" section, categorized by severity:
+                        解码后，工具会自动分析令牌的常见安全问题。分析结果将在"分析"部分显示，按严重程度分类：
                     </p>
                     <ul>
-                        <li><strong>High</strong>: Critical security issues that should be addressed immediately</li>
-                        <li><strong>Medium</strong>: Important security concerns that should be reviewed</li>
-                        <li><strong>Low</strong>: Minor issues or best practice recommendations</li>
-                        <li><strong>Info</strong>: Informational notes about the token</li>
-                    </ul>
-                </div>
-
-                <div class="docs-section">
-                    <h2>Understanding the Analysis</h2>
-                    
-                    <h3>Security Summary</h3>
-                    <p>
-                        The tool now provides a comprehensive security summary at the top of the analysis:
-                    </p>
-                    <ul>
-                        <li><strong>Issue Count by Severity</strong>: Visual breakdown of high, medium, low, and info-level issues</li>
-                        <li><strong>Overall Security Assessment</strong>: Quick assessment of the token's security posture</li>
-                        <li><strong>Actionable Recommendation</strong>: Clear guidance on what to do next based on findings</li>
-                    </ul>
-                    
-                    <h3>Algorithm Analysis</h3>
-                    <p>
-                        The tool checks the algorithm specified in the header and flags potential issues:
-                    </p>
-                    <ul>
-                        <li><strong>None Algorithm</strong>: High severity - The token uses the "none" algorithm, which means no signature verification is performed</li>
-                        <li><strong>Weak Algorithm</strong>: Medium severity - The token uses a potentially weak algorithm like HS256 with a short key</li>
-                        <li><strong>Algorithm Confusion</strong>: Medium severity - The token might be vulnerable to algorithm confusion attacks</li>
-                        <li><strong>Insecure Algorithm</strong>: High severity - The token uses a cryptographically insecure algorithm</li>
-                        <li><strong>Missing Signature</strong>: High severity - The token claims to use a signature algorithm but has no signature</li>
-                    </ul>
-                    
-                    <h3>Claims Analysis</h3>
-                    <p>
-                        The tool examines the claims in the payload:
-                    </p>
-                    <ul>
-                        <li><strong>Missing Expiration</strong>: High severity - The token doesn't have an expiration time (exp claim)</li>
-                        <li><strong>Token Expired</strong>: Medium severity - The token has already expired</li>
-                        <li><strong>Long Token Lifetime</strong>: Medium severity - The token has an unusually long lifetime</li>
-                        <li><strong>Token Not Yet Valid</strong>: Medium severity - The token's nbf (not before) claim indicates it's not yet valid</li>
-                        <li><strong>Missing Recommended Claims</strong>: Medium severity - The token is missing important claims (sub, iss, aud, jti, iat)</li>
-                        <li><strong>Empty Claims</strong>: Low severity - The token contains claims with empty values</li>
-                        <li><strong>Overly Generic Audience</strong>: Medium severity - The audience claim is too generic to provide proper security</li>
-                        <li><strong>Multiple Audiences</strong>: Low severity - The token has an unusually high number of audiences</li>
-                    </ul>
-                    
-                    <h3>Data Analysis</h3>
-                    <p>
-                        The tool scans the payload for potentially sensitive information:
-                    </p>
-                    <ul>
-                        <li><strong>Sensitive Data</strong>: High severity - The token contains what appears to be sensitive data (passwords, keys, etc.)</li>
-                        <li><strong>PII in Payload</strong>: Medium severity - The token contains personally identifiable information</li>
-                        <li><strong>Large Payload</strong>: Low severity - The token payload is unusually large, which could impact performance</li>
-                    </ul>
-                    
-                    <h3>Signature Analysis</h3>
-                    <p>
-                        The tool analyzes the signature for potential weaknesses:
-                    </p>
-                    <ul>
-                        <li><strong>Suspiciously Short Signature</strong>: High severity - The signature is shorter than expected for the algorithm</li>
-                        <li><strong>Potentially Weak Signature</strong>: Medium severity - The signature length suggests a weak secret may have been used</li>
-                        <li><strong>Potential Bruteforce Vulnerability</strong>: Medium severity - The token uses a symmetric algorithm that could be vulnerable to bruteforcing</li>
-                    </ul>
-                    
-                    <h3>Header Parameter Analysis</h3>
-                    <p>
-                        The tool checks header parameters for potential injection vulnerabilities:
-                    </p>
-                    <ul>
-                        <li><strong>Potential SQL Injection in kid Header</strong>: High severity - The kid parameter contains characters that might be used for SQL injection</li>
-                        <li><strong>Potential Path Traversal in kid Header</strong>: High severity - The kid parameter contains directory traversal sequences</li>
-                        <li><strong>Potential Command Injection in kid Header</strong>: High severity - The kid parameter contains characters that might be used for command injection</li>
-                    </ul>
-                    
-                    <h3>Attack Vulnerability Analysis</h3>
-                    <p>
-                        The tool identifies potential attack vectors:
-                    </p>
-                    <ul>
-                        <li><strong>Replay Attack Vulnerability</strong>: Medium severity - The token lacks a JWT ID and has a long expiration time</li>
-                        <li><strong>Missing JWT ID</strong>: Low severity - The token doesn't have a JWT ID (jti claim), making token revocation difficult</li>
-                        <li><strong>Potentially Weak JWT ID</strong>: Low severity - The JWT ID may not have sufficient randomness or uniqueness</li>
+                        <li><strong>高危</strong>: 应立即解决的关键安全问题</li>
+                        <li><strong>中危</strong>: 应审查的重要安全问题</li>
+                        <li><strong>低危</strong>: 次要问题或最佳实践建议</li>
+                        <li><strong>信息</strong>: 关于令牌的信息注释</li>
                     </ul>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Example Analysis</h2>
+                    <h2>理解分析</h2>
                     
-                    <h3>Vulnerable Token Example</h3>
+                    <h3>安全摘要</h3>
+                    <p>
+                        该工具现在在分析顶部提供全面的安全摘要：
+                    </p>
+                    <ul>
+                        <li><strong>按严重程度统计问题数量</strong>: 高、中、低和信息级别问题的可视化分解</li>
+                        <li><strong>总体安全评估</strong>: 令牌安全态势的快速评估</li>
+                        <li><strong>可操作的建议</strong>: 基于发现结果的下一步行动明确指导</li>
+                    </ul>
+                    
+                    <h3>算法分析</h3>
+                    <p>
+                        该工具检查头部中指定的算法并标记潜在问题：
+                    </p>
+                    <ul>
+                        <li><strong>None算法</strong>: 高严重性 - 令牌使用"none"算法，这意味着不执行签名验证</li>
+                        <li><strong>弱算法</strong>: 中严重性 - 令牌使用可能较弱的算法，如具有短密钥的HS256</li>
+                        <li><strong>算法混淆</strong>: 中严重性 - 令牌可能容易受到算法混淆攻击</li>
+                        <li><strong>不安全算法</strong>: 高严重性 - 令牌使用密码学上不安全的算法</li>
+                        <li><strong>缺失签名</strong>: 高严重性 - 令牌声称使用签名算法但没有签名</li>
+                    </ul>
+                    
+                    <h3>声明分析</h3>
+                    <p>
+                        该工具检查载荷中的声明：
+                    </p>
+                    <ul>
+                        <li><strong>缺失过期时间</strong>: 高严重性 - 令牌没有过期时间(exp声明)</li>
+                        <li><strong>令牌已过期</strong>: 中严重性 - 令牌已过期</li>
+                        <li><strong>长令牌生命周期</strong>: 中严重性 - 令牌具有异常长的生命周期</li>
+                        <li><strong>令牌尚未有效</strong>: 中严重性 - 令牌的nbf(不早于)声明表明它尚未生效</li>
+                        <li><strong>缺失推荐声明</strong>: 中严重性 - 令牌缺少重要声明(sub、iss、aud、jti、iat)</li>
+                        <li><strong>空声明</strong>: 低严重性 - 令牌包含值为空的声明</li>
+                        <li><strong>过于通用的受众</strong>: 中严重性 - 受众声明过于通用，无法提供适当的安全性</li>
+                        <li><strong>多个受众</strong>: 低严重性 - 令牌具有异常高的受众数量</li>
+                    </ul>
+                    
+                    <h3>数据分析</h3>
+                    <p>
+                        该工具扫描载荷中可能的敏感信息：
+                    </p>
+                    <ul>
+                        <li><strong>敏感数据</strong>: 高严重性 - 令牌包含似乎是敏感数据(密码、密钥等)</li>
+                        <li><strong>载荷中的个人身份信息</strong>: 中严重性 - 令牌包含个人身份信息</li>
+                        <li><strong>大载荷</strong>: 低严重性 - 令牌载荷异常大，可能影响性能</li>
+                    </ul>
+                    
+                    <h3>签名分析</h3>
+                    <p>
+                        该工具分析签名的潜在弱点：
+                    </p>
+                    <ul>
+                        <li><strong>可疑的短签名</strong>: 高严重性 - 签名比算法预期的要短</li>
+                        <li><strong>潜在的弱签名</strong>: 中严重性 - 签名长度表明可能使用了弱密钥</li>
+                        <li><strong>潜在的暴力破解漏洞</strong>: 中严重性 - 令牌使用可能容易受到暴力破解的对称算法</li>
+                    </ul>
+                    
+                    <h3>头部参数分析</h3>
+                    <p>
+                        该工具检查头部参数的潜在注入漏洞：
+                    </p>
+                    <ul>
+                        <li><strong>kid头部中的潜在SQL注入</strong>: 高严重性 - kid参数包含可能用于SQL注入的字符</li>
+                        <li><strong>kid头部中的潜在路径遍历</strong>: 高严重性 - kid参数包含目录遍历序列</li>
+                        <li><strong>kid头部中的潜在命令注入</strong>: 高严重性 - kid参数包含可能用于命令注入的字符</li>
+                    </ul>
+                    
+                    <h3>攻击漏洞分析</h3>
+                    <p>
+                        该工具识别潜在攻击向量：
+                    </p>
+                    <ul>
+                        <li><strong>重放攻击漏洞</strong>: 中严重性 - 令牌缺少JWT ID且具有较长的过期时间</li>
+                        <li><strong>缺失JWT ID</strong>: 低严重性 - 令牌没有JWT ID(jti声明)，使得令牌撤销困难</li>
+                        <li><strong>潜在的弱JWT ID</strong>: 低严重性 - JWT ID可能没有足够的随机性或唯一性</li>
+                    </ul>
+                </div>
+
+                <div class="docs-section">
+                    <h2>分析示例</h2>
+                    
+                    <h3>易受攻击的令牌示例</h3>
                     <pre><code class="language-text">eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.</code></pre>
                     
                     <p>Analysis results:</p>
@@ -263,42 +263,42 @@
                             <div class="security-recommendation critical">
                                 <i class="fas fa-shield-alt"></i>
                                 <div>
-                                    <strong>Critical security issues detected!</strong>
-                                    <p>This token has serious security vulnerabilities that should be addressed immediately.</p>
+                                    <strong>检测到严重安全问题！</strong>
+                                    <p>此令牌存在严重的安全漏洞，应立即解决。</p>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="vulnerability high">
-                            <h4><i class="fas fa-exclamation-triangle"></i> None Algorithm Detected</h4>
+                            <h4><i class="fas fa-exclamation-triangle"></i> 检测到None算法</h4>
                             <p><strong>Severity:</strong> High</p>
-                            <p><strong>Description:</strong> This token uses the 'none' algorithm, which means no signature verification is performed.</p>
-                            <p><strong>Recommendation:</strong> Reject tokens with the 'none' algorithm and implement proper signature verification.</p>
+                            <p><strong>描述:</strong> 此令牌使用'none'算法，这意味着不执行签名验证。</p>
+                            <p><strong>建议:</strong> 拒绝使用'none'算法的令牌并实施适当的签名验证。</p>
                         </div>
                         
                         <div class="vulnerability high">
-                            <h4><i class="fas fa-exclamation-triangle"></i> No Expiration</h4>
+                            <h4><i class="fas fa-exclamation-triangle"></i> 无过期时间</h4>
                             <p><strong>Severity:</strong> High</p>
-                            <p><strong>Description:</strong> The token does not have an expiration time (exp claim), making it valid indefinitely.</p>
-                            <p><strong>Recommendation:</strong> Always include an expiration time in your JWTs to limit their lifetime and reduce the impact of token theft.</p>
+                            <p><strong>描述:</strong> 令牌没有过期时间(exp声明)，使其无限期有效。</p>
+                            <p><strong>建议:</strong> 始终在JWT中包含过期时间以限制其生命周期并减少令牌被盗的影响。</p>
                         </div>
                         
                         <div class="vulnerability medium">
-                            <h4><i class="fas fa-exclamation-circle"></i> Missing Recommended Claims</h4>
-                            <p><strong>Severity:</strong> Medium</p>
-                            <p><strong>Description:</strong> The JWT is missing recommended claims: iss (issuer), aud (audience), jti (JWT ID).</p>
-                            <p><strong>Recommendation:</strong> Include these claims to improve security and prevent token misuse, replay attacks, and audience confusion.</p>
+                            <h4><i class="fas fa-exclamation-circle"></i> 缺失推荐声明</h4>
+                            <p><strong>严重性:</strong> 中</p>
+                            <p><strong>描述:</strong> JWT缺少推荐声明：iss(签发者)、aud(受众)、jti(JWT ID)。</p>
+                            <p><strong>建议:</strong> 包含这些声明以提高安全性并防止令牌滥用、重放攻击和受众混淆。</p>
                         </div>
                         
                         <div class="vulnerability low">
-                            <h4><i class="fas fa-info-circle"></i> Missing JWT ID</h4>
-                            <p><strong>Severity:</strong> Low</p>
-                            <p><strong>Description:</strong> The token does not have a JWT ID (jti claim), which makes it harder to implement token revocation.</p>
-                            <p><strong>Recommendation:</strong> Include a unique jti claim to enable token revocation and prevent replay attacks.</p>
+                            <h4><i class="fas fa-info-circle"></i> 缺失JWT ID</h4>
+                            <p><strong>严重性:</strong> 低</p>
+                            <p><strong>描述:</strong> 令牌没有JWT ID(jti声明)，这使得实施令牌撤销更加困难。</p>
+                            <p><strong>建议:</strong> 包含唯一的jti声明以启用令牌撤销并防止重放攻击。</p>
                         </div>
                     </div>
                     
-                    <h3>Symmetric Algorithm Token Example</h3>
+                    <h3>对称算法令牌示例</h3>
                     <pre><code class="language-text">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE1MTYyNDI2MjJ9.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</code></pre>
                     
                     <p>Analysis results:</p>
@@ -322,42 +322,42 @@
                             <div class="security-recommendation warning">
                                 <i class="fas fa-shield-alt"></i>
                                 <div>
-                                    <strong>Security improvements needed</strong>
-                                    <p>This token has security issues that should be addressed to improve its security posture.</p>
+                                    <strong>需要改进安全性</strong>
+                                    <p>此令牌存在安全问题，应解决这些问题以改善其安全态势。</p>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="vulnerability medium">
-                            <h4><i class="fas fa-exclamation-circle"></i> Potentially Weak Algorithm</h4>
-                            <p><strong>Severity:</strong> Medium</p>
-                            <p><strong>Description:</strong> The JWT uses HS256, which may be vulnerable if a weak secret is used.</p>
-                            <p><strong>Recommendation:</strong> Consider using a stronger algorithm like HS384, HS512, or an asymmetric algorithm (RS256, ES256).</p>
+                            <h4><i class="fas fa-exclamation-circle"></i> 潜在的弱算法</h4>
+                            <p><strong>严重性:</strong> 中</p>
+                            <p><strong>描述:</strong> JWT使用HS256，如果使用了弱密钥则可能容易受到攻击。</p>
+                            <p><strong>建议:</strong> 考虑使用更强的算法，如HS384、HS512或非对称算法(RS256、ES256)。</p>
                         </div>
                         
                         <div class="vulnerability medium">
-                            <h4><i class="fas fa-exclamation-circle"></i> Potential Bruteforce Vulnerability</h4>
-                            <p><strong>Severity:</strong> Medium</p>
-                            <p><strong>Description:</strong> This JWT uses a symmetric algorithm (HS*) which could be vulnerable to secret bruteforcing if a weak secret was used.</p>
-                            <p><strong>Recommendation:</strong> Use a strong, high-entropy secret key (at least 32 random bytes) and consider using the Secret Bruteforcer tool to test your token against common secrets.</p>
+                            <h4><i class="fas fa-exclamation-circle"></i> 潜在的暴力破解漏洞</h4>
+                            <p><strong>严重性:</strong> 中</p>
+                            <p><strong>描述:</strong> 此JWT使用对称算法(HS*)，如果使用了弱密钥则可能容易受到密钥暴力破解攻击。</p>
+                            <p><strong>建议:</strong> 使用强的高熵密钥(至少32个随机字节)并考虑使用密钥暴力破解器工具针对常见密钥测试您的令牌。</p>
                         </div>
                         
                         <div class="vulnerability info">
-                            <h4><i class="fas fa-lightbulb"></i> Bruteforce Testing Recommended</h4>
-                            <p><strong>Severity:</strong> Info</p>
-                            <p><strong>Description:</strong> You should test this token with the Secret Bruteforcer tool to check if it uses a weak secret.</p>
-                            <p><strong>Recommendation:</strong> Click on the "⚡ Secret Bruteforce" tab to test this token against common secrets and wordlists.</p>
+                            <h4><i class="fas fa-lightbulb"></i> 推荐暴力破解测试</h4>
+                            <p><strong>严重性:</strong> 信息</p>
+                            <p><strong>描述:</strong> 您应该使用密钥暴力破解器工具测试此令牌，以检查它是否使用了弱密钥。</p>
+                            <p><strong>建议:</strong> 点击"⚡ 密钥暴力破解"标签以针对常见密钥和词表测试此令牌。</p>
                         </div>
                     </div>
                     
                     <div class="analysis-actions">
                         <button class="primary-btn">
-                            <i class="fas fa-key"></i> Test for Weak Secret
+                            <i class="fas fa-key"></i> 测试弱密钥
                         </button>
-                        <p class="action-hint">This token uses a symmetric algorithm (HS*) and could be tested for weak secrets</p>
+                        <p class="action-hint">此令牌使用对称算法(HS*)，可以测试弱密钥</p>
                     </div>
                     
-                    <h3>Secure Token Example</h3>
+                    <h3>安全令牌示例</h3>
                     <pre><code class="language-text">eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJleHAiOjE1MTYyNDI2MjIsImlzcyI6ImF1dGguc2VydmljZS5jb20iLCJhdWQiOiJhcGkuc2VydmljZS5jb20iLCJqdGkiOiI3MzkyZjdmOC01MGFmLTQ3MzYtOTg3Ni0zYzBlNDQ3MjgwZmQifQ.signature</code></pre>
                     
                     <p>Analysis results:</p>
@@ -381,50 +381,50 @@
                             <div class="security-recommendation good">
                                 <i class="fas fa-shield-alt"></i>
                                 <div>
-                                    <strong>No issues detected</strong>
-                                    <p>This token appears to follow security best practices.</p>
+                                    <strong>未检测到问题</strong>
+                                    <p>此令牌似乎遵循了安全最佳实践。</p>
                                 </div>
                             </div>
                         </div>
                         
                         <div class="vulnerability none">
-                            <h4><i class="fas fa-check-circle"></i> No Vulnerabilities Detected</h4>
-                            <p>No obvious security issues were found in this JWT.</p>
-                            <p>This token uses a strong algorithm (RS256) and includes all recommended claims (sub, iat, exp, iss, aud, jti).</p>
-                            <p>Note: This does not guarantee the token is secure. Always follow best practices for JWT handling.</p>
+                            <h4><i class="fas fa-check-circle"></i> 未检测到漏洞</h4>
+                            <p>在此JWT中未发现明显安全问题。</p>
+                            <p>此令牌使用强算法(RS256)并包含所有推荐声明(sub、iat、exp、iss、aud、jti)。</p>
+                            <p>注意：这并不能保证令牌是安全的。始终遵循JWT处理的最佳实践。</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Next Steps</h2>
+                    <h2>后续步骤</h2>
                     <p>
-                        After analyzing a token, you might want to:
+                        分析令牌后，您可能想要：
                     </p>
                     <ul>
-                        <li>For tokens using symmetric algorithms (HS256, HS384, HS512), click the "Test for Weak Secret" button to automatically transfer the token to the Secret Bruteforcer tool</li>
-                        <li>Use the <a href="jwt-editor.html">JWT Editor</a> to modify the token and test for vulnerabilities</li>
-                        <li>Learn more about the specific vulnerabilities in the <a href="../jwt-vulnerabilities-guide.html">JWT Vulnerabilities Guide</a></li>
-                        <li>Review the security recommendations and address any identified issues in your JWT implementation</li>
+                        <li>对于使用对称算法(HS256、HS384、HS512)的令牌，点击"测试弱密钥"按钮自动将令牌传输到密钥暴力破解器工具</li>
+                        <li>使用<a href="jwt-editor.html">JWT编辑器</a>修改令牌并测试漏洞</li>
+                        <li>在<a href="../jwt-vulnerabilities-guide.html">JWT漏洞指南</a>中了解更多关于特定漏洞的信息</li>
+                        <li>审查安全建议并解决JWT实现中识别出的任何问题</li>
                     </ul>
                     
                     <div class="info-box">
                         <i class="fas fa-info-circle info-icon"></i>
                         <div class="info-content">
-                            <strong>Direct Integration:</strong> When a token using a symmetric algorithm (HS*) is detected, the analyzer will automatically provide a "Test for Weak Secret" button that transfers the token to the Secret Bruteforcer tool with a single click.
+                            <strong>直接集成:</strong> 当检测到使用对称算法(HS*)的令牌时，分析器将自动提供"测试弱密钥"按钮，只需单击一下即可将令牌传输到密钥暴力破解器工具。
                         </div>
                     </div>
                     
                     <div class="next-steps">
-                        <h3>Related Tools</h3>
+                        <h3>相关工具</h3>
                         <div class="next-links">
                             <a href="secret-bruteforcer.html" class="next-link">
                                 <i class="fas fa-key"></i>
-                                <span>Secret Bruteforcer</span>
+                                <span>密钥暴力破解器</span>
                             </a>
                             <a href="jwt-editor.html" class="next-link">
                                 <i class="fas fa-edit"></i>
-                                <span>JWT Editor</span>
+                                <span>JWT编辑器</span>
                             </a>
                         </div>
                     </div>
@@ -437,14 +437,14 @@
         <div class="footer-container">
             <div class="footer-section">
                 <h3>JWTAuditor</h3>
-                <p>Professional JWT security testing platform for penetration testers and cybersecurity professionals. Decode, analyze vulnerabilities, and audit JSON Web Token implementations with complete client-side privacy.</p>
+                <p>面向渗透测试人员和网络安全专业人员的专业JWT安全测试平台。解码、分析漏洞并审计JSON Web Token实现，确保完整的客户端隐私。</p>
             </div>
             <div class="footer-section">
-                <h3>Documentation</h3>
+                <h3>文档</h3>
                 <ul class="footer-links">
-                    <li><a href="../jwt-fundamentals.html">JWT Fundamentals</a></li>
-                    <li><a href="../jwt-vulnerabilities-guide.html">Vulnerabilities Guide</a></li>
-                    <li><a href="../secure-jwt-implementation.html">Secure Implementation</a></li>
+                    <li><a href="../jwt-fundamentals.html">JWT基础</a></li>
+                    <li><a href="../jwt-vulnerabilities-guide.html">漏洞指南</a></li>
+                    <li><a href="../secure-jwt-implementation.html">安全实施</a></li>
                 </ul>
             </div>
             <div class="footer-section">

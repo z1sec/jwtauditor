@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JWT Editor Guide - JWTAuditor Documentation</title>
-    <meta name="description" content="Learn how to use JWTAuditor's JWT Editor tool to modify JWT headers, payloads, and re-sign tokens with various algorithms.">
-    <meta name="keywords" content="JWT, editor, modify, re-sign, header, payload, signature">
+    <title>JWT编辑器指南 - JWTAuditor 文档</title>
+    <meta name="description" content="学习如何使用JWTAuditor的JWT编辑器工具来修改JWT头部、载荷，并使用不同算法重新签名令牌。">
+    <meta name="keywords" content="JWT, 编辑器, 修改, 重签名, 头部, 载荷, 签名">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../css/docs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -28,43 +28,43 @@
         <div class="docs-container">
             <aside class="docs-sidebar">
                 <div class="sidebar-header">
-                    <h2>Documentation</h2>
+                    <h2>文档</h2>
                 </div>
                 <nav class="docs-nav">
                     <div class="nav-section">
-                        <h3>JWT Fundamentals</h3>
+                        <h3>JWT基础</h3>
                         <ul>
-                            <li><a href="../jwt-fundamentals.html">Understanding JWT Structure</a></li>
-                            <li><a href="../jwt-claims.html">JWT Claims Explained</a></li>
-                            <li><a href="../jwt-vs-sessions.html">JWT vs. Session Auth</a></li>
+                            <li><a href="../jwt-fundamentals.html">理解JWT结构</a></li>
+                            <li><a href="../jwt-claims.html">JWT声明详解</a></li>
+                            <li><a href="../jwt-vs-sessions.html">JWT与会话认证</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Security Guides</h3>
+                        <h3>安全指南</h3>
                         <ul>
-                            <li><a href="../jwt-vulnerabilities-guide.html">JWT Vulnerabilities Guide</a></li>
-                            <li><a href="../jwt-attack-vectors.html">Complete Attack Vectors</a></li>
-                            <li><a href="../jwt-security-checklist.html">Security Checklist</a></li>
-                            <li><a href="../jwt-tools-comparison.html">Tools Comparison</a></li>
-                            <li><a href="../secure-jwt-implementation.html">Secure Implementation</a></li>
-                            <li><a href="../jwt-attack-techniques.html">Attack Techniques</a></li>
+                            <li><a href="../jwt-vulnerabilities-guide.html">JWT漏洞指南</a></li>
+                            <li><a href="../jwt-attack-vectors.html">完整攻击向量</a></li>
+                            <li><a href="../jwt-security-checklist.html">安全检查清单</a></li>
+                            <li><a href="../jwt-tools-comparison.html">工具对比</a></li>
+                            <li><a href="../secure-jwt-implementation.html">安全实施</a></li>
+                            <li><a href="../jwt-attack-techniques.html">攻击技术</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Tool Guides</h3>
+                        <h3>工具指南</h3>
                         <ul>
-                            <li><a href="decoder-analyzer.html">Decoder & Analyzer</a></li>
-                            <li><a href="secret-bruteforcer.html">Secret Bruteforcer</a></li>
-                            <li><a href="jwt-editor.html" class="active">JWT Editor</a></li>
-                            <li><a href="jwt-generator.html">JWT Generator</a></li>
+                            <li><a href="decoder-analyzer.html">解码器与分析器</a></li>
+                            <li><a href="secret-bruteforcer.html">密钥暴力破解器</a></li>
+                            <li><a href="jwt-editor.html" class="active">JWT编辑器</a></li>
+                            <li><a href="jwt-generator.html">JWT生成器</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Reference</h3>
+                        <h3>参考</h3>
                         <ul>
-                            <li><a href="../reference/jwt-header-parameters.html">Header Parameters</a></li>
-                            <li><a href="../reference/jwt-claim-registry.html">Claim Registry</a></li>
-                            <li><a href="../reference/jwt-algorithms.html">JWT Algorithms</a></li>
+                            <li><a href="../reference/jwt-header-parameters.html">头部参数</a></li>
+                            <li><a href="../reference/jwt-claim-registry.html">声明注册表</a></li>
+                            <li><a href="../reference/jwt-algorithms.html">JWT算法</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -72,66 +72,66 @@
 
             <div class="docs-content">
                 <div class="docs-header">
-                    <h1>JWT Editor Guide</h1>
+                    <h1>JWT编辑器指南</h1>
                     <div class="docs-meta">
-                        <span><i class="fas fa-edit"></i> Advanced Tool</span>
-                        <span><i class="fas fa-clock"></i> Updated: May 2024</span>
+                        <span><i class="fas fa-edit"></i> 高级工具</span>
+                        <span><i class="fas fa-clock"></i> 更新时间: 2024年5月</span>
                     </div>
                 </div>
 
                 <div class="docs-section intro-section">
                     <p class="lead">
-                        The JWT Editor is a powerful tool that allows you to modify existing JWT tokens by editing their headers and payloads, then re-signing them with different algorithms and keys. This is essential for testing JWT implementations and exploring potential security vulnerabilities.
+                        JWT编辑器是一个强大的工具，允许您通过编辑现有JWT令牌的头部和载荷来修改它们，然后使用不同的算法和密钥重新签名。这对于测试JWT实现和探索潜在的安全漏洞至关重要。
                     </p>
                 </div>
 
                 <div class="docs-section">
-                    <h2>What is JWT Editing?</h2>
+                    <h2>什么是JWT编辑？</h2>
                     <p>
-                        JWT editing involves modifying the contents of a JWT token while maintaining its structural integrity. This includes:
+                        JWT编辑涉及在保持其结构完整性的同时修改JWT令牌的内容。这包括：
                     </p>
                     <ul>
-                        <li><strong>Header modification:</strong> Changing algorithm, type, or other header parameters</li>
-                        <li><strong>Payload modification:</strong> Altering claims like user ID, roles, expiration time</li>
-                        <li><strong>Re-signing:</strong> Generating a new signature with a different key or algorithm</li>
-                        <li><strong>Algorithm confusion:</strong> Testing how applications handle algorithm changes</li>
+                        <li><strong>头部修改:</strong> 更改算法、类型或其他头部参数</li>
+                        <li><strong>载荷修改:</strong> 更改用户ID、角色、过期时间等声明</li>
+                        <li><strong>重新签名:</strong> 使用不同的密钥或算法生成新签名</li>
+                        <li><strong>算法混淆:</strong> 测试应用程序如何处理算法更改</li>
                     </ul>
                     
                     <div class="info-box">
                         <i class="fas fa-info-circle info-icon"></i>
                         <div class="info-content">
-                            <strong>Use Cases:</strong> JWT editing is commonly used for privilege escalation testing, authentication bypass attempts, and exploring JWT implementation flaws.
+                            <strong>使用场景:</strong> JWT编辑通常用于权限提升测试、身份验证绕过尝试和探索JWT实现缺陷。
                         </div>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>How to Use the JWT Editor</h2>
+                    <h2>如何使用JWT编辑器</h2>
                     
-                    <h3>Step 1: Navigate to the Tool</h3>
-                    <p>Click on the "✏️ JWT Editor" tab in the main JWTAuditor interface.</p>
+                    <h3>步骤1: 导航到工具</h3>
+                    <p>点击主JWTAuditor界面中的"✏️ JWT编辑器"标签。</p>
 
-                    <h3>Step 2: Load a JWT Token</h3>
-                    <p>Paste your JWT token in the "JWT Token to Edit" field and click "Load JWT". The tool will:</p>
+                    <h3>步骤2: 加载JWT令牌</h3>
+                    <p>在"待编辑JWT令牌"字段中粘贴您的JWT令牌并点击"加载JWT"。该工具将：</p>
                     <ul>
-                        <li>Parse and validate the token structure</li>
-                        <li>Extract the header and payload</li>
-                        <li>Display them in editable JSON format</li>
-                        <li>Set the signature algorithm selector</li>
+                        <li>解析并验证令牌结构</li>
+                        <li>提取头部和载荷</li>
+                        <li>以可编辑的JSON格式显示它们</li>
+                        <li>设置签名算法选择器</li>
                     </ul>
                     
                     <div class="tip-box">
                         <div class="tip-icon"><i class="fas fa-lightbulb"></i></div>
                         <div class="tip-content">
-                            <p><strong>Tip:</strong> The editor automatically formats JSON for better readability. Ensure your modifications maintain valid JSON syntax, or the tool will display a validation error.</p>
+                            <p><strong>提示:</strong> 编辑器会自动格式化JSON以提高可读性。确保您的修改保持有效的JSON语法，否则工具将显示验证错误。</p>
                         </div>
                     </div>
 
-                    <h3>Step 3: Edit the Header</h3>
-                    <p>Modify the header JSON in the Header editor. Common modifications include:</p>
+                    <h3>步骤3: 编辑头部</h3>
+                    <p>在头部编辑器中修改头部JSON。常见的修改包括：</p>
                     
                     <div class="code-example">
-                        <h4>Algorithm Change</h4>
+                        <h4>算法更改</h4>
                         <pre><code class="language-json">{
   "alg": "none",  // Changed from "HS256"
   "typ": "JWT"
@@ -139,7 +139,7 @@
                     </div>
 
                     <div class="code-example">
-                        <h4>Adding Key ID</h4>
+                        <h4>添加密钥ID</h4>
                         <pre><code class="language-json">{
   "alg": "RS256",
   "typ": "JWT",
@@ -147,11 +147,11 @@
 }</code></pre>
                     </div>
 
-                    <h3>Step 4: Edit the Payload</h3>
-                    <p>Modify the payload JSON to change claims. Common testing scenarios:</p>
+                    <h3>步骤4: 编辑载荷</h3>
+                    <p>修改载荷JSON以更改声明。常见测试场景：</p>
                     
                     <div class="code-example">
-                        <h4>Privilege Escalation</h4>
+                        <h4>权限提升</h4>
                         <pre><code class="language-json">{
   "sub": "1234567890",
   "name": "John Doe",
@@ -162,7 +162,7 @@
                     </div>
 
                     <div class="code-example">
-                        <h4>User Impersonation</h4>
+                        <h4>用户冒充</h4>
                         <pre><code class="language-json">{
   "sub": "999999999",  // Changed user ID
   "name": "Administrator",
@@ -172,51 +172,51 @@
 }</code></pre>
                     </div>
 
-                    <h3>Step 5: Configure Signature Options</h3>
-                    <p>Choose the signing algorithm and provide the necessary keys:</p>
+                    <h3>步骤5: 配置签名选项</h3>
+                    <p>选择签名算法并提供必要的密钥：</p>
                     
                     <div class="algorithm-options">
                         <div class="option-card">
-                            <h4>none Algorithm</h4>
-                            <p>No signature required. Used to test if the application accepts unsigned tokens.</p>
-                            <p><strong>Risk:</strong> Complete authentication bypass if accepted.</p>
+                            <h4>none算法</h4>
+                            <p>不需要签名。用于测试应用程序是否接受未签名的令牌。</p>
+                            <p><strong>风险:</strong> 如果被接受，则完全绕过身份验证。</p>
                         </div>
                         
                         <div class="option-card">
-                            <h4>HMAC Algorithms (HS256, HS384, HS512)</h4>
-                            <p>Requires a shared secret key. Use known or brute-forced secrets.</p>
-                            <p><strong>Example:</strong> <code>mysecretkey</code></p>
+                            <h4>HMAC算法 (HS256, HS384, HS512)</h4>
+                            <p>需要共享密钥。使用已知或暴力破解的密钥。</p>
+                            <p><strong>示例:</strong> <code>mysecretkey</code></p>
                         </div>
                         
                         <div class="option-card">
-                            <h4>RSA Algorithms (RS256, RS384, RS512)</h4>
-                            <p>Requires a private key for signing. Use for testing with known private keys.</p>
-                            <p><strong>Note:</strong> Only the private key is needed for signing.</p>
+                            <h4>RSA算法 (RS256, RS384, RS512)</h4>
+                            <p>需要私钥进行签名。用于使用已知私钥进行测试。</p>
+                            <p><strong>注意:</strong> 只需要私钥进行签名。</p>
                         </div>
                     </div>
 
-                    <h3>Step 6: Generate the Modified Token</h3>
-                    <p>Click "Generate JWT" to create the modified token. The tool will:</p>
+                    <h3>步骤6: 生成修改后的令牌</h3>
+                    <p>点击"生成JWT"创建修改后的令牌。该工具将：</p>
                     <ul>
-                        <li>Validate the JSON syntax</li>
-                        <li>Update the algorithm in the header</li>
-                        <li>Generate the appropriate signature</li>
-                        <li>Display the complete modified JWT</li>
+                        <li>验证JSON语法</li>
+                        <li>更新头部中的算法</li>
+                        <li>生成适当的签名</li>
+                        <li>显示完整的修改后JWT</li>
                     </ul>
 
-                    <h3>Step 7: Copy and Test</h3>
-                    <p>Use the "Copy to Clipboard" button to copy the modified token and test it in your target application.</p>
+                    <h3>步骤7: 复制和测试</h3>
+                    <p>使用"复制到剪贴板"按钮复制修改后的令牌并在目标应用程序中测试它。</p>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Common Attack Scenarios</h2>
+                    <h2>常见攻击场景</h2>
                     
-                    <h3>1. Algorithm Confusion Attack</h3>
-                    <p>Test if the application accepts tokens with different algorithms:</p>
+                    <h3>1. 算法混淆攻击</h3>
+                    <p>测试应用程序是否接受具有不同算法的令牌：</p>
                     
                     <div class="attack-scenario">
-                        <h4>none Algorithm Bypass</h4>
-                        <p>Change the algorithm to "none" to test if the application accepts unsigned tokens.</p>
+                        <h4>none算法绕过</h4>
+                        <p>将算法更改为"none"以测试应用程序是否接受未签名的令牌。</p>
                         <div class="code-example">
                             <pre><code class="language-json">// Original Header
 {
@@ -233,8 +233,8 @@
                     </div>
 
                     <div class="attack-scenario">
-                        <h4>HMAC to RSA Confusion</h4>
-                        <p>Change from HMAC to RSA algorithm using the RSA public key as HMAC secret.</p>
+                        <h4>HMAC到RSA混淆</h4>
+                        <p>使用RSA公钥作为HMAC密钥将算法从HMAC更改为RSA。</p>
                         <div class="code-example">
                             <pre><code class="language-json">// Original Header
 {
@@ -248,22 +248,22 @@
   "typ": "JWT"
 }</code></pre>
                         </div>
-                        <p>Then use the RSA public key as the HMAC secret when re-signing.</p>
+                        <p>然后在重新签名时使用RSA公钥作为HMAC密钥。</p>
                     </div>
 
-                    <h3>2. Privilege Escalation</h3>
-                    <p>Modify user roles and permissions in the payload:</p>
+                    <h3>2. 权限提升</h3>
+                    <p>修改载荷中的用户角色和权限：</p>
                     
                     <div class="code-example">
-                        <pre><code class="language-json">// Original Payload
+                        <pre><code class="language-json">// 原始载荷
 {
   "sub": "1234567890",
-  "name": "Regular User",
+  "name": "普通用户",
   "role": "user",
   "permissions": ["read"]
 }
 
-// Modified Payload
+// 修改后的载荷
 {
   "sub": "1234567890",
   "name": "Regular User",
@@ -272,109 +272,109 @@
 }</code></pre>
                     </div>
 
-                    <h3>3. Token Expiration Bypass</h3>
-                    <p>Extend or remove expiration times:</p>
+                    <h3>3. 令牌过期绕过</h3>
+                    <p>延长或移除过期时间：</p>
                     
                     <div class="code-example">
-                        <pre><code class="language-json">// Original Payload (expired)
+                        <pre><code class="language-json">// 原始载荷(已过期)
 {
   "sub": "1234567890",
   "name": "John Doe",
   "iat": 1516239022,
-  "exp": 1516242622  // Past expiration
+  "exp": 1516242622  // 过去的过期时间
 }
 
-// Modified Payload (future expiration)
+// 修改后的载荷(未来过期时间)
 {
   "sub": "1234567890",
   "name": "John Doe",
   "iat": 1516239022,
-  "exp": 1915934400  // Year 2030
+  "exp": 1915934400  // 2030年
 }</code></pre>
                     </div>
 
-                    <h3>4. User Impersonation</h3>
-                    <p>Change user identifiers to impersonate other users:</p>
+                    <h3>4. 用户冒充</h3>
+                    <p>更改用户标识符以冒充其他用户：</p>
                     
                     <div class="code-example">
-                        <pre><code class="language-json">// Original Payload
+                        <pre><code class="language-json">// 原始载荷
 {
   "sub": "1234567890",
   "name": "John Doe",
   "email": "john@example.com"
 }
 
-// Modified Payload
+// 修改后的载荷
 {
-  "sub": "0000000001",  // Admin user ID
-  "name": "Administrator",
+  "sub": "0000000001",  // 管理员用户ID
+  "name": "管理员",
   "email": "admin@example.com"
 }</code></pre>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Advanced Features</h2>
+                    <h2>高级功能</h2>
                     
-                    <h3>Signature Verification</h3>
-                    <p>The JWT Editor includes a signature verification feature to test if a secret key is correct:</p>
+                    <h3>签名验证</h3>
+                    <p>JWT编辑器包含一个签名验证功能，用于测试密钥是否正确：</p>
                     <ol>
-                        <li>Load a JWT token</li>
-                        <li>Enter a suspected secret key</li>
-                        <li>Click "Verify Signature"</li>
-                        <li>The tool will confirm if the key is valid</li>
+                        <li>加载JWT令牌</li>
+                        <li>输入可疑的密钥</li>
+                        <li>点击"验证签名"</li>
+                        <li>该工具将确认密钥是否有效</li>
                     </ol>
 
-                    <h3>JSON Validation</h3>
-                    <p>The editor automatically validates JSON syntax and provides error messages for invalid JSON structures.</p>
+                    <h3>JSON验证</h3>
+                    <p>编辑器会自动验证JSON语法并为无效的JSON结构提供错误消息。</p>
 
-                    <h3>Algorithm Support</h3>
-                    <p>JWTAuditor supports all common JWT algorithms:</p>
+                    <h3>算法支持</h3>
+                    <p>JWTAuditor支持所有常见的JWT算法：</p>
                     <ul>
-                        <li><strong>none:</strong> No signature</li>
-                        <li><strong>HS256/HS384/HS512:</strong> HMAC with SHA-256/384/512</li>
-                        <li><strong>RS256/RS384/RS512:</strong> RSA with SHA-256/384/512</li>
+                        <li><strong>none:</strong> 无签名</li>
+                        <li><strong>HS256/HS384/HS512:</strong> 使用SHA-256/384/512的HMAC</li>
+                        <li><strong>RS256/RS384/RS512:</strong> 使用SHA-256/384/512的RSA</li>
                     </ul>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Best Practices</h2>
+                    <h2>最佳实践</h2>
                     
-                    <h3>For Penetration Testers</h3>
+                    <h3>对于渗透测试人员</h3>
                     <ul>
-                        <li>Always test the original token before modifications</li>
-                        <li>Start with simple modifications (algorithm change)</li>
-                        <li>Test each modification separately to identify what works</li>
-                        <li>Document successful modifications for reporting</li>
-                        <li>Consider the business impact of successful modifications</li>
+                        <li>始终在修改前测试原始令牌</li>
+                        <li>从简单修改开始(算法更改)</li>
+                        <li>单独测试每个修改以确定哪些有效</li>
+                        <li>记录成功的修改以便报告</li>
+                        <li>考虑成功修改的业务影响</li>
                     </ul>
 
-                    <h3>For Developers</h3>
+                    <h3>对于开发人员</h3>
                     <ul>
-                        <li>Use this tool to test your JWT validation logic</li>
-                        <li>Verify that your application rejects modified tokens</li>
-                        <li>Test algorithm confusion scenarios</li>
-                        <li>Ensure proper signature verification</li>
-                        <li>Validate all claims thoroughly</li>
+                        <li>使用此工具测试您的JWT验证逻辑</li>
+                        <li>验证您的应用程序是否拒绝修改后的令牌</li>
+                        <li>测试算法混淆场景</li>
+                        <li>确保正确的签名验证</li>
+                        <li>彻底验证所有声明</li>
                     </ul>
 
-                    <h3>Security Testing Checklist</h3>
+                    <h3>安全测试清单</h3>
                     <ul>
-                        <li>☐ Test "none" algorithm acceptance</li>
-                        <li>☐ Test HMAC to RSA algorithm confusion</li>
-                        <li>☐ Test privilege escalation through role modification</li>
-                        <li>☐ Test user impersonation through ID changes</li>
-                        <li>☐ Test expiration bypass</li>
-                        <li>☐ Test signature verification with invalid keys</li>
-                        <li>☐ Test malformed JSON handling</li>
+                        <li>☐ 测试"none"算法接受情况</li>
+                        <li>☐ 测试HMAC到RSA算法混淆</li>
+                        <li>☐ 测试通过角色修改进行权限提升</li>
+                        <li>☐ 测试通过ID更改进行用户冒充</li>
+                        <li>☐ 测试过期绕过</li>
+                        <li>☐ 使用无效密钥测试签名验证</li>
+                        <li>☐ 测试格式错误的JSON处理</li>
                     </ul>
                 </div>
 
                 <div class="docs-section">
-                    <h2>RSA Key Management</h2>
+                    <h2>RSA密钥管理</h2>
                     
-                    <h3>Private Key Format</h3>
-                    <p>RSA private keys should be in PEM format:</p>
+                    <h3>私钥格式</h3>
+                    <p>RSA私钥应为PEM格式：</p>
                     
                     <div class="code-example">
                         <pre><code>-----BEGIN RSA PRIVATE KEY-----
@@ -383,8 +383,8 @@ MIIEpAIBAAKCAQEA2Z3QX0BTLS5+o6zXITG3MuHE8PVDRvn1wQ3lTe7YmQsS8U8a
 -----END RSA PRIVATE KEY-----</code></pre>
                     </div>
 
-                    <h3>Key Generation</h3>
-                    <p>You can generate RSA keys using OpenSSL:</p>
+                    <h3>密钥生成</h3>
+                    <p>您可以使用OpenSSL生成RSA密钥：</p>
                     
                     <div class="code-example">
                         <pre><code class="language-bash"># Generate private key
@@ -394,86 +394,86 @@ openssl genrsa -out private_key.pem 2048
 openssl rsa -in private_key.pem -pubout -out public_key.pem</code></pre>
                     </div>
 
-                    <h3>Testing with Public Keys</h3>
-                    <p>For algorithm confusion attacks, you may need to use the public key as an HMAC secret. Convert the public key to the appropriate format first.</p>
+                    <h3>使用公钥测试</h3>
+                    <p>对于算法混淆攻击，您可能需要使用公钥作为HMAC密钥。首先将公钥转换为适当格式。</p>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Troubleshooting</h2>
+                    <h2>故障排除</h2>
                     
                     <div class="faq-item">
-                        <h4>Q: I get "Invalid JSON" errors when editing</h4>
-                        <p>A: Ensure your JSON is properly formatted with correct quotes, commas, and brackets. Use a JSON validator if needed.</p>
+                        <h4>问: 编辑时出现"无效JSON"错误</h4>
+                        <p>答: 确保您的JSON格式正确，包括正确的引号、逗号和括号。如有需要，请使用JSON验证器。</p>
                     </div>
 
                     <div class="faq-item">
-                        <h4>Q: The signature verification fails</h4>
-                        <p>A: Double-check that you're using the correct secret key and that it matches the algorithm. For RSA, ensure you're using the private key.</p>
+                        <h4>问: 签名验证失败</h4>
+                        <p>答: 仔细检查您使用的密钥是否正确且与算法匹配。对于RSA，请确保您使用的是私钥。</p>
                     </div>
 
                     <div class="faq-item">
-                        <h4>Q: The application still rejects my modified token</h4>
-                        <p>A: The application may have additional validation beyond signature verification. Check that all claims are valid and that the token structure is correct.</p>
+                        <h4>问: 应用程序仍然拒绝我的修改后令牌</h4>
+                        <p>答: 应用程序可能除了签名验证外还有额外的验证。检查所有声明是否有效且令牌结构正确。</p>
                     </div>
 
                     <div class="faq-item">
-                        <h4>Q: How do I know if my attack succeeded?</h4>
-                        <p>A: Test the modified token in the target application. Look for successful authentication, access to restricted resources, or elevated privileges.</p>
+                        <h4>问: 如何知道我的攻击是否成功？</h4>
+                        <p>答: 在目标应用程序中测试修改后的令牌。寻找成功身份验证、访问受限资源或权限提升的迹象。</p>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Security Considerations</h2>
+                    <h2>安全注意事项</h2>
                     
                     <div class="warning-box">
                         <i class="fas fa-exclamation-triangle warning-icon"></i>
                         <div class="warning-content">
-                            <strong>Legal Notice:</strong> Only use this tool on systems you own or have explicit permission to test. Unauthorized modification of authentication tokens may violate laws and terms of service.
+                            <strong>法律声明:</strong> 仅在您拥有或明确授权测试的系统上使用此工具。未经授权修改身份验证令牌可能违反法律和服务条款。
                         </div>
                     </div>
 
                     <div class="info-box">
                         <i class="fas fa-shield-alt info-icon"></i>
                         <div class="info-content">
-                            <strong>Privacy:</strong> All token editing is performed locally in your browser. No tokens or keys are transmitted to external servers.
+                            <strong>隐私:</strong> 所有令牌编辑都在您的浏览器本地执行。没有任何令牌或密钥传输到外部服务器。
                         </div>
                     </div>
 
-                    <p>Additional security considerations:</p>
+                    <p>其他安全注意事项：</p>
                     <ul>
-                        <li>Be aware that your testing activities may be logged</li>
-                        <li>Consider the impact of successful privilege escalation</li>
-                        <li>Document all successful attacks for remediation</li>
-                        <li>Follow responsible disclosure practices</li>
+                        <li>请注意您的测试活动可能会被记录</li>
+                        <li>考虑成功权限提升的影响</li>
+                        <li>记录所有成功的攻击以便修复</li>
+                        <li>遵循负责任的披露实践</li>
                     </ul>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Related Tools</h2>
-                    <p>Combine the JWT Editor with other JWTAuditor tools for comprehensive testing:</p>
+                    <h2>相关工具</h2>
+                    <p>将JWT编辑器与其他JWTAuditor工具结合使用以进行全面测试：</p>
                     
                     <div class="tool-links">
                         <a href="decoder-analyzer.html" class="tool-link">
                             <i class="fas fa-search"></i>
                             <div>
-                                <h4>Decoder & Analyzer</h4>
-                                <p>Analyze tokens before editing to identify potential vulnerabilities</p>
+                                <h4>解码器和分析器</h4>
+                                <p>编辑前分析令牌以识别潜在漏洞</p>
                             </div>
                         </a>
                         
                         <a href="secret-bruteforcer.html" class="tool-link">
                             <i class="fas fa-key"></i>
                             <div>
-                                <h4>Secret Bruteforcer</h4>
-                                <p>Discover weak secrets that can be used for re-signing tokens</p>
+                                <h4>密钥暴力破解器</h4>
+                                <p>发现可用于重新签名令牌的弱密钥</p>
                             </div>
                         </a>
                         
                         <a href="jwt-generator.html" class="tool-link">
                             <i class="fas fa-plus-circle"></i>
                             <div>
-                                <h4>JWT Generator</h4>
-                                <p>Create completely new tokens for testing purposes</p>
+                                <h4>JWT生成器</h4>
+                                <p>创建全新的令牌用于测试目的</p>
                             </div>
                         </a>
                     </div>
@@ -486,22 +486,22 @@ openssl rsa -in private_key.pem -pubout -out public_key.pem</code></pre>
         <div class="footer-container">
             <div class="footer-section">
                 <h3>JWTAuditor</h3>
-                <p>Professional JWT security testing platform for penetration testers and cybersecurity professionals. Decode, analyze vulnerabilities, and audit JSON Web Token implementations with complete client-side privacy.</p>
+                <p>面向渗透测试人员和网络安全专业人员的专业JWT安全测试平台。解码、分析漏洞并审计JSON Web Token实现，确保完整的客户端隐私。</p>
             </div>
             <div class="footer-section">
-                <h3>Documentation</h3>
+                <h3>文档</h3>
                 <ul class="footer-links">
-                    <li><a href="../jwt-fundamentals.html">JWT Fundamentals</a></li>
-                    <li><a href="../jwt-vulnerabilities-guide.html">Vulnerabilities Guide</a></li>
-                    <li><a href="../secure-jwt-implementation.html">Secure Implementation</a></li>
+                    <li><a href="../jwt-fundamentals.html">JWT基础</a></li>
+                    <li><a href="../jwt-vulnerabilities-guide.html">漏洞指南</a></li>
+                    <li><a href="../secure-jwt-implementation.html">安全实施</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Resources</h3>
+                <h3>资源</h3>
                 <ul class="footer-links">
-                    <li><a href="../../about.html">About Us</a></li>
+                    <li><a href="../../about.html">关于我们</a></li>
                     <li><a href="https://jwt.io/" target="_blank">JWT.io</a></li>
-                    <li><a href="https://portswigger.net/web-security/jwt" target="_blank">PortSwigger JWT Attacks</a></li>
+                    <li><a href="https://portswigger.net/web-security/jwt" target="_blank">PortSwigger JWT攻击</a></li>
                 </ul>
             </div>
         </div>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JWT Attack Techniques - JWTAuditor</title>
-    <meta name="description" content="Learn about common JWT attack techniques including algorithm confusion, weak secrets, and token tampering.">
-    <meta name="keywords" content="JWT, attack techniques, algorithm confusion, none algorithm, token tampering">
+    <title>JWT攻击技术 - JWTAuditor</title>
+    <meta name="description" content="了解常见的JWT攻击技术，包括算法混淆、弱密钥和令牌篡改。">
+    <meta name="keywords" content="JWT, 攻击技术, 算法混淆, none算法, 令牌篡改">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="css/docs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,9 +18,9 @@
             <i class="fas fa-user-secret"></i>
             <h1>JWTAuditor</h1>
         </div>
-        <div class="subtitle">Documentation & Learning Resources</div>
+        <div class="subtitle">文档与学习资源</div>
         <div class="header-actions">
-            <a href="../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> Back to Tool</a>
+            <a href="../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> 返回工具</a>
         </div>
     </header>
 
@@ -28,43 +28,43 @@
         <div class="docs-container">
             <aside class="docs-sidebar">
                 <div class="sidebar-header">
-                    <h2>Documentation</h2>
+                    <h2>文档</h2>
                 </div>
                 <nav class="docs-nav">
                     <div class="nav-section">
-                        <h3>JWT Fundamentals</h3>
+                        <h3>JWT基础</h3>
                         <ul>
-                            <li><a href="jwt-fundamentals.html">Understanding JWT Structure</a></li>
-                            <li><a href="jwt-claims.html">JWT Claims Explained</a></li>
-                            <li><a href="jwt-vs-sessions.html">JWT vs. Session Auth</a></li>
+                            <li><a href="jwt-fundamentals.html">理解JWT结构</a></li>
+                            <li><a href="jwt-claims.html">JWT声明详解</a></li>
+                            <li><a href="jwt-vs-sessions.html">JWT与会话认证</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Security Guides</h3>
+                        <h3>安全指南</h3>
                         <ul>
-                            <li><a href="jwt-vulnerabilities-guide.html">JWT Vulnerabilities Guide</a></li>
-                            <li><a href="jwt-attack-vectors.html">Complete Attack Vectors</a></li>
-                            <li><a href="jwt-security-checklist.html">Security Checklist</a></li>
-                            <li><a href="jwt-tools-comparison.html">Tools Comparison</a></li>
-                            <li><a href="secure-jwt-implementation.html">Secure Implementation</a></li>
-                            <li><a href="jwt-attack-techniques.html" class="active">Attack Techniques</a></li>
+                            <li><a href="jwt-vulnerabilities-guide.html">JWT漏洞指南</a></li>
+                            <li><a href="jwt-attack-vectors.html">完整攻击向量</a></li>
+                            <li><a href="jwt-security-checklist.html">安全检查清单</a></li>
+                            <li><a href="jwt-tools-comparison.html">工具对比</a></li>
+                            <li><a href="secure-jwt-implementation.html">安全实施</a></li>
+                            <li><a href="jwt-attack-techniques.html" class="active">攻击技术</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Tool Guides</h3>
+                        <h3>工具指南</h3>
                         <ul>
-                            <li><a href="tool-guides/decoder-analyzer.html">Decoder & Analyzer</a></li>
-                            <li><a href="tool-guides/secret-bruteforcer.html">Secret Bruteforcer</a></li>
-                            <li><a href="tool-guides/jwt-editor.html">JWT Editor</a></li>
-                            <li><a href="tool-guides/jwt-generator.html">JWT Generator</a></li>
+                            <li><a href="tool-guides/decoder-analyzer.html">解码器与分析器</a></li>
+                            <li><a href="tool-guides/secret-bruteforcer.html">密钥暴力破解器</a></li>
+                            <li><a href="tool-guides/jwt-editor.html">JWT编辑器</a></li>
+                            <li><a href="tool-guides/jwt-generator.html">JWT生成器</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Reference</h3>
+                        <h3>参考</h3>
                         <ul>
-                            <li><a href="reference/jwt-header-parameters.html">Header Parameters</a></li>
-                            <li><a href="reference/jwt-claim-registry.html">Claim Registry</a></li>
-                            <li><a href="reference/jwt-algorithms.html">JWT Algorithms</a></li>
+                            <li><a href="reference/jwt-header-parameters.html">头部参数</a></li>
+                            <li><a href="reference/jwt-claim-registry.html">声明注册表</a></li>
+                            <li><a href="reference/jwt-algorithms.html">JWT算法</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -72,290 +72,290 @@
 
             <div class="docs-content">
                 <div class="docs-header">
-                    <h1>JWT Attack Techniques</h1>
+                    <h1>JWT攻击技术</h1>
                     <div class="docs-meta">
-                        <span><i class="fas fa-user-ninja"></i> Security Guide</span>
+                        <span><i class="fas fa-user-ninja"></i> 安全指南</span>
                         <span><i class="fas fa-clock"></i> Reading time: 12 min</span>
                     </div>
                 </div>
 
                 <div class="docs-section intro-section">
                     <p class="lead">
-                        JSON Web Tokens (JWTs) are widely used for authentication and authorization, but they can be vulnerable to various attacks if not implemented correctly. This guide explores common JWT attack techniques, how they work, and how to protect against them.
+                        JSON Web Token（JWT）广泛用于身份验证和授权，但如果实现不当，它们可能会受到各种攻击。本指南探讨了常见的JWT攻击技术、其工作原理以及如何防范。
                     </p>
                     
                     <div class="warning-box">
                         <div class="warning-icon"><i class="fas fa-exclamation-triangle"></i></div>
                         <div class="warning-content">
-                            <p><strong>Important:</strong> This guide is for educational purposes only. Use this knowledge to secure your applications, not to attack others.</p>
+                            <p><strong>重要提示：</strong> 本指南仅供教育目的。请使用此知识保护您的应用程序安全，而不是攻击他人。</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Common JWT Attack Techniques</h2>
+                    <h2>常见JWT攻击技术</h2>
                     
-                    <p>Here are the most common attack techniques targeting JWT implementations:</p>
+                    <p>以下是针对JWT实现最常见的攻击技术：</p>
                     
                     <div class="attack-techniques">
                         <div class="attack-technique">
-                            <h3><i class="fas fa-random"></i> Algorithm Confusion</h3>
-                            <p>Exploiting implementations that don't validate the algorithm specified in the header.</p>
+                            <h3><i class="fas fa-random"></i> 算法混淆</h3>
+                            <p>利用未验证头部中指定算法的实现。</p>
                         </div>
                         
                         <div class="attack-technique">
-                            <h3><i class="fas fa-ban"></i> None Algorithm</h3>
-                            <p>Setting the algorithm to "none" to bypass signature verification.</p>
+                            <h3><i class="fas fa-ban"></i> None算法</h3>
+                            <p>将算法设置为"none"以绕过签名验证。</p>
                         </div>
                         
                         <div class="attack-technique">
-                            <h3><i class="fas fa-key"></i> Weak Secret Keys</h3>
-                            <p>Brute-forcing weak HMAC secrets used to sign tokens.</p>
+                            <h3><i class="fas fa-key"></i> 弱密钥</h3>
+                            <p>暴力破解用于签名令牌的弱HMAC密钥。</p>
                         </div>
                         
                         <div class="attack-technique">
-                            <h3><i class="fas fa-edit"></i> Token Tampering</h3>
-                            <p>Modifying the payload to change claims like user roles or permissions.</p>
+                            <h3><i class="fas fa-edit"></i> 令牌篡改</h3>
+                            <p>修改有效载荷以更改用户角色或权限等声明。</p>
                         </div>
                         
                         <div class="attack-technique">
-                            <h3><i class="fas fa-clock"></i> Token Replay</h3>
-                            <p>Reusing captured tokens after they should have expired.</p>
+                            <h3><i class="fas fa-clock"></i> 令牌重放</h3>
+                            <p>在令牌应过期后重复使用捕获的令牌。</p>
                         </div>
                         
                         <div class="attack-technique">
-                            <h3><i class="fas fa-key"></i> Key ID Injection</h3>
-                            <p>Manipulating the "kid" parameter to force the use of a specific key.</p>
+                            <h3><i class="fas fa-key"></i> 密钥ID注入</h3>
+                            <p>操纵"kid"参数以强制使用特定密钥。</p>
                         </div>
                         
                         <div class="attack-technique">
-                            <h3><i class="fas fa-certificate"></i> JWK Header Injection</h3>
-                            <p>Embedding malicious public keys in the "jwk" header parameter.</p>
+                            <h3><i class="fas fa-certificate"></i> JWK头部注入</h3>
+                            <p>在"jwk"头部参数中嵌入恶意公钥。</p>
                         </div>
                         
                         <div class="attack-technique">
-                            <h3><i class="fas fa-link"></i> JWK Set URL Injection</h3>
-                            <p>Manipulating "jku" parameter to fetch keys from attacker-controlled URLs.</p>
+                            <h3><i class="fas fa-link"></i> JWK集URL注入</h3>
+                            <p>操纵"jku"参数以从攻击者控制的URL获取密钥。</p>
                         </div>
                         
                         <div class="attack-technique">
-                            <h3><i class="fas fa-signature"></i> Signature Bypass</h3>
-                            <p>Exploiting implementations that don't properly verify signatures.</p>
+                            <h3><i class="fas fa-signature"></i> 签名绕过</h3>
+                            <p>利用未正确验证签名的实现。</p>
                         </div>
                         
                         <div class="attack-technique">
-                            <h3><i class="fas fa-user-secret"></i> X.509 Certificate Injection</h3>
-                            <p>Injecting self-signed certificates via the "x5c" header parameter.</p>
+                            <h3><i class="fas fa-user-secret"></i> X.509证书注入</h3>
+                            <p>通过"x5c"头部参数注入自签名证书。</p>
                         </div>
                         
                         <div class="attack-technique">
-                            <h3><i class="fas fa-file-code"></i> Content Type Manipulation</h3>
-                            <p>Changing the "cty" parameter to enable XXE or deserialization attacks.</p>
+                            <h3><i class="fas fa-file-code"></i> 内容类型操纵</h3>
+                            <p>更改"cty"参数以启用XXE或反序列化攻击。</p>
                         </div>
                         
                         <div class="attack-technique">
-                            <h3><i class="fas fa-folder-open"></i> Directory Traversal</h3>
-                            <p>Using path traversal in "kid" parameter to access sensitive files.</p>
+                            <h3><i class="fas fa-folder-open"></i> 目录遍历</h3>
+                            <p>在"kid"参数中使用路径遍历来访问敏感文件。</p>
                         </div>
                     </div>
                 </div>
 
                 <div id="algorithm-confusion" class="docs-section">
-                    <h2>Algorithm Confusion Attack</h2>
+                    <h2>算法混淆攻击</h2>
                     
                     <h3>How It Works</h3>
                     <p>
-                        Algorithm confusion (also known as algorithm substitution) attacks exploit implementations that don't properly validate the algorithm specified in the JWT header. The attack involves changing the algorithm from an asymmetric algorithm (like RS256) to a symmetric one (like HS256).
+                        算法混淆（也称为算法替换）攻击利用了未正确验证JWT头部中指定算法的实现。攻击涉及将算法从非对称算法（如RS256）更改为对称算法（如HS256）。
                     </p>
                     
                     <div class="attack-steps">
                         <div class="attack-step">
                             <div class="step-number">1</div>
                             <div class="step-content">
-                                <p>The server uses RS256 (RSA) to sign tokens with a private key and verify them with a public key.</p>
+                                <p>服务器使用RS256（RSA）算法，用私钥签署令牌并用公钥验证它们。</p>
                             </div>
                         </div>
                         
                         <div class="attack-step">
                             <div class="step-number">2</div>
                             <div class="step-content">
-                                <p>The attacker obtains the public key (which is often publicly available).</p>
+                                <p>攻击者获取公钥（通常公开可用）。</p>
                             </div>
                         </div>
                         
                         <div class="attack-step">
                             <div class="step-number">3</div>
                             <div class="step-content">
-                                <p>The attacker changes the algorithm in the header from RS256 to HS256.</p>
+                                <p>攻击者将头部中的算法从RS256更改为HS256。</p>
                             </div>
                         </div>
                         
                         <div class="attack-step">
                             <div class="step-number">4</div>
                             <div class="step-content">
-                                <p>The attacker signs the token using HS256 with the public key as the secret.</p>
+                                <p>攻击者使用HS256算法和公钥作为密钥签署令牌。</p>
                             </div>
                         </div>
                         
                         <div class="attack-step">
                             <div class="step-number">5</div>
                             <div class="step-content">
-                                <p>If the server doesn't validate the algorithm, it will use the public key as an HMAC secret to verify the token.</p>
+                                <p>如果服务器不验证算法，它将使用公钥作为HMAC密钥来验证令牌。</p>
                             </div>
                         </div>
                     </div>
                     
                     <h3>Example Attack</h3>
-                    <pre><code class="language-javascript">// Original JWT header (RS256)
+                    <pre><code class="language-javascript">// 原始JWT头部 (RS256)
 {
   "alg": "RS256",
   "typ": "JWT"
 }
 
-// Modified JWT header (HS256)
+// 修改后的JWT头部 (HS256)
 {
   "alg": "HS256",
   "typ": "JWT"
 }
 
-// The attacker then signs the token with HS256 using the public key as the secret</code></pre>
+// 然后攻击者使用HS256算法和公钥作为密钥签署令牌</code></pre>
                     
-                    <h3>Prevention</h3>
+                    <h3>预防措施</h3>
                     <ul>
-                        <li>Always validate the algorithm and reject tokens with unexpected algorithms</li>
-                        <li>Use a whitelist approach to only accept specific algorithms</li>
-                        <li>Implement strict type checking for keys based on the algorithm</li>
-                        <li>Use libraries that prevent algorithm confusion by design</li>
+                        <li>始终验证算法并拒绝具有意外算法的令牌</li>
+                        <li>使用白名单方法仅接受特定算法</li>
+                        <li>根据算法实现严格的密钥类型检查</li>
+                        <li>使用设计上防止算法混淆的库</li>
                     </ul>
                 </div>
 
                 <div class="docs-section">
-                    <h2>None Algorithm Attack</h2>
+                    <h2>None算法攻击</h2>
                     
-                    <h3>How It Works</h3>
+                    <h3>工作原理</h3>
                     <p>
-                        The "none" algorithm attack exploits implementations that accept tokens with the "none" algorithm, which indicates that the token is not signed. If a server accepts such tokens, an attacker can forge tokens without needing any secret keys.
+                        "none"算法攻击利用了接受带有"none"算法的令牌的实现，这表示令牌未签名。如果服务器接受此类令牌，攻击者就可以伪造令牌而无需任何密钥。
                     </p>
                     
                     <div class="attack-steps">
                         <div class="attack-step">
                             <div class="step-number">1</div>
                             <div class="step-content">
-                                <p>The attacker takes a valid JWT and decodes it.</p>
+                                <p>攻击者获取一个有效的JWT并对其进行解码。</p>
                             </div>
                         </div>
                         
                         <div class="attack-step">
                             <div class="step-number">2</div>
                             <div class="step-content">
-                                <p>The attacker modifies the header to set "alg" to "none".</p>
+                                <p>攻击者修改头部，将"alg"设置为"none"。</p>
                             </div>
                         </div>
                         
                         <div class="attack-step">
                             <div class="step-number">3</div>
                             <div class="step-content">
-                                <p>The attacker modifies the payload as desired (e.g., changing user roles).</p>
+                                <p>攻击者按需修改有效载荷（例如，更改用户角色）。</p>
                             </div>
                         </div>
                         
                         <div class="attack-step">
                             <div class="step-number">4</div>
                             <div class="step-content">
-                                <p>The attacker creates a new token with an empty signature or removes the signature entirely.</p>
+                                <p>攻击者创建一个带有空签名的新令牌或完全移除签名。</p>
                             </div>
                         </div>
                     </div>
                     
-                    <h3>Example Attack</h3>
-                    <pre><code class="language-javascript">// Original JWT header
+                    <h3>攻击示例</h3>
+                    <pre><code class="language-javascript">// 原始JWT头部
 {
   "alg": "HS256",
   "typ": "JWT"
 }
 
-// Modified JWT header
+// 修改后的JWT头部
 {
   "alg": "none",
   "typ": "JWT"
 }
 
-// The signature part is either empty or removed entirely
-// Format: header.payload.  (note the trailing dot with nothing after it)</code></pre>
+// 签名部分要么为空，要么完全移除
+// 格式: header.payload.  （注意末尾的点后面没有内容）</code></pre>
                     
-                    <h3>Prevention</h3>
+                    <h3>预防措施</h3>
                     <ul>
-                        <li>Explicitly reject tokens with the "none" algorithm</li>
-                        <li>Use a whitelist of allowed algorithms</li>
-                        <li>Ensure your JWT library doesn't accept "none" algorithm by default</li>
-                        <li>Always verify signatures regardless of the algorithm specified</li>
+                        <li>明确拒绝使用"none"算法的令牌</li>
+                        <li>使用允许算法的白名单</li>
+                        <li>确保您的JWT库默认不接受"none"算法</li>
+                        <li>无论指定什么算法，都要始终验证签名</li>
                     </ul>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Weak Secret Keys Attack</h2>
+                    <h2>弱密钥攻击</h2>
                     
-                    <h3>How It Works</h3>
+                    <h3>工作原理</h3>
                     <p>
-                        When JWTs are signed with HMAC algorithms (HS256, HS384, HS512) using weak secrets, attackers can brute-force the secret and forge valid tokens. Common weak secrets include dictionary words, short strings, or predictable patterns.
+                        当JWT使用弱密钥通过HMAC算法（HS256、HS384、HS512）签名时，攻击者可以暴力破解密钥并伪造有效令牌。常见的弱密钥包括字典单词、短字符串或可预测的模式。
                     </p>
                     
                     <div class="attack-steps">
                         <div class="attack-step">
                             <div class="step-number">1</div>
                             <div class="step-content">
-                                <p>The attacker obtains a valid JWT signed with an HMAC algorithm.</p>
+                                <p>攻击者获取一个使用HMAC算法签名的有效JWT。</p>
                             </div>
                         </div>
                         
                         <div class="attack-step">
                             <div class="step-number">2</div>
                             <div class="step-content">
-                                <p>The attacker uses a dictionary or brute-force approach to guess the secret key.</p>
+                                <p>攻击者使用字典或暴力破解方法来猜测密钥。</p>
                             </div>
                         </div>
                         
                         <div class="attack-step">
                             <div class="step-number">3</div>
                             <div class="step-content">
-                                <p>For each guess, the attacker tries to verify the token's signature.</p>
+                                <p>对于每次猜测，攻击者尝试验证令牌的签名。</p>
                             </div>
                         </div>
                         
                         <div class="attack-step">
                             <div class="step-number">4</div>
                             <div class="step-content">
-                                <p>Once the correct secret is found, the attacker can create new tokens with any payload.</p>
+                                <p>一旦找到正确的密钥，攻击者就可以使用任何有效载荷创建新令牌。</p>
                             </div>
                         </div>
                     </div>
                     
-                    <h3>Tools Used</h3>
+                    <h3>使用的工具</h3>
                     <ul>
-                        <li><strong>JWTAuditor Secret Bruteforcer</strong>: Our tool for testing JWT secrets against common dictionaries</li>
-                        <li><strong>Hashcat</strong>: A popular password cracking tool that supports JWT cracking</li>
-                        <li><strong>John the Ripper</strong>: Another password cracking tool with JWT support</li>
+                        <li><strong>JWTAuditor密钥暴力破解器</strong>: 我们的工具，用于使用常见字典测试JWT密钥</li>
+                        <li><strong>Hashcat</strong>: 一款流行的密码破解工具，支持JWT破解</li>
+                        <li><strong>John the Ripper</strong>: 另一款支持JWT的密码破解工具</li>
                     </ul>
                     
-                    <h3>Prevention</h3>
+                    <h3>预防措施</h3>
                     <ul>
-                        <li>Use strong, randomly generated secrets of at least 256 bits (32 bytes)</li>
-                        <li>Consider using asymmetric algorithms (RS256, ES256) instead of HMAC</li>
-                        <li>Rotate secrets regularly</li>
-                        <li>Use a secret manager to generate and store strong secrets</li>
+                        <li>使用至少256位（32字节）的强随机生成密钥</li>
+                        <li>考虑使用非对称算法（RS256、ES256）而不是HMAC</li>
+                        <li>定期轮换密钥</li>
+                        <li>使用密钥管理器生成和存储强密钥</li>
                     </ul>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Token Tampering</h2>
+                    <h2>令牌篡改</h2>
                     
-                    <h3>How It Works</h3>
+                    <h3>工作原理</h3>
                     <p>
-                        Token tampering involves modifying the payload of a JWT to change claims like user roles, permissions, or identities. This attack is only possible if the attacker can also create a valid signature, which might be achieved through other attacks like algorithm confusion or weak secrets.
+                        令牌篡改涉及修改JWT的有效载荷以更改用户角色、权限或身份等声明。只有当攻击者也能创建有效签名时，此攻击才可能实现，这可能通过算法混淆或弱密钥等其他攻击来实现。
                     </p>
                     
-                    <h3>Example Attack</h3>
-                    <pre><code class="language-javascript">// Original JWT payload
+                    <h3>攻击示例</h3>
+                    <pre><code class="language-javascript">// 原始JWT有效载荷
 {
   "sub": "1234567890",
   "name": "John Doe",
@@ -364,31 +364,31 @@
   "exp": 1516242622
 }
 
-// Tampered JWT payload
+// 篡改后的JWT有效载荷
 {
   "sub": "1234567890",
   "name": "John Doe",
-  "role": "admin",  // Changed from "user" to "admin"
+  "role": "admin",  // 从"user"更改为"admin"
   "iat": 1516239022,
   "exp": 1516242622
 }</code></pre>
                     
-                    <h3>Prevention</h3>
+                    <h3>预防措施</h3>
                     <ul>
-                        <li>Use strong signature algorithms and keys</li>
-                        <li>Implement proper server-side validation of claims</li>
-                        <li>Don't rely solely on JWT claims for critical authorization decisions</li>
-                        <li>Consider using encrypted JWTs (JWE) for sensitive data</li>
-                        <li>Implement additional server-side checks for sensitive operations</li>
+                        <li>使用强签名算法和密钥</li>
+                        <li>实现适当的服务器端声明验证</li>
+                        <li>不要仅依赖JWT声明进行关键授权决策</li>
+                        <li>考虑对敏感数据使用加密JWT（JWE）</li>
+                        <li>对敏感操作实现额外的服务器端检查</li>
                     </ul>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Token Replay Attack</h2>
+                    <h2>令牌重放攻击</h2>
                     
-                    <h3>How It Works</h3>
+                    <h3>工作原理</h3>
                     <p>
-                        Token replay attacks involve capturing a valid JWT and reusing it after it should have been invalidated, such as after logout or expiration. This is particularly problematic in systems that don't properly track token usage or don't implement token revocation.
+                        令牌重放攻击涉及捕获有效的JWT并在应该失效后重新使用它，例如在注销或过期后。这对于未适当跟踪令牌使用或未实现令牌撤销的系统来说尤其有问题。
                     </p>
                     
                     <div class="attack-steps">
@@ -402,116 +402,116 @@
                         <div class="attack-step">
                             <div class="step-number">2</div>
                             <div class="step-content">
-                                <p>The legitimate user logs out or their session expires.</p>
+                                <p>合法用户注销或其会话过期。</p>
                             </div>
                         </div>
                         
                         <div class="attack-step">
                             <div class="step-number">3</div>
                             <div class="step-content">
-                                <p>The attacker reuses the captured token to access protected resources.</p>
+                                <p>攻击者重复使用捕获的令牌访问受保护的资源。</p>
                             </div>
                         </div>
                     </div>
                     
-                    <h3>Prevention</h3>
+                    <h3>预防措施</h3>
                     <ul>
-                        <li>Use short expiration times for tokens</li>
-                        <li>Implement token blacklisting for logged-out tokens</li>
-                        <li>Use the JWT ID (jti) claim to track and revoke specific tokens</li>
-                        <li>Implement refresh token rotation</li>
-                        <li>Use secure, HttpOnly cookies for token storage to mitigate XSS risks</li>
+                        <li>为令牌使用较短的过期时间</li>
+                        <li>对已注销的令牌实施令牌黑名单</li>
+                        <li>使用JWT ID（jti）声明跟踪和撤销特定令牌</li>
+                        <li>实施刷新令牌轮换</li>
+                        <li>使用安全的HttpOnly cookie进行令牌存储以减轻XSS风险</li>
                     </ul>
                 </div>
 
                 <div id="kid-injection" class="docs-section">
-                    <h2>Key ID (kid) Injection</h2>
+                    <h2>密钥ID（kid）注入</h2>
                     
-                    <h3>How It Works</h3>
+                    <h3>工作原理</h3>
                     <p>
-                        The "kid" (Key ID) parameter in the JWT header is used to indicate which key should be used to verify the signature. If this parameter is not properly validated, attackers can manipulate it to point to a key they control or to exploit path traversal vulnerabilities.
+                        JWT头部中的"kid"（密钥ID）参数用于指示应使用哪个密钥来验证签名。如果此参数未得到适当验证，攻击者可以操纵它指向他们控制的密钥或利用路径遍历漏洞。
                     </p>
                     
                     <div class="attack-steps">
                         <div class="attack-step">
                             <div class="step-number">1</div>
                             <div class="step-content">
-                                <p>The attacker identifies a JWT implementation that uses the "kid" parameter to select verification keys.</p>
+                                <p>攻击者识别使用"kid"参数选择验证密钥的JWT实现。</p>
                             </div>
                         </div>
                         
                         <div class="attack-step">
                             <div class="step-number">2</div>
                             <div class="step-content">
-                                <p>The attacker modifies the "kid" parameter to point to a key they control or to exploit path traversal.</p>
+                                <p>攻击者修改"kid"参数以指向他们控制的密钥或利用路径遍历。</p>
                             </div>
                         </div>
                         
                         <div class="attack-step">
                             <div class="step-number">3</div>
                             <div class="step-content">
-                                <p>If successful, the server uses the attacker-controlled key to verify the signature.</p>
+                                <p>如果成功，服务器使用攻击者控制的密钥验证签名。</p>
                             </div>
                         </div>
                     </div>
                     
-                    <h3>Example Attack</h3>
-                    <pre><code class="language-javascript">// Original JWT header
+                    <h3>攻击示例</h3>
+                    <pre><code class="language-javascript">// 原始JWT头部
 {
   "alg": "HS256",
   "typ": "JWT",
   "kid": "key1"
 }
 
-// Modified JWT header with path traversal
+// 包含路径遍历的修改JWT头部
 {
   "alg": "HS256",
   "typ": "JWT",
   "kid": "../../public/key"
 }
 
-// Modified JWT header pointing to a known weak key
+// 指向已知弱密钥的修改JWT头部
 {
   "alg": "HS256",
   "typ": "JWT",
   "kid": "weak_key"
 }</code></pre>
                     
-                    <h3>Prevention</h3>
+                    <h3>预防措施</h3>
                     <ul>
-                        <li>Validate and sanitize the "kid" parameter</li>
-                        <li>Use a whitelist approach for allowed key IDs</li>
-                        <li>Avoid using file paths in the "kid" parameter</li>
-                        <li>Implement proper access controls for key storage</li>
-                        <li>Use a key management system with secure key rotation</li>
+                        <li>验证和清理"kid"参数</li>
+                        <li>对允许的密钥ID使用白名单方法</li>
+                        <li>避免在"kid"参数中使用文件路径</li>
+                        <li>为密钥存储实施适当的访问控制</li>
+                        <li>使用具有安全轮换的密钥管理系统</li>
                     </ul>
                 </div>
 
                 <div id="jku-x5u-manipulation" class="docs-section">
-                    <h2>JKU/X5U URL Manipulation</h2>
+                    <h2>JKU/X5U URL操纵</h2>
 
-                    <h3>How It Works</h3>
+                    <h3>工作原理</h3>
                     <p>
-                        The "jku" (JWK Set URL) and "x5u" (X.509 URL) parameters in the JWT header point to external URLs where the server can fetch keys for signature verification. If these parameters are not properly validated, attackers can:
+                        JWT头部中的"jku"（JWK集URL）和"x5u"（X.509 URL）参数指向外部URL，服务器可以在那里获取用于签名验证的密钥。如果这些参数未得到适当验证，攻击者可以：
                     </p>
 
                     <div class="attack-steps">
                         <ol>
-                            <li>Point the URL to their own server hosting malicious keys</li>
-                            <li>Use the URL for Server-Side Request Forgery (SSRF) attacks</li>
-                            <li>Exploit internal network access to scan or attack internal systems</li>
+                            <li>将URL指向托管恶意密钥的自己的服务器</li>
+                            <li>使用URL进行服务器端请求伪造（SSRF）攻击</li>
+                            <li>利用内部网络访问权限扫描或攻击内部系统</li>
                         </ol>
                     </div>
 
-                    <h3>Example Attack</h3>
-                    <pre><code class="language-javascript">// Original token header
+                    <h3>攻击示例</h3>
+                    <pre><code class="language-javascript">// 原始令牌头部
 {
   "alg": "RS256",
   "typ": "JWT",
   "jku": "https://trusted-server.com/.well-known/jwks.json"
 }
 
-// Malicious token header
+// 恶意令牌头部
 {
   "alg": "RS256",
   "typ": "JWT",
@@ -519,36 +519,36 @@
 }</code></pre>
 
                     <div class="prevention">
-                        <h3>Prevention</h3>
+                        <h3>预防措施</h3>
                         <ul>
-                            <li>Disable dynamic key fetching via jku/x5u parameters</li>
-                            <li>Use a whitelist of allowed URLs if dynamic fetching is required</li>
-                            <li>Validate and sanitize all external URLs</li>
-                            <li>Implement network-level restrictions for outbound requests</li>
-                            <li>Use cached/pinned keys instead of dynamic fetching</li>
+                            <li>禁用通过jku/x5u参数进行动态密钥获取</li>
+                            <li>如果需要动态获取，则使用允许URL的白名单</li>
+                            <li>验证和清理所有外部URL</li>
+                            <li>为出站请求实施网络级限制</li>
+                            <li>使用缓存/固定密钥而非动态获取</li>
                         </ul>
                     </div>
                 </div>
 
                 <div id="privilege-escalation" class="docs-section">
-                    <h2>Privilege Escalation</h2>
+                    <h2>权限提升</h2>
 
-                    <h3>How It Works</h3>
+                    <h3>工作原理</h3>
                     <p>
-                        Privilege escalation in JWT attacks involves modifying token claims to gain higher privileges than originally granted. This typically targets authorization-related claims such as roles, permissions, and user identifiers.
+                        JWT攻击中的权限提升涉及修改令牌声明以获得比原始授予更高的权限。这通常针对与授权相关的声明，如角色、权限和用户标识符。
                     </p>
 
                     <div class="attack-steps">
                         <ol>
-                            <li>Identify authorization claims in the JWT payload (role, admin, permissions, etc.)</li>
-                            <li>Modify these claims to grant higher privileges</li>
-                            <li>Re-sign the token (using other attack techniques if needed)</li>
-                            <li>Use the modified token to access restricted resources</li>
+                            <li>识别JWT有效载荷中的授权声明（角色、管理员、权限等）</li>
+                            <li>修改这些声明以授予更高权限</li>
+                            <li>重新签名令牌（如有需要，使用其他攻击技术）</li>
+                            <li>使用修改后的令牌访问受限资源</li>
                         </ol>
                     </div>
 
-                    <h3>Example Attack</h3>
-                    <pre><code class="language-javascript">// Original payload
+                    <h3>攻击示例</h3>
+                    <pre><code class="language-javascript">// 原始有效载荷
 {
   "sub": "user123",
   "role": "user",
@@ -556,7 +556,7 @@
   "iat": 1516239022
 }
 
-// Escalated payload
+// 提升后的有效载荷
 {
   "sub": "user123",
   "role": "admin",
@@ -565,69 +565,69 @@
 }</code></pre>
 
                     <div class="prevention">
-                        <h3>Prevention</h3>
+                        <h3>预防措施</h3>
                         <ul>
-                            <li>Always verify token signatures before trusting claims</li>
-                            <li>Implement server-side authorization checks beyond JWT claims</li>
-                            <li>Use minimal privilege principles in token design</li>
-                            <li>Regularly audit and validate user permissions</li>
-                            <li>Implement proper session management and token validation</li>
+                            <li>在信任声明之前始终验证令牌签名</li>
+                            <li>实现超越JWT声明的服务器端授权检查</li>
+                            <li>在令牌设计中使用最小权限原则</li>
+                            <li>定期审计和验证用户权限</li>
+                            <li>实施适当的会话管理和令牌验证</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Practical Testing with JWTAuditor</h2>
+                    <h2>使用JWTAuditor进行实际测试</h2>
                     <p>
-                        JWTAuditor provides several tools to help you test your JWT implementation for these vulnerabilities:
+                        JWTAuditor提供了几种工具，帮助您测试JWT实现中的这些漏洞：
                     </p>
                     
                     <div class="tool-links">
                         <a href="tool-guides/decoder-analyzer.html" class="tool-link">
                             <i class="fas fa-search"></i>
                             <div>
-                                <h3>Decoder & Analyzer</h3>
-                                <p>Analyze JWTs for potential vulnerabilities and weak configurations</p>
+                                <h3>解码器与分析器</h3>
+                                <p>分析JWT的潜在漏洞和弱配置</p>
                             </div>
                         </a>
                         
                         <a href="tool-guides/secret-bruteforcer.html" class="tool-link">
                             <i class="fas fa-key"></i>
                             <div>
-                                <h3>Secret Bruteforcer</h3>
-                                <p>Test if your JWT is signed with a weak secret</p>
+                                <h3>密钥暴力破解器</h3>
+                                <p>测试您的JWT是否使用弱密钥签名</p>
                             </div>
                         </a>
                         
                         <a href="tool-guides/jwt-editor.html" class="tool-link">
                             <i class="fas fa-edit"></i>
                             <div>
-                                <h3>JWT Editor</h3>
-                                <p>Modify JWT headers and payloads to test for tampering vulnerabilities</p>
+                                <h3>JWT编辑器</h3>
+                                <p>修改JWT头部和有效载荷以测试篡改漏洞</p>
                             </div>
                         </a>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Conclusion</h2>
+                    <h2>结论</h2>
                     <p>
-                        JWT security depends on proper implementation and validation. By understanding these attack techniques, you can better protect your applications from potential vulnerabilities.
+                        JWT安全性取决于正确的实现和验证。通过了解这些攻击技术，您可以更好地保护应用程序免受潜在漏洞的影响。
                     </p>
                     <p>
-                        Always follow security best practices, use up-to-date libraries, implement proper validation, and regularly test your JWT implementation for vulnerabilities.
+                        始终遵循安全最佳实践，使用最新库，实施适当验证，并定期测试JWT实现的漏洞。
                     </p>
                     
                     <div class="next-steps">
-                        <h3>Next Steps</h3>
+                        <h3>下一步</h3>
                         <div class="next-links">
                             <a href="secure-jwt-implementation.html" class="next-link">
                                 <i class="fas fa-lock"></i>
-                                <span>Learn Secure JWT Implementation</span>
+                                <span>学习安全JWT实现</span>
                             </a>
                             <a href="tool-guides/decoder-analyzer.html" class="next-link">
                                 <i class="fas fa-search"></i>
-                                <span>Try the JWT Analyzer Tool</span>
+                                <span>尝试JWT分析工具</span>
                             </a>
                         </div>
                     </div>
@@ -643,19 +643,19 @@
                 <p>Professional JWT security testing platform for penetration testers and cybersecurity professionals. Decode, analyze vulnerabilities, and audit JSON Web Token implementations with complete client-side privacy.</p>
             </div>
             <div class="footer-section">
-                <h3>Documentation</h3>
+                <h3>文档</h3>
                 <ul class="footer-links">
-                    <li><a href="jwt-fundamentals.html">JWT Fundamentals</a></li>
-                    <li><a href="jwt-vulnerabilities-guide.html">Vulnerabilities Guide</a></li>
-                    <li><a href="secure-jwt-implementation.html">Secure Implementation</a></li>
+                    <li><a href="jwt-fundamentals.html">JWT基础</a></li>
+                    <li><a href="jwt-vulnerabilities-guide.html">漏洞指南</a></li>
+                    <li><a href="secure-jwt-implementation.html">安全实施</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Resources</h3>
+                <h3>资源</h3>
                 <ul class="footer-links">
-                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="../about.html">关于我们</a></li>
                     <li><a href="https://jwt.io/" target="_blank">JWT.io</a></li>
-                    <li><a href="https://portswigger.net/web-security/jwt" target="_blank">PortSwigger JWT Attacks</a></li>
+                    <li><a href="https://portswigger.net/web-security/jwt" target="_blank">PortSwigger JWT攻击</a></li>
                 </ul>
             </div>
         </div>

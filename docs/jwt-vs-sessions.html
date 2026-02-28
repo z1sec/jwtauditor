@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JWT vs. Session Authentication - JWTAuditor</title>
-    <meta name="description" content="Compare JWT-based authentication with traditional session-based authentication, including pros, cons, and use cases for each approach.">
-    <meta name="keywords" content="JWT, session authentication, stateless, stateful, cookies, tokens">
+    <title>JWT与会话认证对比 - JWTAuditor</title>
+    <meta name="description" content="比较基于JWT的认证与传统的基于会话的认证，包括每种方法的优缺点和用例。">
+    <meta name="keywords" content="JWT, 会话认证, 无状态, 有状态, cookies, 令牌">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="css/docs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,9 +18,9 @@
             <i class="fas fa-user-secret"></i>
             <h1>JWTAuditor</h1>
         </div>
-        <div class="subtitle">Documentation & Learning Resources</div>
+        <div class="subtitle">文档与学习资源</div>
         <div class="header-actions">
-            <a href="../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> Back to Tool</a>
+            <a href="../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> 返回工具</a>
         </div>
     </header>
 
@@ -28,43 +28,43 @@
         <div class="docs-container">
             <aside class="docs-sidebar">
                 <div class="sidebar-header">
-                    <h2>Documentation</h2>
+                    <h2>文档</h2>
                 </div>
                 <nav class="docs-nav">
                     <div class="nav-section">
-                        <h3>JWT Fundamentals</h3>
+                        <h3>JWT基础</h3>
                         <ul>
-                            <li><a href="jwt-fundamentals.html">Understanding JWT Structure</a></li>
-                            <li><a href="jwt-claims.html">JWT Claims Explained</a></li>
-                            <li><a href="jwt-vs-sessions.html" class="active">JWT vs. Session Auth</a></li>
+                            <li><a href="jwt-fundamentals.html">理解JWT结构</a></li>
+                            <li><a href="jwt-claims.html">JWT声明详解</a></li>
+                            <li><a href="jwt-vs-sessions.html" class="active">JWT与会话认证</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Security Guides</h3>
+                        <h3>安全指南</h3>
                         <ul>
-                            <li><a href="jwt-vulnerabilities-guide.html">JWT Vulnerabilities Guide</a></li>
-                            <li><a href="jwt-attack-vectors.html">Complete Attack Vectors</a></li>
-                            <li><a href="jwt-security-checklist.html">Security Checklist</a></li>
-                            <li><a href="jwt-tools-comparison.html">Tools Comparison</a></li>
-                            <li><a href="secure-jwt-implementation.html">Secure Implementation</a></li>
-                            <li><a href="jwt-attack-techniques.html">Attack Techniques</a></li>
+                            <li><a href="jwt-vulnerabilities-guide.html">JWT漏洞指南</a></li>
+                            <li><a href="jwt-attack-vectors.html">完整攻击向量</a></li>
+                            <li><a href="jwt-security-checklist.html">安全检查清单</a></li>
+                            <li><a href="jwt-tools-comparison.html">工具对比</a></li>
+                            <li><a href="secure-jwt-implementation.html">安全实施</a></li>
+                            <li><a href="jwt-attack-techniques.html">攻击技术</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Tool Guides</h3>
+                        <h3>工具指南</h3>
                         <ul>
-                            <li><a href="tool-guides/decoder-analyzer.html">Decoder & Analyzer</a></li>
-                            <li><a href="tool-guides/secret-bruteforcer.html">Secret Bruteforcer</a></li>
-                            <li><a href="tool-guides/jwt-editor.html">JWT Editor</a></li>
-                            <li><a href="tool-guides/jwt-generator.html">JWT Generator</a></li>
+                            <li><a href="tool-guides/decoder-analyzer.html">解码器与分析器</a></li>
+                            <li><a href="tool-guides/secret-bruteforcer.html">密钥暴力破解器</a></li>
+                            <li><a href="tool-guides/jwt-editor.html">JWT编辑器</a></li>
+                            <li><a href="tool-guides/jwt-generator.html">JWT生成器</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Reference</h3>
+                        <h3>参考</h3>
                         <ul>
-                            <li><a href="reference/jwt-header-parameters.html">Header Parameters</a></li>
-                            <li><a href="reference/jwt-claim-registry.html">Claim Registry</a></li>
-                            <li><a href="reference/jwt-algorithms.html">JWT Algorithms</a></li>
+                            <li><a href="reference/jwt-header-parameters.html">头部参数</a></li>
+                            <li><a href="reference/jwt-claim-registry.html">声明注册表</a></li>
+                            <li><a href="reference/jwt-algorithms.html">JWT算法</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -102,43 +102,43 @@
                         <div class="comparison-card">
                             <div class="card-header">
                                 <i class="fas fa-key"></i>
-                                <h3>JWT-Based Authentication</h3>
+                                <h3>基于JWT的认证</h3>
                             </div>
                             <div class="card-content">
-                                <p>Modern authentication method where the server issues a signed token containing user information, which the client includes in subsequent requests.</p>
+                                <p>现代认证方法，服务器发出包含用户信息的签名令牌，客户端在后续请求中包含该令牌。</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>How They Work</h2>
+                    <h2>它们如何工作</h2>
                     
-                    <h3>Session-Based Authentication</h3>
+                    <h3>基于会话的认证</h3>
                     <ol>
-                        <li>User logs in with credentials</li>
-                        <li>Server verifies credentials and creates a session</li>
-                        <li>Server stores session data in memory or database</li>
-                        <li>Server sends a session ID to the client (usually in a cookie)</li>
-                        <li>Client includes the session ID in subsequent requests</li>
-                        <li>Server validates the session ID and retrieves session data</li>
-                        <li>When user logs out, server invalidates the session</li>
+                        <li>用户使用凭据登录</li>
+                        <li>服务器验证凭据并创建会话</li>
+                        <li>服务器将会话数据存储在内存或数据库中</li>
+                        <li>服务器向客户端发送会话ID（通常在cookie中）</li>
+                        <li>客户端在后续请求中包含会话ID</li>
+                        <li>服务器验证会话ID并检索会话数据</li>
+                        <li>当用户注销时，服务器使会话失效</li>
                     </ol>
                     
                     <div class="flow-diagram-container">
                         <img src="img/session-auth-flow.png" alt="Session Authentication Flow" class="flow-diagram">
                     </div>
                     
-                    <h3>JWT-Based Authentication</h3>
+                    <h3>基于JWT的认证</h3>
                     <ol>
-                        <li>User logs in with credentials</li>
-                        <li>Server verifies credentials and creates a JWT</li>
-                        <li>JWT contains encoded user data and is signed by the server</li>
-                        <li>Server sends the JWT to the client</li>
-                        <li>Client stores the JWT (localStorage, sessionStorage, or cookie)</li>
-                        <li>Client includes the JWT in subsequent requests (Authorization header)</li>
-                        <li>Server validates the JWT signature and extracts user data</li>
-                        <li>When token expires, client needs to request a new one</li>
+                        <li>用户使用凭据登录</li>
+                        <li>服务器验证凭据并创建JWT</li>
+                        <li>JWT包含编码的用户数据并由服务器签名</li>
+                        <li>服务器向客户端发送JWT</li>
+                        <li>客户端存储JWT（localStorage、sessionStorage或cookie）</li>
+                        <li>客户端在后续请求中包含JWT（Authorization头部）</li>
+                        <li>服务器验证JWT签名并提取用户数据</li>
+                        <li>当令牌过期时，客户端需要请求新的令牌</li>
                     </ol>
                     
                     <div class="flow-diagram-container">
@@ -147,57 +147,57 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>Key Differences</h2>
+                    <h2>主要区别</h2>
                     
                     <div class="table-responsive">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Feature</th>
-                                    <th>Session-Based Auth</th>
-                                    <th>JWT-Based Auth</th>
+                                    <th>特性</th>
+                                    <th>基于会话的认证</th>
+                                    <th>基于JWT的认证</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>State Management</td>
-                                    <td>Stateful (server stores session data)</td>
-                                    <td>Stateless (server doesn't store token data)</td>
+                                    <td>状态管理</td>
+                                    <td>有状态（服务器存储会话数据）</td>
+                                    <td>无状态（服务器不存储令牌数据）</td>
                                 </tr>
                                 <tr>
-                                    <td>Storage Location</td>
-                                    <td>Server-side (database, cache, memory)</td>
-                                    <td>Client-side (token contains all necessary data)</td>
+                                    <td>存储位置</td>
+                                    <td>服务器端（数据库、缓存、内存）</td>
+                                    <td>客户端（令牌包含所有必要数据）</td>
                                 </tr>
                                 <tr>
-                                    <td>Scalability</td>
-                                    <td>Requires session synchronization across servers</td>
-                                    <td>Easily scalable (no server-side state)</td>
+                                    <td>可扩展性</td>
+                                    <td>需要跨服务器的会话同步</td>
+                                    <td>易于扩展（无服务器端状态）</td>
                                 </tr>
                                 <tr>
-                                    <td>Token Size</td>
-                                    <td>Small (just a reference ID)</td>
-                                    <td>Larger (contains encoded user data)</td>
+                                    <td>令牌大小</td>
+                                    <td>小（只是一个引用ID）</td>
+                                    <td>较大（包含编码的用户数据）</td>
                                 </tr>
                                 <tr>
-                                    <td>Security</td>
-                                    <td>Session ID is opaque (no data exposure)</td>
-                                    <td>Payload is encoded but not encrypted (potential data exposure)</td>
+                                    <td>安全性</td>
+                                    <td>会话ID是不透明的（无数据暴露）</td>
+                                    <td>有效载荷已编码但未加密（潜在的数据暴露）</td>
                                 </tr>
                                 <tr>
-                                    <td>Revocation</td>
-                                    <td>Easy (delete session from server)</td>
-                                    <td>Difficult (requires blacklist or short expiration)</td>
+                                    <td>撤销</td>
+                                    <td>简单（从服务器删除会话）</td>
+                                    <td>困难（需要黑名单或短期过期）</td>
                                 </tr>
                                 <tr>
-                                    <td>Cross-Domain</td>
-                                    <td>Challenging (CORS issues with cookies)</td>
-                                    <td>Easier (can be sent in Authorization header)</td>
+                                    <td>跨域</td>
+                                    <td>具有挑战性（cookies的CORS问题）</td>
+                                    <td>更容易（可以在Authorization头部中发送）</td>
                                 </tr>
                                 <tr>
-                                    <td>Mobile/IoT Support</td>
-                                    <td>Less suitable (cookie management issues)</td>
-                                    <td>Well-suited (easy to include in headers)</td>
+                                    <td>移动/IoT支持</td>
+                                    <td>不太适合（cookie管理问题）</td>
+                                    <td>非常适合（易于包含在头部中）</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -205,156 +205,156 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>Advantages and Disadvantages</h2>
+                    <h2>优势和劣势</h2>
                     
                     <h3>Session-Based Authentication</h3>
                     
                     <div class="pros-cons">
                         <div class="pros">
-                            <h4><i class="fas fa-plus-circle"></i> Advantages</h4>
+                            <h4><i class="fas fa-plus-circle"></i> 优势</h4>
                             <ul>
-                                <li>Complete control over sessions (can invalidate at any time)</li>
-                                <li>Smaller payload size (only sends session ID)</li>
-                                <li>Session data can be changed without affecting the client</li>
-                                <li>More secure for sensitive operations (no data exposure)</li>
-                                <li>Well-established, mature approach</li>
+                                <li>对会话的完全控制（可以随时使会话失效）</li>
+                                <li>较小的有效载荷大小（仅发送会话ID）</li>
+                                <li>会话数据可以在不影响客户端的情况下更改</li>
+                                <li>对于敏感操作更加安全（无数据暴露）</li>
+                                <li>成熟、完善的方法</li>
                             </ul>
                         </div>
                         
                         <div class="cons">
-                            <h4><i class="fas fa-minus-circle"></i> Disadvantages</h4>
+                            <h4><i class="fas fa-minus-circle"></i> 劣势</h4>
                             <ul>
-                                <li>Requires server-side storage (memory, database)</li>
-                                <li>Scaling challenges (session synchronization across servers)</li>
-                                <li>CORS complications with cookies</li>
-                                <li>Less suitable for modern architectures (microservices, serverless)</li>
-                                <li>Session management overhead</li>
+                                <li>需要服务器端存储（内存、数据库）</li>
+                                <li>扩展挑战（跨服务器的会话同步）</li>
+                                <li>与cookies的CORS复杂性</li>
+                                <li>不太适合现代架构（微服务、无服务器）</li>
+                                <li>会话管理开销</li>
                             </ul>
                         </div>
                     </div>
                     
-                    <h3>JWT-Based Authentication</h3>
+                    <h3>基于JWT的认证</h3>
                     
                     <div class="pros-cons">
                         <div class="pros">
-                            <h4><i class="fas fa-plus-circle"></i> Advantages</h4>
+                            <h4><i class="fas fa-plus-circle"></i> 优势</h4>
                             <ul>
-                                <li>Stateless (no server-side storage required)</li>
-                                <li>Highly scalable (works well with distributed systems)</li>
-                                <li>Cross-domain friendly (easy to use with multiple services)</li>
-                                <li>Contains user data (reduces database lookups)</li>
-                                <li>Well-suited for modern architectures (microservices, APIs)</li>
-                                <li>Works well for mobile and IoT applications</li>
+                                <li>无状态（不需要服务器端存储）</li>
+                                <li>高度可扩展（与分布式系统配合良好）</li>
+                                <li>跨域友好（易于与多个服务一起使用）</li>
+                                <li>包含用户数据（减少数据库查找）</li>
+                                <li>非常适合现代架构（微服务、API）</li>
+                                <li>适用于移动和IoT应用</li>
                             </ul>
                         </div>
                         
                         <div class="cons">
-                            <h4><i class="fas fa-minus-circle"></i> Disadvantages</h4>
+                            <h4><i class="fas fa-minus-circle"></i> 劣势</h4>
                             <ul>
-                                <li>Difficult to invalidate tokens before expiration</li>
-                                <li>Payload size can become large</li>
-                                <li>Data in token cannot be changed until new token is issued</li>
-                                <li>Potential security risks if not implemented correctly</li>
-                                <li>Payload data is visible (though encoded) to the client</li>
+                                <li>难以在过期前使令牌失效</li>
+                                <li>有效载荷大小可能变得很大</li>
+                                <li>在发出新令牌之前，令牌中的数据无法更改</li>
+                                <li>如果实现不正确，可能存在安全风险</li>
+                                <li>有效载荷数据对客户端可见（尽管已编码）</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>When to Use Each Approach</h2>
+                    <h2>何时使用每种方法</h2>
                     
-                    <h3>Use Session-Based Authentication When:</h3>
+                    <h3>使用基于会话的认证时机：</h3>
                     <ul>
-                        <li>You need absolute control over user sessions</li>
-                        <li>Your application handles highly sensitive data</li>
-                        <li>You need to store complex session state</li>
-                        <li>You have a monolithic application architecture</li>
-                        <li>You need to track user activity closely</li>
-                        <li>Immediate session invalidation is a requirement</li>
+                        <li>您需要对用户会话进行绝对控制</li>
+                        <li>您的应用程序处理高度敏感的数据</li>
+                        <li>您需要存储复杂的会话状态</li>
+                        <li>您有一个单体应用程序架构</li>
+                        <li>您需要密切跟踪用户活动</li>
+                        <li>即时会话失效是必需的</li>
                     </ul>
                     
-                    <h3>Use JWT-Based Authentication When:</h3>
+                    <h3>使用基于JWT的认证时机：</h3>
                     <ul>
-                        <li>You're building stateless, scalable services</li>
-                        <li>You have a microservices architecture</li>
-                        <li>You need cross-domain authentication</li>
-                        <li>You're developing mobile or IoT applications</li>
-                        <li>You want to reduce database lookups</li>
-                        <li>You need to pass authentication between different services</li>
+                        <li>您正在构建无状态、可扩展的服务</li>
+                        <li>您有一个微服务架构</li>
+                        <li>您需要跨域认证</li>
+                        <li>您正在开发移动或IoT应用</li>
+                        <li>您想减少数据库查找</li>
+                        <li>您需要在不同服务之间传递认证</li>
                     </ul>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Best Practices</h2>
+                    <h2>最佳实践</h2>
                     
-                    <h3>Session-Based Authentication Best Practices</h3>
+                    <h3>基于会话的认证最佳实践</h3>
                     <ol>
-                        <li>Use secure, HttpOnly, and SameSite cookies</li>
-                        <li>Implement CSRF protection</li>
-                        <li>Generate strong, random session IDs</li>
-                        <li>Set appropriate session timeouts</li>
-                        <li>Implement session rotation on privilege changes</li>
-                        <li>Use a reliable session store (Redis, database)</li>
-                        <li>Provide session invalidation on logout</li>
+                        <li>使用安全、HttpOnly和SameSite cookies</li>
+                        <li>实施CSRF保护</li>
+                        <li>生成强随机会话ID</li>
+                        <li>设置适当的会话超时</li>
+                        <li>在权限更改时实施会话轮换</li>
+                        <li>使用可靠的会话存储（Redis、数据库）</li>
+                        <li>在注销时提供会话失效</li>
                     </ol>
                     
-                    <h3>JWT-Based Authentication Best Practices</h3>
+                    <h3>基于JWT的认证最佳实践</h3>
                     <ol>
-                        <li>Keep tokens short-lived (15-30 minutes)</li>
-                        <li>Implement refresh token rotation</li>
-                        <li>Use strong signing algorithms (RS256, ES256)</li>
-                        <li>Include only necessary claims in the payload</li>
-                        <li>Validate tokens properly on the server</li>
-                        <li>Store tokens securely on the client</li>
-                        <li>Implement a token blacklist for critical invalidations</li>
-                        <li>Always use HTTPS for token transmission</li>
+                        <li>保持令牌短寿命（15-30分钟）</li>
+                        <li>实施刷新令牌轮换</li>
+                        <li>使用强签名算法（RS256、ES256）</li>
+                        <li>仅在有效载荷中包含必要的声明</li>
+                        <li>在服务器上正确验证令牌</li>
+                        <li>在客户端安全存储令牌</li>
+                        <li>为关键失效实施令牌黑名单</li>
+                        <li>始终对令牌传输使用HTTPS</li>
                     </ol>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Hybrid Approaches</h2>
+                    <h2>混合方法</h2>
                     <p>
-                        Many modern applications use hybrid approaches that combine the benefits of both methods:
+                        许多现代应用程序使用混合方法，结合两种方法的优点：
                     </p>
                     
-                    <h3>JWT with Server-Side Storage</h3>
+                    <h3>带有服务器端存储的JWT</h3>
                     <p>
-                        Use JWTs but also maintain a reference to them on the server, allowing for explicit invalidation while still benefiting from the JWT's self-contained nature.
+                        使用JWT但也在服务器上维护对它们的引用，允许显式失效，同时仍受益于JWT的自包含性质。
                     </p>
                     
-                    <h3>Short-Lived JWTs with Refresh Tokens</h3>
+                    <h3>带有刷新令牌的短寿命JWT</h3>
                     <p>
-                        Use short-lived JWTs (access tokens) for API access, combined with longer-lived refresh tokens that are stored server-side and can be invalidated.
+                        使用短寿命JWT（访问令牌）进行API访问，结合存储在服务器端且可以被失效的长期刷新令牌。
                     </p>
                     
                     <div class="info-box">
                         <div class="info-icon"><i class="fas fa-info-circle"></i></div>
                         <div class="info-content">
-                            <p><strong>Tip:</strong> The refresh token approach provides a good balance between the statelessness of JWTs and the control of session-based authentication.</p>
+                            <p><strong>提示：</strong> 刷新令牌方法在JWT的无状态性和基于会话的认证控制之间提供了良好的平衡。</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Conclusion</h2>
+                    <h2>结论</h2>
                     <p>
-                        Both session-based and JWT-based authentication have their place in modern web development. The choice between them depends on your specific application requirements, architecture, and security needs.
+                        基于会话和基于JWT的认证在现代Web开发中都有其地位。它们之间的选择取决于您的具体应用需求、架构和安全需求。
                     </p>
                     <p>
-                        For many applications, a hybrid approach using short-lived JWTs with server-side refresh tokens provides the best balance of security, scalability, and control.
+                        对于许多应用，使用短寿命JWT和服务器端刷新令牌的混合方法在安全性、可扩展性和控制性之间提供了最佳平衡。
                     </p>
                     
                     <div class="next-steps">
-                        <h3>Next Steps</h3>
+                        <h3>下一步</h3>
                         <div class="next-links">
                             <a href="secure-jwt-implementation.html" class="next-link">
                                 <i class="fas fa-lock"></i>
-                                <span>Learn Secure JWT Implementation</span>
+                                <span>学习安全JWT实施</span>
                             </a>
                             <a href="jwt-vulnerabilities-guide.html" class="next-link">
                                 <i class="fas fa-user-secret"></i>
-                                <span>Explore JWT Vulnerabilities</span>
+                                <span>探索JWT漏洞</span>
                             </a>
                         </div>
                     </div>
@@ -367,29 +367,29 @@
         <div class="footer-container">
             <div class="footer-section">
                 <h3>JWTAuditor</h3>
-                <p>Professional JWT security testing platform for penetration testers and cybersecurity professionals. Decode, analyze vulnerabilities, and audit JSON Web Token implementations with complete client-side privacy.</p>
+                <p>面向渗透测试人员和网络安全专业人员的专业JWT安全测试平台。使用完整的客户端隐私解码、分析漏洞和审计JSON Web Token实现。</p>
             </div>
             <div class="footer-section">
-                <h3>Documentation</h3>
+                <h3>文档</h3>
                 <ul class="footer-links">
-                    <li><a href="jwt-fundamentals.html">JWT Fundamentals</a></li>
-                    <li><a href="jwt-vulnerabilities-guide.html">Vulnerabilities Guide</a></li>
-                    <li><a href="secure-jwt-implementation.html">Secure Implementation</a></li>
+                    <li><a href="jwt-fundamentals.html">JWT基础</a></li>
+                    <li><a href="jwt-vulnerabilities-guide.html">漏洞指南</a></li>
+                    <li><a href="secure-jwt-implementation.html">安全实施</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Resources</h3>
+                <h3>资源</h3>
                 <ul class="footer-links">
-                    <li><a href="../about.html">About Us</a></li>
+                    <li><a href="../about.html">关于我们</a></li>
                     <li><a href="https://jwt.io/" target="_blank">JWT.io</a></li>
-                    <li><a href="https://portswigger.net/web-security/jwt" target="_blank">PortSwigger JWT Attacks</a></li>
+                    <li><a href="https://portswigger.net/web-security/jwt" target="_blank">PortSwigger JWT攻击</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-<p>&copy; 2025 A Project by 
+<p>&copy; 2025 由
   <a href="https://github.com/dr34mhacks" style="color: var(--primary-color);">Sid</a> & 
-  <a href="https://github.com/thecybersandeep" style="color: var(--primary-color);">Sandeep</a> • 
+  <a href="https://github.com/thecybersandeep" style="color: var(--primary-color);">Sandeep</a> 开发的项目 • 
   
 </p>            <div class="social-links">
                 <a href="https://x.com/infosecmania" target="_blank"><i class="fab fa-twitter"></i></a>

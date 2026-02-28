@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JWT Header Parameters Reference - JWTAuditor</title>
-    <meta name="description" content="Complete reference guide to JWT header parameters including alg, typ, kid, and more.">
-    <meta name="keywords" content="JWT, header, parameters, alg, typ, kid, jku, x5u">
+    <title>JWT头部参数参考 - JWTAuditor</title>
+    <meta name="description" content="JWT头部参数的完整参考指南，包括alg、typ、kid等。">
+    <meta name="keywords" content="JWT, 头部, 参数, alg, typ, kid, jku, x5u">
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="../css/docs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,9 +18,9 @@
             <i class="fas fa-user-secret"></i>
             <h1>JWTAuditor</h1>
         </div>
-        <div class="subtitle">Documentation & Learning Resources</div>
+        <div class="subtitle">文档与学习资源</div>
         <div class="header-actions">
-            <a href="../../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> Back to Tool</a>
+            <a href="../../index.html" class="header-btn tool-btn"><i class="fas fa-tools"></i> 返回工具</a>
         </div>
     </header>
 
@@ -28,43 +28,43 @@
         <div class="docs-container">
             <aside class="docs-sidebar">
                 <div class="sidebar-header">
-                    <h2>Documentation</h2>
+                    <h2>文档</h2>
                 </div>
                 <nav class="docs-nav">
                     <div class="nav-section">
-                        <h3>JWT Fundamentals</h3>
+                        <h3>JWT基础</h3>
                         <ul>
-                            <li><a href="../jwt-fundamentals.html">Understanding JWT Structure</a></li>
-                            <li><a href="../jwt-claims.html">JWT Claims Explained</a></li>
-                            <li><a href="../jwt-vs-sessions.html">JWT vs. Session Auth</a></li>
+                            <li><a href="../jwt-fundamentals.html">理解JWT结构</a></li>
+                            <li><a href="../jwt-claims.html">JWT声明详解</a></li>
+                            <li><a href="../jwt-vs-sessions.html">JWT与会话认证</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Security Guides</h3>
+                        <h3>安全指南</h3>
                         <ul>
-                            <li><a href="../jwt-vulnerabilities-guide.html">JWT Vulnerabilities Guide</a></li>
-                            <li><a href="../jwt-attack-vectors.html">Complete Attack Vectors</a></li>
-                            <li><a href="../jwt-security-checklist.html">Security Checklist</a></li>
-                            <li><a href="../jwt-tools-comparison.html">Tools Comparison</a></li>
-                            <li><a href="../secure-jwt-implementation.html">Secure Implementation</a></li>
-                            <li><a href="../jwt-attack-techniques.html">Attack Techniques</a></li>
+                            <li><a href="../jwt-vulnerabilities-guide.html">JWT漏洞指南</a></li>
+                            <li><a href="../jwt-attack-vectors.html">完整攻击向量</a></li>
+                            <li><a href="../jwt-security-checklist.html">安全检查清单</a></li>
+                            <li><a href="../jwt-tools-comparison.html">工具对比</a></li>
+                            <li><a href="../secure-jwt-implementation.html">安全实施</a></li>
+                            <li><a href="../jwt-attack-techniques.html">攻击技术</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Tool Guides</h3>
+                        <h3>工具指南</h3>
                         <ul>
-                            <li><a href="../tool-guides/decoder-analyzer.html">Decoder & Analyzer</a></li>
-                            <li><a href="../tool-guides/secret-bruteforcer.html">Secret Bruteforcer</a></li>
-                            <li><a href="../tool-guides/jwt-editor.html">JWT Editor</a></li>
-                            <li><a href="../tool-guides/jwt-generator.html">JWT Generator</a></li>
+                            <li><a href="../tool-guides/decoder-analyzer.html">解码器与分析器</a></li>
+                            <li><a href="../tool-guides/secret-bruteforcer.html">密钥暴力破解器</a></li>
+                            <li><a href="../tool-guides/jwt-editor.html">JWT编辑器</a></li>
+                            <li><a href="../tool-guides/jwt-generator.html">JWT生成器</a></li>
                         </ul>
                     </div>
                     <div class="nav-section">
-                        <h3>Reference</h3>
+                        <h3>参考</h3>
                         <ul>
-                            <li><a href="jwt-header-parameters.html" class="active">Header Parameters</a></li>
-                            <li><a href="jwt-claim-registry.html">Claim Registry</a></li>
-                            <li><a href="jwt-algorithms.html">JWT Algorithms</a></li>
+                            <li><a href="jwt-header-parameters.html" class="active">头部参数</a></li>
+                            <li><a href="jwt-claim-registry.html">声明注册表</a></li>
+                            <li><a href="jwt-algorithms.html">JWT算法</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -72,22 +72,22 @@
 
             <div class="docs-content">
                 <div class="docs-header">
-                    <h1>JWT Header Parameters Reference</h1>
+                    <h1>JWT头部参数参考</h1>
                     <div class="docs-meta">
-                        <span><i class="fas fa-book"></i> Reference Guide</span>
-                        <span><i class="fas fa-clock"></i> Reading time: 8 min</span>
+                        <span><i class="fas fa-book"></i> 参考指南</span>
+                        <span><i class="fas fa-clock"></i> 阅读时间：8分钟</span>
                     </div>
                 </div>
 
                 <div class="docs-section intro-section">
                     <p class="lead">
-                        JWT headers contain metadata about the token, including the signing algorithm and key information. This reference guide provides detailed information about all standard and commonly used JWT header parameters.
+                        JWT头部包含有关令牌的元数据，包括签名算法和密钥信息。本参考指南提供了所有标准和常用JWT头部参数的详细信息。
                     </p>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Header Structure</h2>
-                    <p>The JWT header is a JSON object that is Base64URL encoded and forms the first part of the JWT token. It typically contains information about the signing algorithm and key references.</p>
+                    <h2>头部结构</h2>
+                    <p>JWT头部是一个Base64URL编码的JSON对象，构成JWT令牌的第一部分。它通常包含有关签名算法和密钥引用的信息。</p>
                     
                     <pre><code class="language-json">{
   "alg": "HS256",
@@ -97,96 +97,96 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>Standard Header Parameters</h2>
+                    <h2>标准头部参数</h2>
                     
                     <div class="table-responsive">
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Parameter</th>
-                                    <th>Name</th>
-                                    <th>Type</th>
-                                    <th>Required</th>
-                                    <th>Description</th>
+                                    <th>参数</th>
+                                    <th>名称</th>
+                                    <th>类型</th>
+                                    <th>必需</th>
+                                    <th>描述</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><code>alg</code></td>
-                                    <td>Algorithm</td>
-                                    <td>String</td>
-                                    <td>Yes</td>
-                                    <td>Cryptographic algorithm used to secure the JWT</td>
+                                    <td>算法</td>
+                                    <td>字符串</td>
+                                    <td>是</td>
+                                    <td>用于保护JWT的加密算法</td>
                                 </tr>
                                 <tr>
                                     <td><code>typ</code></td>
-                                    <td>Type</td>
-                                    <td>String</td>
-                                    <td>Recommended</td>
-                                    <td>Media type of the complete JWT (usually "JWT")</td>
+                                    <td>类型</td>
+                                    <td>字符串</td>
+                                    <td>推荐</td>
+                                    <td>完整JWT的媒体类型（通常是"JWT"）</td>
                                 </tr>
                                 <tr>
                                     <td><code>cty</code></td>
-                                    <td>Content Type</td>
-                                    <td>String</td>
-                                    <td>No</td>
-                                    <td>Content type of the JWT payload</td>
+                                    <td>内容类型</td>
+                                    <td>字符串</td>
+                                    <td>否</td>
+                                    <td>JWT载荷的内容类型</td>
                                 </tr>
                                 <tr>
                                     <td><code>kid</code></td>
-                                    <td>Key ID</td>
-                                    <td>String</td>
-                                    <td>No</td>
-                                    <td>Identifier for the key used to sign the JWT</td>
+                                    <td>密钥ID</td>
+                                    <td>字符串</td>
+                                    <td>否</td>
+                                    <td>用于签署JWT的密钥标识符</td>
                                 </tr>
                                 <tr>
                                     <td><code>jku</code></td>
-                                    <td>JWK Set URL</td>
-                                    <td>String (URI)</td>
-                                    <td>No</td>
-                                    <td>URL referencing a JWK Set containing the public keys</td>
+                                    <td>JWK集URL</td>
+                                    <td>字符串 (URI)</td>
+                                    <td>否</td>
+                                    <td>引用包含公钥的JWK集的URL</td>
                                 </tr>
                                 <tr>
                                     <td><code>jwk</code></td>
-                                    <td>JSON Web Key</td>
-                                    <td>Object</td>
-                                    <td>No</td>
-                                    <td>Public key as a JWK object</td>
+                                    <td>JSON Web密钥</td>
+                                    <td>对象</td>
+                                    <td>否</td>
+                                    <td>作为JWK对象的公钥</td>
                                 </tr>
                                 <tr>
                                     <td><code>x5u</code></td>
                                     <td>X.509 URL</td>
-                                    <td>String (URI)</td>
-                                    <td>No</td>
-                                    <td>URL referencing X.509 public key certificate</td>
+                                    <td>字符串 (URI)</td>
+                                    <td>否</td>
+                                    <td>引用X.509公钥证书的URL</td>
                                 </tr>
                                 <tr>
                                     <td><code>x5c</code></td>
-                                    <td>X.509 Certificate Chain</td>
-                                    <td>Array</td>
-                                    <td>No</td>
-                                    <td>X.509 public key certificate chain</td>
+                                    <td>X.509证书链</td>
+                                    <td>数组</td>
+                                    <td>否</td>
+                                    <td>X.509公钥证书链</td>
                                 </tr>
                                 <tr>
                                     <td><code>x5t</code></td>
-                                    <td>X.509 Thumbprint</td>
-                                    <td>String</td>
-                                    <td>No</td>
-                                    <td>X.509 certificate SHA-1 thumbprint</td>
+                                    <td>X.509指纹</td>
+                                    <td>字符串</td>
+                                    <td>否</td>
+                                    <td>X.509证书SHA-1指纹</td>
                                 </tr>
                                 <tr>
                                     <td><code>x5t#S256</code></td>
-                                    <td>X.509 Thumbprint SHA-256</td>
-                                    <td>String</td>
-                                    <td>No</td>
-                                    <td>X.509 certificate SHA-256 thumbprint</td>
+                                    <td>X.509指纹SHA-256</td>
+                                    <td>字符串</td>
+                                    <td>否</td>
+                                    <td>X.509证书SHA-256指纹</td>
                                 </tr>
                                 <tr>
                                     <td><code>crit</code></td>
-                                    <td>Critical</td>
-                                    <td>Array</td>
-                                    <td>No</td>
-                                    <td>Extensions that must be understood and processed</td>
+                                    <td>关键</td>
+                                    <td>数组</td>
+                                    <td>否</td>
+                                    <td>必须理解和处理的扩展</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -194,26 +194,26 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>Detailed Parameter Descriptions</h2>
+                    <h2>详细参数说明</h2>
                     
-                    <h3>Algorithm (alg)</h3>
-                    <p>The "alg" parameter identifies the cryptographic algorithm used to sign or encrypt the JWT.</p>
+                    <h3>算法 (alg)</h3>
+                    <p>"alg"参数标识用于签署或加密JWT的加密算法。</p>
                     
-                    <h4>Common Values:</h4>
+                    <h4>常见值：</h4>
                     <ul>
-                        <li><code>none</code> - No signature (not recommended for production)</li>
-                        <li><code>HS256</code> - HMAC using SHA-256</li>
-                        <li><code>HS384</code> - HMAC using SHA-384</li>
-                        <li><code>HS512</code> - HMAC using SHA-512</li>
-                        <li><code>RS256</code> - RSASSA-PKCS1-v1_5 using SHA-256</li>
-                        <li><code>RS384</code> - RSASSA-PKCS1-v1_5 using SHA-384</li>
-                        <li><code>RS512</code> - RSASSA-PKCS1-v1_5 using SHA-512</li>
-                        <li><code>ES256</code> - ECDSA using P-256 and SHA-256</li>
-                        <li><code>ES384</code> - ECDSA using P-384 and SHA-384</li>
-                        <li><code>ES512</code> - ECDSA using P-521 and SHA-512</li>
-                        <li><code>PS256</code> - RSASSA-PSS using SHA-256</li>
-                        <li><code>PS384</code> - RSASSA-PSS using SHA-384</li>
-                        <li><code>PS512</code> - RSASSA-PSS using SHA-512</li>
+                        <li><code>none</code> - 无签名（不推荐用于生产环境）</li>
+                        <li><code>HS256</code> - 使用SHA-256的HMAC</li>
+                        <li><code>HS384</code> - 使用SHA-384的HMAC</li>
+                        <li><code>HS512</code> - 使用SHA-512的HMAC</li>
+                        <li><code>RS256</code> - 使用SHA-256的RSASSA-PKCS1-v1_5</li>
+                        <li><code>RS384</code> - 使用SHA-384的RSASSA-PKCS1-v1_5</li>
+                        <li><code>RS512</code> - 使用SHA-512的RSASSA-PKCS1-v1_5</li>
+                        <li><code>ES256</code> - 使用P-256和SHA-256的ECDSA</li>
+                        <li><code>ES384</code> - 使用P-384和SHA-384的ECDSA</li>
+                        <li><code>ES512</code> - 使用P-521和SHA-512的ECDSA</li>
+                        <li><code>PS256</code> - 使用SHA-256的RSASSA-PSS</li>
+                        <li><code>PS384</code> - 使用SHA-384的RSASSA-PSS</li>
+                        <li><code>PS512</code> - 使用SHA-512的RSASSA-PSS</li>
                     </ul>
                     
                     <pre><code class="language-json">{
@@ -221,16 +221,16 @@
   "typ": "JWT"
 }</code></pre>
 
-                    <h3>Type (typ)</h3>
-                    <p>The "typ" parameter declares the media type of the complete JWT. For JWTs, this is typically "JWT".</p>
+                    <h3>类型 (typ)</h3>
+                    <p>"typ"参数声明完整JWT的媒体类型。对于JWT，这通常是"JWT"。</p>
                     
                     <pre><code class="language-json">{
   "alg": "HS256",
   "typ": "JWT"
 }</code></pre>
 
-                    <h3>Key ID (kid)</h3>
-                    <p>The "kid" parameter is a hint indicating which key was used to secure the JWT. This allows the verifier to identify the correct key when multiple keys are available.</p>
+                    <h3>密钥ID (kid)</h3>
+                    <p>"kid"参数是指示用于保护JWT的密钥的提示。这允许验证者在有多个密钥可用时识别正确的密钥。</p>
                     
                     <pre><code class="language-json">{
   "alg": "RS256",
@@ -241,12 +241,12 @@
                     <div class="warning-box">
                         <div class="warning-icon"><i class="fas fa-exclamation-triangle"></i></div>
                         <div class="warning-content">
-                            <p><strong>Security Warning:</strong> Always validate the "kid" parameter to prevent injection attacks. Use a whitelist of allowed key IDs.</p>
+                            <p><strong>安全警告：</strong> 始终验证"kid"参数以防止注入攻击。使用允许的密钥ID白名单。</p>
                         </div>
                     </div>
 
-                    <h3>JWK Set URL (jku)</h3>
-                    <p>The "jku" parameter is a URI that refers to a resource for a set of JSON-encoded public keys, one of which corresponds to the key used to digitally sign the JWT.</p>
+                    <h3>JWK集URL (jku)</h3>
+                    <p>"jku"参数是引用一组JSON编码公钥资源的URI，其中一个对应于用于数字签署JWT的密钥。</p>
                     
                     <pre><code class="language-json">{
   "alg": "RS256",
@@ -257,12 +257,12 @@
                     <div class="warning-box">
                         <div class="warning-icon"><i class="fas fa-exclamation-triangle"></i></div>
                         <div class="warning-content">
-                            <p><strong>Security Warning:</strong> The "jku" parameter can be exploited for SSRF attacks. Always validate URLs and restrict to trusted domains.</p>
+                            <p><strong>安全警告：</strong> "jku"参数可能被利用进行SSRF攻击。始终验证URL并限制为受信任的域。</p>
                         </div>
                     </div>
 
-                    <h3>JSON Web Key (jwk)</h3>
-                    <p>The "jwk" parameter is the public key that corresponds to the key used to digitally sign the JWT, represented as a JWK object.</p>
+                    <h3>JSON Web密钥 (jwk)</h3>
+                    <p>"jwk"参数是对应于用于数字签署JWT的密钥的公钥，表示为JWK对象。</p>
                     
                     <pre><code class="language-json">{
   "alg": "RS256",
@@ -275,8 +275,8 @@
   }
 }</code></pre>
 
-                    <h3>Critical (crit)</h3>
-                    <p>The "crit" parameter indicates that extensions to the JWT header are being used that MUST be understood and processed.</p>
+                    <h3>关键 (crit)</h3>
+                    <p>"crit"参数表明正在使用的JWT头部扩展必须被理解和处理。</p>
                     
                     <pre><code class="language-json">{
   "alg": "HS256",
@@ -287,50 +287,50 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>Security Considerations</h2>
+                    <h2>安全注意事项</h2>
                     
-                    <h3>Algorithm Validation</h3>
+                    <h3>算法验证</h3>
                     <ul>
-                        <li>Always validate the algorithm parameter</li>
-                        <li>Use algorithm whitelisting instead of blacklisting</li>
-                        <li>Never accept the "none" algorithm in production</li>
-                        <li>Be aware of algorithm confusion attacks</li>
+                        <li>始终验证算法参数</li>
+                        <li>使用算法白名单而不是黑名单</li>
+                        <li>永远不要在生产环境中接受"none"算法</li>
+                        <li>注意算法混淆攻击</li>
                     </ul>
                     
-                    <h3>Key Reference Security</h3>
+                    <h3>密钥引用安全</h3>
                     <ul>
-                        <li>Validate "kid" parameters to prevent injection attacks</li>
-                        <li>Restrict "jku" URLs to trusted domains</li>
-                        <li>Be cautious with embedded public keys in "jwk" parameter</li>
-                        <li>Implement proper certificate validation for X.509 parameters</li>
+                        <li>验证"kid"参数以防止注入攻击</li>
+                        <li>将"jku" URL限制为受信任的域</li>
+                        <li>对"jwk"参数中的嵌入式公钥保持谨慎</li>
+                        <li>对X.509参数实施适当的证书验证</li>
                     </ul>
                     
-                    <h3>Best Practices</h3>
+                    <h3>最佳实践</h3>
                     <ul>
-                        <li>Include only necessary header parameters</li>
-                        <li>Use consistent parameter naming</li>
-                        <li>Implement proper input validation</li>
-                        <li>Document custom header parameters</li>
+                        <li>仅包含必要的头部参数</li>
+                        <li>使用一致的参数命名</li>
+                        <li>实施适当的输入验证</li>
+                        <li>记录自定义头部参数</li>
                     </ul>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Common Header Examples</h2>
+                    <h2>常见头部示例</h2>
                     
-                    <h3>Basic HMAC-signed JWT</h3>
+                    <h3>基本HMAC签署的JWT</h3>
                     <pre><code class="language-json">{
   "alg": "HS256",
   "typ": "JWT"
 }</code></pre>
 
-                    <h3>RSA-signed JWT with Key ID</h3>
+                    <h3>带密钥ID的RSA签署JWT</h3>
                     <pre><code class="language-json">{
   "alg": "RS256",
   "typ": "JWT",
   "kid": "2011-04-29"
 }</code></pre>
 
-                    <h3>ECDSA-signed JWT with JWK Set URL</h3>
+                    <h3>带JWK集URL的ECDSA签署JWT</h3>
                     <pre><code class="language-json">{
   "alg": "ES256",
   "typ": "JWT",
@@ -338,7 +338,7 @@
   "kid": "ec-key-1"
 }</code></pre>
 
-                    <h3>JWT with embedded public key</h3>
+                    <h3>带嵌入式公钥的JWT</h3>
                     <pre><code class="language-json">{
   "alg": "RS256",
   "typ": "JWT",
@@ -350,7 +350,7 @@
   }
 }</code></pre>
 
-                    <h3>JWT with X.509 certificate reference</h3>
+                    <h3>带X.509证书引用的JWT</h3>
                     <pre><code class="language-json">{
   "alg": "RS256",
   "typ": "JWT",
@@ -360,92 +360,92 @@
                 </div>
 
                 <div class="docs-section">
-                    <h2>Validation Examples</h2>
+                    <h2>验证示例</h2>
                     
-                    <h3>Node.js Header Validation</h3>
+                    <h3>Node.js头部验证</h3>
                     <pre><code class="language-javascript">const jwt = require('jsonwebtoken');
 
 function validateJWTHeader(token) {
     try {
-        // Decode header without verification
+        // 解码头部但不验证
         const decoded = jwt.decode(token, { complete: true });
         
         if (!decoded || !decoded.header) {
-            throw new Error('Invalid JWT format');
+            throw new Error('无效的JWT格式');
         }
         
         const header = decoded.header;
         
-        // Validate algorithm
+        // 验证算法
         const allowedAlgorithms = ['HS256', 'RS256', 'ES256'];
         if (!allowedAlgorithms.includes(header.alg)) {
-            throw new Error(`Unsupported algorithm: ${header.alg}`);
+            throw new Error(`不支持的算法: ${header.alg}`);
         }
         
-        // Validate type
+        // 验证类型
         if (header.typ && header.typ !== 'JWT') {
-            throw new Error(`Unsupported type: ${header.typ}`);
+            throw new Error(`不支持的类型: ${header.typ}`);
         }
         
-        // Validate kid if present
+        // 如果存在则验证kid
         if (header.kid) {
             const allowedKids = ['key-1', 'key-2', 'rsa-key-1'];
             if (!allowedKids.includes(header.kid)) {
-                throw new Error(`Invalid key ID: ${header.kid}`);
+                throw new Error(`无效的密钥ID: ${header.kid}`);
             }
         }
         
         return header;
     } catch (err) {
-        throw new Error(`Header validation failed: ${err.message}`);
+        throw new Error(`头部验证失败: ${err.message}`);
     }
 }</code></pre>
 
-                    <h3>Python Header Validation</h3>
+                    <h3>Python头部验证</h3>
                     <pre><code class="language-python">import jwt
 import json
 
 def validate_jwt_header(token):
     try:
-        # Decode header without verification
+        # 解码头部但不验证
         header = jwt.get_unverified_header(token)
         
-        # Validate algorithm
+        # 验证算法
         allowed_algorithms = ['HS256', 'RS256', 'ES256']
         if header.get('alg') not in allowed_algorithms:
-            raise ValueError(f"Unsupported algorithm: {header.get('alg')}")
+            raise ValueError(f"不支持的算法: {header.get('alg')}")
         
-        # Validate type
+        # 验证类型
         if 'typ' in header and header['typ'] != 'JWT':
-            raise ValueError(f"Unsupported type: {header['typ']}")
+            raise ValueError(f"不支持的类型: {header['typ']}")
         
-        # Validate kid if present
+        # 如果存在则验证kid
         if 'kid' in header:
             allowed_kids = ['key-1', 'key-2', 'rsa-key-1']
             if header['kid'] not in allowed_kids:
-                raise ValueError(f"Invalid key ID: {header['kid']}")
+                raise ValueError(f"无效的密钥ID: {header['kid']}")
         
         return header
     except Exception as e:
-        raise ValueError(f"Header validation failed: {str(e)}")</code></pre>
+        raise ValueError(f"头部验证失败: {str(e)}")</code></pre>
                 </div>
 
                 <div class="docs-section">
-                    <h2>Conclusion</h2>
+                    <h2>结论</h2>
                     <p>
-                        Understanding JWT header parameters is crucial for implementing secure JWT-based authentication. Always validate header parameters properly and be aware of potential security implications when using key reference parameters.
+                        了解JWT头部参数对于实现安全的基于JWT的身份验证至关重要。始终正确验证头部参数，并在使用密钥引用参数时注意潜在的安全影响。
                     </p>
                     
                     <div class="next-steps">
-                        <h3>Related Resources</h3>
+                        <h3>相关资源</h3>
                         <div class="next-links">
                             <a href="jwt-algorithms.html" class="next-link">
                                 <i class="fas fa-key"></i>
-                                <span>JWT Algorithms Reference</span>
+                                <span>JWT算法参考</span>
                             </a>
                             <a href="../jwt-vulnerabilities-guide.html" class="next-link">
                                 <i class="fas fa-user-secret"></i>
-                                <span>JWT Vulnerabilities Guide</span>
+                                <span>JWT漏洞指南</span>
                             </a>
                         </div>
                     </div>
@@ -458,20 +458,20 @@ def validate_jwt_header(token):
         <div class="footer-container">
             <div class="footer-section">
                 <h3>JWTAuditor</h3>
-                <p>Professional JWT security testing platform for penetration testers and cybersecurity professionals. Decode, analyze vulnerabilities, and audit JSON Web Token implementations with complete client-side privacy.</p>
+                <p>专为渗透测试人员和网络安全专业人员设计的专业JWT安全测试平台。解码、分析漏洞并审计JSON Web Token实现，完全保护客户端隐私。</p>
             </div>
             <div class="footer-section">
-                <h3>Documentation</h3>
+                <h3>文档</h3>
                 <ul class="footer-links">
-                    <li><a href="../jwt-fundamentals.html">JWT Fundamentals</a></li>
-                    <li><a href="../jwt-vulnerabilities-guide.html">Vulnerabilities Guide</a></li>
-                    <li><a href="../secure-jwt-implementation.html">Secure Implementation</a></li>
+                    <li><a href="../jwt-fundamentals.html">JWT基础</a></li>
+                    <li><a href="../jwt-vulnerabilities-guide.html">漏洞指南</a></li>
+                    <li><a href="../secure-jwt-implementation.html">安全实现</a></li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h3>Resources</h3>
+                <h3>资源</h3>
                 <ul class="footer-links">
-                    <li><a href="../../about.html">About Us</a></li>
+                    <li><a href="../../about.html">关于我们</a></li>
                     <li><a href="https://jwt.io/" target="_blank">JWT.io</a></li>
                     <li><a href="https://portswigger.net/web-security/jwt" target="_blank">PortSwigger JWT Attacks</a></li>
                 </ul>
