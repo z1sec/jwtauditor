@@ -15,3 +15,6 @@
 3、把项目本身的10w+的字典和tscan的10w+字典合并去重，生成一个12w+字典。
 
 ![alt text](image-1.png)
+
+
+文章：https://mp.weixin.qq.com/s/ZFH47CAzT5cL-hSbIVp7Gw
